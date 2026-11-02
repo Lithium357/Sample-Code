@@ -19,8 +19,19 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: validation-linux
+          name: validation-linux-basic
           path: validation-linux.json
+      - name: Run advanced Linux examples
+        run: >-
+          python3 tools/verify_advanced.py --require-tools
+          --language nim --language assembly --language powershell --language sql
+          --language bash --language rust --language ruby --language go --language php
+          --report validation-advanced-linux.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-linux-advanced
+          path: validation-advanced-linux.json
   windows:
     runs-on: windows-2022
     timeout-minutes: 10
@@ -31,5 +42,12 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: validation-windows
+          name: validation-windows-basic
           path: validation-windows.json
+      - name: Run advanced Windows examples
+        run: python tools/verify_advanced.py --require-tools --language cmd --language powershell --language sql --report validation-advanced-windows.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-windows-advanced
+          path: validation-advanced-windows.json

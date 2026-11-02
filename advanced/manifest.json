@@ -1,0 +1,89 @@
+{
+  "encoding": "cl100k_base",
+  "source_files": 10,
+  "tokens": 13611,
+  "tokens_by_language": {
+    "nim": 1242,
+    "cmd": 1107,
+    "assembly": 1064,
+    "powershell": 1899,
+    "sql": 967,
+    "bash": 1352,
+    "rust": 1689,
+    "ruby": 1303,
+    "go": 1476,
+    "php": 1512
+  },
+  "files": [
+    {
+      "path": "advanced/nim/persistent_avl.nim",
+      "language": "nim",
+      "tokens": 1242,
+      "bytes": 4299,
+      "sha256": "c8bd07827a329222da7944a760eaf68d1088c002bc838eb508f7747e15a72983"
+    },
+    {
+      "path": "advanced/cmd/knapsack.cmd",
+      "language": "cmd",
+      "tokens": 1107,
+      "bytes": 3082,
+      "sha256": "c8f8c5e82334e4a920609820090e65be678242ca6e673bbba1972999981ac977"
+    },
+    {
+      "path": "advanced/assembly/heap_sort.asm",
+      "language": "assembly",
+      "tokens": 1064,
+      "bytes": 2837,
+      "sha256": "437f6f2f377fa406fef3426930e02f31de09f18678b12833113b7e5de054c86e"
+    },
+    {
+      "path": "advanced/powershell/min_cost_flow.ps1",
+      "language": "powershell",
+      "tokens": 1899,
+      "bytes": 5632,
+      "sha256": "de0b3023239350d3da555a4fef7ddf2abc706330b0e1eee1baebca2f619f49e0"
+    },
+    {
+      "path": "advanced/sql/double_entry_posting.sql",
+      "language": "sql",
+      "tokens": 967,
+      "bytes": 3815,
+      "sha256": "68c21c1bf440c7c5151a46809d3ab7089570304197806934e1c4c13eb937a281"
+    },
+    {
+      "path": "advanced/bash/csv_state_machine.sh",
+      "language": "bash",
+      "tokens": 1352,
+      "bytes": 4652,
+      "sha256": "b6be020c12dff1ee2f3e1b1d2de2a37721827828452d6c4fe85158029f52aeda"
+    },
+    {
+      "path": "advanced/rust/pratt_calculator.rs",
+      "language": "rust",
+      "tokens": 1689,
+      "bytes": 7380,
+      "sha256": "9e4009a48fc16a6888e0d1ee5ae571d4922ad6ad316dceb2f44159b2807f44ec"
+    },
+    {
+      "path": "advanced/ruby/exact_cover.rb",
+      "language": "ruby",
+      "tokens": 1303,
+      "bytes": 4378,
+      "sha256": "4faee3622ac177b824e5c8dde0c6c47e761edc4ce3bd88e08d9a939afa46baa6"
+    },
+    {
+      "path": "advanced/go/dag_scheduler.go",
+      "language": "go",
+      "tokens": 1476,
+      "bytes": 5310,
+      "sha256": "1eff4a049978857832d66500586c7509b45d65022a98bf068b91b61d23b325d1"
+    },
+    {
+      "path": "advanced/php/event_sourced_wallet.php",
+      "language": "php",
+      "tokens": 1512,
+      "bytes": 6599,
+      "sha256": "e289598cccfb9a1c12e5aac18470b7a4e9de629bad98a60252f9929631cd9d7c"
+    }
+  ]
+}

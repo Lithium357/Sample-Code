@@ -21,6 +21,39 @@ ROOT = Path(__file__).resolve().parents[1]
 EXTENSIONS = {'nim':'.nim','cmd':'.cmd','assembly':'.asm','powershell':'.ps1',
               'sql':'.sql','bash':'.sh','rust':'.rs','ruby':'.rb','go':'.go','php':'.php'}
 
+SQL_REJECTIONS = {
+    'double_entry_posting.sql': [
+        'UPDATE line SET debit=debit+1 WHERE id=1',
+        'DELETE FROM line WHERE id=1',
+        'INSERT INTO line(journal_id,account_id,debit,credit) VALUES(1,1,1,0)',
+        "UPDATE journal SET state='posted' WHERE id=3",
+        'UPDATE line SET journal_id=1 WHERE id=5',
+        "INSERT INTO journal(id,external_key,state) VALUES(99,'bypass','posted')",
+    ],
+    'bill_of_materials.sql': [
+        'INSERT INTO component VALUES(2,1,1)',
+        'UPDATE component SET child=1 WHERE parent=2 AND child=4',
+        'INSERT INTO component VALUES(4,7,1)',
+        'UPDATE part SET assembly=0 WHERE id=2',
+    ],
+}
+
+def sql_rejections(connection,name):
+    statements = SQL_REJECTIONS.get(name,[])
+    for statement in statements:
+        connection.execute('SAVEPOINT rejected_operation')
+        try:
+            try:
+                connection.execute(statement)
+            except sqlite3.IntegrityError:
+                pass
+            else:
+                raise AssertionError('SQL accepted forbidden operation: '+statement)
+        finally:
+            connection.execute('ROLLBACK TO rejected_operation')
+            connection.execute('RELEASE rejected_operation')
+    return len(statements)
+
 def emulate_assembly(path, temporary):
     from unicorn import Uc, UC_ARCH_X86, UC_MODE_64, UC_HOOK_INSN
     from unicorn.x86_const import UC_X86_REG_RSP, UC_X86_REG_RAX, UC_X86_REG_RDI, UC_X86_INS_SYSCALL
@@ -78,7 +111,8 @@ def main():
                             if count < 1: raise AssertionError('no result checks')
                             if connection.execute('PRAGMA integrity_check').fetchone()[0] != 'ok': raise AssertionError('integrity failure')
                             if connection.execute('PRAGMA foreign_key_check').fetchall(): raise AssertionError('foreign key failure')
-                        output = f'{count} SQL result checks passed'
+                            rejected = sql_rejections(connection,path.name)
+                        output = f'{count} SQL result checks and {rejected} expected-rejection checks passed'
                     elif language == 'assembly' and args.emulate_assembly:
                         output = emulate_assembly(path,Path(directory))
                     else:

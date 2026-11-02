@@ -17,6 +17,16 @@ Run files independently; the Go and Rust files each define their own main.
 | Ruby | `exact_cover.rb` | Algorithm X with reversible sparse-set updates and smallest-column branching; includes a 4x4 Sudoku constraint encoding. |
 | Go | `dag_scheduler.go` | Bounded concurrent DAG scheduling, preflight cycle validation, dependency results, cooperative cancellation and goroutine joining. |
 | PHP | `event_sourced_wallet.php` | Event replay, optimistic versions, idempotency receipts and command rejection without state mutation. In-memory store; no claim of persistence or cross-process atomicity. |
+| Nim | `astar_grid.nim` | Weighted A* with an admissible Manhattan heuristic, stale heap entries and reconstructed routes; 100 Bellman-Ford comparisons. |
+| CMD | `floyd_warshall.cmd` | All-pairs shortest paths, next-hop reconstruction and negative-cycle detection; 25 Bellman-Ford path comparisons. |
+| Assembly | `utf8_validate.asm` | Strict UTF-8 scalar validation; rejects overlong sequences, surrogates, invalid continuations and truncation. |
+| PowerShell | `critical_path.ps1` | Forward/backward project windows, critical tasks, slack and cycle rejection; 100 DAG comparisons. |
+| SQL | `bill_of_materials.sql` | Recursive assembly explosion over a DAG, shared-component aggregation, shortages and cycle-prevention triggers. |
+| Bash | `transactional_map.sh` | Nested savepoints and commit/rollback using undo logs; 1,000 comparisons with full-copy snapshots. |
+| Rust | `persistent_segment_tree.rs` | Immutable lazy range updates/sums with structural sharing; checks every range across branched historical versions. |
+| Ruby | `thompson_regex.rb` | Regex parser, Thompson compilation and epsilon-NFA simulation; differential tests against Ruby's regex engine and adversarial non-matches. |
+| Go | `mvcc_store.go` | Serializable optimistic transactions, read/write conflicts, tombstones, phantom detection and snapshot-aware compaction; concurrent increments. |
+| PHP | `lru_cache.php` | Doubly linked LRU map with expiry, cached null and invariant audits; 2,000 reference operations. Full-cache expiry sweeps cost O(capacity). |
 
 ## Verification
 

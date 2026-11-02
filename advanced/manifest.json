@@ -1,26 +1,40 @@
 {
   "encoding": "cl100k_base",
-  "source_files": 10,
-  "tokens": 13611,
+  "source_files": 20,
+  "tokens": 27306,
   "tokens_by_language": {
-    "nim": 1242,
-    "cmd": 1107,
-    "assembly": 1064,
-    "powershell": 1899,
-    "sql": 967,
-    "bash": 1352,
-    "rust": 1689,
-    "ruby": 1303,
-    "go": 1476,
-    "php": 1512
+    "nim": 2588,
+    "cmd": 2499,
+    "assembly": 2251,
+    "powershell": 3550,
+    "sql": 1919,
+    "bash": 2509,
+    "rust": 3199,
+    "ruby": 2554,
+    "go": 3162,
+    "php": 3075
   },
   "files": [
+    {
+      "path": "advanced/nim/astar_grid.nim",
+      "language": "nim",
+      "tokens": 1346,
+      "bytes": 4538,
+      "sha256": "473681203eac5f21dec19dc8d601a6aa1aad505958466e69f8ffcb4d77623b41"
+    },
     {
       "path": "advanced/nim/persistent_avl.nim",
       "language": "nim",
       "tokens": 1242,
       "bytes": 4299,
       "sha256": "c8bd07827a329222da7944a760eaf68d1088c002bc838eb508f7747e15a72983"
+    },
+    {
+      "path": "advanced/cmd/floyd_warshall.cmd",
+      "language": "cmd",
+      "tokens": 1392,
+      "bytes": 3636,
+      "sha256": "32c14df88b64a0b8598e625f853774d3b792e99be6fb4716c9f347fdfe883565"
     },
     {
       "path": "advanced/cmd/knapsack.cmd",
@@ -37,11 +51,32 @@
       "sha256": "437f6f2f377fa406fef3426930e02f31de09f18678b12833113b7e5de054c86e"
     },
     {
+      "path": "advanced/assembly/utf8_validate.asm",
+      "language": "assembly",
+      "tokens": 1187,
+      "bytes": 2854,
+      "sha256": "f1ff42b63dfe208b170055469fecb5732b9810ea75a706af5f27c32170b77b07"
+    },
+    {
+      "path": "advanced/powershell/critical_path.ps1",
+      "language": "powershell",
+      "tokens": 1651,
+      "bytes": 5856,
+      "sha256": "3d5ff7d3b167ea8f9bfacd7b81afd3de7d9b1ecb5834e3b4a30c84c839d382b6"
+    },
+    {
       "path": "advanced/powershell/min_cost_flow.ps1",
       "language": "powershell",
       "tokens": 1899,
       "bytes": 5632,
       "sha256": "de0b3023239350d3da555a4fef7ddf2abc706330b0e1eee1baebca2f619f49e0"
+    },
+    {
+      "path": "advanced/sql/bill_of_materials.sql",
+      "language": "sql",
+      "tokens": 952,
+      "bytes": 3807,
+      "sha256": "add14c25bd216af1746ba8e58e647fbd3d326a7f5e327e307b0151a01c03e363"
     },
     {
       "path": "advanced/sql/double_entry_posting.sql",
@@ -58,6 +93,20 @@
       "sha256": "b6be020c12dff1ee2f3e1b1d2de2a37721827828452d6c4fe85158029f52aeda"
     },
     {
+      "path": "advanced/bash/transactional_map.sh",
+      "language": "bash",
+      "tokens": 1157,
+      "bytes": 3957,
+      "sha256": "21fa438cd0e9d465a56b9fbab43305ec58062e335a27e446558eb00e175ffec6"
+    },
+    {
+      "path": "advanced/rust/persistent_segment_tree.rs",
+      "language": "rust",
+      "tokens": 1510,
+      "bytes": 5931,
+      "sha256": "abe18807d832e27c2610ad173a56bee7c9269619d3ef7a10876f60b9a4bd8443"
+    },
+    {
       "path": "advanced/rust/pratt_calculator.rs",
       "language": "rust",
       "tokens": 1689,
@@ -72,6 +121,13 @@
       "sha256": "4faee3622ac177b824e5c8dde0c6c47e761edc4ce3bd88e08d9a939afa46baa6"
     },
     {
+      "path": "advanced/ruby/thompson_regex.rb",
+      "language": "ruby",
+      "tokens": 1251,
+      "bytes": 4483,
+      "sha256": "c9ded12de25638dbcaf52fa9639a31a66ffd7f69b27cef19bd2bd70980927ff5"
+    },
+    {
       "path": "advanced/go/dag_scheduler.go",
       "language": "go",
       "tokens": 1476,
@@ -79,11 +135,25 @@
       "sha256": "1eff4a049978857832d66500586c7509b45d65022a98bf068b91b61d23b325d1"
     },
     {
+      "path": "advanced/go/mvcc_store.go",
+      "language": "go",
+      "tokens": 1686,
+      "bytes": 5947,
+      "sha256": "a0e0b0588db608816804177a45cc9296bed3c356c55d403f56295de369dbe70a"
+    },
+    {
       "path": "advanced/php/event_sourced_wallet.php",
       "language": "php",
       "tokens": 1512,
       "bytes": 6599,
       "sha256": "e289598cccfb9a1c12e5aac18470b7a4e9de629bad98a60252f9929631cd9d7c"
+    },
+    {
+      "path": "advanced/php/lru_cache.php",
+      "language": "php",
+      "tokens": 1563,
+      "bytes": 5598,
+      "sha256": "ac426eb38bd72945433c5a76bd31efcece1aca47475e533c65e7d80c0a53db58"
     }
   ]
 }

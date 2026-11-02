@@ -10,7 +10,7 @@ from pathlib import Path
 import tiktoken
 
 ROOT = Path(__file__).resolve().parents[1]
-EXTENSIONS = {'nim':'.nim','cmd':'.cmd','assembly':'.asm','powershell':'.ps1',
+EXTENSIONS = {'c':'.c','cpp':'.cpp','nim':'.nim','cmd':'.cmd','assembly':'.asm','powershell':'.ps1',
               'sql':'.sql','bash':'.sh','rust':'.rs','ruby':'.rb','go':'.go','php':'.php'}
 
 def main():

@@ -1,20 +1,36 @@
 {
   "encoding": "cl100k_base",
-  "source_files": 30,
-  "tokens": 41475,
+  "source_files": 35,
+  "tokens": 48068,
   "tokens_by_language": {
-    "nim": 3791,
+    "c": 1704,
+    "cpp": 1794,
+    "nim": 4930,
     "cmd": 3542,
-    "assembly": 3250,
+    "assembly": 4011,
     "powershell": 5051,
     "sql": 2876,
     "bash": 3931,
     "rust": 5128,
     "ruby": 4119,
-    "go": 4824,
+    "go": 6019,
     "php": 4963
   },
   "files": [
+    {
+      "path": "advanced/c/robin_hood_map.c",
+      "language": "c",
+      "tokens": 1704,
+      "bytes": 5756,
+      "sha256": "621b289a7c581181c50c1da4454236cd43c1bc585a0fac44fdd9d848ab6f9244"
+    },
+    {
+      "path": "advanced/cpp/order_statistic_treap.cpp",
+      "language": "cpp",
+      "tokens": 1794,
+      "bytes": 6249,
+      "sha256": "505a420dc9dd200e3b126fa027bc63582477928531738a911f0024c9143b025b"
+    },
     {
       "path": "advanced/nim/astar_grid.nim",
       "language": "nim",
@@ -35,6 +51,13 @@
       "tokens": 1242,
       "bytes": 4299,
       "sha256": "c8bd07827a329222da7944a760eaf68d1088c002bc838eb508f7747e15a72983"
+    },
+    {
+      "path": "advanced/nim/suffix_index.nim",
+      "language": "nim",
+      "tokens": 1139,
+      "bytes": 3714,
+      "sha256": "279b092f0f0e5f2caa3a1a4d81c82d08d113c120422e00d38e0c177b0508f9ed"
     },
     {
       "path": "advanced/cmd/edit_distance.cmd",
@@ -63,6 +86,13 @@
       "tokens": 1064,
       "bytes": 2837,
       "sha256": "437f6f2f377fa406fef3426930e02f31de09f18678b12833113b7e5de054c86e"
+    },
+    {
+      "path": "advanced/assembly/overlap_memmove.asm",
+      "language": "assembly",
+      "tokens": 761,
+      "bytes": 2162,
+      "sha256": "bd5e501684a9d5d0b04af439e54678ac5773888d770f479cf4fd0060c1df36c9"
     },
     {
       "path": "advanced/assembly/parse_int64.asm",
@@ -203,6 +233,13 @@
       "tokens": 1662,
       "bytes": 5702,
       "sha256": "8865cdd20d7b09f4de0348b6241a4d8fb9ac207945eba3da5a4d792127dbc91a"
+    },
+    {
+      "path": "advanced/go/weighted_semaphore.go",
+      "language": "go",
+      "tokens": 1195,
+      "bytes": 4345,
+      "sha256": "75541ec1099b727bf3762fe172b0497dd65c74e1104cb839362f07c75cb07240"
     },
     {
       "path": "advanced/php/event_sourced_wallet.php",

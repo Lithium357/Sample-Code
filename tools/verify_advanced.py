@@ -18,7 +18,7 @@ import tempfile
 import verify as base
 
 ROOT = Path(__file__).resolve().parents[1]
-EXTENSIONS = {'nim':'.nim','cmd':'.cmd','assembly':'.asm','powershell':'.ps1',
+EXTENSIONS = {'c':'.c','cpp':'.cpp','nim':'.nim','cmd':'.cmd','assembly':'.asm','powershell':'.ps1',
               'sql':'.sql','bash':'.sh','rust':'.rs','ruby':'.rb','go':'.go','php':'.php'}
 
 SQL_REJECTIONS = {
@@ -85,15 +85,22 @@ def main():
     parser.add_argument('--nim-backend',choices=['c','js'],default='c')
     parser.add_argument('--emulate-assembly',action='store_true')
     parser.add_argument('--report',type=Path)
+    parser.add_argument('--sanitize',action='store_true',help='Use address/undefined sanitizers for GCC/Clang C and C++.')
     args = parser.parse_args()
     base.NIM_BACKEND = args.nim_backend
     records = []
     failures = 0
     for language in args.language or EXTENSIONS:
         paths = sorted((ROOT/'advanced'/language).glob('*'+EXTENSIONS[language]))
-        needed = base.required(language)
+        if language in ('c','cpp'):
+            compiler = shutil.which('cl') if os.name=='nt' else shutil.which('cc' if language=='c' else 'c++')
+            needed = []
+        else:
+            compiler = None
+            needed = base.required(language)
         if language == 'assembly' and args.emulate_assembly: needed = ['nasm']
         missing = [name for name in needed if not shutil.which(name)]
+        if language in ('c','cpp') and not compiler: missing.append('C/C++ compiler')
         if language == 'nim' and args.nim_backend == 'js' and not shutil.which('node'): missing.append('node')
         if language == 'assembly' and not args.emulate_assembly and platform.system() != 'Linux': missing.append('Linux host')
         if missing:
@@ -104,7 +111,18 @@ def main():
             for path in paths:
                 relative = path.relative_to(ROOT).as_posix()
                 try:
-                    if language == 'sql':
+                    if language in ('c','cpp'):
+                        binary = Path(directory)/('demo.exe' if os.name=='nt' else 'demo')
+                        if os.name=='nt':
+                            flags = ['/nologo','/W4','/EHsc','/std:c++20'] if language=='cpp' else ['/nologo','/W4','/std:c17','/TC']
+                            base.run([compiler,*flags,str(path),'/Fe:'+str(binary),'/Fo:'+str(Path(directory)/'demo.obj')],Path(directory))
+                        else:
+                            flags = ['-std=c17' if language=='c' else '-std=c++20','-Wall','-Wextra','-Wpedantic','-Werror','-O1','-g']
+                            if args.sanitize: flags += ['-fsanitize=address,undefined','-fno-omit-frame-pointer']
+                            base.run([compiler,*flags,str(path),'-o',str(binary)],Path(directory))
+                        output = base.run([str(binary)],Path(directory))
+                        if not output: raise AssertionError('missing success marker')
+                    elif language == 'sql':
                         with sqlite3.connect(':memory:') as connection:
                             connection.executescript(path.read_text(encoding='utf-8'))
                             count = connection.execute('SELECT COUNT(*) FROM checks').fetchone()[0]

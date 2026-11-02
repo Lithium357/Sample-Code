@@ -23,7 +23,8 @@ jobs:
           path: validation-linux.json
       - name: Run advanced Linux examples
         run: >-
-          python3 tools/verify_advanced.py --require-tools
+          python3 tools/verify_advanced.py --require-tools --sanitize
+          --language c --language cpp
           --language nim --language assembly --language powershell --language sql
           --language bash --language rust --language ruby --language go --language php
           --report validation-advanced-linux.json

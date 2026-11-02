@@ -38,6 +38,21 @@ Run files independently; the Go and Rust files each define their own main.
 | Go | `sstable_codec.go` | Canonical binary encoding, CRC32C, strict allocation bounds, sorted-key invariants and ownership-safe decoding; checks corruption, truncation and 200 round trips. |
 | PHP | `json_patch.php` | Transactional document changes with escaped JSON Pointers, insertion, moves, copies and tests. Explicit subset: whole-document removal is unsupported. |
 
+## C, C++, NASM, Nim and Go expansion
+
+| Language | File | Core ideas and verification |
+| --- | --- | --- |
+| C17 | `robin_hood_map.c` | Robin Hood probing, backward-shift deletion and transactional growth; 40,000 reference operations and injected allocation failures. |
+| C++20 | `order_statistic_treap.cpp` | Move-only ownership, randomized balancing, split/merge, duplicate counts, rank and select; 12,000 multiset comparisons. |
+| NASM x86-64 | `overlap_memmove.asm` | Overlap direction, repeated byte moves and direction-flag restoration; 4,352 overlap cases plus zero-length input. |
+| Nim | `suffix_index.nim` | Doubling suffix arrays, Kasai LCP and indexed substring searches; 200 reference arrays and 1,200 naive searches. |
+| Go | `weighted_semaphore.go` | FIFO weighted admission, head cancellation and cancellation/grant races; 1,200 concurrent attempts with ownership checks. |
+
+C examples require C17; C++ examples require C++20. On Linux the verifier uses
+`cc`/`c++`, and `--sanitize` enables AddressSanitizer plus UndefinedBehaviorSanitizer.
+On Windows it uses `cl` from a Visual Studio developer environment. Keep
+assertions enabled: the example executables include their own invariant checks.
+
 ## Verification
 
 ```text

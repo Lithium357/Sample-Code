@@ -4,7 +4,7 @@
 They have their own catalog and verification runner; the counts below describe
 the original parallel algorithm collection.
 
-268 standalone examples across ten languages, approximately 10,000 BPE tokens
+The original collection contains 268 standalone examples across ten languages, approximately 10,000 BPE tokens
 per language. The folders below follow the requested bottom-to-top order.
 
 | Order | Language | Folder | Programs | Source tokens |

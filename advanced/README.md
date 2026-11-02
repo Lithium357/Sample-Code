@@ -27,6 +27,16 @@ Run files independently; the Go and Rust files each define their own main.
 | Ruby | `thompson_regex.rb` | Regex parser, Thompson compilation and epsilon-NFA simulation; differential tests against Ruby's regex engine and adversarial non-matches. |
 | Go | `mvcc_store.go` | Serializable optimistic transactions, read/write conflicts, tombstones, phantom detection and snapshot-aware compaction; concurrent increments. |
 | PHP | `lru_cache.php` | Doubly linked LRU map with expiry, cached null and invariant audits; 2,000 reference operations. Full-cache expiry sweeps cost O(capacity). |
+| Nim | `dinic_flow.nim` | Layered residual networks and blocking flows; 250 exhaustive minimum-cut comparisons and independently checked cut certificates. |
+| CMD | `edit_distance.cmd` | Levenshtein dynamic programming, empty-string handling and 49 comparisons with a direct recursive oracle. |
+| Assembly | `parse_int64.asm` | Strict signed-decimal parsing using negative accumulation; checks INT64_MIN/MAX, overflow, truncation, invalid bytes and leading zeros. |
+| PowerShell | `myers_diff.ps1` | Myers shortest edit paths with trace reconstruction; 400 comparisons against quadratic DP plus exact application of every generated script. |
+| SQL | `transactional_outbox.sql` | Atomic event creation, expiring claims, fencing tokens, stale-worker rejection and retry scheduling. Requires SQLite 3.35+; explicitly at-least-once delivery. |
+| Bash | `semver_compare.sh` | Strict version precedence, prerelease identifiers and validated build metadata; compares arbitrarily long numeric components without shell arithmetic overflow. |
+| Rust | `watched_sat.rs` | DPLL SAT with watched-literal propagation, unit clauses, reversible trails and watcher preservation across conflicts; 1,500 brute-force CNF comparisons and pigeonhole unsatisfiability. |
+| Ruby | `hindley_milner.rb` | Let-polymorphic type inference, unification, fresh instantiation, environment-sensitive generalization and occurs checks. Explicit ASTs; no parser or let-rec. |
+| Go | `sstable_codec.go` | Canonical binary encoding, CRC32C, strict allocation bounds, sorted-key invariants and ownership-safe decoding; checks corruption, truncation and 200 round trips. |
+| PHP | `json_patch.php` | Transactional document changes with escaped JSON Pointers, insertion, moves, copies and tests. Explicit subset: whole-document removal is unsupported. |
 
 ## Verification
 
@@ -41,6 +51,8 @@ NASM, Linux x86-64 and ELF64. Non-Linux emulation needs NASM and Python's Unicor
 package; it assembles an optional flat image, executes its checks, and also
 assembles the native ELF64 source. Native assembly execution runs in Linux CI.
 The Nim JavaScript backend needs Node.js; native Nim needs a C compiler.
+Advanced Bash examples target Bash 5.2+. SQL versions are labeled per file.
+Linux CI additionally runs every advanced Go file with `go run -race`.
 
 `manifest.json` counts these files separately from the original 268-program
 collection. Refresh it with `python tools/catalog_advanced.py` after installing

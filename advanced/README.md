@@ -47,6 +47,11 @@ Run files independently; the Go and Rust files each define their own main.
 | NASM x86-64 | `overlap_memmove.asm` | Overlap direction, repeated byte moves and direction-flag restoration; 4,352 overlap cases plus zero-length input. |
 | Nim | `suffix_index.nim` | Doubling suffix arrays, Kasai LCP and indexed substring searches; 200 reference arrays and 1,200 naive searches. |
 | Go | `weighted_semaphore.go` | FIFO weighted admission, head cancellation and cancellation/grant races; 1,200 concurrent attempts with ownership checks. |
+| C17 | `incremental_frames.c` | Bounded streaming frames, big-endian headers, CRC32, arbitrary chunk boundaries, truncated input and explicit poisoned-stream semantics. |
+| C++20 | `ntt_convolution.cpp` | Exact polynomial convolution modulo 998244353, inverse radix-2 transforms and 400 quadratic-oracle comparisons. |
+| NASM x86-64 | `radix_sort_i32.asm` | Stable four-pass byte radix sorting with signed high-byte remapping, caller-owned scratch space and boundary-value checks. |
+| Nim | `earley_recognizer.nim` | CFG recognition with nullable closure and left recursion; 2,047 balanced-language comparisons plus indirect nullable cycles. |
+| Go | `wal_recovery.go` | Checksummed WAL records, bounded decoding, torn-tail truncation, durable-write requests and reopen/append recovery. |
 
 C examples require C17; C++ examples require C++20. On Linux the verifier uses
 `cc`/`c++`, and `--sanitize` enables AddressSanitizer plus UndefinedBehaviorSanitizer.

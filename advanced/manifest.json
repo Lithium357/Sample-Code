@@ -1,35 +1,49 @@
 {
   "encoding": "cl100k_base",
-  "source_files": 35,
-  "tokens": 48068,
+  "source_files": 40,
+  "tokens": 55295,
   "tokens_by_language": {
-    "c": 1704,
-    "cpp": 1794,
-    "nim": 4930,
+    "c": 3635,
+    "cpp": 3222,
+    "nim": 6271,
     "cmd": 3542,
-    "assembly": 4011,
+    "assembly": 5019,
     "powershell": 5051,
     "sql": 2876,
     "bash": 3931,
     "rust": 5128,
     "ruby": 4119,
-    "go": 6019,
+    "go": 7538,
     "php": 4963
   },
   "files": [
     {
+      "path": "advanced/c/incremental_frames.c",
+      "language": "c",
+      "tokens": 1883,
+      "bytes": 6423,
+      "sha256": "d4a19bed8f3f734a4abd872ca5aedf7e2195b5eb0689191c11e45b228c4b4ada"
+    },
+    {
       "path": "advanced/c/robin_hood_map.c",
       "language": "c",
-      "tokens": 1704,
-      "bytes": 5756,
-      "sha256": "621b289a7c581181c50c1da4454236cd43c1bc585a0fac44fdd9d848ab6f9244"
+      "tokens": 1752,
+      "bytes": 5677,
+      "sha256": "1747c7b46b62fa765caa235eaac279f8f8369c0803dbbc0460e4ddbb68db9f37"
+    },
+    {
+      "path": "advanced/cpp/ntt_convolution.cpp",
+      "language": "cpp",
+      "tokens": 1363,
+      "bytes": 4679,
+      "sha256": "3f1435e339a231bf18fa241465de98e919d20e73702146d28afad8e2f8d4292e"
     },
     {
       "path": "advanced/cpp/order_statistic_treap.cpp",
       "language": "cpp",
-      "tokens": 1794,
-      "bytes": 6249,
-      "sha256": "505a420dc9dd200e3b126fa027bc63582477928531738a911f0024c9143b025b"
+      "tokens": 1859,
+      "bytes": 6148,
+      "sha256": "dc229ef4cc8f82d2e3153919edecb974b7e8ca5c851e9d2bd30c7ee38aa0849f"
     },
     {
       "path": "advanced/nim/astar_grid.nim",
@@ -46,6 +60,13 @@
       "sha256": "49a3fd7d573397f883ae4bfa8df5e907632b20e3311df8834f66efeddb29bc1d"
     },
     {
+      "path": "advanced/nim/earley_recognizer.nim",
+      "language": "nim",
+      "tokens": 1291,
+      "bytes": 4584,
+      "sha256": "c8a21f7fe38bead5d814b938d947eb4c7424771c6840af39bd2d9003d2d7395a"
+    },
+    {
       "path": "advanced/nim/persistent_avl.nim",
       "language": "nim",
       "tokens": 1242,
@@ -55,9 +76,9 @@
     {
       "path": "advanced/nim/suffix_index.nim",
       "language": "nim",
-      "tokens": 1139,
-      "bytes": 3714,
-      "sha256": "279b092f0f0e5f2caa3a1a4d81c82d08d113c120422e00d38e0c177b0508f9ed"
+      "tokens": 1189,
+      "bytes": 3858,
+      "sha256": "ccef07cedcc3ee8a0db7e873f50b60a0140e6342d4782fcc9bdc355494554898"
     },
     {
       "path": "advanced/cmd/edit_distance.cmd",
@@ -100,6 +121,13 @@
       "tokens": 999,
       "bytes": 2735,
       "sha256": "018063c8666c8ecdb8a39de6ff42390bd6649e5089b78381dbbe2c223b0cef9b"
+    },
+    {
+      "path": "advanced/assembly/radix_sort_i32.asm",
+      "language": "assembly",
+      "tokens": 1008,
+      "bytes": 2776,
+      "sha256": "7c63e661fe990ec63389202ef86e87052f3fda209463d5065dcafe1330057d75"
     },
     {
       "path": "advanced/assembly/utf8_validate.asm",
@@ -233,6 +261,13 @@
       "tokens": 1662,
       "bytes": 5702,
       "sha256": "8865cdd20d7b09f4de0348b6241a4d8fb9ac207945eba3da5a4d792127dbc91a"
+    },
+    {
+      "path": "advanced/go/wal_recovery.go",
+      "language": "go",
+      "tokens": 1519,
+      "bytes": 5295,
+      "sha256": "93688d1b117a1ceee5e04af8ac021ebb02942e479208814fc884bb6216e8f9d2"
     },
     {
       "path": "advanced/go/weighted_semaphore.go",

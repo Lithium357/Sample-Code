@@ -52,6 +52,11 @@ Run files independently; the Go and Rust files each define their own main.
 | NASM x86-64 | `radix_sort_i32.asm` | Stable four-pass byte radix sorting with signed high-byte remapping, caller-owned scratch space and boundary-value checks. |
 | Nim | `earley_recognizer.nim` | CFG recognition with nullable closure and left recursion; 2,047 balanced-language comparisons plus indirect nullable cycles. |
 | Go | `wal_recovery.go` | Checksummed WAL records, bounded decoding, torn-tail truncation, durable-write requests and reopen/append recovery. |
+| C17 | `offline_connectivity.c` | Segment tree of edge lifetimes plus rollback union-find; 200 event streams checked against BFS and invalid updates rejected atomically. |
+| C++20 | `coroutine_generator.cpp` | Owning move-only coroutine frames, single-pass iteration, move-only yields, exception propagation and RAII cleanup on early termination. |
+| NASM x86-64 | `crc32_ieee.asm` | Incremental IEEE CRC32 without optional CPU instructions; known-answer checks, every split of a standard vector and all 256 byte values. |
+| Nim | `two_sat.nim` | Implication graphs and iterative SCC decomposition; 1,000 exhaustive model comparisons and a 2,000-variable implication chain. |
+| Go | `observed_remove_set.go` | Add-wins observed-remove CRDT, unique actor dots, retained tombstones and join laws; 150 reordered-delivery simulations. |
 
 C examples require C17; C++ examples require C++20. On Linux the verifier uses
 `cc`/`c++`, and `--sanitize` enables AddressSanitizer plus UndefinedBehaviorSanitizer.

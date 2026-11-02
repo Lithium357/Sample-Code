@@ -1,19 +1,19 @@
 {
   "encoding": "cl100k_base",
-  "source_files": 40,
-  "tokens": 55295,
+  "source_files": 45,
+  "tokens": 61734,
   "tokens_by_language": {
-    "c": 3635,
-    "cpp": 3222,
-    "nim": 6271,
+    "c": 5708,
+    "cpp": 4475,
+    "nim": 7371,
     "cmd": 3542,
-    "assembly": 5019,
+    "assembly": 5807,
     "powershell": 5051,
     "sql": 2876,
     "bash": 3931,
     "rust": 5128,
     "ruby": 4119,
-    "go": 7538,
+    "go": 8763,
     "php": 4963
   },
   "files": [
@@ -25,11 +25,25 @@
       "sha256": "d4a19bed8f3f734a4abd872ca5aedf7e2195b5eb0689191c11e45b228c4b4ada"
     },
     {
+      "path": "advanced/c/offline_connectivity.c",
+      "language": "c",
+      "tokens": 2073,
+      "bytes": 6295,
+      "sha256": "eeee4262aebf6a147fa9935a896566e32cce4b79139eed70c2188671a7fcffb0"
+    },
+    {
       "path": "advanced/c/robin_hood_map.c",
       "language": "c",
       "tokens": 1752,
       "bytes": 5677,
       "sha256": "1747c7b46b62fa765caa235eaac279f8f8369c0803dbbc0460e4ddbb68db9f37"
+    },
+    {
+      "path": "advanced/cpp/coroutine_generator.cpp",
+      "language": "cpp",
+      "tokens": 1253,
+      "bytes": 5076,
+      "sha256": "917af5368f51c8a2e3893927c9831157fc00e6ee7eddd794e305b46d10a94542"
     },
     {
       "path": "advanced/cpp/ntt_convolution.cpp",
@@ -81,6 +95,13 @@
       "sha256": "ccef07cedcc3ee8a0db7e873f50b60a0140e6342d4782fcc9bdc355494554898"
     },
     {
+      "path": "advanced/nim/two_sat.nim",
+      "language": "nim",
+      "tokens": 1100,
+      "bytes": 3577,
+      "sha256": "710948127544685896658d876b96c1a252eecf7a11f01e747192721f23b0a3da"
+    },
+    {
       "path": "advanced/cmd/edit_distance.cmd",
       "language": "cmd",
       "tokens": 1043,
@@ -100,6 +121,13 @@
       "tokens": 1107,
       "bytes": 3082,
       "sha256": "c8f8c5e82334e4a920609820090e65be678242ca6e673bbba1972999981ac977"
+    },
+    {
+      "path": "advanced/assembly/crc32_ieee.asm",
+      "language": "assembly",
+      "tokens": 788,
+      "bytes": 2330,
+      "sha256": "010ef62dfb80e2c7a59e7cf6aa0ad4b2efb8b1ee8558ea550fad9dd690b49fa0"
     },
     {
       "path": "advanced/assembly/heap_sort.asm",
@@ -254,6 +282,13 @@
       "tokens": 1686,
       "bytes": 5947,
       "sha256": "a0e0b0588db608816804177a45cc9296bed3c356c55d403f56295de369dbe70a"
+    },
+    {
+      "path": "advanced/go/observed_remove_set.go",
+      "language": "go",
+      "tokens": 1225,
+      "bytes": 4048,
+      "sha256": "b8c16ca2183ff7988b87dbf927a20a450765c65ed41b8a95dea58b75a1d4daba"
     },
     {
       "path": "advanced/go/sstable_codec.go",

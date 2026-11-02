@@ -1,0 +1,1620 @@
+{
+  "date": "2026-11-02",
+  "programs": 268,
+  "fixtures": 1084,
+  "scope": "All embedded fixtures; supported small integer domains and SQLite scenarios.",
+  "limitations": [
+    "Nim validated through JavaScript backend; native C-backend verification is configured in CI.",
+    "Assembly validated in emulation; native NASM/ELF64 verification is configured in CI."
+  ],
+  "files": [
+    {
+      "path": "nim/sample_01_gcd.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 5
+    },
+    {
+      "path": "nim/sample_02_power.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_03_is_perfect.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 5
+    },
+    {
+      "path": "nim/sample_04_is_palindrome.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_05_ceil_div.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_06_trailing_zero_bits.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_07_totient.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_08_greedy_coin_count.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_09_triangular_index.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_10_integer_log.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_11_lucas.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_12_is_happy.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_13_count_digit.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_14_lattice_paths.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_15_discrete_log.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_16_lcm.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 5
+    },
+    {
+      "path": "nim/sample_17_modular_power.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_18_digit_sum.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_19_digital_root.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_20_binomial.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_21_next_power_of_two.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_22_largest_prime_factor.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_23_nth_prime.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_24_is_leap_year.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_25_multiply_mod.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_26_pell.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_27_is_armstrong.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_28_rotate_decimal.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_29_rectangle_count.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_30_modular_inverse.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_31_factorial.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 4
+    },
+    {
+      "path": "nim/sample_32_is_prime.nim",
+      "status": "passed",
+      "mode": "Nim JavaScript backend + Node.js",
+      "fixtures": 5
+    },
+    {
+      "path": "cmd/01_gcd.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "cmd/02_power.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/03_is_perfect.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "cmd/04_is_palindrome.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/05_ceil_div.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/06_trailing_zero_bits.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/07_totient.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/08_greedy_coin_count.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/09_triangular_index.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/10_integer_log.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/11_lucas.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/12_is_happy.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/13_count_digit.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/14_lattice_paths.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/15_discrete_log.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/16_lcm.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "cmd/17_modular_power.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/18_digit_sum.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "cmd/19_digital_root.cmd",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/01_gcd.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 5
+    },
+    {
+      "path": "assembly/02_power.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/03_is_perfect.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 5
+    },
+    {
+      "path": "assembly/04_is_palindrome.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/05_ceil_div.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/06_trailing_zero_bits.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/07_totient.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/08_greedy_coin_count.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/09_triangular_index.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/10_integer_log.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/11_lucas.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/12_is_happy.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "assembly/13_count_digit.asm",
+      "status": "passed",
+      "mode": "Keystone assembler + Unicorn x86-64 emulation",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/01_gcd.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "powershell/02_power.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/03_is_perfect.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "powershell/04_is_palindrome.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/05_ceil_div.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/06_trailing_zero_bits.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/07_totient.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/08_greedy_coin_count.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/09_triangular_index.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/10_integer_log.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/11_lucas.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/12_is_happy.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/13_count_digit.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/14_lattice_paths.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/15_discrete_log.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/16_lcm.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "powershell/17_modular_power.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/18_digit_sum.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/19_digital_root.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/20_binomial.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/21_next_power_of_two.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/22_largest_prime_factor.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/23_nth_prime.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/24_is_leap_year.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/25_multiply_mod.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/26_pell.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/27_is_armstrong.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/28_rotate_decimal.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/29_rectangle_count.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "powershell/30_modular_inverse.ps1",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/01_gcd.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 5
+    },
+    {
+      "path": "bash/02_power.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/03_is_perfect.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 5
+    },
+    {
+      "path": "bash/04_is_palindrome.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/05_ceil_div.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/06_trailing_zero_bits.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/07_totient.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/08_greedy_coin_count.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/09_triangular_index.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/10_integer_log.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/11_lucas.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/12_is_happy.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/13_count_digit.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/14_lattice_paths.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/15_discrete_log.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/16_lcm.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 5
+    },
+    {
+      "path": "bash/17_modular_power.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/18_digit_sum.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/19_digital_root.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/20_binomial.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/21_next_power_of_two.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "bash/22_largest_prime_factor.sh",
+      "status": "passed",
+      "mode": "Git Bash: syntax check + fixture execution",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/01_gcd.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "rust/02_power.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/03_is_perfect.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "rust/04_is_palindrome.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/05_ceil_div.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/06_trailing_zero_bits.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/07_totient.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/08_greedy_coin_count.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/09_triangular_index.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/10_integer_log.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/11_lucas.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/12_is_happy.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/13_count_digit.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/14_lattice_paths.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/15_discrete_log.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/16_lcm.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "rust/17_modular_power.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/18_digit_sum.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/19_digital_root.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/20_binomial.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/21_next_power_of_two.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/22_largest_prime_factor.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/23_nth_prime.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/24_is_leap_year.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/25_multiply_mod.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/26_pell.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/27_is_armstrong.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/28_rotate_decimal.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/29_rectangle_count.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/30_modular_inverse.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "rust/31_factorial.rs",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/01_gcd.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "ruby/02_power.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/03_is_perfect.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "ruby/04_is_palindrome.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/05_ceil_div.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/06_trailing_zero_bits.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/07_totient.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/08_greedy_coin_count.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/09_triangular_index.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/10_integer_log.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/11_lucas.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/12_is_happy.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/13_count_digit.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/14_lattice_paths.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/15_discrete_log.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/16_lcm.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "ruby/17_modular_power.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/18_digit_sum.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/19_digital_root.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/20_binomial.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/21_next_power_of_two.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/22_largest_prime_factor.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/23_nth_prime.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/24_is_leap_year.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/25_multiply_mod.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/26_pell.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/27_is_armstrong.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/28_rotate_decimal.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/29_rectangle_count.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/30_modular_inverse.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/31_factorial.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/32_is_prime.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "ruby/33_digit_product.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/34_is_harshad.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/35_population_count.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/36_is_power_of_two.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/37_prime_factor_count.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "ruby/38_primes_below.rb",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/01_gcd.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "go/02_power.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/03_is_perfect.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "go/04_is_palindrome.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/05_ceil_div.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/06_trailing_zero_bits.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/07_totient.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/08_greedy_coin_count.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/09_triangular_index.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/10_integer_log.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/11_lucas.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/12_is_happy.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/13_count_digit.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/14_lattice_paths.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/15_discrete_log.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/16_lcm.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "go/17_modular_power.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/18_digit_sum.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/19_digital_root.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/20_binomial.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/21_next_power_of_two.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/22_largest_prime_factor.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/23_nth_prime.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/24_is_leap_year.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/25_multiply_mod.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/26_pell.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/27_is_armstrong.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "go/28_rotate_decimal.go",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/01_gcd.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "php/02_power.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/03_is_perfect.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "php/04_is_palindrome.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/05_ceil_div.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/06_trailing_zero_bits.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/07_totient.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/08_greedy_coin_count.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/09_triangular_index.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/10_integer_log.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/11_lucas.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/12_is_happy.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/13_count_digit.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/14_lattice_paths.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/15_discrete_log.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/16_lcm.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "php/17_modular_power.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/18_digit_sum.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/19_digital_root.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/20_binomial.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/21_next_power_of_two.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/22_largest_prime_factor.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/23_nth_prime.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/24_is_leap_year.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/25_multiply_mod.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/26_pell.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/27_is_armstrong.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/28_rotate_decimal.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/29_rectangle_count.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/30_modular_inverse.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/31_factorial.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "php/32_is_prime.php",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "sql/01_inventory_ledger.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/02_organization_tree.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/03_calendar_gap_fill.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "sql/04_event_sessions.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/05_running_balances.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/06_cohort_retention.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/07_deduplicate_import.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/08_idempotent_upsert.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/09_graph_reachability.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/10_ranking_with_ties.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "sql/11_consecutive_day_islands.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/12_effective_dated_prices.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "sql/13_audit_triggers.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/14_nonoverlapping_bookings.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/15_relational_division.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/16_keyset_pagination.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/17_fifo_stock_allocation.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "sql/18_largest_remainder_allocation.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "sql/19_cleaning_staged_records.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 4
+    },
+    {
+      "path": "sql/20_conditional_pivot.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 3
+    },
+    {
+      "path": "sql/21_medians_and_quantiles.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 2
+    },
+    {
+      "path": "sql/22_ledger_reconciliation.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 5
+    },
+    {
+      "path": "sql/23_savepoints_and_rollback.sql",
+      "status": "passed",
+      "mode": "native runtime",
+      "fixtures": 6
+    }
+  ]
+}

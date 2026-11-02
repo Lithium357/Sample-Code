@@ -1,0 +1,35 @@
+name: Verify standalone samples
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install language tools
+        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli
+      - name: Run Linux-compatible examples
+        run: >-
+          python3 tools/verify.py --require-tools
+          --language nim --language assembly --language powershell --language sql
+          --language bash --language rust --language ruby --language go --language php
+          --report validation-linux.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-linux
+          path: validation-linux.json
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Windows examples
+        run: python tools/verify.py --require-tools --language cmd --language powershell --language sql --report validation-windows.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validation-windows
+          path: validation-windows.json

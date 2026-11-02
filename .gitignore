@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.exe
+*.o
+*.rmeta
+nimcache/
+python-packages/
+token-cache/
+validation-local.json

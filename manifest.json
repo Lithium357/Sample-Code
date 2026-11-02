@@ -1,0 +1,2146 @@
+[
+  {
+    "path": "nim/sample_01_gcd.nim",
+    "language": "nim",
+    "tokens": 303,
+    "bytes": 731,
+    "sha256": "5aadb92f7e286c3f0fd8734037cf7bf995010c5856401f2ca83064f6c806e7e1",
+    "fixtures": 5
+  },
+  {
+    "path": "nim/sample_02_power.nim",
+    "language": "nim",
+    "tokens": 323,
+    "bytes": 902,
+    "sha256": "d3b227b4a69081e084aea8617c059ce40165b0b2c24f2a88342fb6cd06d87b89",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_03_is_perfect.nim",
+    "language": "nim",
+    "tokens": 346,
+    "bytes": 1010,
+    "sha256": "04056ce20aa2576f00a858dcd7ac1c958c11aa6108c0d3a99b73c7c1879c5d9e",
+    "fixtures": 5
+  },
+  {
+    "path": "nim/sample_04_is_palindrome.nim",
+    "language": "nim",
+    "tokens": 310,
+    "bytes": 970,
+    "sha256": "fdf296ae414033fdb1505401092a8c95ce603ae04e813425f9aae88e21cd227d",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_05_ceil_div.nim",
+    "language": "nim",
+    "tokens": 295,
+    "bytes": 813,
+    "sha256": "a3d7862fd57485897bbc6d96bf113979723bbadbe163a077a18e165eae1bb3bb",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_06_trailing_zero_bits.nim",
+    "language": "nim",
+    "tokens": 279,
+    "bytes": 851,
+    "sha256": "c71b0d80d31624eaf0a406498cd852422da9fbfab03c701eeadff9e62c11a526",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_07_totient.nim",
+    "language": "nim",
+    "tokens": 335,
+    "bytes": 1017,
+    "sha256": "579d46c2724e94fc97297dde07e00832ca7566b86ba7adc7d14954b52167665a",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_08_greedy_coin_count.nim",
+    "language": "nim",
+    "tokens": 303,
+    "bytes": 927,
+    "sha256": "5b52926f4b99baf25c544eef0c96798dda3d9c4d849f00e0a436d8b462b5db5a",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_09_triangular_index.nim",
+    "language": "nim",
+    "tokens": 286,
+    "bytes": 943,
+    "sha256": "20fe28768c882c0cbc16e5d407a1b87efc003dc395103bb6840c3ac18973bbc6",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_10_integer_log.nim",
+    "language": "nim",
+    "tokens": 287,
+    "bytes": 802,
+    "sha256": "704d46b1527c6e31435b8c8176dcaf4b5bf6cfbd426a8543daf328fd5e1688af",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_11_lucas.nim",
+    "language": "nim",
+    "tokens": 312,
+    "bytes": 940,
+    "sha256": "567f0eaa1d451dccda1a84d1bd109435fc11551ce0c398fd749f7dc20021c4cc",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_12_is_happy.nim",
+    "language": "nim",
+    "tokens": 339,
+    "bytes": 963,
+    "sha256": "940e6eaccb949cc4861d61eabb51ceb0920d0a235bc4fbadd52445fd08ae7fca",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_13_count_digit.nim",
+    "language": "nim",
+    "tokens": 326,
+    "bytes": 912,
+    "sha256": "2517b4f029d8175382da4ebcc5b472dd12a4107ad886ab712f3a3c4c8ed6f724",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_14_lattice_paths.nim",
+    "language": "nim",
+    "tokens": 347,
+    "bytes": 1060,
+    "sha256": "37471da01d0e3a468ff904f26d3d05e367e2fddcc72bbba6b6ca881e875cadb7",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_15_discrete_log.nim",
+    "language": "nim",
+    "tokens": 382,
+    "bytes": 1077,
+    "sha256": "d131e892e946b79caa01af3ba544a8785a08d33a8e7d88ccea49156b0f6848f7",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_16_lcm.nim",
+    "language": "nim",
+    "tokens": 373,
+    "bytes": 891,
+    "sha256": "1c90d8188e2ef063c57360e5ebb9ed90d3fa1978ff14a59cdbe7f4a9160f24d8",
+    "fixtures": 5
+  },
+  {
+    "path": "nim/sample_17_modular_power.nim",
+    "language": "nim",
+    "tokens": 395,
+    "bytes": 1123,
+    "sha256": "60e710d99a2630c4fa00bc5b97fbc8f6bda5bc823e53fe0c455f61bc8fa49ef4",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_18_digit_sum.nim",
+    "language": "nim",
+    "tokens": 257,
+    "bytes": 790,
+    "sha256": "74a5868d1204f92fb8603d2835a5aed602da5441afabaf6482742f2b3428bb6b",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_19_digital_root.nim",
+    "language": "nim",
+    "tokens": 270,
+    "bytes": 868,
+    "sha256": "41ba96f9006608a5306909fed8d031ca22e8e013184a3aeb014297df568c6c18",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_20_binomial.nim",
+    "language": "nim",
+    "tokens": 355,
+    "bytes": 995,
+    "sha256": "cd0a45652bea4262c24b5aa7e23631fe56227e597a4a1b958b58b03fa9ee73f9",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_21_next_power_of_two.nim",
+    "language": "nim",
+    "tokens": 260,
+    "bytes": 836,
+    "sha256": "366a6c7e258aaeb2d6c5ccfbf618befc473da183b73c153ad0c2ab214a5a6911",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_22_largest_prime_factor.nim",
+    "language": "nim",
+    "tokens": 330,
+    "bytes": 1019,
+    "sha256": "1ec2fc599bccb2891820d56ce857f07dd2b7454371f03fb88b38216a00d7d349",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_23_nth_prime.nim",
+    "language": "nim",
+    "tokens": 347,
+    "bytes": 1070,
+    "sha256": "c017a39c2786394017c9137ff36f1709b91742c9ee5d2fff19b65c866a613a9c",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_24_is_leap_year.nim",
+    "language": "nim",
+    "tokens": 273,
+    "bytes": 750,
+    "sha256": "096c21e2d6330b1f5bd0a6efd3ff264891457a38067fb3523c4b19b9dc589792",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_25_multiply_mod.nim",
+    "language": "nim",
+    "tokens": 378,
+    "bytes": 1016,
+    "sha256": "8c15dd332413ffb7f8d5e50c4453fb07554ae76f4f8c6b5928e503df5865c437",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_26_pell.nim",
+    "language": "nim",
+    "tokens": 312,
+    "bytes": 937,
+    "sha256": "3e52d93b6b67b090ce15493cc88d12a4f57c1c247b3dcd778cc8a1f7dda98c0a",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_27_is_armstrong.nim",
+    "language": "nim",
+    "tokens": 441,
+    "bytes": 1391,
+    "sha256": "408bcf0a9576e2c2597a92ebe30be2bf44a2c9287a019a6d61f0933d6cfceee0",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_28_rotate_decimal.nim",
+    "language": "nim",
+    "tokens": 300,
+    "bytes": 980,
+    "sha256": "09924ad05b96f25c0601ad440a2f969ca22ea9146df31f5cd97612ab2f76be3b",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_29_rectangle_count.nim",
+    "language": "nim",
+    "tokens": 305,
+    "bytes": 981,
+    "sha256": "1d657b1598c35875ec25ac1d66c25753ff0fa9813e2761add446e1c1a882cf43",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_30_modular_inverse.nim",
+    "language": "nim",
+    "tokens": 305,
+    "bytes": 919,
+    "sha256": "3ac45562c6c457a81fd5e79f95ab6e6c8c1580eef3f10cbf12ae6ff608fa8f7d",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_31_factorial.nim",
+    "language": "nim",
+    "tokens": 261,
+    "bytes": 786,
+    "sha256": "3e629ade6aaafe93ec9f9ac319d2cc7b011610585c6628f87116af5eaca66b17",
+    "fixtures": 4
+  },
+  {
+    "path": "nim/sample_32_is_prime.nim",
+    "language": "nim",
+    "tokens": 306,
+    "bytes": 904,
+    "sha256": "b85209803ea7e9056c278dd61bdebab2c8c98cf9dfb596b97d7cfd4d3997c348",
+    "fixtures": 5
+  },
+  {
+    "path": "cmd/01_gcd.cmd",
+    "language": "cmd",
+    "tokens": 487,
+    "bytes": 1305,
+    "sha256": "e9883b426f0f5a0b80f9ad1581c7e9885e0dd17888bfe72d08b1be9de217bb03",
+    "fixtures": 5
+  },
+  {
+    "path": "cmd/02_power.cmd",
+    "language": "cmd",
+    "tokens": 596,
+    "bytes": 1678,
+    "sha256": "8a1c0a666001ffcf0e06895748b3974b46bf240cd9381b598f5509e34d50753e",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/03_is_perfect.cmd",
+    "language": "cmd",
+    "tokens": 718,
+    "bytes": 2050,
+    "sha256": "b7345b29f96b4841679b0e83a36b7d13920a76f45b26f0ab2c860df21c97ad9f",
+    "fixtures": 5
+  },
+  {
+    "path": "cmd/04_is_palindrome.cmd",
+    "language": "cmd",
+    "tokens": 560,
+    "bytes": 1646,
+    "sha256": "1adba9eba388eb56a20bf8ae9fa6c4f21dcccf9b1d77161584ee08769d82dd51",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/05_ceil_div.cmd",
+    "language": "cmd",
+    "tokens": 444,
+    "bytes": 1270,
+    "sha256": "81e9cda0c2c86317310db3df5b56c7a620cde2b14ab1d69ec0f013f8c0d661e2",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/06_trailing_zero_bits.cmd",
+    "language": "cmd",
+    "tokens": 531,
+    "bytes": 1536,
+    "sha256": "be6ba62225887ec0ff51da972391a76740b448e46ee48797ea104012f6ea1316",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/07_totient.cmd",
+    "language": "cmd",
+    "tokens": 677,
+    "bytes": 1929,
+    "sha256": "73b182f6857c3d1ef42136a054d30df2b4783aee479ecde6e4ab31f5f25d93a3",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/08_greedy_coin_count.cmd",
+    "language": "cmd",
+    "tokens": 449,
+    "bytes": 1290,
+    "sha256": "aba680ec1a1c3194cb720a58697f387dfb14c6e9d9f5c878b4a9848511b3b8ba",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/09_triangular_index.cmd",
+    "language": "cmd",
+    "tokens": 539,
+    "bytes": 1624,
+    "sha256": "ba43f86bb673aa105ba91a3fe8f327b24fc92118681fb16db4c355e32b74ebd6",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/10_integer_log.cmd",
+    "language": "cmd",
+    "tokens": 449,
+    "bytes": 1274,
+    "sha256": "5cc59cdc3db9dd9497d619362fc96441c17adcbba39c35b70b7ef95aba7279c9",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/11_lucas.cmd",
+    "language": "cmd",
+    "tokens": 489,
+    "bytes": 1431,
+    "sha256": "f492177e5f8d6175d87432d16b6995353196fadd21bb4712db253965cbc15248",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/12_is_happy.cmd",
+    "language": "cmd",
+    "tokens": 650,
+    "bytes": 1786,
+    "sha256": "02eeb9d43e3101291e02ef5d724439a30139cdd799304e9f3fc3ca10d2df70ff",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/13_count_digit.cmd",
+    "language": "cmd",
+    "tokens": 688,
+    "bytes": 1917,
+    "sha256": "6f1bb44663626203346049b761875444fcd090ed261d060668d6e194b38b41f0",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/14_lattice_paths.cmd",
+    "language": "cmd",
+    "tokens": 495,
+    "bytes": 1481,
+    "sha256": "97305997aabba688ec95f1ef514f8fd0536a65903b58e0f6f857dedfca1ab2ef",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/15_discrete_log.cmd",
+    "language": "cmd",
+    "tokens": 584,
+    "bytes": 1665,
+    "sha256": "52ea91fb46c73b2996993a06da41be338bc1ef07b50145a91539334364aaf78d",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/16_lcm.cmd",
+    "language": "cmd",
+    "tokens": 691,
+    "bytes": 1841,
+    "sha256": "986772fe4fc77d45d7bacc234ea66a5f9095d853083f44de9b279f5f75301c1b",
+    "fixtures": 5
+  },
+  {
+    "path": "cmd/17_modular_power.cmd",
+    "language": "cmd",
+    "tokens": 586,
+    "bytes": 1670,
+    "sha256": "12b3dd25d243e1dd610011006d81cc420353738129b9ca28f7dde576f860c9b7",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/18_digit_sum.cmd",
+    "language": "cmd",
+    "tokens": 443,
+    "bytes": 1312,
+    "sha256": "2faa68311a5ed603cf10d250705b4153a9a323567bc08b64b9d5a1722919e4ee",
+    "fixtures": 4
+  },
+  {
+    "path": "cmd/19_digital_root.cmd",
+    "language": "cmd",
+    "tokens": 514,
+    "bytes": 1510,
+    "sha256": "a4d941b453b2170f781e35058a1d739f0677d8c17bf15d07a1c25d28b11ccb56",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/01_gcd.asm",
+    "language": "assembly",
+    "tokens": 672,
+    "bytes": 1667,
+    "sha256": "4097f30c32ee75564cb437aea5474cc8d557d281747785a3130667d786bec5be",
+    "fixtures": 5
+  },
+  {
+    "path": "assembly/02_power.asm",
+    "language": "assembly",
+    "tokens": 889,
+    "bytes": 2166,
+    "sha256": "ca424213684c418e198106e8056e6f649c6cd80904b53e93b80fc72047373fff",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/03_is_perfect.asm",
+    "language": "assembly",
+    "tokens": 935,
+    "bytes": 2352,
+    "sha256": "8d2a42598f4e41a1d6b414c4449ebbdcdbe0fa1b3a677f929d1bdc3ee2dece7a",
+    "fixtures": 5
+  },
+  {
+    "path": "assembly/04_is_palindrome.asm",
+    "language": "assembly",
+    "tokens": 786,
+    "bytes": 2013,
+    "sha256": "e9e59cf754b166790c91cc1d5c5e6b84a738cff242eabe4536488fe07487a9ef",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/05_ceil_div.asm",
+    "language": "assembly",
+    "tokens": 660,
+    "bytes": 1655,
+    "sha256": "f5308a60543e8fbdfed7162ec49f106a13b9d9ec50b1396e422fb2f4046dd422",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/06_trailing_zero_bits.asm",
+    "language": "assembly",
+    "tokens": 727,
+    "bytes": 1842,
+    "sha256": "dd3ec42dba26282cbb2e757bcc2eebc20b06375d7e73f3ba876056786f33bb38",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/07_totient.asm",
+    "language": "assembly",
+    "tokens": 1164,
+    "bytes": 2749,
+    "sha256": "b8edba92ab969a8fc8f4076f07bf664ca4e1ea851a1e2ce94e0ed72b9a5fcac8",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/08_greedy_coin_count.asm",
+    "language": "assembly",
+    "tokens": 879,
+    "bytes": 2121,
+    "sha256": "568dc9c346b6dbb9cc2560257b406c696233e8eaf4e8414a6d1a9460e3eed1f9",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/09_triangular_index.asm",
+    "language": "assembly",
+    "tokens": 713,
+    "bytes": 1857,
+    "sha256": "08fbd9e7db6189ca991c8479168dfc185a374da8aeb8259fbec45b79c1bd51dd",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/10_integer_log.asm",
+    "language": "assembly",
+    "tokens": 640,
+    "bytes": 1616,
+    "sha256": "ccc676f8d4c9f577561202db897b34f21a8aebe58135801c58da280a4c25fbbc",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/11_lucas.asm",
+    "language": "assembly",
+    "tokens": 684,
+    "bytes": 1767,
+    "sha256": "01769b9ecc0cdafee8c30fb9dd3960c17bcd073b0f5b23743a06be75569cdb2f",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/12_is_happy.asm",
+    "language": "assembly",
+    "tokens": 947,
+    "bytes": 2316,
+    "sha256": "81a7880176a742f0ac7baeaf5951a0f374335b4c30b0c5c8053ebbdee86db4a9",
+    "fixtures": 4
+  },
+  {
+    "path": "assembly/13_count_digit.asm",
+    "language": "assembly",
+    "tokens": 918,
+    "bytes": 2240,
+    "sha256": "10a570f9467b83e3206a8f13cbf0e8c69fe2d35e778473ef94506de4bc97b929",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/01_gcd.ps1",
+    "language": "powershell",
+    "tokens": 320,
+    "bytes": 816,
+    "sha256": "f0efb3bf8a93b70a03343a5883a95628cce241d99c9040f886f1a8ea719078b2",
+    "fixtures": 5
+  },
+  {
+    "path": "powershell/02_power.ps1",
+    "language": "powershell",
+    "tokens": 353,
+    "bytes": 1005,
+    "sha256": "8278cbd9d069eae843e2ad38d316f038135f5337e9452fe6ddf9b7983cd78e7f",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/03_is_perfect.ps1",
+    "language": "powershell",
+    "tokens": 370,
+    "bytes": 1104,
+    "sha256": "0aeeaea3dc5c2db38a774cd40d16af623e8a3f1ad8b3259998eb9b34eab93d57",
+    "fixtures": 5
+  },
+  {
+    "path": "powershell/04_is_palindrome.ps1",
+    "language": "powershell",
+    "tokens": 328,
+    "bytes": 1024,
+    "sha256": "52ba4f53d957f3a371563e9910fda2333e782f31fed01075d23e2a013ad79459",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/05_ceil_div.ps1",
+    "language": "powershell",
+    "tokens": 304,
+    "bytes": 848,
+    "sha256": "880c2cc91364b23c194c85aaf945df9e9102d59ff5d17e4f74bb40a2ad03cfcc",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/06_trailing_zero_bits.ps1",
+    "language": "powershell",
+    "tokens": 307,
+    "bytes": 915,
+    "sha256": "33cacf44b496a64f84cd074bca2daaba517cff60eaba8ba56c2d685377337e35",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/07_totient.ps1",
+    "language": "powershell",
+    "tokens": 394,
+    "bytes": 1199,
+    "sha256": "ee9dbbe1f52402f8d94dc77796ef9f09775870202ac2f397f7b15bde4b51c615",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/08_greedy_coin_count.ps1",
+    "language": "powershell",
+    "tokens": 343,
+    "bytes": 1018,
+    "sha256": "e3147fcaf06369f0f424f900e942decc0672a85bbc7997822aa69bee127b5683",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/09_triangular_index.ps1",
+    "language": "powershell",
+    "tokens": 304,
+    "bytes": 973,
+    "sha256": "8ba1fb6ad6c2e189358e59bc00f410c3636b77708c629fc23ec86983c225fb06",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/10_integer_log.ps1",
+    "language": "powershell",
+    "tokens": 303,
+    "bytes": 855,
+    "sha256": "d7d09de1dcf24d1eb719fb13844351060b177e1eb0b21759b6c3b34199e8253f",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/11_lucas.ps1",
+    "language": "powershell",
+    "tokens": 306,
+    "bytes": 955,
+    "sha256": "a172b3f6d1c68c0e4364555f8e727557461a335f9c395b5db2c210cd7b0eb3be",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/12_is_happy.ps1",
+    "language": "powershell",
+    "tokens": 356,
+    "bytes": 1052,
+    "sha256": "45d39c3018773913296e7a0067b02b95c69b188b481fcbb9528ee6e9e95a509e",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/13_count_digit.ps1",
+    "language": "powershell",
+    "tokens": 356,
+    "bytes": 1003,
+    "sha256": "823a498efc2b3535ea4825a46cd77bfd39c1b528700c53bc5389770ef25bdb31",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/14_lattice_paths.ps1",
+    "language": "powershell",
+    "tokens": 347,
+    "bytes": 1046,
+    "sha256": "6fce1562e052a81b134cbbbc5fb728c9d496f32c3a6f8de4f8fd4234fcac4aff",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/15_discrete_log.ps1",
+    "language": "powershell",
+    "tokens": 371,
+    "bytes": 1038,
+    "sha256": "ae41753db13b339d59f01e4c926e0cd45bea349b6973ca9cd2e0520caafa716e",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/16_lcm.ps1",
+    "language": "powershell",
+    "tokens": 392,
+    "bytes": 982,
+    "sha256": "f8cd8f0a24ef0bb4657a304816089cd0c7326fd46a2a6a73c65774ffa9a9fe15",
+    "fixtures": 5
+  },
+  {
+    "path": "powershell/17_modular_power.ps1",
+    "language": "powershell",
+    "tokens": 404,
+    "bytes": 1126,
+    "sha256": "4be30d706b06ad3ff160efd22aa1b3d06eb89c81e52400edbe14871419e3be41",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/18_digit_sum.ps1",
+    "language": "powershell",
+    "tokens": 286,
+    "bytes": 890,
+    "sha256": "2e8c5bf5b8843810f91835df1daa98d523f4bbf66b0d12bdff5f0bed40cdb6d2",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/19_digital_root.ps1",
+    "language": "powershell",
+    "tokens": 306,
+    "bytes": 970,
+    "sha256": "bdfb4ac785b87ef616d3ff2144a8690d44ce52702fe3b90438fcba66085c3ce4",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/20_binomial.ps1",
+    "language": "powershell",
+    "tokens": 378,
+    "bytes": 1078,
+    "sha256": "2da7fbd4f2800ce857741e86db535df4e667601948277ccebf11800d256cfded",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/21_next_power_of_two.ps1",
+    "language": "powershell",
+    "tokens": 270,
+    "bytes": 871,
+    "sha256": "eaa8efca1aa2208ec7fe4b65c4828e6fc68fcbb95aba23074e05942a36ab1bbc",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/22_largest_prime_factor.ps1",
+    "language": "powershell",
+    "tokens": 367,
+    "bytes": 1091,
+    "sha256": "4c24d48ff5a263e786cd4c99cc93727f6ba2516f21d809b26b183c30a97270d2",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/23_nth_prime.ps1",
+    "language": "powershell",
+    "tokens": 360,
+    "bytes": 1119,
+    "sha256": "62408fe372844a31ddd421a7e4982d86aff3b1f6a543fd160dedc165cfcf952a",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/24_is_leap_year.ps1",
+    "language": "powershell",
+    "tokens": 297,
+    "bytes": 842,
+    "sha256": "32944a35e217b2c8801b36e6fc8af4579dae3404d404c01805c104113253d086",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/25_multiply_mod.ps1",
+    "language": "powershell",
+    "tokens": 387,
+    "bytes": 1044,
+    "sha256": "f2bdf8a399f66850dd73d152d44a14c4dc5809976dfd03692a54bccdc6f21a79",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/26_pell.ps1",
+    "language": "powershell",
+    "tokens": 307,
+    "bytes": 957,
+    "sha256": "c77b310faede8442f34bedd2162abcf8e0840b9809b967733fa08baba5761ab0",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/27_is_armstrong.ps1",
+    "language": "powershell",
+    "tokens": 448,
+    "bytes": 1412,
+    "sha256": "d0f7b3186009a626cb6c11c40c429d4a3622d5005b98e7fe4755804dee8bee33",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/28_rotate_decimal.ps1",
+    "language": "powershell",
+    "tokens": 336,
+    "bytes": 1063,
+    "sha256": "92a8bc1e9ace23e5ea0ffd15e2bbee16938ceacc06212062fb964bb54e585655",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/29_rectangle_count.ps1",
+    "language": "powershell",
+    "tokens": 312,
+    "bytes": 983,
+    "sha256": "e81ce29073c2bf1e52c7c10746a3a6b82c981b7f2feae43ae4ab5d9b7146e762",
+    "fixtures": 4
+  },
+  {
+    "path": "powershell/30_modular_inverse.ps1",
+    "language": "powershell",
+    "tokens": 316,
+    "bytes": 934,
+    "sha256": "388417dd8b1010e956831b1d2691f57ac4f0c693711d78012978216b870936b9",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/01_gcd.sh",
+    "language": "bash",
+    "tokens": 461,
+    "bytes": 1177,
+    "sha256": "e7a28613f3110aa8a071624d919fd9fc09d9c8f05eaace3d915c64de5181a5fd",
+    "fixtures": 5
+  },
+  {
+    "path": "bash/02_power.sh",
+    "language": "bash",
+    "tokens": 467,
+    "bytes": 1317,
+    "sha256": "77cbc75ff9f00354f170ec414baaf82e9887a83e06cf73747423c6ef804e2065",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/03_is_perfect.sh",
+    "language": "bash",
+    "tokens": 534,
+    "bytes": 1537,
+    "sha256": "adcc75a3063dc56ceaffe426420961f903d06810042da4d91bffb8293eeedcdd",
+    "fixtures": 5
+  },
+  {
+    "path": "bash/04_is_palindrome.sh",
+    "language": "bash",
+    "tokens": 459,
+    "bytes": 1388,
+    "sha256": "22c7be287099c620871297584bc5dc13103eacaa8079ddd84aea951702f79f81",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/05_ceil_div.sh",
+    "language": "bash",
+    "tokens": 424,
+    "bytes": 1158,
+    "sha256": "5d2948b7c2b2f083c3c82acb0be08e8dad9b7e591963b713bd16d6fad5d4e4c7",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/06_trailing_zero_bits.sh",
+    "language": "bash",
+    "tokens": 441,
+    "bytes": 1281,
+    "sha256": "3ad13039ca889e0a0e1d6aa7680c846a07882187ae4898a919a711e0ca8e5ec2",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/07_totient.sh",
+    "language": "bash",
+    "tokens": 485,
+    "bytes": 1450,
+    "sha256": "350ffc496036f6f9cc700536ca1a5a10de4936d10ce9a1c4c85d2e24b304e129",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/08_greedy_coin_count.sh",
+    "language": "bash",
+    "tokens": 450,
+    "bytes": 1295,
+    "sha256": "0b081abbcc8fa0e7dc6314e35ea7d79d9310519bfd2760ec77c59cff3b73ba13",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/09_triangular_index.sh",
+    "language": "bash",
+    "tokens": 441,
+    "bytes": 1365,
+    "sha256": "69ae311a37089e4e54eb083679e9c69fac252f83337c5ca987f3a3ddedd3955f",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/10_integer_log.sh",
+    "language": "bash",
+    "tokens": 420,
+    "bytes": 1184,
+    "sha256": "6aa3271f1b8aa725af69bcc4ec639080a0b1892594dc1c1082f535b2a01a88c8",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/11_lucas.sh",
+    "language": "bash",
+    "tokens": 434,
+    "bytes": 1302,
+    "sha256": "45181c61ba8bac5016cc942cd739c504aa3d9d9f42248406703536608a6fc2d0",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/12_is_happy.sh",
+    "language": "bash",
+    "tokens": 489,
+    "bytes": 1409,
+    "sha256": "a62029856cf470023f388dd4ead88ba836e7ef28ce0f3353460b42bdfeef8ba8",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/13_count_digit.sh",
+    "language": "bash",
+    "tokens": 491,
+    "bytes": 1400,
+    "sha256": "4298f4feef131817dc923c86aeaf91508b796d9ce0d1cb666e05940885c5c23a",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/14_lattice_paths.sh",
+    "language": "bash",
+    "tokens": 472,
+    "bytes": 1406,
+    "sha256": "2d5280f1cde9f5e3dfddb0ac226dbb07cfeba97a696b7e25478219b24282ebfd",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/15_discrete_log.sh",
+    "language": "bash",
+    "tokens": 516,
+    "bytes": 1469,
+    "sha256": "4ae0259613975a2749b715ab0680d4aaebf669dfe07a9181d27899e68f6fbfbe",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/16_lcm.sh",
+    "language": "bash",
+    "tokens": 550,
+    "bytes": 1393,
+    "sha256": "876b55dd4455adf56ad13a5324e253d1fad0100261695323c094032ac394c464",
+    "fixtures": 5
+  },
+  {
+    "path": "bash/17_modular_power.sh",
+    "language": "bash",
+    "tokens": 528,
+    "bytes": 1498,
+    "sha256": "76b77e4a6ef1b85b5501a41a04913f39c3a1ad4c1197ccf57aac1d1be9d84ce2",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/18_digit_sum.sh",
+    "language": "bash",
+    "tokens": 400,
+    "bytes": 1179,
+    "sha256": "43fab2e6cda012e39845e198133e62353e193ddeb929e40f9f2b4b9110f04017",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/19_digital_root.sh",
+    "language": "bash",
+    "tokens": 419,
+    "bytes": 1284,
+    "sha256": "2164e2a8ac3e115f5c35523ff85aebcf305da85a33e7d269afa8f1a7d6774cc3",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/20_binomial.sh",
+    "language": "bash",
+    "tokens": 502,
+    "bytes": 1435,
+    "sha256": "f918c0e2760a949f90c6231e163760da488f10bc4b6c554f3734484f4eba1a85",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/21_next_power_of_two.sh",
+    "language": "bash",
+    "tokens": 402,
+    "bytes": 1224,
+    "sha256": "b9085c3d6df14bb9a73316ecdcb66e98bb0c2121095c75f62b6464433876ad3d",
+    "fixtures": 4
+  },
+  {
+    "path": "bash/22_largest_prime_factor.sh",
+    "language": "bash",
+    "tokens": 484,
+    "bytes": 1444,
+    "sha256": "e7efa656b00377a71acbb2f24c841339255d783b7ca97610cb629274404e6ff9",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/01_gcd.rs",
+    "language": "rust",
+    "tokens": 309,
+    "bytes": 788,
+    "sha256": "22bca738673f16813ef368c092a948174bd0379726946714717a2720db894c81",
+    "fixtures": 5
+  },
+  {
+    "path": "rust/02_power.rs",
+    "language": "rust",
+    "tokens": 331,
+    "bytes": 958,
+    "sha256": "545b15571a5d3a9c7ddabe55ff81ecf598cc34f9037640432f8315b68453cf11",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/03_is_perfect.rs",
+    "language": "rust",
+    "tokens": 368,
+    "bytes": 1125,
+    "sha256": "c1676ac86175d6b3f469a1c575068b6951d8fad9190e3b7baa5463bc132d58db",
+    "fixtures": 5
+  },
+  {
+    "path": "rust/04_is_palindrome.rs",
+    "language": "rust",
+    "tokens": 328,
+    "bytes": 1059,
+    "sha256": "61fa8115e5047883143af7abff9db8152ac4c7a58b97f3e64888e32d6234a866",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/05_ceil_div.rs",
+    "language": "rust",
+    "tokens": 297,
+    "bytes": 829,
+    "sha256": "36fc418ed8c9bea69ecf6767b503219b640188a99325e15dcaf657a2ee8d3e15",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/06_trailing_zero_bits.rs",
+    "language": "rust",
+    "tokens": 300,
+    "bytes": 936,
+    "sha256": "220c82cfb994dc587cd2ac6c418ad09307ceea7fa1816befb75aa4fe22f30578",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/07_totient.rs",
+    "language": "rust",
+    "tokens": 359,
+    "bytes": 1129,
+    "sha256": "730923d17b85143de048454309c2f27579a90b462f7daf51284553e9417002f5",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/08_greedy_coin_count.rs",
+    "language": "rust",
+    "tokens": 320,
+    "bytes": 982,
+    "sha256": "1091fb6cc5067539aac9788341341c9427fef511a79557b3a276a9c25cd715b2",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/09_triangular_index.rs",
+    "language": "rust",
+    "tokens": 308,
+    "bytes": 1036,
+    "sha256": "aa5af8243642fb70ad795ed358a56193dc63c36608471959498ab8857324a471",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/10_integer_log.rs",
+    "language": "rust",
+    "tokens": 293,
+    "bytes": 851,
+    "sha256": "369d4d787069369537a3fa3bca2776a3f98baf5893c2feb4cd0d259dee6bf40c",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/11_lucas.rs",
+    "language": "rust",
+    "tokens": 330,
+    "bytes": 1034,
+    "sha256": "fac8df47c1b5e90f927131eb17c4c7d9aedded28489a7b5f0399714b16d05711",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/12_is_happy.rs",
+    "language": "rust",
+    "tokens": 360,
+    "bytes": 1073,
+    "sha256": "e8af17fb9ff54b94aeeed24a29fa9191ff3974c21517f414b2243e4449825729",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/13_count_digit.rs",
+    "language": "rust",
+    "tokens": 338,
+    "bytes": 986,
+    "sha256": "d30af18d204892ce266f6bbdb5d9facca6f0536d46cf74b9028b526d6f3c79a5",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/14_lattice_paths.rs",
+    "language": "rust",
+    "tokens": 359,
+    "bytes": 1105,
+    "sha256": "da18ce9c725231bb32238cf93909ad97c2b6a5f001763b714cc87123b7e168e2",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/15_discrete_log.rs",
+    "language": "rust",
+    "tokens": 384,
+    "bytes": 1094,
+    "sha256": "4230fa09bbf9ce72128c24473a9e9503d07f011d6edc6459e2980f641a9155e5",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/16_lcm.rs",
+    "language": "rust",
+    "tokens": 390,
+    "bytes": 970,
+    "sha256": "f4ae61d01839be719946e75ba7658dc46644e1fb844cbeb6a13e45d48e00914d",
+    "fixtures": 5
+  },
+  {
+    "path": "rust/17_modular_power.rs",
+    "language": "rust",
+    "tokens": 394,
+    "bytes": 1125,
+    "sha256": "b70ebc255c09ef0e3adce57a48228fdf253d93e9b955df67055b92e40ceee52d",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/18_digit_sum.rs",
+    "language": "rust",
+    "tokens": 272,
+    "bytes": 867,
+    "sha256": "271fad82b14ea903c31e7b4f91dbecfabcd7df2f575125559062e8dad59eab99",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/19_digital_root.rs",
+    "language": "rust",
+    "tokens": 287,
+    "bytes": 957,
+    "sha256": "7b4fb5b1135d8c403c401abfc265e1c40bda247ba374de4c14efed07272c7dcc",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/20_binomial.rs",
+    "language": "rust",
+    "tokens": 367,
+    "bytes": 1070,
+    "sha256": "b18c6d9a778b7402e33f0a9c491f9c8792e6757c3ba2578038edb985f93faf56",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/21_next_power_of_two.rs",
+    "language": "rust",
+    "tokens": 275,
+    "bytes": 916,
+    "sha256": "7e57d9276967e697897326154738a6452e4c9ed69a5981b7f064916127cf62c5",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/22_largest_prime_factor.rs",
+    "language": "rust",
+    "tokens": 355,
+    "bytes": 1118,
+    "sha256": "bfbb8c1831f2dce2c9d185261830f7936f5314fe550f5c0a099e9230a17e8bb5",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/23_nth_prime.rs",
+    "language": "rust",
+    "tokens": 370,
+    "bytes": 1179,
+    "sha256": "fe22ba68d856fb422772ce2b4ad976211a050d7895e1d7cc5b2f9b0fa7710308",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/24_is_leap_year.rs",
+    "language": "rust",
+    "tokens": 291,
+    "bytes": 830,
+    "sha256": "20443876c677c05b1557c74088f9466d91c7f5af7c60d1556a681e67f30beeef",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/25_multiply_mod.rs",
+    "language": "rust",
+    "tokens": 375,
+    "bytes": 1040,
+    "sha256": "4be5aa60933c43abd6f163fbfef3c547d030acd987a9e1a15521bdae66564297",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/26_pell.rs",
+    "language": "rust",
+    "tokens": 326,
+    "bytes": 1031,
+    "sha256": "fa6320b10ad959eee2ff8be756e12368edef8946dd581ca7b8797b81cedefccd",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/27_is_armstrong.rs",
+    "language": "rust",
+    "tokens": 467,
+    "bytes": 1517,
+    "sha256": "e115f0fb98883a167fb87fd49f1405f3f08ab6b449889513b12f96085644ea21",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/28_rotate_decimal.rs",
+    "language": "rust",
+    "tokens": 318,
+    "bytes": 1067,
+    "sha256": "4c2726c91de4f88e3e6649ab4a80bfb424723d771fc75e134909ccec3599128a",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/29_rectangle_count.rs",
+    "language": "rust",
+    "tokens": 310,
+    "bytes": 1011,
+    "sha256": "718749f153b4229be594d022fb6ad87021c4e381ffeed61529f2ae877658ed75",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/30_modular_inverse.rs",
+    "language": "rust",
+    "tokens": 315,
+    "bytes": 973,
+    "sha256": "5ecf619f53b2cdd02eaef97e4ed5c11f39abcb298b780919e67ba87c99e1669e",
+    "fixtures": 4
+  },
+  {
+    "path": "rust/31_factorial.rs",
+    "language": "rust",
+    "tokens": 281,
+    "bytes": 871,
+    "sha256": "7b9b723716b5366bf262881a6a09f88cccb703ca418f9d5419317c0e37d15d99",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/01_gcd.rb",
+    "language": "ruby",
+    "tokens": 252,
+    "bytes": 601,
+    "sha256": "481aa1179e7d417d42268c49867ed3d2376a8fd98f9aa3036fa4896dec44e008",
+    "fixtures": 5
+  },
+  {
+    "path": "ruby/02_power.rb",
+    "language": "ruby",
+    "tokens": 279,
+    "bytes": 779,
+    "sha256": "d4e93f771250168cb973f97b09d5b66c55efba759e46d505ba8f83037e1c9fdf",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/03_is_perfect.rb",
+    "language": "ruby",
+    "tokens": 306,
+    "bytes": 917,
+    "sha256": "02c090376471b0c111dda8056234ec66e9b85abdc1be7297e1235306fd27a3a0",
+    "fixtures": 5
+  },
+  {
+    "path": "ruby/04_is_palindrome.rb",
+    "language": "ruby",
+    "tokens": 265,
+    "bytes": 847,
+    "sha256": "48b5987dfc907d0195fbf76da7a41321aa30b4e43d2a497f777a8ccf116ea3cc",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/05_ceil_div.rb",
+    "language": "ruby",
+    "tokens": 241,
+    "bytes": 650,
+    "sha256": "943514da876221c0bad932c897eacd6b2f84e674c6897e8514a68256c22ee3de",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/06_trailing_zero_bits.rb",
+    "language": "ruby",
+    "tokens": 247,
+    "bytes": 767,
+    "sha256": "340408f9263f29c99c3e7aec98724fd078a723a801699ed5344f47dfe121e271",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/07_totient.rb",
+    "language": "ruby",
+    "tokens": 290,
+    "bytes": 901,
+    "sha256": "2e6b5dd3c6534b98219e295b87980f84e3a3756c328d54da573a6b0756a0d566",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/08_greedy_coin_count.rb",
+    "language": "ruby",
+    "tokens": 267,
+    "bytes": 817,
+    "sha256": "bf0a686886c9108b4d7f489db58d42fee2b4460f0b445d0d6242a82b51f6fb1e",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/09_triangular_index.rb",
+    "language": "ruby",
+    "tokens": 242,
+    "bytes": 833,
+    "sha256": "b38fb541d43857aaae3806748ffcad4eaf05fc9c490940fd8b98f0d494e156ca",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/10_integer_log.rb",
+    "language": "ruby",
+    "tokens": 238,
+    "bytes": 671,
+    "sha256": "e0a11f31d43e8ed48a3dfa019d97658df85d1cf5c5f8d8afebb156e1b0cea632",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/11_lucas.rb",
+    "language": "ruby",
+    "tokens": 242,
+    "bytes": 760,
+    "sha256": "cb9e26994f879fc27d958b947284b1eae4de69905ab156d3611b3cb6264d347d",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/12_is_happy.rb",
+    "language": "ruby",
+    "tokens": 288,
+    "bytes": 840,
+    "sha256": "e6820c6bc2ccf2469ba19dbd3e58ebfde79366f79bca1a07ea69d28448865c65",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/13_count_digit.rb",
+    "language": "ruby",
+    "tokens": 287,
+    "bytes": 807,
+    "sha256": "a5cb47843c22b348e2a6f19d0e603be182af49221934d504dee84d5b7d82068e",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/14_lattice_paths.rb",
+    "language": "ruby",
+    "tokens": 276,
+    "bytes": 865,
+    "sha256": "cb86d44e1fc665c46df817ef35ef70658171f26781c4e93247efaeb76960bc68",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/15_discrete_log.rb",
+    "language": "ruby",
+    "tokens": 309,
+    "bytes": 870,
+    "sha256": "22c060d1a9e70d2e30eb503a1e81fa50c089ba2b223d04a1db43f92c1ba790ef",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/16_lcm.rb",
+    "language": "ruby",
+    "tokens": 307,
+    "bytes": 730,
+    "sha256": "a340ba333512cfcdc39129d2c983426b3bbf5e0a9ac7fdd130c363ade5d062e2",
+    "fixtures": 5
+  },
+  {
+    "path": "ruby/17_modular_power.rb",
+    "language": "ruby",
+    "tokens": 333,
+    "bytes": 936,
+    "sha256": "3a58887032dec889201fe29526fc0bee4f0e3c92019a97784695a5926d5af1d8",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/18_digit_sum.rb",
+    "language": "ruby",
+    "tokens": 222,
+    "bytes": 699,
+    "sha256": "dadec6b048f7304bcbbd187011f2b74b82c7ccf89e0914c34a9eeaf1781a4955",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/19_digital_root.rb",
+    "language": "ruby",
+    "tokens": 238,
+    "bytes": 788,
+    "sha256": "7a1f04a77de6c7faf9f4e651536dad363dc021ad1ded66443c95fc1779b1f597",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/20_binomial.rb",
+    "language": "ruby",
+    "tokens": 301,
+    "bytes": 859,
+    "sha256": "2cb9b9acd82ddd66745ce9e6151d33bde0d50b7788a734a7cdb333fbbd36d276",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/21_next_power_of_two.rb",
+    "language": "ruby",
+    "tokens": 224,
+    "bytes": 745,
+    "sha256": "e49a5548b3f158490ec48420fca236bc2f460c56e76f6ee24510f3e0926a1306",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/22_largest_prime_factor.rb",
+    "language": "ruby",
+    "tokens": 289,
+    "bytes": 916,
+    "sha256": "4ec71e9e5b656a9f3496ef84da0eca2b88c5ebd92d664a06004e6eac387f7cb9",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/23_nth_prime.rb",
+    "language": "ruby",
+    "tokens": 284,
+    "bytes": 910,
+    "sha256": "f6a7432002e02e2b7089ecc92b04729816c0889c309c0cc29756118634a17da2",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/24_is_leap_year.rb",
+    "language": "ruby",
+    "tokens": 254,
+    "bytes": 689,
+    "sha256": "5d367057fbe6709a349ab8c8736168daceb58a48165e3af6a5c2283edec26ba6",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/25_multiply_mod.rb",
+    "language": "ruby",
+    "tokens": 318,
+    "bytes": 851,
+    "sha256": "762f32063812ccceac715ebe6e05a0f4fb4e7ead988d2e3b1bf5b3538f6ebd70",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/26_pell.rb",
+    "language": "ruby",
+    "tokens": 242,
+    "bytes": 757,
+    "sha256": "7e1fc77776558b263346a4f5caeed1d68b9786760203af0309afb75724adb5b5",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/27_is_armstrong.rb",
+    "language": "ruby",
+    "tokens": 360,
+    "bytes": 1181,
+    "sha256": "d132dd8ab803782767d15f6bad45d947d56e79c1cde95915a3712e897410f464",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/28_rotate_decimal.rb",
+    "language": "ruby",
+    "tokens": 258,
+    "bytes": 866,
+    "sha256": "6ee1f785339198a84ab472efc7cfc260e9b757807c5e39f87a8698b72c2cb43c",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/29_rectangle_count.rb",
+    "language": "ruby",
+    "tokens": 242,
+    "bytes": 800,
+    "sha256": "73db7bf1244d3993f9b8c02715c6cba64ee10b4d4c5274231607a880c395ebc9",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/30_modular_inverse.rb",
+    "language": "ruby",
+    "tokens": 257,
+    "bytes": 789,
+    "sha256": "7520bb9b2a2653808e2c40f514b82b27b50c1a208f83f15de4997d739e1ffd6b",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/31_factorial.rb",
+    "language": "ruby",
+    "tokens": 214,
+    "bytes": 667,
+    "sha256": "c702ee7ec327c454e87e4cd3d87530747354522a7904290004a157a7239deb9e",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/32_is_prime.rb",
+    "language": "ruby",
+    "tokens": 275,
+    "bytes": 828,
+    "sha256": "e5902d6b6291076d28b2318b015fa6444a0b5cb1a2b32b01b615f1a9a8cb75a5",
+    "fixtures": 5
+  },
+  {
+    "path": "ruby/33_digit_product.rb",
+    "language": "ruby",
+    "tokens": 236,
+    "bytes": 786,
+    "sha256": "cf9620be1983fd528038aa9c700b4a7dfc4a4dcb117d8e06cdc59490eba443aa",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/34_is_harshad.rb",
+    "language": "ruby",
+    "tokens": 293,
+    "bytes": 838,
+    "sha256": "2df8dc7429437cc1195c9f60857d3065775499c20993770b3d9a835ef4fb555b",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/35_population_count.rb",
+    "language": "ruby",
+    "tokens": 218,
+    "bytes": 760,
+    "sha256": "2f2b8851e21e465686390be4c228c588316f5c8bd4a92d9ecb29013e1401fa54",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/36_is_power_of_two.rb",
+    "language": "ruby",
+    "tokens": 255,
+    "bytes": 772,
+    "sha256": "20f2b2908ece7b5019939fdea2b8263cee505156d4b6221968b2ee6ee1b45dc7",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/37_prime_factor_count.rb",
+    "language": "ruby",
+    "tokens": 282,
+    "bytes": 894,
+    "sha256": "b172bc9a9b6fbbfe20beea6f0f9d41d289d3cafe814158472353985f13d7a0db",
+    "fixtures": 4
+  },
+  {
+    "path": "ruby/38_primes_below.rb",
+    "language": "ruby",
+    "tokens": 296,
+    "bytes": 1005,
+    "sha256": "0be4ca95eae146d87711fc5504b78c1eb272ac4b7f1ab4f3cdf77481285feaf2",
+    "fixtures": 4
+  },
+  {
+    "path": "go/01_gcd.go",
+    "language": "go",
+    "tokens": 348,
+    "bytes": 888,
+    "sha256": "c7481c13a1ec5168cd2e194a86c7d9cccdd9718fd03a5de711e49cb9da243abd",
+    "fixtures": 5
+  },
+  {
+    "path": "go/02_power.go",
+    "language": "go",
+    "tokens": 358,
+    "bytes": 984,
+    "sha256": "e8a66f5880de394580b8af4da3ddc3c4b10926c0117f95e69006271c50f73fa2",
+    "fixtures": 4
+  },
+  {
+    "path": "go/03_is_perfect.go",
+    "language": "go",
+    "tokens": 402,
+    "bytes": 1173,
+    "sha256": "8418ca529001dc8e4e91d89d14c24d691c0cea86c971cdf220d78c03b76a2d5f",
+    "fixtures": 5
+  },
+  {
+    "path": "go/04_is_palindrome.go",
+    "language": "go",
+    "tokens": 347,
+    "bytes": 1097,
+    "sha256": "d95b3b380c5eab9e7b2bd54cdfe75b93e9d275554e87a4eb0986d6999b70638e",
+    "fixtures": 4
+  },
+  {
+    "path": "go/05_ceil_div.go",
+    "language": "go",
+    "tokens": 322,
+    "bytes": 901,
+    "sha256": "15526456a347004a35cd0d42d52a017fdaacf52f0886198155bc32b255c48d82",
+    "fixtures": 4
+  },
+  {
+    "path": "go/06_trailing_zero_bits.go",
+    "language": "go",
+    "tokens": 322,
+    "bytes": 989,
+    "sha256": "c87e8ad04edf8df1bcbd8b8331a934884f2ab3f8626ea999bd10d5b7863ee630",
+    "fixtures": 4
+  },
+  {
+    "path": "go/07_totient.go",
+    "language": "go",
+    "tokens": 373,
+    "bytes": 1104,
+    "sha256": "f8f60548216b91e6d9f2cccdb97287eaee0311e7e8786af411d198b4fd5d4bca",
+    "fixtures": 4
+  },
+  {
+    "path": "go/08_greedy_coin_count.go",
+    "language": "go",
+    "tokens": 339,
+    "bytes": 1050,
+    "sha256": "2d94ac24e33e4011b01334c649d424cbed6e404f84896a471beda109a2575eb0",
+    "fixtures": 4
+  },
+  {
+    "path": "go/09_triangular_index.go",
+    "language": "go",
+    "tokens": 323,
+    "bytes": 1074,
+    "sha256": "6897b12e2f3da5360806088c5fefb74cc3e58501dfe07ce10c47f3f30659c107",
+    "fixtures": 4
+  },
+  {
+    "path": "go/10_integer_log.go",
+    "language": "go",
+    "tokens": 318,
+    "bytes": 914,
+    "sha256": "433360fdbdbaeb2af9c046f0197652a366960bc1eb0eb34156a502499fcd3bc8",
+    "fixtures": 4
+  },
+  {
+    "path": "go/11_lucas.go",
+    "language": "go",
+    "tokens": 337,
+    "bytes": 1045,
+    "sha256": "24eb277312a350864cbfb468992148fa3dfd85dcc117646500299e84c8e8ec14",
+    "fixtures": 4
+  },
+  {
+    "path": "go/12_is_happy.go",
+    "language": "go",
+    "tokens": 377,
+    "bytes": 1044,
+    "sha256": "ee07c14d68e2646907db618ae11bf985b1cf5db6bb0c6615aa1145945ce12ed7",
+    "fixtures": 4
+  },
+  {
+    "path": "go/13_count_digit.go",
+    "language": "go",
+    "tokens": 364,
+    "bytes": 999,
+    "sha256": "bb6b8a7e1b810af9b21f561f1f924c01d07299b1546a0afaf9a588259c5df7da",
+    "fixtures": 4
+  },
+  {
+    "path": "go/14_lattice_paths.go",
+    "language": "go",
+    "tokens": 366,
+    "bytes": 1138,
+    "sha256": "39fff5fdb1ff91af992d72da0fdb4be200400a8896f374eb0a5443af86a3a2f1",
+    "fixtures": 4
+  },
+  {
+    "path": "go/15_discrete_log.go",
+    "language": "go",
+    "tokens": 397,
+    "bytes": 1117,
+    "sha256": "62dde68d28ca612a19b429080690e90bb3ee079eaad4eb6be1a0dc451a8bf7f1",
+    "fixtures": 4
+  },
+  {
+    "path": "go/16_lcm.go",
+    "language": "go",
+    "tokens": 408,
+    "bytes": 1014,
+    "sha256": "67d033859561ac78d54df6d9e178a64ce9fd49c92bb31212b7584d6a3960e8ed",
+    "fixtures": 5
+  },
+  {
+    "path": "go/17_modular_power.go",
+    "language": "go",
+    "tokens": 413,
+    "bytes": 1159,
+    "sha256": "19dd47dd08e9d0181a4d7c2eb944e46043a451be4af6fdb2e46169826f50dbe1",
+    "fixtures": 4
+  },
+  {
+    "path": "go/18_digit_sum.go",
+    "language": "go",
+    "tokens": 299,
+    "bytes": 933,
+    "sha256": "23a9966a3e648922739be66325738dd6bc2e1cff107def673aff2dc8098b421a",
+    "fixtures": 4
+  },
+  {
+    "path": "go/19_digital_root.go",
+    "language": "go",
+    "tokens": 316,
+    "bytes": 993,
+    "sha256": "a49f4170de6782775969b726f24c6921abeb2421d8050fd231897a9daaddf894",
+    "fixtures": 4
+  },
+  {
+    "path": "go/20_binomial.go",
+    "language": "go",
+    "tokens": 383,
+    "bytes": 1092,
+    "sha256": "a374ee352ef45fa4f0814cfee57f66da0c64c3d7fe28d02867b9e451c8e7f05b",
+    "fixtures": 4
+  },
+  {
+    "path": "go/21_next_power_of_two.go",
+    "language": "go",
+    "tokens": 302,
+    "bytes": 989,
+    "sha256": "b5fb506c9a9c8bdd3af6a2420a720097358b3dcdcad9e548ee6325097218a8cc",
+    "fixtures": 4
+  },
+  {
+    "path": "go/22_largest_prime_factor.go",
+    "language": "go",
+    "tokens": 371,
+    "bytes": 1129,
+    "sha256": "f4067d6e3ce3e30ce87aaa58320e5eeeeff4cc671167a86c126077dcae82c334",
+    "fixtures": 4
+  },
+  {
+    "path": "go/23_nth_prime.go",
+    "language": "go",
+    "tokens": 380,
+    "bytes": 1139,
+    "sha256": "23666e2ffdff85b31c83a02896e81ca55c0d39a630b14027de23a335b2d4814a",
+    "fixtures": 4
+  },
+  {
+    "path": "go/24_is_leap_year.go",
+    "language": "go",
+    "tokens": 323,
+    "bytes": 894,
+    "sha256": "d9e1bfffc3e9f0eaed26924f7eb8a34d99472b095f777e4929fcdd7e5cb4bd59",
+    "fixtures": 4
+  },
+  {
+    "path": "go/25_multiply_mod.go",
+    "language": "go",
+    "tokens": 398,
+    "bytes": 1074,
+    "sha256": "0780722e76d9047d81b4fe89a3547c26387dbb0b69616d1fb524fee68185dc9b",
+    "fixtures": 4
+  },
+  {
+    "path": "go/26_pell.go",
+    "language": "go",
+    "tokens": 337,
+    "bytes": 1042,
+    "sha256": "e2bda5bba8122cc379f70a3992df68a575535f3bbaa9a72f631b7fee07638abf",
+    "fixtures": 4
+  },
+  {
+    "path": "go/27_is_armstrong.go",
+    "language": "go",
+    "tokens": 460,
+    "bytes": 1426,
+    "sha256": "ea4aebd6a34b7ed56d951aa0f9bab671ab51e2220172690a7ab3474183ab475a",
+    "fixtures": 4
+  },
+  {
+    "path": "go/28_rotate_decimal.go",
+    "language": "go",
+    "tokens": 337,
+    "bytes": 1105,
+    "sha256": "4ca6f00d7cd02041df32eac589fd0f009c74264ebd6d1033d9bde78d67858301",
+    "fixtures": 4
+  },
+  {
+    "path": "php/01_gcd.php",
+    "language": "php",
+    "tokens": 306,
+    "bytes": 827,
+    "sha256": "bdd390b552459b7034b417a52cbcaec5439d68e4e34025bce52f897d3c6211df",
+    "fixtures": 5
+  },
+  {
+    "path": "php/02_power.php",
+    "language": "php",
+    "tokens": 329,
+    "bytes": 986,
+    "sha256": "fdfde9c7deb9becc5a61072ad1b661cfca103a0288b2d225688ac6d6d6e4c5c9",
+    "fixtures": 4
+  },
+  {
+    "path": "php/03_is_perfect.php",
+    "language": "php",
+    "tokens": 361,
+    "bytes": 1151,
+    "sha256": "626ae1f6c2e162c5b6cdb313245a1c6be18513de537d418caff3e7fc5d9d65f8",
+    "fixtures": 5
+  },
+  {
+    "path": "php/04_is_palindrome.php",
+    "language": "php",
+    "tokens": 312,
+    "bytes": 1046,
+    "sha256": "ebd9a9af927d13722e558e4ee6fdeb09eb2f0134e653c6eabb48558d1c3ad951",
+    "fixtures": 4
+  },
+  {
+    "path": "php/05_ceil_div.php",
+    "language": "php",
+    "tokens": 287,
+    "bytes": 846,
+    "sha256": "07b4a3d651ce7947a87bb1639212f6bc348073537576c0b772c765f6ac89c344",
+    "fixtures": 4
+  },
+  {
+    "path": "php/06_trailing_zero_bits.php",
+    "language": "php",
+    "tokens": 295,
+    "bytes": 962,
+    "sha256": "1a0463c3b226d61864bdcf9bc62d3c8e1cde15fdfa1c3eaafd450e5f816c1ce1",
+    "fixtures": 4
+  },
+  {
+    "path": "php/07_totient.php",
+    "language": "php",
+    "tokens": 350,
+    "bytes": 1128,
+    "sha256": "36427cf2c6ed11b0a14edfe1c271a33779dd25d8f775a885dbc50ab31ab9b70b",
+    "fixtures": 4
+  },
+  {
+    "path": "php/08_greedy_coin_count.php",
+    "language": "php",
+    "tokens": 319,
+    "bytes": 1022,
+    "sha256": "63e90a1a76825b477a1052dd6511f93fdedbfbb9e0ee10cbb3f51dcfb3c4c9bd",
+    "fixtures": 4
+  },
+  {
+    "path": "php/09_triangular_index.php",
+    "language": "php",
+    "tokens": 294,
+    "bytes": 1031,
+    "sha256": "ca938226276b35dd0df83a15e0e906072d3a3e04764b74f90ec3e9ff2a0c1058",
+    "fixtures": 4
+  },
+  {
+    "path": "php/10_integer_log.php",
+    "language": "php",
+    "tokens": 286,
+    "bytes": 869,
+    "sha256": "2b655de389ab1a617f70f48c144b70599fba49ff03e8c02b001cf3c6540c3b23",
+    "fixtures": 4
+  },
+  {
+    "path": "php/11_lucas.php",
+    "language": "php",
+    "tokens": 293,
+    "bytes": 961,
+    "sha256": "d73693e8c1929bbae2f27683e5b69d1d0e3f1a48557873956fb31b62fc9e4139",
+    "fixtures": 4
+  },
+  {
+    "path": "php/12_is_happy.php",
+    "language": "php",
+    "tokens": 339,
+    "bytes": 1050,
+    "sha256": "69cee275e30241efd24ff9a2ac6ccd53ac5fa8d082d73bbef51dbcae354ae6ae",
+    "fixtures": 4
+  },
+  {
+    "path": "php/13_count_digit.php",
+    "language": "php",
+    "tokens": 336,
+    "bytes": 1015,
+    "sha256": "572dacb0a7b393ce08917032d6f5cc32fb349fb4a248ab35921b348fad601c49",
+    "fixtures": 4
+  },
+  {
+    "path": "php/14_lattice_paths.php",
+    "language": "php",
+    "tokens": 333,
+    "bytes": 1072,
+    "sha256": "f2adbee30d5ab098db8522ecd750c69216f451b527c75c7a9726decfe5bd605d",
+    "fixtures": 4
+  },
+  {
+    "path": "php/15_discrete_log.php",
+    "language": "php",
+    "tokens": 367,
+    "bytes": 1080,
+    "sha256": "090e905d604f3c0effbd323cb84d9ce7dd556649f9574c3d03fc3635de71d287",
+    "fixtures": 4
+  },
+  {
+    "path": "php/16_lcm.php",
+    "language": "php",
+    "tokens": 375,
+    "bytes": 974,
+    "sha256": "db0349b83f00f8933cc9e2f066ad0d7b1a5b019be034c0448843b565fde5c49c",
+    "fixtures": 5
+  },
+  {
+    "path": "php/17_modular_power.php",
+    "language": "php",
+    "tokens": 393,
+    "bytes": 1152,
+    "sha256": "caeef921483c42ca426b649ea2ddaf75020c341dec1abce8a55e998366d1a412",
+    "fixtures": 4
+  },
+  {
+    "path": "php/18_digit_sum.php",
+    "language": "php",
+    "tokens": 266,
+    "bytes": 891,
+    "sha256": "334e02b0e8990374518c2d62ffb61bc91445ef10f736fe92fd4d837ecb5959e6",
+    "fixtures": 4
+  },
+  {
+    "path": "php/19_digital_root.php",
+    "language": "php",
+    "tokens": 285,
+    "bytes": 986,
+    "sha256": "da719f8331c78b777f8955fde10336298c0462e83ff203bc11e972ef4344d2cf",
+    "fixtures": 4
+  },
+  {
+    "path": "php/20_binomial.php",
+    "language": "php",
+    "tokens": 358,
+    "bytes": 1076,
+    "sha256": "b898f89678aff46eaca1d2542a5fcf6200dbf0dae0363226eb2156837ad3164b",
+    "fixtures": 4
+  },
+  {
+    "path": "php/21_next_power_of_two.php",
+    "language": "php",
+    "tokens": 267,
+    "bytes": 932,
+    "sha256": "eca7b6d9de63a27c6b4bb34a67b54d78b5412cb54d18201e926c574fa9ddd444",
+    "fixtures": 4
+  },
+  {
+    "path": "php/22_largest_prime_factor.php",
+    "language": "php",
+    "tokens": 347,
+    "bytes": 1127,
+    "sha256": "e68434c6dfdad4451fe871806f103c868fb027e2982cbbe3f3713ecbd137a805",
+    "fixtures": 4
+  },
+  {
+    "path": "php/23_nth_prime.php",
+    "language": "php",
+    "tokens": 338,
+    "bytes": 1123,
+    "sha256": "dad72c258d8d1fc20b5330356d29ece8f632a6fd2a19203ad1cb3b1803a763f9",
+    "fixtures": 4
+  },
+  {
+    "path": "php/24_is_leap_year.php",
+    "language": "php",
+    "tokens": 292,
+    "bytes": 878,
+    "sha256": "cd51d5fcccf66471f2f3cae607a23aec664eda244c7dd1584ad9ed3a256ccccf",
+    "fixtures": 4
+  },
+  {
+    "path": "php/25_multiply_mod.php",
+    "language": "php",
+    "tokens": 372,
+    "bytes": 1065,
+    "sha256": "a263a2cb27832f8a0dbee91b9ec1a0072f93e12072d850608393cd03ce65828b",
+    "fixtures": 4
+  },
+  {
+    "path": "php/26_pell.php",
+    "language": "php",
+    "tokens": 290,
+    "bytes": 958,
+    "sha256": "676a1b270c438967e5b3789383617b3d15ea3f864199e1cf9db1a10fac7988e3",
+    "fixtures": 4
+  },
+  {
+    "path": "php/27_is_armstrong.php",
+    "language": "php",
+    "tokens": 423,
+    "bytes": 1414,
+    "sha256": "8096dc58f7906aac4a7d09085a9c45cbe93c5023ad5e89913a9993ff54d4ba59",
+    "fixtures": 4
+  },
+  {
+    "path": "php/28_rotate_decimal.php",
+    "language": "php",
+    "tokens": 308,
+    "bytes": 1069,
+    "sha256": "ebf5ec081da33c376b62c23cb69cee1dc4930269690dcc5dcc55f3bbc5bff026",
+    "fixtures": 4
+  },
+  {
+    "path": "php/29_rectangle_count.php",
+    "language": "php",
+    "tokens": 287,
+    "bytes": 996,
+    "sha256": "2e6dbd20c55e0fc43fd06badcd3f1e1a288402239fd787c4dbf67f4597553b20",
+    "fixtures": 4
+  },
+  {
+    "path": "php/30_modular_inverse.php",
+    "language": "php",
+    "tokens": 309,
+    "bytes": 987,
+    "sha256": "b48495fbe57aacbe0feab3e39cf02cfb69723d9fc8ca4bd0fb97d691e36a5553",
+    "fixtures": 4
+  },
+  {
+    "path": "php/31_factorial.php",
+    "language": "php",
+    "tokens": 264,
+    "bytes": 860,
+    "sha256": "d1e811db7a618faae1fd1dac45b86ead59106c544bbb111a588f4d6a4a21ac7d",
+    "fixtures": 4
+  },
+  {
+    "path": "php/32_is_prime.php",
+    "language": "php",
+    "tokens": 326,
+    "bytes": 1056,
+    "sha256": "c59958f642f7c6c22e258d1099d84fb9709047d91364cf6d72605646797f3a52",
+    "fixtures": 5
+  },
+  {
+    "path": "sql/01_inventory_ledger.sql",
+    "language": "sql",
+    "tokens": 456,
+    "bytes": 1711,
+    "sha256": "0d7ad02153fbb769c03ff9592b94f9a3823a7625c09aa6003f3057c8d01b9e8b",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/02_organization_tree.sql",
+    "language": "sql",
+    "tokens": 460,
+    "bytes": 1735,
+    "sha256": "b155eefd5dccc75a700abec586fa09c8a1505bc17782b735fb14cfb66ab16667",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/03_calendar_gap_fill.sql",
+    "language": "sql",
+    "tokens": 462,
+    "bytes": 1703,
+    "sha256": "df34a2464bc14454fa042d6b868987b9cfb827400d77fdbf6c469075604914df",
+    "fixtures": 4
+  },
+  {
+    "path": "sql/04_event_sessions.sql",
+    "language": "sql",
+    "tokens": 465,
+    "bytes": 1704,
+    "sha256": "5f9bb1ecf16395b5325292e07d35bcc05e191fd873ee936d1b89b2884dbe8822",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/05_running_balances.sql",
+    "language": "sql",
+    "tokens": 433,
+    "bytes": 1602,
+    "sha256": "a07963d8bc7e6009fb393fda3f6f1582d7a52221af6b92ba4e78e01bcdeed320",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/06_cohort_retention.sql",
+    "language": "sql",
+    "tokens": 518,
+    "bytes": 1847,
+    "sha256": "92ea1a9703667149fa0f6b659f63f6d169ac62756b7a02cc56b808d525dac488",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/07_deduplicate_import.sql",
+    "language": "sql",
+    "tokens": 399,
+    "bytes": 1661,
+    "sha256": "ea494b60fee423ab43eece549170f60bf429594fc4828354498692280729d789",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/08_idempotent_upsert.sql",
+    "language": "sql",
+    "tokens": 432,
+    "bytes": 1627,
+    "sha256": "3b61af4fe321fecb30c96af560ce91bc144c15a2a4ceabb98cf86f114d387882",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/09_graph_reachability.sql",
+    "language": "sql",
+    "tokens": 378,
+    "bytes": 1412,
+    "sha256": "398569fb1c0c61839e9d0508897408bed7b5cdd351183f486fb8e27ee2193a18",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/10_ranking_with_ties.sql",
+    "language": "sql",
+    "tokens": 409,
+    "bytes": 1663,
+    "sha256": "12f23bae00e9bdbd7fa4973660c44b05d6c4da077edf270eb7fff5f38bd771ea",
+    "fixtures": 4
+  },
+  {
+    "path": "sql/11_consecutive_day_islands.sql",
+    "language": "sql",
+    "tokens": 409,
+    "bytes": 1486,
+    "sha256": "d121e5d329b964436262b3a4f516376ee39fc35221e24ed188585543455d8fb1",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/12_effective_dated_prices.sql",
+    "language": "sql",
+    "tokens": 477,
+    "bytes": 1808,
+    "sha256": "603b71de72c2329c44b306411e7e5061250ff1b14481836494ca060a049d75ed",
+    "fixtures": 4
+  },
+  {
+    "path": "sql/13_audit_triggers.sql",
+    "language": "sql",
+    "tokens": 403,
+    "bytes": 1658,
+    "sha256": "3f6385deb57b5a82ab69069212424f5802d02e1560e90283ac37444e30709ddd",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/14_nonoverlapping_bookings.sql",
+    "language": "sql",
+    "tokens": 430,
+    "bytes": 1697,
+    "sha256": "1ae2fd199f5fba0d52a0f1e5ea004050627fcd238f034763cd3b70f8183cf458",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/15_relational_division.sql",
+    "language": "sql",
+    "tokens": 409,
+    "bytes": 1701,
+    "sha256": "68d83a081b2796bcdee91addc0c0dc8980323355d1f04009d75d9e5db1a04057",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/16_keyset_pagination.sql",
+    "language": "sql",
+    "tokens": 434,
+    "bytes": 1738,
+    "sha256": "bfaffcd7319ae67f0fca451a015795294b69a3351b0a9db894b0973713efdab2",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/17_fifo_stock_allocation.sql",
+    "language": "sql",
+    "tokens": 428,
+    "bytes": 1741,
+    "sha256": "5ca8d14239c5b80edbddb4837f7adba6bd8616340b69d6a56d29b5237aaec31f",
+    "fixtures": 5
+  },
+  {
+    "path": "sql/18_largest_remainder_allocation.sql",
+    "language": "sql",
+    "tokens": 452,
+    "bytes": 1885,
+    "sha256": "bfb45c0fe55accfa3a9431bddbafd5af20743c96a22c1ef58870457d6d8279d1",
+    "fixtures": 5
+  },
+  {
+    "path": "sql/19_cleaning_staged_records.sql",
+    "language": "sql",
+    "tokens": 451,
+    "bytes": 1809,
+    "sha256": "6a2b722b26447a8fb36e105e6c71e81cf1c245486fdc5e113c7887f62bfda535",
+    "fixtures": 4
+  },
+  {
+    "path": "sql/20_conditional_pivot.sql",
+    "language": "sql",
+    "tokens": 417,
+    "bytes": 1678,
+    "sha256": "d04080745e9c41b8174b95746a6c7903ae4eb20d1c6ef7807a0e9334d1f79f57",
+    "fixtures": 3
+  },
+  {
+    "path": "sql/21_medians_and_quantiles.sql",
+    "language": "sql",
+    "tokens": 417,
+    "bytes": 1544,
+    "sha256": "a9b72c74dcf25cefb4e3a5d3c8e969ff6d199265f86e585f2f6e987e954dcd87",
+    "fixtures": 2
+  },
+  {
+    "path": "sql/22_ledger_reconciliation.sql",
+    "language": "sql",
+    "tokens": 426,
+    "bytes": 1838,
+    "sha256": "9c9743debd504f09a74ee4470bbc68d37f2e1bee2f765cc5886aa701bf39c750",
+    "fixtures": 5
+  },
+  {
+    "path": "sql/23_savepoints_and_rollback.sql",
+    "language": "sql",
+    "tokens": 423,
+    "bytes": 1720,
+    "sha256": "13c88c7fa6fb591f51303009fcb9a5c1ee01eda651b6af60a01c3ed81d814b3b",
+    "fixtures": 6
+  }
+]

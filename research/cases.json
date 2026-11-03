@@ -67,8 +67,8 @@
   {
     "path": "curated/sql/tsql/constraint_migration.sql",
     "language": "sql-tsql",
-    "mode": "not_tested",
-    "reason": "SQL Server engine/sqlcmd absent; not parsed or executed by SQLite.",
+    "mode": "native_sqlserver",
+    "reason": "Requires opted-in disposable local SQL Server container; missing engine means not_tested.",
     "task_family": "sql.transactional-constraint-migration",
     "dialect": "Microsoft SQL Server 2019+ T-SQL",
     "intended_command": [
@@ -79,7 +79,10 @@
       "-E",
       "-i",
       "curated/sql/tsql/constraint_migration.sql"
-    ]
+    ],
+    "adapter": "sqlserver_container",
+    "last_edit_task_id": "research-pass-6",
+    "runtime_assumptions": "SQL Server engine in owned Linux container, bundled sqlcmd; native engine execution, temp tables only. Current checked engine version recorded per run; not all 2019+ versions claimed."
   },
   {
     "path": "curated/sql/postgresql/constraint_migration.sql",
@@ -472,5 +475,16 @@
     "prompt_file": "research/provenance/research-pass-6.txt",
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Native C backend with ARC (--gc:arc), destructor/copy/sink hooks; no JavaScript or thread-sharing claim. Generated control must reject an implicit live-source copy."
+  },
+  {
+    "path": "curated/tcl/snapshot_events.tcl",
+    "language": "tcl",
+    "mode": "native",
+    "adapter": "tcl",
+    "task_family": "events.snapshot-command-prefixes",
+    "task_id": "research-pass-6",
+    "prompt_file": "research/provenance/research-pass-6.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Tcl 8.6 core TclOO/dict/try; synchronous non-yielding callbacks cannot destroy emitter; standalone tclsh or actual native Tcl via tkinter.Tcl; no Tk UI"
   }
 ]

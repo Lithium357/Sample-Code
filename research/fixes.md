@@ -66,3 +66,10 @@ negative-compile assertion. The compiler correctly rejected a copy, using its
 own specific unavailable-copy diagnostic instead of the custom hook text.
 Require code 1 plus =copy/OwnedBytes and the still-live first variable. The
 rejection requirement remains; source and raw original result are preserved.
+
+
+Tcl pass-6 run 65db0f856dac4bc18c475759d947d2d6 failed parsing an expected-value
+expression missing a closing bracket. After fixing that syntax, run
+6808b491cf6444ed8197cc5aac51a5f2 completed all assertions but failed the embedded
+adapter sentinel: puts returns empty. Print and return the final success value;
+77007943e7fc4ca6bb843f63a5804561 passes. Original sources/results remain retained.

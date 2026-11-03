@@ -77,7 +77,7 @@ def main():
             eligible[key]=record
     passed_paths=set()
     for record in eligible.values():
-        if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','transpiled_js','emulation','managed_runtime'):
+        if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','native_sqlserver','transpiled_js','emulation','managed_runtime'):
             passed_paths.update(record['source_hashes'])
     review_path=ROOT/'research/reviews.jsonl'
     reviews={}

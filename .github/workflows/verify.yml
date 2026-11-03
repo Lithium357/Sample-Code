@@ -126,6 +126,34 @@ jobs:
         with:
           name: research-breadth-${{ matrix.os }}-evidence
           path: research/evidence/history/*.jsonl
+  sqlserver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: 'Y'
+          MSSQL_PID: 'Developer'
+          # Public, throwaway fixture password. No port is exposed to the host.
+          MSSQL_SA_PASSWORD: 'LocalFixture_Only_48!'
+          SQLCMDPASSWORD: 'LocalFixture_Only_48!'
+        options: >-
+          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -b -Q 'SELECT 1'"
+          --health-interval 10s --health-timeout 5s --health-retries 20
+          --health-start-period 30s
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute the retained T-SQL fixture on the owned local engine
+        env:
+          MORDERCA_SQLSERVER_LOCAL: '1'
+          MORDERCA_SQLSERVER_CONTAINER: ${{ job.services.sqlserver.id }}
+        run: python3 tools/research_validate.py --suite curated --only-language sql-tsql --require-tools
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-sqlserver-evidence
+          path: research/evidence/history/*.jsonl
   postgresql:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

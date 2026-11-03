@@ -15,6 +15,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import shutil
 import sqlite3
 import subprocess
@@ -122,6 +123,39 @@ def validate(case, temporary):
     path = ROOT/case['path']
     language = case['language']
     if case.get('mode') == 'not_tested': raise MissingTool(case['reason'])
+    if case.get('adapter')=='sqlserver_container':
+        if os.environ.get('MORDERCA_SQLSERVER_LOCAL')!='1':
+            raise MissingTool('No opted-in owned SQL Server container; CI supplies a disposable local engine')
+        container=os.environ.get('MORDERCA_SQLSERVER_CONTAINER','')
+        if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*',container):
+            raise MissingTool('Explicit owned SQL Server container id/name required')
+        docker=shutil.which('docker')
+        if not docker:raise MissingTool('Docker CLI unavailable for the opted-in fixture')
+        execute([docker,'version','--format','{{json .}}'],temporary,probe=True)
+        CURRENT['runtime_versions']['docker']=CURRENT['commands'][-1]['stdout']
+        image=execute([docker,'inspect','--format','{{.Image}}',container],temporary)
+        CURRENT['runtime_versions']['container_image']=execute([docker,'image','inspect','--format',
+            '{{json .RepoDigests}} {{.Id}} {{.Architecture}} {{.Os}}',image],temporary)
+        # SQLCMDPASSWORD lives only in this disposable fixture container's env.
+        # Never connect to a user server or accept a remote connection string.
+        connection=[docker,'exec',container,'/opt/mssql-tools18/bin/sqlcmd','-C','-S','localhost',
+                    '-U','sa','-b','-r','1','-l','5']
+        execute([*connection,'-?'],temporary,probe=True)
+        CURRENT['runtime_versions']['sqlcmd']=CURRENT['commands'][-1]['stdout']+CURRENT['commands'][-1]['stderr']
+        CURRENT['runtime_versions']['sqlserver']=execute([*connection,'-Q','SET NOCOUNT ON; SELECT @@VERSION;'],temporary)
+        target='/tmp/morderca-'+uuid.uuid4().hex+'.sql'
+        try:
+            execute([docker,'cp',path,container+':'+target],temporary)
+            copied=execute([docker,'exec',container,'sha256sum',target],temporary).split()[0]
+            if copied!=digest(path):raise AssertionError('SQL Server fixture copy differs from recorded source hash')
+            CURRENT['container_source_sha256']=copied
+            output=execute([*connection,'-i',target],temporary)
+            if 'T-SQL: constraints, exact errors, savepoints, migration and bound text passed' not in output:
+                raise AssertionError('SQL Server fixture did not report completion')
+        finally:
+            execute([docker,'exec',container,'rm','-f','--',target],temporary)
+        CURRENT['runtime_scope']='Native SQL Server engine in disposable Linux container, sqlcmd TLS trust only for owned localhost fixture; no SQLite translation'
+        return
     if case.get('adapter')=='tcl':
         tclsh=shutil.which('tclsh')
         if tclsh:

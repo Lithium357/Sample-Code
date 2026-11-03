@@ -88,3 +88,30 @@ code 1 naming =copy, OwnedBytes and the non-last read of first. The fixed
 harness requires that specific rejection; it does not count unrelated compiler
 failures. Final local run 38dbc0ec5f704fe387768dc4f7765813 passed runtime and
 negative compile checks. Reference: [Nim move semantics](https://nim-lang.org/docs/destructors.html).
+
+## Tcl command-prefix snapshots and SQL Server validation infrastructure
+
+`curated/tcl/snapshot_events.tcl` uses TclOO and word-list command prefixes,
+registration-order snapshots, first-error propagation and finally-based busy
+restoration. Tests include literal script-like words, empty dispatch/value,
+registration changes during dispatch, exact Tcl error codes/errorinfo, rejected
+recursion and deferred command lookup failure. Callbacks cannot yield or destroy
+the emitter. It uses core Tcl only. Its first run failed for a missing test
+bracket; after that fix all assertions ran, but the embedded-driver completion
+check failed because puts returns an empty string. The source now prints AND
+returns its success value, as the existing Tcl adapter requires. Both failures
+and source snapshots remain; no behavior expectation was relaxed. Final local
+run 77007943e7fc4ca6bb843f63a5804561 passed using native embedded Tcl.
+
+The retained T-SQL source has not changed. A separate CI job now supplies an
+owned SQL Server 2022 Linux container and bundled sqlcmd, with no host port and
+a public disposable fixture password. The adapter connects only to localhost
+INSIDE that explicitly opted-in container. It records Docker/server/sqlcmd
+versions and image digest, verifies the copied SQL SHA256, runs sqlcmd with -b,
+requires the fixture completion text and deletes its exact temporary SQL copy.
+The source still contains only #temp tables and transaction rollback. Local
+engine absence remains not_tested (run 70833902ae394faaa1c127d641a782de); no
+execution or candidate promotion is claimed until actual engine evidence arrives.
+Container-backed native_sqlserver results are eligible only after source-bound
+success, separately labeled from SQLite/PostgreSQL. Infrastructure follows
+[Microsoft's container guidance](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker).

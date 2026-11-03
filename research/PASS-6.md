@@ -52,3 +52,39 @@ All sample source runs so far passed locally. Source-bound logs remain the
 source of truth for exact commands, hashes and versions. Reports, setup records,
 harnesses, snapshots and repeated execution add no training tokens. Counts and
 CI results will be appended after the batch is published and executed.
+
+## PowerShell providers and Nim ownership
+
+`curated/powershell/provider_bytes.ps1` resolves literal session-state paths
+before invoking .NET. It tests a FileSystem PSDrive whose location differs from
+process cwd, bracket filenames versus wildcard matching, provider-qualified
+paths, one byte-array output for empty/singleton/binary input, a bounded sentinel
+read, non-filesystem providers, directory/missing files, parameter bounds and
+exclusive reopen after twenty failed reads. Exact owned fixtures are deleted
+nonrecursively. This is not a security sandbox or atomic snapshot guarantee.
+
+Its first source run dd9909ffbed4495581c71c7d299b9423 failed because the test used
+an internal ParameterBindingValidationException as a PowerShell type literal.
+A diagnostic confirmed the actual class and exact FullyQualifiedErrorId. The
+fixed assertion requires public ParameterBindingException plus the exact
+ParameterArgumentValidationError,Read-LiteralBytes ID. It does not accept an
+arbitrary error. The original failure/snapshot remains; final local run
+ d02951a858f044a897789aa20d3390bd passed.
+
+`curated/nim/owned_bytes.nim` adds native C/ARC destructor, forbidden-copy and
+sink hooks. Bounds, zero initialization, moved-from reuse, transfer over an
+existing allocation, exception unwinding and sequence growth/shrink release
+counts are checked. A generated compile-only control attempts to copy a live
+source, and must fail with the unavailable =copy diagnostic for OwnedBytes and
+the specific still-live source variable. The control is not training volume.
+C++ stream/Nim allocation examples share resource.move-only-owner for splitting;
+they retain distinct resource contracts, not independent project provenance.
+
+The first Nim source-bound run ba98d300b0e44f4fafebfd0322ba5f62 ran all runtime
+checks successfully, but its negative-control assertion failed because Nim emits
+its own unavailable-copy diagnostic instead of the hook's custom error text.
+The raw failed result and snapshots remain. Inspection showed compile failure
+code 1 naming =copy, OwnedBytes and the non-last read of first. The fixed
+harness requires that specific rejection; it does not count unrelated compiler
+failures. Final local run 38dbc0ec5f704fe387768dc4f7765813 passed runtime and
+negative compile checks. Reference: [Nim move semantics](https://nim-lang.org/docs/destructors.html).

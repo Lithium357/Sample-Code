@@ -52,3 +52,17 @@ events/results remain intact.
 The retained legacy reports include earlier CMD and compiler failures. They
 lack exact source/version bindings and are not promoted into current passed
 volume. Their raw bytes are preserved under `evidence/legacy/` with hashes.
+
+
+## Research pass 6 harness diagnostics
+
+PowerShell run dd9909ffbed4495581c71c7d299b9423 failed resolving the internal
+ParameterBindingValidationException type literal, not reading fixture bytes.
+Use the public binding-exception base AND exact FullyQualifiedErrorId. The
+source expectation remains rejection before I/O. Subsequent runs passed.
+
+Nim run ba98d300b0e44f4fafebfd0322ba5f62 passed runtime checks but failed the
+negative-compile assertion. The compiler correctly rejected a copy, using its
+own specific unavailable-copy diagnostic instead of the custom hook text.
+Require code 1 plus =copy/OwnedBytes and the still-live first variable. The
+rejection requirement remains; source and raw original result are preserved.

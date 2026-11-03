@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 206745,
+    "source_with_inline_fixtures": 210018,
     "source": 8390,
     "fixture": 293,
     "support_source": 580
@@ -13,15 +13,15 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 359,
-  "generated_tokens": 216008,
-  "current_source_bound_pass_files": 358,
-  "current_source_bound_pass_tokens": 215361,
-  "execution_validated_files": 358,
-  "execution_validated_tokens": 215361,
+  "files": 361,
+  "generated_tokens": 219281,
+  "current_source_bound_pass_files": 360,
+  "current_source_bound_pass_tokens": 218634,
+  "execution_validated_files": 360,
+  "execution_validated_tokens": 218634,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 49,
-  "training_candidate_tokens": 51536,
+  "training_candidate_files": 51,
+  "training_candidate_tokens": 54809,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
   "legacy_review_required_tokens": 163825,
@@ -97,9 +97,9 @@
       "current_source_bound_pass_tokens": 1667
     },
     "nim": {
-      "files": 42,
-      "generated_tokens": 20419,
-      "current_source_bound_pass_tokens": 20419
+      "files": 43,
+      "generated_tokens": 21684,
+      "current_source_bound_pass_tokens": 21684
     },
     "perl": {
       "files": 1,
@@ -112,9 +112,9 @@
       "current_source_bound_pass_tokens": 18340
     },
     "powershell": {
-      "files": 35,
-      "generated_tokens": 18467,
-      "current_source_bound_pass_tokens": 18467
+      "files": 36,
+      "generated_tokens": 20475,
+      "current_source_bound_pass_tokens": 20475
     },
     "python": {
       "files": 2,

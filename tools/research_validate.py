@@ -307,14 +307,31 @@ def validate(case, temporary):
     elif language=='nim' and case.get('native_nim'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         flags=[]
+        if case.get('nim_memory_manager')=='arc':flags.append('--gc:arc')
         if os.name=='nt':
             compiler=shutil.which('cl')
             if not compiler:raise MissingTool('MSVC environment unavailable for native Nim')
             execute([compiler],ROOT,probe=True)
             CURRENT['runtime_versions']['native_c_compiler']=CURRENT['commands'][-1]['stderr']
-            flags=['--cc:vcc']
+            flags.append('--cc:vcc')
         execute([shutil.which('nim'),'c',*flags,'--hints:off','--nimcache:'+str(temporary/'nimcache'),'-o:'+str(binary),path],temporary)
         execute([binary],temporary)
+        if case.get('adapter')=='nim_move_only':
+            control=temporary/'copy_control.nim'
+            control_text=('include '+json.dumps(path.as_posix())+'\n'
+                          'var first = owned(1, Audit())\nvar second = first\n'
+                          'echo first.len, second.len\n')
+            control.write_text(control_text,encoding='utf-8')
+            CURRENT['generated_negative_control']={'source':control_text,'sha256':digest(control),
+                'scope':'Control material; implicit live-source copy must fail, not training volume.'}
+            execute([shutil.which('nim'),'c',*flags,'--compileOnly','--hints:off',
+                     '--nimcache:'+str(temporary/'copy-cache'),control],temporary,probe=True)
+            record=CURRENT['commands'][-1]
+            record['kind']='negative_compile_control'
+            diagnostic=record['stdout']+record['stderr']
+            if (record['returncode']!=1 or "'=copy' is not available for type <OwnedBytes>" not in diagnostic
+                    or "not the last read of 'first'" not in diagnostic):
+                raise AssertionError('live-source implicit copy did not fail with the intended ownership diagnostic')
     elif case.get('commands'):
         values={'root':str(ROOT),'temp':str(temporary),'source':str(path),'python':sys.executable,
                 'exe':str(temporary/('specimen.exe' if os.name=='nt' else 'specimen'))}

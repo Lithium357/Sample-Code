@@ -355,5 +355,25 @@
     "task_id": "research-pass-4",
     "prompt_file": "research/provenance/research-pass-4.txt",
     "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/perl/folded_tie.pl",
+    "language": "perl",
+    "mode": "native",
+    "task_family": "mapping.tied-folded-hash",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Perl 5.16+ syntax, core modules, native interpreter; no concurrent or nested iterator guarantee"
+  },
+  {
+    "path": "curated/awk/transactional_totals.awk",
+    "language": "awk-gawk",
+    "mode": "native",
+    "task_family": "aggregation.transactional-awk-totals",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "GNU AWK 4+ array-of-array/asorti syntax, LC_ALL=C; not POSIX awk; all counts bounded within exact binary64 integers"
   }
 ]

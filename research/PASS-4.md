@@ -93,3 +93,29 @@ getReturn before/after completion, exception identity and lazy validation errors
 The schema intentionally requires ordered id/value array keys and integer values
 0..99; already emitted values cannot be rolled back. It passed locally without
 I/O or external packages. CI supplies the second PHP runtime on Linux.
+
+## Fourth batch: two more language families
+
+Perl `folded_tie.pl` implements a tied hash with canonical ASCII keys, correct
+undef-versus-absence behavior, scalar counts, and one sorted key-snapshot
+iterator. Tests modify values, delete keys and insert keys during iteration,
+check live values versus snapshot keys, verify reference aliasing, reject bad
+accesses without mutation and exercise key-length limits and clear/assignment.
+The interpreter's tie hooks are checked against the
+[Perl tie contract](https://perldoc.perl.org/perltie); this is a purpose-written
+implementation, not a copied tutorial or benchmark solution.
+
+GNU AWK `transactional_totals.awk` uses nested arrays and an asorti comparator to
+merge LF/tab chunks with deterministic numeric/tie ordering. A temporary nested
+array holds the whole candidate update before publication. Fixtures assert
+literal summaries, exact line/kind errors, rollback after a valid prefix, empty
+chunks, 16-zone limits, 1000-row limits and the exact 1-billion integer total.
+Quantities are bounded so all arithmetic remains within exact binary64 integers.
+The dialect is explicitly GNU AWK, not POSIX awk; LC_ALL=C is recorded per run.
+
+Git's bundled Perl 5.42.3 and GNU AWK 5.4.1 passed local self-checks. Their first
+capability probes inside the restricted Windows sandbox failed while creating
+an MSYS shared-memory object, before any sample source was executed. Version
+probes and formal source-bound tests succeeded outside that restriction. CI
+selects the same bundled executables on Windows and distribution Perl/gawk on
+Linux, without CPAN packages or remote services.

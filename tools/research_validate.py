@@ -56,6 +56,8 @@ def execute(argv, cwd, timeout=90, probe=False, extra_env=None):
 class MissingTool(Exception): pass
 
 def probe(language):
+    perl_program=os.environ.get('MORDERCA_PERL') or 'perl'
+    gawk_program=os.environ.get('MORDERCA_GAWK') or shutil.which('gawk') or 'awk'
     commands = {
         'ruby':[['ruby','--version']], 'go':[['go','version']],
         'rust':[['rustc','--version','--verbose']], 'php':[['php','--version']],
@@ -66,6 +68,7 @@ def probe(language):
         'cpp':[['cl']] if os.name=='nt' else [['c++','--version']],
         'assembly':[['nasm','-v'],['ld','--version']],
         'python':[[sys.executable,'--version']], 'javascript':[['node','--version']],
+        'perl':[[perl_program,'-v']], 'awk-gawk':[[gawk_program,'--version']],
     }
     for command in commands.get(language,[]):
         program = shutil.which(command[0])
@@ -74,6 +77,9 @@ def probe(language):
         last=CURRENT['commands'][-1]
         CURRENT['runtime_versions'][command[0]]={'probe_returncode':last['returncode'],
                                                 'output':last['stdout']+last['stderr']}
+        if language=='perl' and last['returncode']!=0:raise MissingTool('Perl runtime probe failed; see recorded stderr')
+        if language=='awk-gawk' and (last['returncode']!=0 or not last['stdout'].startswith('GNU Awk')):
+            raise MissingTool('GNU AWK runtime is unavailable; a different awk implementation is not sufficient')
 
 def repair_cases():
     basic = json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
@@ -252,6 +258,13 @@ def validate(case, temporary):
     elif case.get('adapter')=='python_sqlite':
         CURRENT['runtime_versions']['sqlite']=sqlite3.sqlite_version
         execute([sys.executable,path],temporary)
+    elif language=='perl':
+        program=shutil.which(os.environ.get('MORDERCA_PERL') or 'perl')
+        execute([program,'-c',path],temporary)
+        assert 'passed' in execute([program,path],temporary)
+    elif language=='awk-gawk':
+        program=shutil.which(os.environ.get('MORDERCA_GAWK') or shutil.which('gawk') or 'awk')
+        assert 'passed' in execute([program,'-f',path],temporary,extra_env={'LC_ALL':'C'})
     elif language in ('c','cpp'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':

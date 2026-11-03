@@ -164,6 +164,27 @@ def validate(case, temporary):
             output=command['stdout']+'\n'+command['stderr']
             if 'T-SQL: constraints, exact errors, savepoints, migration and bound text passed' not in output:
                 raise AssertionError('SQL Server fixture did not report completion')
+            if case.get('negative_controls')=='constraint_migration':
+                from sqlserver_controls import variants
+                CURRENT['sqlserver_negative_controls']=[]
+                for number, control in enumerate(variants(path.read_text(encoding='utf-8'))):
+                    local=temporary/('sql-control-'+str(number)+'.sql')
+                    local.write_text(control['source'],encoding='utf-8')
+                    execute([docker,'cp',local,container+':'+target],temporary)
+                    copied=execute([docker,'exec',container,'sha256sum',target],temporary).split()[0]
+                    if copied!=digest(local):raise AssertionError('mutated SQL copy differs from control hash')
+                    execute([*connection,'-i',target],temporary,probe=True)
+                    record=CURRENT['commands'][-1]
+                    record['kind']='negative_execution_control'
+                    raw=record['stdout']+'\n'+record['stderr']
+                    if (record['returncode']!=1 or 'Msg '+str(control['error'])+',' not in raw
+                            or control['message'] not in raw):
+                        raise AssertionError('T-SQL mutation did not fail for intended reason: '+control['name'])
+                    CURRENT['sqlserver_negative_controls'].append({
+                        'mutation':control['name'],'control_sha256':copied,
+                        'expected_error':control['error'],'expected_message':control['message'],
+                        'returncode':record['returncode'],
+                        'scope':'Generated negative control, excluded from training source volume.'})
         except Exception as error:
             primary_error=error
             raise
@@ -436,6 +457,7 @@ def main():
     harness_paths=[Path(__file__),ROOT/'tools/sql_contracts.py',ROOT/'tools/verify.py']
     harness_paths.append(ROOT/'tools/verify_advanced.py')
     if (ROOT/'tools/isa_probe.py').exists():harness_paths.append(ROOT/'tools/isa_probe.py')
+    if (ROOT/'tools/sqlserver_controls.py').exists():harness_paths.append(ROOT/'tools/sqlserver_controls.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

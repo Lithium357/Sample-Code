@@ -81,8 +81,9 @@
       "curated/sql/tsql/constraint_migration.sql"
     ],
     "adapter": "sqlserver_container",
-    "last_edit_task_id": "research-pass-6",
-    "runtime_assumptions": "SQL Server engine in owned Linux container, bundled sqlcmd; native engine execution, temp tables only. Current checked engine version recorded per run; not all 2019+ versions claimed."
+    "last_edit_task_id": "research-pass-7",
+    "runtime_assumptions": "SQL Server engine in owned Linux container, bundled sqlcmd; native engine execution, temp tables only. Current checked engine version recorded per run; not all 2019+ versions claimed.",
+    "negative_controls": "constraint_migration"
   },
   {
     "path": "curated/sql/postgresql/constraint_migration.sql",

@@ -76,6 +76,11 @@
       "task_id": "research-pass-6",
       "source": "automatic continuation under visible human goal requests",
       "text": "Task identifier: research-pass-6 (local identifier).\nSource: automatic continuation of the active user-requested thread goal.\nGoverning visible human requests:\nSet a goal and keep working until you hit ~2B good, high quality, code tokens\nFocus on all languages, including niche or uncommon scenarios/usages\n\nContinue the unchanged objective with retained behavior tests, broad language\nrotation and uncommon practical contracts. Preserve provenance, failure history,\nsource-bound results, shared families and exact runtime labels. Do not intentionally\nuse standardized benchmark problems/solutions or pad toward the volume target.\nExact generation model build remains unavailable.\n"
+    },
+    {
+      "task_id": "research-pass-7",
+      "source": "automatic continuation under visible human goal requests",
+      "text": "Task identifier: research-pass-7 (local identifier).\nSource: automatic continuation of the active user-requested thread goal.\nGoverning visible human requests:\nSet a goal and keep working until you hit ~2B good, high quality, code tokens\nFocus on all languages, including niche or uncommon scenarios/usages\n\nThe approximately 2B-token objective and quality requirements remain unchanged.\nImprove retained behavior/failure checks before extending language-specific local\nexamples. Preserve immutable failures, exact modes, versions and source hashes,\navailable prompts/model provenance and shared task-family grouping. Do not\nintentionally use standardized benchmark problems/solutions or pad source.\nExact generation model build remains unavailable.\n"
     }
   ],
   "server_thread_id_source": "functions.create_goal response, learned during research pass 3; provenance/session-updates.jsonl preserves earlier unknown state"

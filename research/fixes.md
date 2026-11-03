@@ -3,6 +3,11 @@
 The JSONL history and failed-source snapshots are authoritative. This narrative
 does not replace or overwrite the original command results.
 
+Pass 3 retained a C# runner failure after successful compilation: inherited
+Platform=x64 changed MSBuild's default output path. The runner now sets an
+explicit build output directory; unchanged C# tests then executed successfully.
+See `PASS-3.md` and the source/harness-bound original and rerun records.
+
 Pass-2 PHP fixture failures and the exclusive-create fix are documented in
 `PASS-2.md`. The first ledger writer still hardcoded pass 1 for those failure
 events. Append-only metadata-correction events identify their actual pass-2

@@ -40,7 +40,7 @@ def main():
     curated={}
     for case in cases:
         for path in [case['path'],*case.get('support',[])]:
-            curated[path]={'path':path,'language':case['language'],'task_family':case['task_family'],
+            curated[path]={'path':path,'language':case.get('support_languages',{}).get(path,case['language']),'task_family':case['task_family'],
                            'task_id':case.get('task_id','research-pass-1'),'prompt_file':case.get('prompt_file','research/provenance/research-request.txt'),
                            'role':case.get('support_roles',{}).get(path,case.get('role','source') if path==case['path'] else 'support_source'),
                            'primary_unit':case['path']}

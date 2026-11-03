@@ -269,5 +269,35 @@
     "task_id": "research-pass-3",
     "prompt_file": "research/provenance/research-pass-3.txt",
     "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/csharp/pooled_writer.cs",
+    "language": "csharp",
+    "mode": "managed_runtime",
+    "task_family": "buffer.pooled-writer",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures",
+    "adapter": "csharp",
+    "runtime_assumptions": "C# 12 syntax, .NET SDK 10, net10.0 managed runtime; owned scratch build and empty local package feed"
+  },
+  {
+    "path": "curated/python/deferred_sqlite.py",
+    "language": "python",
+    "mode": "native",
+    "task_family": "sqlite.deferred-constraint-boundaries",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures",
+    "adapter": "python_sqlite",
+    "support": [
+      "curated/sql/sqlite/deferred_foreign_keys.sql"
+    ],
+    "support_languages": {
+      "curated/sql/sqlite/deferred_foreign_keys.sql": "sql-sqlite"
+    },
+    "support_roles": {
+      "curated/sql/sqlite/deferred_foreign_keys.sql": "support_source"
+    }
   }
 ]

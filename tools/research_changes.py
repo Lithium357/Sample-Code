@@ -50,7 +50,7 @@ def main():
                            'path':row['path'],'failed_run_id':row['run_id'],'passed_run_id':after['run_id'],
                            'failed_source_hashes':row['source_hashes'],'passed_source_hashes':after['source_hashes'],
                            'source_bundle_changed':row['source_hashes']!=after['source_hashes'],
-                           'mechanism':'See research/fixes.md and research/PASS-2.md; successful rerun does not erase the failure.'})
+                           'mechanism':'See research/fixes.md and the task-specific PASS reports; successful rerun does not erase the failure.'})
     for row in existing:
         if row.get('task_id')=='research-pass-1' and task_ids.get(row.get('path'))=='research-pass-2':
             events.append({'event_id':'task-correction:'+row['event_id'], 'kind':'metadata_correction',

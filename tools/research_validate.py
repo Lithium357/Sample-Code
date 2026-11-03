@@ -173,7 +173,7 @@ def validate(case, temporary):
             else: raise MissingTool('PDO SQLite driver unavailable')
         CURRENT['runtime_versions']['pdo_sqlite']=execute([php,*flags,'-r','echo (new PDO("sqlite::memory:"))->getAttribute(PDO::ATTR_CLIENT_VERSION);'],temporary)
         execute([php,*flags,path],temporary)
-    elif case.get('adapter')=='fsharp':
+    elif case.get('adapter') in ('fsharp','csharp'):
         dotnet=shutil.which('dotnet')
         if not dotnet:raise MissingTool('.NET SDK/F# Interactive unavailable')
         environment={'DOTNET_CLI_HOME':str(temporary/'dotnet-home'),
@@ -184,7 +184,33 @@ def validate(case, temporary):
         sdks=execute([dotnet,'--list-sdks'],temporary,extra_env=environment)
         CURRENT['runtime_versions']['dotnet_sdks']=sdks
         if not sdks:raise MissingTool('.NET host exists but no SDK/F# Interactive is installed')
-        execute([dotnet,'fsi','--langversion:8.0','--exec',path],temporary,extra_env=environment)
+        if case['adapter']=='fsharp':
+            execute([dotnet,'fsi','--langversion:8.0','--exec',path],temporary,extra_env=environment)
+        else:
+            if not any(line.startswith('10.') for line in sdks.splitlines()):
+                raise MissingTool('.NET SDK 10 required for this net10.0 managed-runtime fixture')
+            from xml.sax.saxutils import escape
+            feed=temporary/'empty-feed';feed.mkdir()
+            project=temporary/'Specimen.csproj'
+            project_text=('<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup>'
+                '<OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework>'
+                '<LangVersion>12.0</LangVersion><Nullable>enable</Nullable>'
+                '<TreatWarningsAsErrors>true</TreatWarningsAsErrors>'
+                '<NuGetAudit>false</NuGetAudit><RestoreSources>'+escape(str(feed))+'</RestoreSources>'
+                '</PropertyGroup></Project>')
+            project.write_text(project_text,encoding='utf-8')
+            shutil.copyfile(path,temporary/'Program.cs')
+            CURRENT['generated_build_inputs']={'Specimen.csproj':project_text,
+                'Program.cs_sha256':digest(temporary/'Program.cs'),
+                'note':'Source copied unchanged into scratch; generated project is control material, not extra training volume.'}
+            # An inherited Platform=x64 changes MSBuild's default directory.
+            # Choose the output explicitly rather than guessing that layout.
+            build_output=temporary/'managed-output'
+            execute([dotnet,'build',project,'--nologo','--output',build_output],temporary,extra_env=environment)
+            execute([dotnet,build_output/'Specimen.dll'],temporary,extra_env=environment)
+    elif case.get('adapter')=='python_sqlite':
+        CURRENT['runtime_versions']['sqlite']=sqlite3.sqlite_version
+        execute([sys.executable,path],temporary)
     elif language in ('c','cpp'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':

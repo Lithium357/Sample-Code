@@ -5,20 +5,20 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 179092,
+    "source_with_inline_fixtures": 181797,
     "source": 8369,
     "fixture": 293,
-    "support_source": 427
+    "support_source": 580
   },
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 341,
-  "generated_tokens": 188181,
-  "current_source_bound_pass_files": 339,
-  "current_source_bound_pass_tokens": 187192,
-  "execution_validated_files": 339,
-  "execution_validated_tokens": 187192,
+  "files": 344,
+  "generated_tokens": 191039,
+  "current_source_bound_pass_files": 342,
+  "current_source_bound_pass_tokens": 190050,
+  "execution_validated_files": 342,
+  "execution_validated_tokens": 190050,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
   "by_language": {
     "assembly": {
@@ -61,6 +61,11 @@
       "generated_tokens": 5642,
       "current_source_bound_pass_tokens": 5642
     },
+    "csharp": {
+      "files": 1,
+      "generated_tokens": 1776,
+      "current_source_bound_pass_tokens": 1776
+    },
     "fsharp": {
       "files": 1,
       "generated_tokens": 1125,
@@ -92,9 +97,9 @@
       "current_source_bound_pass_tokens": 16241
     },
     "python": {
-      "files": 1,
-      "generated_tokens": 928,
-      "current_source_bound_pass_tokens": 928
+      "files": 2,
+      "generated_tokens": 1857,
+      "current_source_bound_pass_tokens": 1857
     },
     "ruby": {
       "files": 43,
@@ -115,6 +120,11 @@
       "files": 2,
       "generated_tokens": 1523,
       "current_source_bound_pass_tokens": 1523
+    },
+    "sql-sqlite": {
+      "files": 1,
+      "generated_tokens": 153,
+      "current_source_bound_pass_tokens": 153
     },
     "sql-tsql": {
       "files": 1,

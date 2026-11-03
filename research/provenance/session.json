@@ -2,7 +2,7 @@
   "schema_version": 1,
   "workspace_identifier": "local-workspace:2026-11-02/i-x20",
   "identifier_source": "User-supplied local environment context; not a server thread id",
-  "server_thread_id": null,
+  "server_thread_id": "01a19ce2-e6f4-7392-8c99-e573de587631",
   "generation_model_family_reported": "GPT-6",
   "model_family_source": "Developer session description identifies Codex as based on GPT-6",
   "generation_model_version": null,
@@ -62,5 +62,6 @@
       "prompt_file": "research/provenance/research-pass-3.txt",
       "source": "visible user messages; exact text with labeled inherited requirements"
     }
-  ]
+  ],
+  "server_thread_id_source": "functions.create_goal response, learned during research pass 3; provenance/session-updates.jsonl preserves earlier unknown state"
 }

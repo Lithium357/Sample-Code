@@ -45,3 +45,34 @@ execution and native ARM/AArch64 execution remain outstanding.
 Detailed raw results are retained in append-only `evidence/history/`; current
 counts are refreshed in `volume.json`. Full-file counts include comments and
 embedded fixtures; no Morderca tokenizer or lexical component split is claimed.
+
+## Batch 2
+
+C# `pooled_writer.cs` implements IBufferWriter<byte> and deterministic ownership
+of pooled arrays. It caps logical capacity even for oversized physical rentals,
+copies only initialized bytes on growth, preserves data if rental fails, clears
+returned arrays and makes Dispose idempotent. Tests use a tracking pool, injected
+rental failure, exact byte expectations and a MemoryStream reference across 64
+capacities. The borrowed spans have an explicit expiration contract; this is
+a single-owner API, not a thread-safe producer queue. The source compiles as
+C# 12 for net10.0 with nullable checking and warnings as errors. The harness
+creates an owned scratch project and uses an empty local package source;
+generated project text and exact build/run commands are recorded as control
+inputs, not additional training source tokens.
+
+Python `deferred_sqlite.py` and its SQLite DDL support file test deferred foreign
+keys at commit, nested RELEASE versus outer RELEASE, repair after failed commit,
+usable nested savepoints after failure, rollback and immediate CHECK failures.
+Each rejection checks the extended SQLite error code, transaction state and
+rows. These are purpose-written fixtures; semantics were checked against
+[SQLite's official documentation](https://www.sqlite.org/foreignkeys.html#fk_deferred).
+The SQL support file is labeled `sql-sqlite` separately from its Python driver.
+Both source hashes must match the passing bundle for either to count.
+
+All six pass-3 units (seven source/support files) passed their local checks.
+One unsuccessful C# invocation is retained: compilation succeeded, but an
+inherited Platform=x64 environment moved the default output to bin/x64/Debug.
+The runner guessed bin/Debug and could not launch the program. The harness now
+sets --output explicitly. Source and test expectations were unchanged; the
+successful rerun is linked to the original failure. CI broadens the C# checks
+to both Windows and Linux and executes the new SQLite driver on both hosts.

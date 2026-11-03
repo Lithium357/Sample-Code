@@ -1,0 +1,13 @@
+{
+  "status": "active",
+  "target_tokens_approximate": 2000000000,
+  "tokenizer": "cl100k_base",
+  "morderca_tokenizer_used": false,
+  "progress_file": "research/volume.json",
+  "progress_field": "execution_validated_tokens",
+  "counting": "Unique current allowlisted source/support files with passing source-bound execution; file bytes count once across platforms and reruns.",
+  "excluded": ["documentation", "prompts", "harnesses", "logs", "failed snapshots", "archive duplicates", "syntax-only results", "untested examples", "padding", "evaluation material"],
+  "scope": "Rotate broadly across languages and practical uncommon usages; no fixed language list is exhaustive.",
+  "prompt_ref": "research/provenance/research-pass-3.txt",
+  "qualification": "An active long-running target, not an assertion that the volume has been achieved or can be completed in one turn."
+}

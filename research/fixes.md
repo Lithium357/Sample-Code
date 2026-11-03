@@ -86,3 +86,15 @@ copy into it, then remove the exact file and nonrecursively rmdir the owned
 folder as that same user. No privileged Docker exec is introduced. Cleanup
 errors are recorded without masking an original test error. The source itself
 is unchanged; a clean CI rerun is required for promotion.
+
+
+SQL Server run 1afa527a0f184d8fbdaa1dfce1f8ccf9 (workflow 41656604474)
+confirmed the private-directory cleanup fix, but failed the completion sentinel:
+-b -r 1 correctly routes PRINT to stderr, while the adapter inspected stdout
+alone. Both command streams, code 0 SQL execution and successful file/directory
+cleanup are preserved in the failed result. The original run also had this
+sentinel error, masked by its cleanup exception. Fix: retain the exact same
+completion text requirement and -b failure behavior, checking the recorded
+stdout AND stderr as documented for sqlcmd -r 1. No SQL expectation or expected
+output text is changed. The unchanged T-SQL still requires a wholly successful
+new validation run before qualification.

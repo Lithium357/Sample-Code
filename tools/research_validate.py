@@ -157,7 +157,11 @@ def validate(case, temporary):
             copied=execute([docker,'exec',container,'sha256sum',target],temporary).split()[0]
             if copied!=digest(path):raise AssertionError('SQL Server fixture copy differs from recorded source hash')
             CURRENT['container_source_sha256']=copied
-            output=execute([*connection,'-i',target],temporary)
+            execute([*connection,'-i',target],temporary)
+            # -r 1 directs PRINT and other messages to stderr. Retain both
+            # streams in the raw command record and check completion there.
+            command=CURRENT['commands'][-1]
+            output=command['stdout']+'\n'+command['stderr']
             if 'T-SQL: constraints, exact errors, savepoints, migration and bound text passed' not in output:
                 raise AssertionError('SQL Server fixture did not report completion')
         except Exception as error:

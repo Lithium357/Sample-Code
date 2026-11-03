@@ -32,12 +32,17 @@ jobs:
         run: for source in advanced/go/*.go; do go run -race "$source" || exit; done
       - name: Source-bound research repair evidence
         run: python3 tools/research_validate.py --suite repairs --require-tools
+      - name: Source-bound existing-example evidence
+        run: python3 tools/research_validate.py --suite legacy --skip-language cmd --require-tools
       - name: Install research emulator tooling
         run: python3 -m pip install keystone-engine==0.9.2 unicorn==2.1.4
       - name: Curated research checks (unavailable targets explicitly recorded)
         run: python3 tools/research_validate.py --suite curated
       - name: Race-check curated Go
-        run: go run -race curated/go/local_http.go
+        run: >-
+          python3 tools/research_validate.py --path curated/go/local_http.go
+          --path advanced/go/dag_scheduler.go --path advanced/go/mvcc_store.go
+          --path advanced/go/weighted_semaphore.go --go-race --require-tools
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -62,6 +67,15 @@ jobs:
           path: validation-windows.json
       - name: Run advanced Windows examples
         run: python tools/verify_advanced.py --require-tools --language cmd --language powershell --language sql --report validation-advanced-windows.json
+      - name: Source-bound Windows fixtures
+        run: python tools/research_validate.py --path curated/cmd/paths_and_status.cmd --path curated/powershell/object_pipeline.ps1 --require-tools
+      - name: Source-bound existing CMD evidence
+        run: python tools/research_validate.py --suite legacy --only-language cmd --require-tools
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-windows-evidence
+          path: research/evidence/history/*.jsonl
       - uses: actions/upload-artifact@v4
         if: always()
         with:

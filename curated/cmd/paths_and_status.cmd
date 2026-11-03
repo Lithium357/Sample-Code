@@ -9,6 +9,8 @@ if errorlevel 1 exit /b 11
 set "fixture=%owned%\bang! file.txt"
 >"%fixture%" echo alpha
 >>"%fixture%" echo beta
+>>"%fixture%" echo.
+>>"%fixture%" echo ;ignored comment
 call :count_nonempty "%fixture%"
 set "status=%ERRORLEVEL%"
 if not "%status%"=="0" goto :failed

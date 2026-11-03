@@ -15,12 +15,14 @@ def validate_isa(path:Path,isa:str):
         arguments=[a64.UC_ARM64_REG_X0,a64.UC_ARM64_REG_X1,a64.UC_ARM64_REG_X2,a64.UC_ARM64_REG_X3]
         saved=[getattr(a64,'UC_ARM64_REG_X'+str(i)) for i in range(19,30)]
         stack,link=a64.UC_ARM64_REG_SP,a64.UC_ARM64_REG_LR
+        pc=a64.UC_ARM64_REG_PC
     elif isa=='armv7':
         assembler=Ks(KS_ARCH_ARM,KS_MODE_ARM|KS_MODE_LITTLE_ENDIAN)
         architecture,mode=UC_ARCH_ARM,UC_MODE_ARM|UC_MODE_LITTLE_ENDIAN
         arguments=[arm.UC_ARM_REG_R0,arm.UC_ARM_REG_R1,arm.UC_ARM_REG_R2,arm.UC_ARM_REG_R3]
         saved=[getattr(arm,'UC_ARM_REG_R'+str(i)) for i in range(4,12)]
         stack,link=arm.UC_ARM_REG_SP,arm.UC_ARM_REG_LR
+        pc=arm.UC_ARM_REG_PC
     else:raise ValueError('unsupported emulation ISA')
     encoded,_=assembler.asm(instructions,addr=0x100000)
     vectors=[(b'',0,0),(b'aZz!\x00\x80',6,3),(b'aZz!\x00\x80',6,12),(bytes(range(256)),256,256)]
@@ -42,6 +44,7 @@ def validate_isa(path:Path,isa:str):
         for i,register in enumerate(saved):machine.reg_write(register,0x5500+i)
         for register,value in zip(arguments,[target_address,source_address,length,capacity]):machine.reg_write(register,value)
         def memory(emu,access,address,size,value,user):
+            if 0x400000<=address and address+size<=0x401000:return # Valid stack accesses.
             if access==UC_MEM_READ:
                 if not source_address<=address or address+size>source_address+copied:
                     raise AssertionError('read outside copied source prefix')
@@ -50,6 +53,7 @@ def validate_isa(path:Path,isa:str):
                     raise AssertionError('write outside destination capacity')
         machine.hook_add(UC_HOOK_MEM_READ|UC_HOOK_MEM_WRITE,memory)
         machine.emu_start(0x100000,0x100800,timeout=1000000,count=10000)
+        assert machine.reg_read(pc)==0x100800,'function did not return before instruction/time limit'
         assert machine.reg_read(arguments[0])==copied,'wrong return count'
         for i,register in enumerate(saved):assert machine.reg_read(register)==0x5500+i,'callee-saved register changed'
         assert machine.reg_read(stack)==0x400ff0,'stack not preserved'

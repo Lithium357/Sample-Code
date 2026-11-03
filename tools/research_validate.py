@@ -61,6 +61,8 @@ def probe(language):
         'powershell':[['pwsh','-NoProfile','-Command','$PSVersionTable | ConvertTo-Json -Compress']],
         'nim':[['nim','--version'],['node','--version']],
         'c':[['cl']] if os.name=='nt' else [['cc','--version']],
+        'cpp':[['cl']] if os.name=='nt' else [['c++','--version']],
+        'assembly':[['nasm','-v'],['ld','--version']],
     }
     for command in commands.get(language,[]):
         program = shutil.which(command[0])
@@ -81,6 +83,15 @@ def repair_cases():
     ]
     return cases
 
+def legacy_cases():
+    basic=json.loads((ROOT/'manifest.json').read_text())
+    advanced=json.loads((ROOT/'advanced/manifest.json').read_text())['files']
+    return [{'path':entry['path'],'language':entry['language'],
+             'mode':'native_sqlite' if entry['language']=='sql' else 'native',
+             'expected_fixture_count':entry.get('fixtures'),
+             'scope':'Existing embedded checks; passing does not establish exhaustive feature coverage or origin audit.'}
+            for entry in basic+advanced]
+
 def validate(case, temporary):
     path = ROOT/case['path']
     language = case['language']
@@ -96,6 +107,7 @@ def validate(case, temporary):
             OBSERVATIONS.clear()
             rejected,positive = check_contracts(connection,path.name)
             assert count>0
+            if case.get('expected_fixture_count') is not None:assert count==case['expected_fixture_count']
             assert connection.execute('PRAGMA integrity_check').fetchone()==('ok',)
             assert connection.execute('PRAGMA foreign_key_check').fetchall()==[]
         CURRENT['sql_rejections']=list(OBSERVATIONS)
@@ -120,6 +132,7 @@ def validate(case, temporary):
         CURRENT['runtime_versions']['postgresql_server']=execute([*connection,'-At','-c','SELECT version()'],temporary)
         execute([*connection,'-f',path],temporary)
         return
+    if language=='assembly' and platform.system()!='Linux':raise MissingTool('Native Linux x86-64 execution unavailable on this host')
     probe(language)
     legacy.run = execute
     if case.get('adapter') == 'php_pdo':
@@ -133,12 +146,18 @@ def validate(case, temporary):
             else: raise MissingTool('PDO SQLite driver unavailable')
         CURRENT['runtime_versions']['pdo_sqlite']=execute([php,*flags,'-r','echo (new PDO("sqlite::memory:"))->getAttribute(PDO::ATTR_CLIENT_VERSION);'],temporary)
         execute([php,*flags,path],temporary)
-    elif language == 'c':
+    elif language in ('c','cpp'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':
-            execute([shutil.which('cl'),'/nologo','/W4','/std:c17','/TC',path,'/Fe:'+str(binary),'/Fo:'+str(temporary/'check.obj')],temporary)
+            flags=['/nologo','/W4','/EHsc','/std:c++20'] if language=='cpp' else ['/nologo','/W4','/std:c17','/TC']
+            execute([shutil.which('cl'),*flags,path,'/Fe:'+str(binary),'/Fo:'+str(temporary/'check.obj')],temporary)
         else:
-            execute([shutil.which('cc'),'-std=c17','-Wall','-Wextra','-Werror','-fsanitize=address,undefined','-g',path,'-o',binary],temporary)
+            execute([shutil.which('c++' if language=='cpp' else 'cc'),'-std=c++20' if language=='cpp' else '-std=c17','-Wall','-Wextra','-Werror','-fsanitize=address,undefined','-g',path,'-o',binary],temporary)
+        execute([binary],temporary)
+    elif language=='go' and case.get('go_race'):
+        binary=temporary/('check.exe' if os.name=='nt' else 'check')
+        CURRENT['instrumentation']='Go race detector'
+        execute([shutil.which('go'),'build','-race','-o',binary,path],temporary)
         execute([binary],temporary)
     elif case.get('commands'):
         values={'root':str(ROOT),'temp':str(temporary),'source':str(path),'python':sys.executable,
@@ -155,18 +174,26 @@ def validate(case, temporary):
 def main():
     global CURRENT
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--suite',choices=['repairs','curated','all'],default='all')
+    parser.add_argument('--suite',choices=['repairs','curated','legacy','all'],default='all')
     parser.add_argument('--path',action='append')
+    parser.add_argument('--only-language',action='append')
+    parser.add_argument('--skip-language',action='append',default=[])
+    parser.add_argument('--go-race',action='store_true')
     parser.add_argument('--require-tools',action='store_true')
     args=parser.parse_args()
-    cases=repair_cases() if args.suite in ('repairs','all') else []
+    cases=legacy_cases() if args.suite in ('legacy','all') else repair_cases() if args.suite=='repairs' else []
     registry=ROOT/'research/cases.json'
     if registry.exists() and args.suite in ('curated','all'): cases+=json.loads(registry.read_text())
     if args.path:
-        available={case['path']:case for case in repair_cases()+(json.loads(registry.read_text()) if registry.exists() else [])}
+        available={case['path']:case for case in legacy_cases()+(json.loads(registry.read_text()) if registry.exists() else [])}
         unknown=set(args.path)-set(available)
         if unknown: parser.error('unknown paths: '+str(unknown))
         cases=[available[path] for path in args.path]
+    cases=[case for case in cases if case['language'] not in args.skip_language and (not args.only_language or case['language'] in args.only_language)]
+    if args.go_race:
+        for case in cases:
+            if case['language']=='go':case['go_race']=True
+    if not cases:parser.error('no cases selected')
     run_id=uuid.uuid4().hex
     history=ROOT/'research/evidence/history'
     history.mkdir(parents=True,exist_ok=True)

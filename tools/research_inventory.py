@@ -78,6 +78,9 @@ def main():
         if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','transpiled_js','emulation'):
             passed_paths.update(record['source_hashes'])
     for row in rows:
+        row['provenance_ref']='research/provenance/session.json'
+        row['prompt_ref']='research/provenance/research-request.txt' if row['task_id']=='research-pass-1' else 'research/provenance/session.json#prompts'
+        row['edits_ref']='research/changes.jsonl'
         row['current_source_bound_pass']=row['path'] in passed_paths
         row['training_eligibility']=('candidate_after_source_bound_checks' if row['origin_audit']=='no_benchmark_source_intentionally_used' and row['current_source_bound_pass']
                                      else 'hold_for_validation' if row['origin_audit']=='no_benchmark_source_intentionally_used' else 'legacy_origin_and_coverage_review_required')

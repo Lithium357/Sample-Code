@@ -42,3 +42,8 @@ prompts and historical manifests are control material, not extra training
 examples or additional generated source volume. Untested curated files are
 held for validation. Legacy origin/coverage review remains incomplete even
 where their current behavioral checks pass.
+
+`--suite legacy` reruns retained examples through the detailed recorder.
+Use `--skip-language cmd` on Linux and `--only-language cmd` on Windows. These
+are embedded self-checks with recorded scope, not a comprehensive feature audit.
+Go's `--go-race` records actual race-enabled build and run commands.

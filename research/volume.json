@@ -4,16 +4,16 @@
   "counting": "sum of individually tokenized source/support files; normalized text newlines",
   "whole_file_role_tokens": {
     "source_with_inline_fixtures": 165213,
-    "source": 8207,
+    "source": 8235,
     "fixture": 293,
     "support_source": 427
   },
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
   "files": 327,
-  "generated_tokens": 174140,
-  "current_source_bound_pass_files": 40,
-  "current_source_bound_pass_tokens": 25493,
+  "generated_tokens": 174168,
+  "current_source_bound_pass_files": 42,
+  "current_source_bound_pass_tokens": 27379,
   "by_language": {
     "assembly": {
       "files": 19,
@@ -37,8 +37,8 @@
     },
     "bash": {
       "files": 26,
-      "generated_tokens": 14757,
-      "current_source_bound_pass_tokens": 557
+      "generated_tokens": 14770,
+      "current_source_bound_pass_tokens": 570
     },
     "c": {
       "files": 3,
@@ -47,13 +47,13 @@
     },
     "cmd": {
       "files": 23,
-      "generated_tokens": 14539,
-      "current_source_bound_pass_tokens": 407
+      "generated_tokens": 14554,
+      "current_source_bound_pass_tokens": 422
     },
     "cpp": {
       "files": 3,
       "generated_tokens": 4475,
-      "current_source_bound_pass_tokens": 0
+      "current_source_bound_pass_tokens": 1253
     },
     "go": {
       "files": 35,
@@ -93,7 +93,7 @@
     "sql-postgresql": {
       "files": 1,
       "generated_tokens": 605,
-      "current_source_bound_pass_tokens": 0
+      "current_source_bound_pass_tokens": 605
     },
     "sql-tsql": {
       "files": 1,

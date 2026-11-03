@@ -4,7 +4,7 @@
     "language": "php",
     "mode": "native",
     "adapter": "php_pdo",
-    "task_family": "request.local-orders.php-pdo",
+    "task_family": "request.local-orders",
     "task_description": "Validate a local JSON request, bind PDO parameters, stream rows, reject bad input and verify rollback.",
     "runtime_assumptions": "PHP 8.1+ with PDO SQLite; in-memory database only"
   },
@@ -12,7 +12,7 @@
     "path": "curated/go/local_http.go",
     "language": "go",
     "mode": "native",
-    "task_family": "request.local-orders.go-http",
+    "task_family": "request.local-orders",
     "task_description": "Inject a store into an HTTP handler; exercise strict JSON, context cancellation, errors and file state with httptest.",
     "runtime_assumptions": "Go 1.20+; local temporary directory; no listener"
   },
@@ -20,7 +20,7 @@
     "path": "curated/ruby/record_stream.rb",
     "language": "ruby",
     "mode": "native",
-    "task_family": "records.lazy-json.ruby",
+    "task_family": "records.validated-stream",
     "task_description": "Small lazy JSON-lines library with enumerators, blocks, immutable records and structured exception causes.",
     "runtime_assumptions": "Ruby 3+ standard library"
   },
@@ -28,7 +28,7 @@
     "path": "curated/rust/borrowed_records.rs",
     "language": "rust",
     "mode": "native",
-    "task_family": "records.borrowed-text.rust",
+    "task_family": "records.validated-stream",
     "task_description": "Borrow parsed slices from an owned buffer using a fallible iterator and typed errors.",
     "runtime_assumptions": "Rust edition 2021; standard library"
   },
@@ -36,28 +36,28 @@
     "path": "curated/bash/local_files.sh",
     "language": "bash",
     "mode": "native",
-    "task_family": "files.shell.bash",
+    "task_family": "files.local-status-cleanup",
     "task_description": "Quoting, NUL filename traversal, pipefail and trap cleanup in owned temporary files."
   },
   {
     "path": "curated/powershell/object_pipeline.ps1",
     "language": "powershell",
     "mode": "native",
-    "task_family": "records.objects.powershell",
+    "task_family": "records.validated-stream",
     "task_description": "Objects and pipelines, strict validation, JSON/CSV and typed errors."
   },
   {
     "path": "curated/cmd/paths_and_status.cmd",
     "language": "cmd",
     "mode": "native",
-    "task_family": "files.shell.cmd",
+    "task_family": "files.local-status-cleanup",
     "task_description": "Quoted spaced/exclamation paths, disabled delayed expansion and captured ERRORLEVEL."
   },
   {
     "path": "curated/nim/test_record_stream.nim",
     "language": "nim",
     "mode": "transpiled_js",
-    "task_family": "records.options.nim",
+    "task_family": "records.validated-stream",
     "support": [
       "curated/nim/record_stream.nim"
     ],

@@ -17,14 +17,15 @@ printf 'beta\n' > "$root/input/-leading-dash.txt"
 printf 'gamma\n' > "$root/input/"$'line\nbreak.txt'
 printf 'bang\n' > "$root/input/bang!name.txt"
 count=0
-# Process substitution preserves the counter in this shell. find output uses
-# NUL separators because newline is a legal filename byte.
+# Materialize find output so its exit status is checked by errexit; a process
+# substitution would hide producer failure. NUL preserves newline filenames.
+find "$root/input" -type f -print0 > "$root/manifest"
 while IFS= read -r -d '' filename; do
     [[ -f $filename ]] || exit 1
     bytes=$(wc -c < "$filename")
     ((bytes>0)) || exit 1
     count=$((count+1))
-done < <(find "$root/input" -type f -print0)
+done < "$root/manifest"
 [[ $count == 4 ]] || exit 1
 upstream_failure() { printf 'data\n'; return 7; }
 status=0

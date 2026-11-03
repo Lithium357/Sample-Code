@@ -328,5 +328,23 @@
     "task_id": "research-pass-4",
     "prompt_file": "research/provenance/research-pass-4.txt",
     "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/nim/wire_schema.nim",
+    "language": "nim",
+    "mode": "transpiled_js",
+    "task_family": "dsl.enum-wire-schema",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/powershell/should_process_markers.ps1",
+    "language": "powershell",
+    "mode": "native",
+    "task_family": "filesystem.should-process-markers",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures"
   }
 ]

@@ -52,3 +52,32 @@ Current counts and source-bound results are in `volume.json` and
 `evidence/history/`. Native/managed execution and emulation remain distinguished.
 The long-run target remains active; documentation/harnesses/logs are not source
 volume, and a rerun adds no tokens by itself.
+
+## Second batch
+
+PowerShell `should_process_markers.ps1` buffers pipeline records before writing,
+uses terminating structured validation errors, and honors WhatIf/Confirm through
+ShouldProcess. Its owned-file fixtures check dry-run creation and replacement,
+unchanged bytes, strict UTF-8 without BOM, canonical replacement of UTF-16 files,
+case-insensitive duplicate detection, Windows device stems on every host, scalar
+types, invalid surrogates, byte-count limits and path-safe directory cleanup.
+Prevalidation is batch-wide; I/O application is deliberately per-file, not a
+claim of an atomic filesystem transaction. The root must be owned, free of
+concurrent writers and symlink tricks. The minimum runtime is PowerShell 7.2.
+
+Nim `wire_schema.nim` generates typed enums, parsers and exhaustive serializers
+from a literal schema using AST nodes, fresh parameter symbols and escaped
+string literals. Tests cover exact values and unknowns, metacharacter literals,
+the eight-byte wire boundary, nine compile-time invalid-schema checks and one
+cross-enum type rejection. These are actual compiler semantic checks through
+compiles, not runtime rejections. Macro APIs and semantic-check behavior were
+checked against [std/macros](https://nim-lang.org/docs/macros.html) and
+[system.compiles](https://nim-lang.org/docs/system.html#compiles%2Cuntyped).
+The example passed local JS/Node and native C/MSVC backends. CI adds the
+distribution Nim compiler and the Linux native backend.
+
+The first batch passed [CI run 41592825399](https://github.com/Lithium357/Sample-Code/actions/runs/41592825399).
+Its five research artifacts were SHA-256 verified before ten new raw history
+files were imported. The RISC-V record confirms emulation success for the
+current source hash, all 411 vectors and both intended negative-control failures.
+This is new execution evidence, not a relabeling of prior syntax-only results.

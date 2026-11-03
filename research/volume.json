@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 186492,
+    "source_with_inline_fixtures": 189895,
     "source": 8390,
     "fixture": 293,
     "support_source": 580
@@ -13,12 +13,12 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 347,
-  "generated_tokens": 195755,
-  "current_source_bound_pass_files": 345,
-  "current_source_bound_pass_tokens": 194745,
-  "execution_validated_files": 345,
-  "execution_validated_tokens": 194745,
+  "files": 349,
+  "generated_tokens": 199158,
+  "current_source_bound_pass_files": 348,
+  "current_source_bound_pass_tokens": 198511,
+  "execution_validated_files": 348,
+  "execution_validated_tokens": 198511,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
   "by_language": {
     "assembly": {
@@ -39,7 +39,7 @@
     "assembly-riscv64": {
       "files": 1,
       "generated_tokens": 363,
-      "current_source_bound_pass_tokens": 0
+      "current_source_bound_pass_tokens": 363
     },
     "bash": {
       "files": 27,
@@ -82,9 +82,9 @@
       "current_source_bound_pass_tokens": 1071
     },
     "nim": {
-      "files": 41,
-      "generated_tokens": 19242,
-      "current_source_bound_pass_tokens": 19242
+      "files": 42,
+      "generated_tokens": 20419,
+      "current_source_bound_pass_tokens": 20419
     },
     "php": {
       "files": 37,
@@ -92,9 +92,9 @@
       "current_source_bound_pass_tokens": 17146
     },
     "powershell": {
-      "files": 34,
-      "generated_tokens": 16241,
-      "current_source_bound_pass_tokens": 16241
+      "files": 35,
+      "generated_tokens": 18467,
+      "current_source_bound_pass_tokens": 18467
     },
     "python": {
       "files": 2,

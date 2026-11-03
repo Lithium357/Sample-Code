@@ -74,7 +74,7 @@ jobs:
       - name: Run advanced Windows examples
         run: python tools/verify_advanced.py --require-tools --language cmd --language powershell --language sql --report validation-advanced-windows.json
       - name: Source-bound Windows fixtures
-        run: python tools/research_validate.py --path curated/cmd/paths_and_status.cmd --path curated/powershell/object_pipeline.ps1 --require-tools
+        run: python tools/research_validate.py --suite curated --only-language cmd --only-language powershell --require-tools
       - name: Source-bound existing CMD evidence
         run: python tools/research_validate.py --suite legacy --only-language cmd --require-tools
       - uses: actions/upload-artifact@v4

@@ -384,5 +384,33 @@
     "task_id": "research-pass-5",
     "prompt_file": "research/provenance/research-pass-5.txt",
     "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/ruby/fiber_pull.rb",
+    "language": "ruby",
+    "mode": "native",
+    "task_family": "iterator.delegated-generator-lifecycle",
+    "task_id": "research-pass-5",
+    "prompt_file": "research/provenance/research-pass-5.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/bash/descriptor_scope.sh",
+    "language": "bash",
+    "mode": "native",
+    "task_family": "resource.borrowed-descriptor-scope",
+    "task_id": "research-pass-5",
+    "prompt_file": "research/provenance/research-pass-5.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/cmd/literal_expansion.cmd",
+    "language": "cmd",
+    "mode": "native",
+    "task_family": "cmd.literal-expansion-phases",
+    "task_id": "research-pass-5",
+    "prompt_file": "research/provenance/research-pass-5.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Windows cmd.exe with extensions, local-drive cwd, normal unshadowed CMD pseudo-variables; CRLF source and ASCII fixture text. No POSIX-shell claim."
   }
 ]

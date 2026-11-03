@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 197044,
+    "source_with_inline_fixtures": 200675,
     "source": 8390,
     "fixture": 293,
     "support_source": 580
@@ -13,15 +13,15 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 353,
-  "generated_tokens": 206307,
-  "current_source_bound_pass_files": 352,
-  "current_source_bound_pass_tokens": 205660,
-  "execution_validated_files": 352,
-  "execution_validated_tokens": 205660,
+  "files": 356,
+  "generated_tokens": 209938,
+  "current_source_bound_pass_files": 355,
+  "current_source_bound_pass_tokens": 209291,
+  "execution_validated_files": 355,
+  "execution_validated_tokens": 209291,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 42,
-  "training_candidate_tokens": 41356,
+  "training_candidate_files": 45,
+  "training_candidate_tokens": 44987,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 310,
   "legacy_review_required_tokens": 164304,
@@ -52,19 +52,19 @@
       "current_source_bound_pass_tokens": 1471
     },
     "bash": {
-      "files": 27,
-      "generated_tokens": 15534,
-      "current_source_bound_pass_tokens": 15534
+      "files": 28,
+      "generated_tokens": 16815,
+      "current_source_bound_pass_tokens": 16815
     },
     "c": {
       "files": 5,
-      "generated_tokens": 9744,
-      "current_source_bound_pass_tokens": 9744
+      "generated_tokens": 9758,
+      "current_source_bound_pass_tokens": 9758
     },
     "cmd": {
-      "files": 23,
-      "generated_tokens": 14554,
-      "current_source_bound_pass_tokens": 14554
+      "files": 24,
+      "generated_tokens": 15515,
+      "current_source_bound_pass_tokens": 15515
     },
     "cpp": {
       "files": 5,
@@ -117,9 +117,9 @@
       "current_source_bound_pass_tokens": 1857
     },
     "ruby": {
-      "files": 43,
-      "generated_tokens": 16144,
-      "current_source_bound_pass_tokens": 16144
+      "files": 44,
+      "generated_tokens": 17519,
+      "current_source_bound_pass_tokens": 17519
     },
     "rust": {
       "files": 37,

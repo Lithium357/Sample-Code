@@ -99,6 +99,7 @@ def main():
             document=ROOT/review['document']
             accepted=(review['outcome']=='candidate_with_documented_scope' and
                       review['task_family']==row['task_family'] and
+                      review['generation_task_id']==row['task_id'] and
                       document.resolve().is_relative_to(ROOT) and document.is_file() and
                       sha(document)==review['document_sha256'])
             row['review_status']='accepted_current_source_and_document' if accepted else 'held_review_not_current_or_accepted'

@@ -38,7 +38,9 @@ jobs:
       - name: Source-bound existing-example evidence
         run: python3 tools/research_validate.py --suite legacy --skip-language cmd --require-tools
       - name: Install research emulator tooling
-        run: python3 -m pip install keystone-engine==0.9.2 unicorn==2.1.4
+        run: python3 -m pip install keystone-engine==0.9.2 unicorn==2.1.4 tiktoken==0.14.0
+      - name: Verify source/document review gates with genuine execution controls
+        run: python3 tools/review_policy_probe.py --require-tools
       - name: Curated research checks (unavailable targets explicitly recorded)
         run: python3 tools/research_validate.py --suite curated
       - name: Curated Nim native backend

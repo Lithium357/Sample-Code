@@ -3,6 +3,12 @@
 The JSONL history and failed-source snapshots are authoritative. This narrative
 does not replace or overwrite the original command results.
 
+Pass 5 retained the Bash descriptor fixture's failed redirection-based leak
+assertion. Its replacement verifies known-open /dev/fd state and rejects a
+known-open negative control, then requires closure after every owned scope.
+This corrects a probing side effect, not expected ownership behavior. See
+`PASS-5.md`, the failed-source snapshot and subsequent passing records.
+
 Pass 3 retained a C# runner failure after successful compilation: inherited
 Platform=x64 changed MSBuild's default output path. The runner now sets an
 explicit build output directory; unchanged C# tests then executed successfully.

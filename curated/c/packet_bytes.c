@@ -14,6 +14,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled"
+#endif
 _Static_assert(CHAR_BIT == 8, "requires 8-bit bytes");
 enum { HEADER = 12, MAX_PAYLOAD = 1024 };
 typedef enum {

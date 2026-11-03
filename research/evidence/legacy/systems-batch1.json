@@ -1,0 +1,75 @@
+{
+  "failures": 0,
+  "files": [
+    {
+      "path": "advanced/c/robin_hood_map.c",
+      "status": "passed",
+      "output": "Robin Hood map: 40000 reference operations, deletion chains and allocation-failure atomicity passed"
+    },
+    {
+      "path": "advanced/cpp/order_statistic_treap.cpp",
+      "status": "passed",
+      "output": "Treap: 12000 multiset comparisons, duplicates, split/merge and order statistics passed"
+    },
+    {
+      "path": "advanced/nim/astar_grid.nim",
+      "status": "passed",
+      "output": "A*: 100 Bellman-Ford comparisons, path validation and boundary cases passed"
+    },
+    {
+      "path": "advanced/nim/dinic_flow.nim",
+      "status": "passed",
+      "output": "Dinic: 250 exhaustive cut oracles, certificates, parallel and reverse arcs passed"
+    },
+    {
+      "path": "advanced/nim/persistent_avl.nim",
+      "status": "passed",
+      "output": "Persistent AVL: 1200 reference-checked mutations and immutable snapshots passed"
+    },
+    {
+      "path": "advanced/nim/suffix_index.nim",
+      "status": "passed",
+      "output": "Suffix index: 200 naive-array/LCP comparisons and 1200 pattern searches passed"
+    },
+    {
+      "path": "advanced/go/dag_scheduler.go",
+      "status": "passed",
+      "output": "DAG scheduler: ordering, bounds, validation, failure and cancellation passed"
+    },
+    {
+      "path": "advanced/go/mvcc_store.go",
+      "status": "passed",
+      "output": "MVCC: snapshots, conflicts, tombstones, phantoms, GC and 800 concurrent increments passed"
+    },
+    {
+      "path": "advanced/go/sstable_codec.go",
+      "status": "passed",
+      "output": "SST codec: canonical encoding, CRC, truncation, ownership and 200 round trips passed"
+    },
+    {
+      "path": "advanced/go/weighted_semaphore.go",
+      "status": "passed",
+      "output": "Weighted semaphore: FIFO, head cancellation, invalid releases and 1200 cancellation races passed"
+    },
+    {
+      "path": "advanced/assembly/heap_sort.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/overlap_memmove.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/parse_int64.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/utf8_validate.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    }
+  ]
+}

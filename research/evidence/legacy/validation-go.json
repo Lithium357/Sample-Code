@@ -1,0 +1,184 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "nim_backend": "c",
+  "files": [
+    {
+      "path": "go/01_gcd.go",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/02_power.go",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/03_is_perfect.go",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/04_is_palindrome.go",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/05_ceil_div.go",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/06_trailing_zero_bits.go",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/07_totient.go",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/08_greedy_coin_count.go",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/09_triangular_index.go",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/10_integer_log.go",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/11_lucas.go",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/12_is_happy.go",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/13_count_digit.go",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/14_lattice_paths.go",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/15_discrete_log.go",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/16_lcm.go",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/17_modular_power.go",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/18_digit_sum.go",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/19_digital_root.go",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/20_binomial.go",
+      "fixtures": 4,
+      "output": "binomial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/21_next_power_of_two.go",
+      "fixtures": 4,
+      "output": "next_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/22_largest_prime_factor.go",
+      "fixtures": 4,
+      "output": "largest_prime_factor: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/23_nth_prime.go",
+      "fixtures": 4,
+      "output": "nth_prime: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/24_is_leap_year.go",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/25_multiply_mod.go",
+      "fixtures": 4,
+      "output": "multiply_mod: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/26_pell.go",
+      "fixtures": 4,
+      "output": "pell: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/27_is_armstrong.go",
+      "fixtures": 4,
+      "output": "is_armstrong: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/28_rotate_decimal.go",
+      "fixtures": 4,
+      "output": "rotate_decimal: 4 fixtures passed",
+      "status": "passed"
+    }
+  ],
+  "skipped_languages": {},
+  "runtime_paths": {
+    "go": {
+      "go": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE"
+    }
+  },
+  "elapsed_seconds": 27.67,
+  "failures": 0
+}

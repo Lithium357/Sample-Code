@@ -20,6 +20,7 @@ import subprocess
 import sys
 import tempfile
 import time
+from sql_contracts import check_contracts
 
 ROOT = Path(__file__).resolve().parents[1]
 LANGUAGES = ['nim', 'cmd', 'assembly', 'powershell', 'sql', 'bash', 'rust', 'ruby', 'go', 'php']
@@ -53,7 +54,8 @@ def verify_file(entry, temp):
                 raise AssertionError('SQLite integrity check failed')
             if connection.execute('PRAGMA foreign_key_check').fetchall():
                 raise AssertionError('SQLite foreign key check failed')
-        return f'{count} SQL result checks passed'
+            rejected, positive = check_contracts(connection,path.name)
+        return f'{count} SQL result checks; {rejected} expected rejections and {positive} additional behavior checks passed'
     if language == 'rust':
         run([tool('rustc'),'--edition=2021','-A','unused_parens',str(path),'-o',str(binary)],temp)
         return run([str(binary)],temp)

@@ -1,5 +1,10 @@
 # Sample Code
 
+**Research-quality records:** see [`research/README.md`](research/README.md),
+[`research/volume.json`](research/volume.json), and the source-bound evidence history.
+The original token table below is a historical generation snapshot, not current
+source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
+
 **Additional, separately authored advanced programs live in [`advanced/`](advanced/README.md).**
 They have their own catalog and verification runner; the counts below describe
 the original parallel algorithm collection.

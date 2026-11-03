@@ -1,9 +1,9 @@
 {
   "encoding": "cl100k_base",
   "source_files": 45,
-  "tokens": 61734,
+  "tokens": 62303,
   "tokens_by_language": {
-    "c": 5708,
+    "c": 5959,
     "cpp": 4475,
     "nim": 7371,
     "cmd": 3542,
@@ -12,17 +12,17 @@
     "sql": 2876,
     "bash": 3931,
     "rust": 5128,
-    "ruby": 4119,
-    "go": 8763,
+    "ruby": 4306,
+    "go": 8894,
     "php": 4963
   },
   "files": [
     {
       "path": "advanced/c/incremental_frames.c",
       "language": "c",
-      "tokens": 1883,
-      "bytes": 6423,
-      "sha256": "d4a19bed8f3f734a4abd872ca5aedf7e2195b5eb0689191c11e45b228c4b4ada"
+      "tokens": 2134,
+      "bytes": 7257,
+      "sha256": "fe98790a0878b22186d6c28bcc4a2d3121bf40ad69a5a3df3c75a4c2f6053139"
     },
     {
       "path": "advanced/c/offline_connectivity.c",
@@ -251,9 +251,9 @@
     {
       "path": "advanced/ruby/exact_cover.rb",
       "language": "ruby",
-      "tokens": 1303,
-      "bytes": 4378,
-      "sha256": "4faee3622ac177b824e5c8dde0c6c47e761edc4ce3bd88e08d9a939afa46baa6"
+      "tokens": 1490,
+      "bytes": 4861,
+      "sha256": "ba5583a1e37635dade845fa2a5f08075f3fddf7c2a95503d80121eaa99985ae2"
     },
     {
       "path": "advanced/ruby/hindley_milner.rb",
@@ -272,9 +272,9 @@
     {
       "path": "advanced/go/dag_scheduler.go",
       "language": "go",
-      "tokens": 1476,
-      "bytes": 5310,
-      "sha256": "1eff4a049978857832d66500586c7509b45d65022a98bf068b91b61d23b325d1"
+      "tokens": 1607,
+      "bytes": 5734,
+      "sha256": "162600b0e2f8f4023aa5a266f4d6a6b0e44bba4cbdd56acd662fcf721e0ca3d7"
     },
     {
       "path": "advanced/go/mvcc_store.go",

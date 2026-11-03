@@ -1,0 +1,336 @@
+{
+  "encoding": "cl100k_base",
+  "source_files": 45,
+  "tokens": 61734,
+  "tokens_by_language": {
+    "c": 5708,
+    "cpp": 4475,
+    "nim": 7371,
+    "cmd": 3542,
+    "assembly": 5807,
+    "powershell": 5051,
+    "sql": 2876,
+    "bash": 3931,
+    "rust": 5128,
+    "ruby": 4119,
+    "go": 8763,
+    "php": 4963
+  },
+  "files": [
+    {
+      "path": "advanced/c/incremental_frames.c",
+      "language": "c",
+      "tokens": 1883,
+      "bytes": 6423,
+      "sha256": "d4a19bed8f3f734a4abd872ca5aedf7e2195b5eb0689191c11e45b228c4b4ada"
+    },
+    {
+      "path": "advanced/c/offline_connectivity.c",
+      "language": "c",
+      "tokens": 2073,
+      "bytes": 6295,
+      "sha256": "eeee4262aebf6a147fa9935a896566e32cce4b79139eed70c2188671a7fcffb0"
+    },
+    {
+      "path": "advanced/c/robin_hood_map.c",
+      "language": "c",
+      "tokens": 1752,
+      "bytes": 5677,
+      "sha256": "1747c7b46b62fa765caa235eaac279f8f8369c0803dbbc0460e4ddbb68db9f37"
+    },
+    {
+      "path": "advanced/cpp/coroutine_generator.cpp",
+      "language": "cpp",
+      "tokens": 1253,
+      "bytes": 5076,
+      "sha256": "917af5368f51c8a2e3893927c9831157fc00e6ee7eddd794e305b46d10a94542"
+    },
+    {
+      "path": "advanced/cpp/ntt_convolution.cpp",
+      "language": "cpp",
+      "tokens": 1363,
+      "bytes": 4679,
+      "sha256": "3f1435e339a231bf18fa241465de98e919d20e73702146d28afad8e2f8d4292e"
+    },
+    {
+      "path": "advanced/cpp/order_statistic_treap.cpp",
+      "language": "cpp",
+      "tokens": 1859,
+      "bytes": 6148,
+      "sha256": "dc229ef4cc8f82d2e3153919edecb974b7e8ca5c851e9d2bd30c7ee38aa0849f"
+    },
+    {
+      "path": "advanced/nim/astar_grid.nim",
+      "language": "nim",
+      "tokens": 1346,
+      "bytes": 4538,
+      "sha256": "473681203eac5f21dec19dc8d601a6aa1aad505958466e69f8ffcb4d77623b41"
+    },
+    {
+      "path": "advanced/nim/dinic_flow.nim",
+      "language": "nim",
+      "tokens": 1203,
+      "bytes": 4385,
+      "sha256": "49a3fd7d573397f883ae4bfa8df5e907632b20e3311df8834f66efeddb29bc1d"
+    },
+    {
+      "path": "advanced/nim/earley_recognizer.nim",
+      "language": "nim",
+      "tokens": 1291,
+      "bytes": 4584,
+      "sha256": "c8a21f7fe38bead5d814b938d947eb4c7424771c6840af39bd2d9003d2d7395a"
+    },
+    {
+      "path": "advanced/nim/persistent_avl.nim",
+      "language": "nim",
+      "tokens": 1242,
+      "bytes": 4299,
+      "sha256": "c8bd07827a329222da7944a760eaf68d1088c002bc838eb508f7747e15a72983"
+    },
+    {
+      "path": "advanced/nim/suffix_index.nim",
+      "language": "nim",
+      "tokens": 1189,
+      "bytes": 3858,
+      "sha256": "ccef07cedcc3ee8a0db7e873f50b60a0140e6342d4782fcc9bdc355494554898"
+    },
+    {
+      "path": "advanced/nim/two_sat.nim",
+      "language": "nim",
+      "tokens": 1100,
+      "bytes": 3577,
+      "sha256": "710948127544685896658d876b96c1a252eecf7a11f01e747192721f23b0a3da"
+    },
+    {
+      "path": "advanced/cmd/edit_distance.cmd",
+      "language": "cmd",
+      "tokens": 1043,
+      "bytes": 3060,
+      "sha256": "321f5aabe87f7890a705a6a2db7332a09080ed908fe08b4a7b1ba0732065d237"
+    },
+    {
+      "path": "advanced/cmd/floyd_warshall.cmd",
+      "language": "cmd",
+      "tokens": 1392,
+      "bytes": 3636,
+      "sha256": "32c14df88b64a0b8598e625f853774d3b792e99be6fb4716c9f347fdfe883565"
+    },
+    {
+      "path": "advanced/cmd/knapsack.cmd",
+      "language": "cmd",
+      "tokens": 1107,
+      "bytes": 3082,
+      "sha256": "c8f8c5e82334e4a920609820090e65be678242ca6e673bbba1972999981ac977"
+    },
+    {
+      "path": "advanced/assembly/crc32_ieee.asm",
+      "language": "assembly",
+      "tokens": 788,
+      "bytes": 2330,
+      "sha256": "010ef62dfb80e2c7a59e7cf6aa0ad4b2efb8b1ee8558ea550fad9dd690b49fa0"
+    },
+    {
+      "path": "advanced/assembly/heap_sort.asm",
+      "language": "assembly",
+      "tokens": 1064,
+      "bytes": 2837,
+      "sha256": "437f6f2f377fa406fef3426930e02f31de09f18678b12833113b7e5de054c86e"
+    },
+    {
+      "path": "advanced/assembly/overlap_memmove.asm",
+      "language": "assembly",
+      "tokens": 761,
+      "bytes": 2162,
+      "sha256": "bd5e501684a9d5d0b04af439e54678ac5773888d770f479cf4fd0060c1df36c9"
+    },
+    {
+      "path": "advanced/assembly/parse_int64.asm",
+      "language": "assembly",
+      "tokens": 999,
+      "bytes": 2735,
+      "sha256": "018063c8666c8ecdb8a39de6ff42390bd6649e5089b78381dbbe2c223b0cef9b"
+    },
+    {
+      "path": "advanced/assembly/radix_sort_i32.asm",
+      "language": "assembly",
+      "tokens": 1008,
+      "bytes": 2776,
+      "sha256": "7c63e661fe990ec63389202ef86e87052f3fda209463d5065dcafe1330057d75"
+    },
+    {
+      "path": "advanced/assembly/utf8_validate.asm",
+      "language": "assembly",
+      "tokens": 1187,
+      "bytes": 2854,
+      "sha256": "f1ff42b63dfe208b170055469fecb5732b9810ea75a706af5f27c32170b77b07"
+    },
+    {
+      "path": "advanced/powershell/critical_path.ps1",
+      "language": "powershell",
+      "tokens": 1651,
+      "bytes": 5856,
+      "sha256": "3d5ff7d3b167ea8f9bfacd7b81afd3de7d9b1ecb5834e3b4a30c84c839d382b6"
+    },
+    {
+      "path": "advanced/powershell/min_cost_flow.ps1",
+      "language": "powershell",
+      "tokens": 1899,
+      "bytes": 5632,
+      "sha256": "de0b3023239350d3da555a4fef7ddf2abc706330b0e1eee1baebca2f619f49e0"
+    },
+    {
+      "path": "advanced/powershell/myers_diff.ps1",
+      "language": "powershell",
+      "tokens": 1501,
+      "bytes": 4520,
+      "sha256": "733a59c9b6e86ad0c6203d6d745f06dd5f8fb384d3bc10af28845a0b57a4217c"
+    },
+    {
+      "path": "advanced/sql/bill_of_materials.sql",
+      "language": "sql",
+      "tokens": 952,
+      "bytes": 3807,
+      "sha256": "add14c25bd216af1746ba8e58e647fbd3d326a7f5e327e307b0151a01c03e363"
+    },
+    {
+      "path": "advanced/sql/double_entry_posting.sql",
+      "language": "sql",
+      "tokens": 967,
+      "bytes": 3815,
+      "sha256": "68c21c1bf440c7c5151a46809d3ab7089570304197806934e1c4c13eb937a281"
+    },
+    {
+      "path": "advanced/sql/transactional_outbox.sql",
+      "language": "sql",
+      "tokens": 957,
+      "bytes": 3977,
+      "sha256": "5d6bb1d428df54a3f51f51dc7b51e022d1b0c87d1ece890a0a519afe4b897b97"
+    },
+    {
+      "path": "advanced/bash/csv_state_machine.sh",
+      "language": "bash",
+      "tokens": 1352,
+      "bytes": 4652,
+      "sha256": "b6be020c12dff1ee2f3e1b1d2de2a37721827828452d6c4fe85158029f52aeda"
+    },
+    {
+      "path": "advanced/bash/semver_compare.sh",
+      "language": "bash",
+      "tokens": 1422,
+      "bytes": 3897,
+      "sha256": "a728574e15ed5c7e745e17e867f8450fc95d814f9593ac0b58ad4264e8c56f69"
+    },
+    {
+      "path": "advanced/bash/transactional_map.sh",
+      "language": "bash",
+      "tokens": 1157,
+      "bytes": 3957,
+      "sha256": "21fa438cd0e9d465a56b9fbab43305ec58062e335a27e446558eb00e175ffec6"
+    },
+    {
+      "path": "advanced/rust/persistent_segment_tree.rs",
+      "language": "rust",
+      "tokens": 1510,
+      "bytes": 5931,
+      "sha256": "abe18807d832e27c2610ad173a56bee7c9269619d3ef7a10876f60b9a4bd8443"
+    },
+    {
+      "path": "advanced/rust/pratt_calculator.rs",
+      "language": "rust",
+      "tokens": 1689,
+      "bytes": 7380,
+      "sha256": "9e4009a48fc16a6888e0d1ee5ae571d4922ad6ad316dceb2f44159b2807f44ec"
+    },
+    {
+      "path": "advanced/rust/watched_sat.rs",
+      "language": "rust",
+      "tokens": 1929,
+      "bytes": 8127,
+      "sha256": "dca2a3527741020f34e8c054462f11864f1227e6f56a78703622aa405461d3e1"
+    },
+    {
+      "path": "advanced/ruby/exact_cover.rb",
+      "language": "ruby",
+      "tokens": 1303,
+      "bytes": 4378,
+      "sha256": "4faee3622ac177b824e5c8dde0c6c47e761edc4ce3bd88e08d9a939afa46baa6"
+    },
+    {
+      "path": "advanced/ruby/hindley_milner.rb",
+      "language": "ruby",
+      "tokens": 1565,
+      "bytes": 5715,
+      "sha256": "3fbd4baa0c240f13c817c6ae557a91111f8cf0cb220eba6a5c0097c2949cf342"
+    },
+    {
+      "path": "advanced/ruby/thompson_regex.rb",
+      "language": "ruby",
+      "tokens": 1251,
+      "bytes": 4483,
+      "sha256": "c9ded12de25638dbcaf52fa9639a31a66ffd7f69b27cef19bd2bd70980927ff5"
+    },
+    {
+      "path": "advanced/go/dag_scheduler.go",
+      "language": "go",
+      "tokens": 1476,
+      "bytes": 5310,
+      "sha256": "1eff4a049978857832d66500586c7509b45d65022a98bf068b91b61d23b325d1"
+    },
+    {
+      "path": "advanced/go/mvcc_store.go",
+      "language": "go",
+      "tokens": 1686,
+      "bytes": 5947,
+      "sha256": "a0e0b0588db608816804177a45cc9296bed3c356c55d403f56295de369dbe70a"
+    },
+    {
+      "path": "advanced/go/observed_remove_set.go",
+      "language": "go",
+      "tokens": 1225,
+      "bytes": 4048,
+      "sha256": "b8c16ca2183ff7988b87dbf927a20a450765c65ed41b8a95dea58b75a1d4daba"
+    },
+    {
+      "path": "advanced/go/sstable_codec.go",
+      "language": "go",
+      "tokens": 1662,
+      "bytes": 5702,
+      "sha256": "8865cdd20d7b09f4de0348b6241a4d8fb9ac207945eba3da5a4d792127dbc91a"
+    },
+    {
+      "path": "advanced/go/wal_recovery.go",
+      "language": "go",
+      "tokens": 1519,
+      "bytes": 5295,
+      "sha256": "93688d1b117a1ceee5e04af8ac021ebb02942e479208814fc884bb6216e8f9d2"
+    },
+    {
+      "path": "advanced/go/weighted_semaphore.go",
+      "language": "go",
+      "tokens": 1195,
+      "bytes": 4345,
+      "sha256": "75541ec1099b727bf3762fe172b0497dd65c74e1104cb839362f07c75cb07240"
+    },
+    {
+      "path": "advanced/php/event_sourced_wallet.php",
+      "language": "php",
+      "tokens": 1512,
+      "bytes": 6599,
+      "sha256": "e289598cccfb9a1c12e5aac18470b7a4e9de629bad98a60252f9929631cd9d7c"
+    },
+    {
+      "path": "advanced/php/json_patch.php",
+      "language": "php",
+      "tokens": 1888,
+      "bytes": 7270,
+      "sha256": "46e75a3b4270d8d69e66fe299b2882817300e6f9783aa4e6680640da42afe547"
+    },
+    {
+      "path": "advanced/php/lru_cache.php",
+      "language": "php",
+      "tokens": 1563,
+      "bytes": 5598,
+      "sha256": "ac426eb38bd72945433c5a76bd31efcece1aca47475e533c65e7d80c0a53db58"
+    }
+  ]
+}

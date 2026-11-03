@@ -1,0 +1,130 @@
+[
+  {
+    "path": "research/evidence/legacy/validation-assembly.json",
+    "sha256": "eac188074f90b857072e5cb46bde53b67f55702a7f9751d496307d1a792c94ad",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/validation-cmd.json",
+    "sha256": "c9b3a980eb6a8a835b5ed69843cab0adf09e1ef1d0f40efc0f5beecf9f1bb9fd",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/validation-go.json",
+    "sha256": "e7a11a569753e7062247664311ddeb14564dc80a8e4d5c2b9370dab7dbc1f034",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/validation-local.json",
+    "sha256": "463c66aa8ff679d3f5e6de827b2818a2a3531d94359afe2e51662e9417b925ed",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/validation-nim-ruby.json",
+    "sha256": "c30e7746c85c66387a1720aaa7c489f09968e50ba8f5b41d1420983f1288b488",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/validation-portable.json",
+    "sha256": "5b23f4dde38d4835d3242c646ee4970b05e2728705be8c42f4c26ce4015c381e",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/advanced-asm-cmd.json",
+    "sha256": "95dd8b92e4eeb81f45a0d27e5d8e7043758f0e7bd50b9e48c8cb2d108ca26950",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/advanced-batch1.json",
+    "sha256": "71c1a09d1f22afdb35bc1ab07e0d45528fe971a4fd76b0d0d7817a772fa38cfe",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/advanced-batch2-fixes.json",
+    "sha256": "82e93eef6fca6c831bb365e07242416cbc620d5f97a2d8ceca6cb428a8691726",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/advanced-batch2.json",
+    "sha256": "73eb15cce218d6d738820456f2527285be8f9bfbe3dc224360beabd3f2e0cecf",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/advanced-batch3.json",
+    "sha256": "f9b4e97bbc0bd075e03ceabf5dd91f13b4385182fbf1058945893f5efa30fa91",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/systems-batch1.json",
+    "sha256": "63ee5342284addf33ffe016d297fe08b1e7c28454ecd406a51d4d7a74e40f746",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/systems-batch2.json",
+    "sha256": "fe0da33fc6a2bd5340ded3e548880d22dfa3d0b6a9c1fb1ad1947caf907e3908",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/systems-batch3.json",
+    "sha256": "011ccf67ae99fd3972b92675ee398585b29fa012b5d84633a14d1574930a1990",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/floyd-debug.log",
+    "sha256": "9994ba1d4f352878eadde30e36e3243d01ea0bc6a39b199af6f3e7db7b0d2a77",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  },
+  {
+    "path": "research/evidence/legacy/floyd-debug.cmd",
+    "sha256": "be2cc6fea159b20f7bb404cee47530441104579700549b8a509ed84e0dec222a",
+    "classification": "legacy_unbound_aggregate_or_debug_log",
+    "source_hash_binding": null,
+    "exact_runtime_versions": null,
+    "limitation": "Raw bytes preserved; cannot reconstruct missing command/version/source bindings."
+  }
+]

@@ -1,0 +1,129 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "files": [
+    {
+      "path": "cmd/01_gcd.cmd",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/02_power.cmd",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/03_is_perfect.cmd",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/04_is_palindrome.cmd",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/05_ceil_div.cmd",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/06_trailing_zero_bits.cmd",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/07_totient.cmd",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/08_greedy_coin_count.cmd",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/09_triangular_index.cmd",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/10_integer_log.cmd",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/11_lucas.cmd",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/12_is_happy.cmd",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/13_count_digit.cmd",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/14_lattice_paths.cmd",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/15_discrete_log.cmd",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/16_lcm.cmd",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/17_modular_power.cmd",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/18_digit_sum.cmd",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/19_digital_root.cmd",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    }
+  ],
+  "skipped_languages": {},
+  "runtime_paths": {
+    "cmd": {
+      "cmd": "C:\\WINDOWS\\system32\\cmd.EXE"
+    }
+  },
+  "elapsed_seconds": 3.25,
+  "failures": 0
+}

@@ -1,0 +1,574 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "nim_backend": "js",
+  "files": [
+    {
+      "path": "nim/01_gcd.nim",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '01_gcd'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/02_power.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '02_power'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/03_is_perfect.nim",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '03_is_perfect'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/04_is_palindrome.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '04_is_palindrome'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/05_ceil_div.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '05_ceil_div'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/06_trailing_zero_bits.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '06_trailing_zero_bits'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/07_totient.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '07_totient'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/08_greedy_coin_count.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '08_greedy_coin_count'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/09_triangular_index.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '09_triangular_index'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/10_integer_log.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '10_integer_log'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/11_lucas.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '11_lucas'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/12_is_happy.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '12_is_happy'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/13_count_digit.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '13_count_digit'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/14_lattice_paths.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '14_lattice_paths'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/15_discrete_log.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '15_discrete_log'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/16_lcm.nim",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '16_lcm'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/17_modular_power.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '17_modular_power'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/18_digit_sum.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '18_digit_sum'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/19_digital_root.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '19_digital_root'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/20_binomial.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '20_binomial'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/21_next_power_of_two.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '21_next_power_of_two'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/22_largest_prime_factor.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '22_largest_prime_factor'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/23_nth_prime.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '23_nth_prime'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/24_is_leap_year.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '24_is_leap_year'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/25_multiply_mod.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '25_multiply_mod'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/26_pell.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '26_pell'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/27_is_armstrong.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '27_is_armstrong'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/28_rotate_decimal.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '28_rotate_decimal'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/29_rectangle_count.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '29_rectangle_count'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/30_modular_inverse.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '30_modular_inverse'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/31_factorial.nim",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '31_factorial'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "nim/32_is_prime.nim",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE exited 1\n\nError: invalid module name: '32_is_prime'; a module name must be a valid Nim identifier.\n"
+    },
+    {
+      "path": "go/01_gcd.go",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\01_gcd.go:12:11: syntax error: unexpected name v_b at end of statement\n..\\..\\outputs\\Sample-Code\\go\\01_gcd.go:17:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/02_power.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\02_power.go:13:11: syntax error: unexpected name v_exponent at end of statement\n..\\..\\outputs\\Sample-Code\\go\\02_power.go:22:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/03_is_perfect.go",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\03_is_perfect.go:15:11: syntax error: unexpected name v_divisor at end of statement\n..\\..\\outputs\\Sample-Code\\go\\03_is_perfect.go:21:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/04_is_palindrome.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\04_is_palindrome.go:15:11: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\04_is_palindrome.go:19:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/05_ceil_div.go",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/06_trailing_zero_bits.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\06_trailing_zero_bits.go:16:26: syntax error: unexpected { at end of statement\n..\\..\\outputs\\Sample-Code\\go\\06_trailing_zero_bits.go:20:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/07_totient.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\07_totient.go:17:11: syntax error: unexpected name v_prime at end of statement\n..\\..\\outputs\\Sample-Code\\go\\07_totient.go:19:48: syntax error: unexpected { at end of statement\n..\\..\\outputs\\Sample-Code\\go\\07_totient.go:24:9: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/08_greedy_coin_count.go",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/09_triangular_index.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\09_triangular_index.go:15:11: syntax error: unexpected name v_total at end of statement\n..\\..\\outputs\\Sample-Code\\go\\09_triangular_index.go:19:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/10_integer_log.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\10_integer_log.go:13:11: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\10_integer_log.go:17:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/11_lucas.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\11_lucas.go:18:11: syntax error: unexpected name v_index at end of statement\n..\\..\\outputs\\Sample-Code\\go\\11_lucas.go:24:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/12_is_happy.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\12_is_happy.go:15:11: syntax error: unexpected name v_steps at end of statement\n..\\..\\outputs\\Sample-Code\\go\\12_is_happy.go:20:15: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\12_is_happy.go:25:9: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/13_count_digit.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\13_count_digit.go:19:11: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\13_count_digit.go:25:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/14_lattice_paths.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\14_lattice_paths.go:17:11: syntax error: unexpected name v_index at end of statement\n..\\..\\outputs\\Sample-Code\\go\\14_lattice_paths.go:21:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/15_discrete_log.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\15_discrete_log.go:15:11: syntax error: unexpected name v_exponent at end of statement\n..\\..\\outputs\\Sample-Code\\go\\15_discrete_log.go:22:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/16_lcm.go",
+      "fixtures": 5,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\16_lcm.go:22:11: syntax error: unexpected name v_y at end of statement\n..\\..\\outputs\\Sample-Code\\go\\16_lcm.go:27:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/17_modular_power.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\17_modular_power.go:14:11: syntax error: unexpected name v_exponent at end of statement\n..\\..\\outputs\\Sample-Code\\go\\17_modular_power.go:21:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/18_digit_sum.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\18_digit_sum.go:13:11: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\18_digit_sum.go:17:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/19_digital_root.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\19_digital_root.go:12:11: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\19_digital_root.go:14:15: syntax error: unexpected name v_n at end of statement\n..\\..\\outputs\\Sample-Code\\go\\19_digital_root.go:18:9: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/20_binomial.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\20_binomial.go:21:11: syntax error: unexpected name v_index at end of statement\n..\\..\\outputs\\Sample-Code\\go\\20_binomial.go:25:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/21_next_power_of_two.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\21_next_power_of_two.go:13:11: syntax error: unexpected name v_result at end of statement\n..\\..\\outputs\\Sample-Code\\go\\21_next_power_of_two.go:16:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/22_largest_prime_factor.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\22_largest_prime_factor.go:15:11: syntax error: unexpected name v_divisor at end of statement\n..\\..\\outputs\\Sample-Code\\go\\22_largest_prime_factor.go:20:9: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/23_nth_prime.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\23_nth_prime.go:17:11: syntax error: unexpected name v_count at end of statement\n..\\..\\outputs\\Sample-Code\\go\\23_nth_prime.go:21:15: syntax error: unexpected name v_divisor at end of statement\n..\\..\\outputs\\Sample-Code\\go\\23_nth_prime.go:27:9: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/24_is_leap_year.go",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "go/25_multiply_mod.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\25_multiply_mod.go:14:11: syntax error: unexpected name v_b at end of statement\n..\\..\\outputs\\Sample-Code\\go\\25_multiply_mod.go:21:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/26_pell.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\26_pell.go:18:11: syntax error: unexpected name v_index at end of statement\n..\\..\\outputs\\Sample-Code\\go\\26_pell.go:24:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/27_is_armstrong.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\27_is_armstrong.go:19:11: syntax error: unexpected name v_remaining at end of statement\n..\\..\\outputs\\Sample-Code\\go\\27_is_armstrong.go:23:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "go/28_rotate_decimal.go",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE exited 1\n\n# command-line-arguments\n..\\..\\outputs\\Sample-Code\\go\\28_rotate_decimal.go:18:11: syntax error: unexpected name v_remaining at end of statement\n..\\..\\outputs\\Sample-Code\\go\\28_rotate_decimal.go:22:5: syntax error: non-declaration statement outside function body\n"
+    },
+    {
+      "path": "php/01_gcd.php",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/02_power.php",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/03_is_perfect.php",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/04_is_palindrome.php",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/05_ceil_div.php",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/06_trailing_zero_bits.php",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/07_totient.php",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/08_greedy_coin_count.php",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/09_triangular_index.php",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/10_integer_log.php",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/11_lucas.php",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/12_is_happy.php",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/13_count_digit.php",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/14_lattice_paths.php",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/15_discrete_log.php",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/16_lcm.php",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/17_modular_power.php",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/18_digit_sum.php",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/19_digital_root.php",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/20_binomial.php",
+      "fixtures": 4,
+      "output": "binomial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/21_next_power_of_two.php",
+      "fixtures": 4,
+      "output": "next_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/22_largest_prime_factor.php",
+      "fixtures": 4,
+      "output": "largest_prime_factor: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/23_nth_prime.php",
+      "fixtures": 4,
+      "output": "nth_prime: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/24_is_leap_year.php",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/25_multiply_mod.php",
+      "fixtures": 4,
+      "output": "multiply_mod: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/26_pell.php",
+      "fixtures": 4,
+      "output": "pell: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/27_is_armstrong.php",
+      "fixtures": 4,
+      "output": "is_armstrong: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/28_rotate_decimal.php",
+      "fixtures": 4,
+      "output": "rotate_decimal: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/29_rectangle_count.php",
+      "fixtures": 4,
+      "output": "rectangle_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/30_modular_inverse.php",
+      "fixtures": 4,
+      "output": "modular_inverse: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/31_factorial.php",
+      "fixtures": 4,
+      "output": "factorial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "php/32_is_prime.php",
+      "fixtures": 5,
+      "output": "is_prime: 5 fixtures passed",
+      "status": "passed"
+    }
+  ],
+  "skipped_languages": {},
+  "runtime_paths": {
+    "nim": {
+      "nim": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE"
+    },
+    "go": {
+      "go": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\go\\go\\bin\\go.EXE"
+    },
+    "php": {
+      "php": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\php\\php.EXE"
+    }
+  },
+  "elapsed_seconds": 66.19,
+  "failures": 57
+}

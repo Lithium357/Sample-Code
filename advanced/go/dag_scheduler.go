@@ -187,5 +187,15 @@ func main() {
 	must(errors.Is(err, boom))
 	empty, err := Execute(context.Background(), nil, 1)
 	must(err == nil && len(empty) == 0)
+	_, err = Execute(context.Background(), tasks, 0)
+	must(err != nil)
+	var invoked atomic.Int32
+	for _, invalid := range []map[string]Task{
+		{"": {nil, work}}, {"bad": {nil, nil}},
+		{"good": {nil, func(context.Context, map[string]int) (int, error) { invoked.Add(1); return 1, nil }}, "bad": {[]string{"missing"}, work}},
+	} {
+		_, err = Execute(context.Background(), invalid, 2)
+		must(err != nil && invoked.Load() == 0)
+	}
 	fmt.Println("DAG scheduler: ordering, bounds, validation, failure and cancellation passed")
 }

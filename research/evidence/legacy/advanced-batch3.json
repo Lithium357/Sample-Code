@@ -1,0 +1,140 @@
+{
+  "failures": 0,
+  "files": [
+    {
+      "path": "advanced/nim/astar_grid.nim",
+      "status": "passed",
+      "output": "A*: 100 Bellman-Ford comparisons, path validation and boundary cases passed"
+    },
+    {
+      "path": "advanced/nim/dinic_flow.nim",
+      "status": "passed",
+      "output": "Dinic: 250 exhaustive cut oracles, certificates, parallel and reverse arcs passed"
+    },
+    {
+      "path": "advanced/nim/persistent_avl.nim",
+      "status": "passed",
+      "output": "Persistent AVL: 1200 reference-checked mutations and immutable snapshots passed"
+    },
+    {
+      "path": "advanced/rust/persistent_segment_tree.rs",
+      "status": "passed",
+      "output": "Persistent lazy tree: branched versions, every range and structural sharing passed"
+    },
+    {
+      "path": "advanced/rust/pratt_calculator.rs",
+      "status": "passed",
+      "output": "Pratt calculator: precedence, errors, limits and 1681 identities passed"
+    },
+    {
+      "path": "advanced/rust/watched_sat.rs",
+      "status": "passed",
+      "output": "Watched SAT: trail restoration, pigeonhole and 1500 exhaustive-oracle CNFs passed"
+    },
+    {
+      "path": "advanced/go/dag_scheduler.go",
+      "status": "passed",
+      "output": "DAG scheduler: ordering, bounds, validation, failure and cancellation passed"
+    },
+    {
+      "path": "advanced/go/mvcc_store.go",
+      "status": "passed",
+      "output": "MVCC: snapshots, conflicts, tombstones, phantoms, GC and 800 concurrent increments passed"
+    },
+    {
+      "path": "advanced/go/sstable_codec.go",
+      "status": "passed",
+      "output": "SST codec: canonical encoding, CRC, truncation, ownership and 200 round trips passed"
+    },
+    {
+      "path": "advanced/ruby/exact_cover.rb",
+      "status": "passed",
+      "output": "Exact cover: reversible search, ambiguity and Sudoku checks passed"
+    },
+    {
+      "path": "advanced/ruby/hindley_milner.rb",
+      "status": "passed",
+      "output": "HM inference: principal types, instantiation, monomorphism and occurs checks passed"
+    },
+    {
+      "path": "advanced/ruby/thompson_regex.rb",
+      "status": "passed",
+      "output": "Thompson NFA: native-regex differential checks, epsilon cycles and adversarial input passed"
+    },
+    {
+      "path": "advanced/php/event_sourced_wallet.php",
+      "status": "passed",
+      "output": "Event sourcing: replay, idempotency, conflicts, rejection and overflow passed"
+    },
+    {
+      "path": "advanced/php/json_patch.php",
+      "status": "passed",
+      "output": "JSON Patch: escaped pointers, array moves, deep copies, tests and atomic rejection passed"
+    },
+    {
+      "path": "advanced/php/lru_cache.php",
+      "status": "passed",
+      "output": "LRU: cached null, expiry order, eviction, list invariants and 2000 reference operations passed"
+    },
+    {
+      "path": "advanced/powershell/critical_path.ps1",
+      "status": "passed",
+      "output": "Critical path: forward/backward windows, float, 100 DAG oracles and cycle rejection passed"
+    },
+    {
+      "path": "advanced/powershell/min_cost_flow.ps1",
+      "status": "passed",
+      "output": "Min-cost flow: reverse arcs, partial flow, 256 oracle assignments and negative cycles passed"
+    },
+    {
+      "path": "advanced/powershell/myers_diff.ps1",
+      "status": "passed",
+      "output": "Myers diff: minimality, exact reconstruction, case sensitivity and 400 DP comparisons passed"
+    },
+    {
+      "path": "advanced/cmd/edit_distance.cmd",
+      "status": "passed",
+      "output": "Edit distance: known examples, empty strings and 49 recursive-oracle comparisons passed"
+    },
+    {
+      "path": "advanced/cmd/floyd_warshall.cmd",
+      "status": "passed",
+      "output": "Floyd-Warshall: 25 oracle paths, negative weights and negative-cycle detection passed"
+    },
+    {
+      "path": "advanced/cmd/knapsack.cmd",
+      "status": "passed",
+      "output": "Knapsack: 21 brute-force comparisons, reconstruction and empty input passed"
+    },
+    {
+      "path": "advanced/sql/bill_of_materials.sql",
+      "status": "passed",
+      "output": "8 SQL result checks and 4 expected-rejection checks passed"
+    },
+    {
+      "path": "advanced/sql/double_entry_posting.sql",
+      "status": "passed",
+      "output": "6 SQL result checks and 6 expected-rejection checks passed"
+    },
+    {
+      "path": "advanced/sql/transactional_outbox.sql",
+      "status": "passed",
+      "output": "11 SQL result checks and 0 expected-rejection checks passed"
+    },
+    {
+      "path": "advanced/assembly/heap_sort.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/parse_int64.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/utf8_validate.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    }
+  ]
+}

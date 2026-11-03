@@ -1,0 +1,640 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "files": [
+    {
+      "path": "cmd/01_gcd.cmd",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/02_power.cmd",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/03_is_perfect.cmd",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/04_is_palindrome.cmd",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/05_ceil_div.cmd",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/06_trailing_zero_bits.cmd",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/07_totient.cmd",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/08_greedy_coin_count.cmd",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/09_triangular_index.cmd",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\WINDOWS\\system32\\cmd.exe exited 1\n\nThe system cannot find the batch label specified - branch_1\nFAIL triangular_index fixture 2: expected 1, got 0 \n"
+    },
+    {
+      "path": "cmd/10_integer_log.cmd",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/11_lucas.cmd",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/12_is_happy.cmd",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/13_count_digit.cmd",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/14_lattice_paths.cmd",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/15_discrete_log.cmd",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\WINDOWS\\system32\\cmd.exe exited 1\n\nThe system cannot find the batch label specified - branch_1\nFAIL discrete_log fixture 2: expected 2, got 0 \n"
+    },
+    {
+      "path": "cmd/16_lcm.cmd",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/17_modular_power.cmd",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "cmd/18_digit_sum.cmd",
+      "fixtures": 4,
+      "status": "failed",
+      "error": "C:\\WINDOWS\\system32\\cmd.exe exited 1\n\nThe system cannot find the batch label specified - compute\nFAIL digit_sum fixture 1: expected 0, got  \n"
+    },
+    {
+      "path": "cmd/19_digital_root.cmd",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/01_gcd.ps1",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/02_power.ps1",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/03_is_perfect.ps1",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/04_is_palindrome.ps1",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/05_ceil_div.ps1",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/06_trailing_zero_bits.ps1",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/07_totient.ps1",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/08_greedy_coin_count.ps1",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/09_triangular_index.ps1",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/10_integer_log.ps1",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/11_lucas.ps1",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/12_is_happy.ps1",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/13_count_digit.ps1",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/14_lattice_paths.ps1",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/15_discrete_log.ps1",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/16_lcm.ps1",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/17_modular_power.ps1",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/18_digit_sum.ps1",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/19_digital_root.ps1",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/20_binomial.ps1",
+      "fixtures": 4,
+      "output": "binomial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/21_next_power_of_two.ps1",
+      "fixtures": 4,
+      "output": "next_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/22_largest_prime_factor.ps1",
+      "fixtures": 4,
+      "output": "largest_prime_factor: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/23_nth_prime.ps1",
+      "fixtures": 4,
+      "output": "nth_prime: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/24_is_leap_year.ps1",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/25_multiply_mod.ps1",
+      "fixtures": 4,
+      "output": "multiply_mod: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/26_pell.ps1",
+      "fixtures": 4,
+      "output": "pell: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/27_is_armstrong.ps1",
+      "fixtures": 4,
+      "output": "is_armstrong: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/28_rotate_decimal.ps1",
+      "fixtures": 4,
+      "output": "rotate_decimal: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/29_rectangle_count.ps1",
+      "fixtures": 4,
+      "output": "rectangle_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "powershell/30_modular_inverse.ps1",
+      "fixtures": 4,
+      "output": "modular_inverse: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/01_inventory_ledger.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/02_organization_tree.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/03_calendar_gap_fill.sql",
+      "fixtures": 4,
+      "output": "4 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/04_event_sessions.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/05_running_balances.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/06_cohort_retention.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/07_deduplicate_import.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/08_idempotent_upsert.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/09_graph_reachability.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/10_ranking_with_ties.sql",
+      "fixtures": 4,
+      "output": "4 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/11_consecutive_day_islands.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/12_effective_dated_prices.sql",
+      "fixtures": 4,
+      "output": "4 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/13_audit_triggers.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/14_nonoverlapping_bookings.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/15_relational_division.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/16_keyset_pagination.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/17_fifo_stock_allocation.sql",
+      "fixtures": 5,
+      "output": "5 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/18_largest_remainder_allocation.sql",
+      "fixtures": 5,
+      "output": "5 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/19_cleaning_staged_records.sql",
+      "fixtures": 4,
+      "output": "4 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/20_conditional_pivot.sql",
+      "fixtures": 3,
+      "output": "3 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/21_medians_and_quantiles.sql",
+      "fixtures": 2,
+      "output": "2 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/22_ledger_reconciliation.sql",
+      "fixtures": 5,
+      "output": "5 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "sql/23_savepoints_and_rollback.sql",
+      "fixtures": 6,
+      "output": "6 SQL result checks passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/01_gcd.rs",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/02_power.rs",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/03_is_perfect.rs",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/04_is_palindrome.rs",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/05_ceil_div.rs",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/06_trailing_zero_bits.rs",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/07_totient.rs",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/08_greedy_coin_count.rs",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/09_triangular_index.rs",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/10_integer_log.rs",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/11_lucas.rs",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/12_is_happy.rs",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/13_count_digit.rs",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/14_lattice_paths.rs",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/15_discrete_log.rs",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/16_lcm.rs",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/17_modular_power.rs",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/18_digit_sum.rs",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/19_digital_root.rs",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/20_binomial.rs",
+      "fixtures": 4,
+      "output": "binomial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/21_next_power_of_two.rs",
+      "fixtures": 4,
+      "output": "next_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/22_largest_prime_factor.rs",
+      "fixtures": 4,
+      "output": "largest_prime_factor: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/23_nth_prime.rs",
+      "fixtures": 4,
+      "output": "nth_prime: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/24_is_leap_year.rs",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/25_multiply_mod.rs",
+      "fixtures": 4,
+      "output": "multiply_mod: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/26_pell.rs",
+      "fixtures": 4,
+      "output": "pell: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/27_is_armstrong.rs",
+      "fixtures": 4,
+      "output": "is_armstrong: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/28_rotate_decimal.rs",
+      "fixtures": 4,
+      "output": "rotate_decimal: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/29_rectangle_count.rs",
+      "fixtures": 4,
+      "output": "rectangle_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/30_modular_inverse.rs",
+      "fixtures": 4,
+      "output": "modular_inverse: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "rust/31_factorial.rs",
+      "fixtures": 4,
+      "output": "factorial: 4 fixtures passed",
+      "status": "passed"
+    }
+  ],
+  "skipped_languages": {},
+  "runtime_paths": {
+    "cmd": {
+      "cmd": "C:\\WINDOWS\\system32\\cmd.EXE"
+    },
+    "powershell": {
+      "pwsh": "C:\\Users\\turli\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE"
+    },
+    "sql": {},
+    "rust": {
+      "rustc": "C:\\Users\\turli\\.cargo\\bin\\rustc.EXE"
+    }
+  },
+  "elapsed_seconds": 29.94,
+  "failures": 3
+}

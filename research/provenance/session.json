@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "workspace_identifier": "local-workspace:2026-11-02/i-x20",
+  "identifier_source": "User-supplied local environment context; not a server thread id",
+  "server_thread_id": null,
+  "generation_model_family_reported": "GPT-6",
+  "model_family_source": "Developer session description identifies Codex as based on GPT-6",
+  "generation_model_version": null,
+  "model_version_reason": "Exact model build/checkpoint was not provided",
+  "generation_system": "Codex desktop assistant",
+  "human_requester": "Repository owner; user in this conversation",
+  "task_identifiers_are_local": true,
+  "task_families": "Parallel integer implementations and ISA variants must be grouped for splitting",
+  "benchmark_policy": "No standardized benchmark problem or solution intentionally copied or paraphrased in this research pass",
+  "legacy_origin_audit": "Incomplete; retaining existing code does not certify evaluation-set independence",
+  "model_performance_claim": "None; self-check success validates examples only",
+  "prompts": [
+    {"task_id":"conversation-round-1", "text":"i need you to write a fuckton of sample code from a variety of languages, can you do that?", "source":"visible user message"},
+    {"task_id":"conversation-round-1", "text":"https://github.com/Lithium357/Sample-Code awesome here you go, this repo. these languages from bottom to top. i need about 10k tokens worth of each using BPE tokenization, just guestimate its not a precise science", "source":"visible user message; URL formatting normalized", "attachment_transcription":["Nim","CMD/batch","Assembly","PowerShell","SQL","Bash/shell","Rust","Ruby","Go","PHP"]},
+    {"task_id":"conversation-round-2", "text":"awesome, well you have a ton of tokens left so go write a ton more example code of varying complexity (make it hard enough YOU struggle writing it, but dont make it bogus). also make sure to frequently push to the github main branch", "source":"visible user message"},
+    {"task_id":"conversation-round-3", "text":"great, even more code. only do C, C++, asm (NASM syntax x86), Nim, and Go", "source":"visible user message"},
+    {"task_id":"research-pass-1", "prompt_file":"research/provenance/research-request.txt", "source":"visible user message, copied below as text"}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "failures": 0,
+  "files": [
+    {
+      "path": "advanced/assembly/heap_sort.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/cmd/knapsack.cmd",
+      "status": "passed",
+      "output": "Knapsack: 21 brute-force comparisons, reconstruction and empty input passed"
+    }
+  ]
+}

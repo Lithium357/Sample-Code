@@ -705,6 +705,12 @@ def build():
                   'PRAGMA foreign_keys = ON;\nBEGIN;\n'
                   'CREATE TEMP TABLE checks (ok INTEGER NOT NULL CHECK(ok = 1));\n'
                   + body.strip() + '\nCOMMIT;\n')
+        if name == 'nonoverlapping_bookings':
+            source=source.replace('-- Every checks insertion must evaluate to integer 1.\n',
+                '-- Every checks insertion must evaluate to integer 1.\n'
+                '-- Rejection/state tests: python tools/research_validate.py --suite repairs\n'
+                '-- SQLite SQL alone cannot catch RAISE(ABORT); tools/sql_contracts.py attempts\n'
+                '-- overlapping inserts/updates, checks exact errors and verifies unchanged state.\n')
         connection = sqlite3.connect(':memory:')
         try:
             connection.executescript(source)

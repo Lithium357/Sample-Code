@@ -16,43 +16,15 @@ import sqlite3
 import sys
 import tempfile
 import verify as base
+from sql_contracts import check_contracts
 
 ROOT = Path(__file__).resolve().parents[1]
 EXTENSIONS = {'c':'.c','cpp':'.cpp','nim':'.nim','cmd':'.cmd','assembly':'.asm','powershell':'.ps1',
               'sql':'.sql','bash':'.sh','rust':'.rs','ruby':'.rb','go':'.go','php':'.php'}
 
-SQL_REJECTIONS = {
-    'double_entry_posting.sql': [
-        'UPDATE line SET debit=debit+1 WHERE id=1',
-        'DELETE FROM line WHERE id=1',
-        'INSERT INTO line(journal_id,account_id,debit,credit) VALUES(1,1,1,0)',
-        "UPDATE journal SET state='posted' WHERE id=3",
-        'UPDATE line SET journal_id=1 WHERE id=5',
-        "INSERT INTO journal(id,external_key,state) VALUES(99,'bypass','posted')",
-    ],
-    'bill_of_materials.sql': [
-        'INSERT INTO component VALUES(2,1,1)',
-        'UPDATE component SET child=1 WHERE parent=2 AND child=4',
-        'INSERT INTO component VALUES(4,7,1)',
-        'UPDATE part SET assembly=0 WHERE id=2',
-    ],
-}
-
 def sql_rejections(connection,name):
-    statements = SQL_REJECTIONS.get(name,[])
-    for statement in statements:
-        connection.execute('SAVEPOINT rejected_operation')
-        try:
-            try:
-                connection.execute(statement)
-            except sqlite3.IntegrityError:
-                pass
-            else:
-                raise AssertionError('SQL accepted forbidden operation: '+statement)
-        finally:
-            connection.execute('ROLLBACK TO rejected_operation')
-            connection.execute('RELEASE rejected_operation')
-    return len(statements)
+    rejected, _ = check_contracts(connection,name)
+    return rejected
 
 def emulate_assembly(path, temporary):
     from unicorn import Uc, UC_ARCH_X86, UC_MODE_64, UC_HOOK_INSN

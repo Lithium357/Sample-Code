@@ -1,0 +1,74 @@
+{
+  "tokenizer": "cl100k_base",
+  "morderca_tokenizer_used": false,
+  "counting": "sum of individually tokenized source/support files; normalized text newlines",
+  "inline_components": null,
+  "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
+  "files": 313,
+  "generated_tokens": 165213,
+  "current_source_bound_pass_files": 29,
+  "current_source_bound_pass_tokens": 18144,
+  "by_language": {
+    "assembly": {
+      "files": 19,
+      "generated_tokens": 16421,
+      "current_source_bound_pass_tokens": 0
+    },
+    "bash": {
+      "files": 25,
+      "generated_tokens": 14200,
+      "current_source_bound_pass_tokens": 0
+    },
+    "c": {
+      "files": 3,
+      "generated_tokens": 5959,
+      "current_source_bound_pass_tokens": 2134
+    },
+    "cmd": {
+      "files": 22,
+      "generated_tokens": 14132,
+      "current_source_bound_pass_tokens": 0
+    },
+    "cpp": {
+      "files": 3,
+      "generated_tokens": 4475,
+      "current_source_bound_pass_tokens": 0
+    },
+    "go": {
+      "files": 34,
+      "generated_tokens": 18914,
+      "current_source_bound_pass_tokens": 1607
+    },
+    "nim": {
+      "files": 38,
+      "generated_tokens": 17612,
+      "current_source_bound_pass_tokens": 0
+    },
+    "php": {
+      "files": 35,
+      "generated_tokens": 15270,
+      "current_source_bound_pass_tokens": 0
+    },
+    "powershell": {
+      "files": 33,
+      "generated_tokens": 15279,
+      "current_source_bound_pass_tokens": 0
+    },
+    "ruby": {
+      "files": 41,
+      "generated_tokens": 14533,
+      "current_source_bound_pass_tokens": 1490
+    },
+    "rust": {
+      "files": 34,
+      "generated_tokens": 15505,
+      "current_source_bound_pass_tokens": 0
+    },
+    "sql": {
+      "files": 26,
+      "generated_tokens": 12913,
+      "current_source_bound_pass_tokens": 12913
+    }
+  },
+  "qualification": "Evidence applies to source hashes/modes recorded. Legacy aggregate passes are retained but not counted here; passing is not a model-performance result."
+}

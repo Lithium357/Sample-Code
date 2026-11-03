@@ -1,0 +1,125 @@
+{
+  "failures": 0,
+  "files": [
+    {
+      "path": "advanced/c/incremental_frames.c",
+      "status": "passed",
+      "output": "Frame decoder: every two-chunk split, byte-at-a-time delivery, truncation and poison states passed"
+    },
+    {
+      "path": "advanced/c/offline_connectivity.c",
+      "status": "passed",
+      "output": "Offline connectivity: 200 BFS-oracle event streams, rollback invariants and atomic rejection passed"
+    },
+    {
+      "path": "advanced/c/robin_hood_map.c",
+      "status": "passed",
+      "output": "Robin Hood map: 40000 reference operations, deletion chains and allocation-failure atomicity passed"
+    },
+    {
+      "path": "advanced/cpp/coroutine_generator.cpp",
+      "status": "passed",
+      "output": "Coroutine generator: lazy frames, move-only values, single-pass rules, exceptions and RAII passed"
+    },
+    {
+      "path": "advanced/cpp/ntt_convolution.cpp",
+      "status": "passed",
+      "output": "NTT: 400 quadratic-oracle convolutions, inverse transforms and invalid inputs passed"
+    },
+    {
+      "path": "advanced/cpp/order_statistic_treap.cpp",
+      "status": "passed",
+      "output": "Treap: 12000 multiset comparisons, duplicates, split/merge and order statistics passed"
+    },
+    {
+      "path": "advanced/nim/astar_grid.nim",
+      "status": "passed",
+      "output": "A*: 100 Bellman-Ford comparisons, path validation and boundary cases passed"
+    },
+    {
+      "path": "advanced/nim/dinic_flow.nim",
+      "status": "passed",
+      "output": "Dinic: 250 exhaustive cut oracles, certificates, parallel and reverse arcs passed"
+    },
+    {
+      "path": "advanced/nim/earley_recognizer.nim",
+      "status": "passed",
+      "output": "Earley: 2047 balanced-language oracle strings, nullable cycles and left recursion passed"
+    },
+    {
+      "path": "advanced/nim/persistent_avl.nim",
+      "status": "passed",
+      "output": "Persistent AVL: 1200 reference-checked mutations and immutable snapshots passed"
+    },
+    {
+      "path": "advanced/nim/suffix_index.nim",
+      "status": "passed",
+      "output": "Suffix index: 200 naive-array/LCP comparisons and 1200 pattern searches passed"
+    },
+    {
+      "path": "advanced/nim/two_sat.nim",
+      "status": "passed",
+      "output": "2-SAT: 1000 exhaustive model comparisons, contradiction and 2000-variable chain passed"
+    },
+    {
+      "path": "advanced/go/dag_scheduler.go",
+      "status": "passed",
+      "output": "DAG scheduler: ordering, bounds, validation, failure and cancellation passed"
+    },
+    {
+      "path": "advanced/go/mvcc_store.go",
+      "status": "passed",
+      "output": "MVCC: snapshots, conflicts, tombstones, phantoms, GC and 800 concurrent increments passed"
+    },
+    {
+      "path": "advanced/go/observed_remove_set.go",
+      "status": "passed",
+      "output": "OR-set: observed removes, concurrent add-wins, 150 reordered-delivery simulations and join laws passed"
+    },
+    {
+      "path": "advanced/go/sstable_codec.go",
+      "status": "passed",
+      "output": "SST codec: canonical encoding, CRC, truncation, ownership and 200 round trips passed"
+    },
+    {
+      "path": "advanced/go/wal_recovery.go",
+      "status": "passed",
+      "output": "WAL: every torn-tail boundary, corruption, reader errors and reopen/append recovery passed"
+    },
+    {
+      "path": "advanced/go/weighted_semaphore.go",
+      "status": "passed",
+      "output": "Weighted semaphore: FIFO, head cancellation, invalid releases and 1200 cancellation races passed"
+    },
+    {
+      "path": "advanced/assembly/crc32_ieee.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/heap_sort.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/overlap_memmove.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/parse_int64.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/radix_sort_i32.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    },
+    {
+      "path": "advanced/assembly/utf8_validate.asm",
+      "status": "passed",
+      "output": "NASM flat-image execution under Unicorn + ELF64 assembly passed"
+    }
+  ]
+}

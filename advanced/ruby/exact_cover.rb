@@ -121,6 +121,18 @@ puzzle = [[1, 0, 0, 4], [0, 4, 1, 0], [0, 1, 4, 0], [4, 0, 0, 1]]
 sudoku(puzzle).each do |grid|
   grid.each { |row| check(row.sort == [1, 2, 3, 4], 'Sudoku row') }
   grid.transpose.each { |column| check(column.sort == [1, 2, 3, 4], 'Sudoku column') }
+  [0, 2].each do |r|
+    [0, 2].each do |c|
+      box = [grid[r][c], grid[r][c+1], grid[r+1][c], grid[r+1][c+1]]
+      check(box.sort == [1, 2, 3, 4], 'Sudoku box')
+    end
+  end
+  4.times { |r| 4.times { |c| check(grid[r][c] == puzzle[r][c], 'given changed') unless puzzle[r][c].zero? } }
+end
+[[[0,0,0,0]], [[1,2,3,5]] * 4].each do |invalid|
+  rejected = false
+  begin sudoku(invalid); rescue ArgumentError; rejected = true; end
+  check(rejected, 'malformed Sudoku input accepted')
 end
 check(!sudoku(puzzle).empty?, 'Sudoku should have solutions')
 check(sudoku([[1,1,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]).empty?, 'contradictory givens')

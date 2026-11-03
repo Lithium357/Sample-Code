@@ -1,5 +1,9 @@
 # Validation
 
+Historical aggregate summary from the initial generation. It lacks exact
+command/version/source bindings and must not be treated as current research
+evidence after edits. See `research/evidence/history/` and `research/volume.json`.
+
 Local validation completed on November 2, 2026.
 
 All **268 programs** passed their embedded checks: **1084 explicit fixtures**.

@@ -1,0 +1,83 @@
+{
+  "mode": "Keystone assembly + Unicorn x86-64 emulation",
+  "files": [
+    {
+      "path": "assembly/01_gcd.asm",
+      "status": "passed",
+      "machine_code_bytes": 280,
+      "assembled_statements": 81
+    },
+    {
+      "path": "assembly/02_power.asm",
+      "status": "passed",
+      "machine_code_bytes": 357,
+      "assembled_statements": 110
+    },
+    {
+      "path": "assembly/03_is_perfect.asm",
+      "status": "passed",
+      "machine_code_bytes": 357,
+      "assembled_statements": 120
+    },
+    {
+      "path": "assembly/04_is_palindrome.asm",
+      "status": "passed",
+      "machine_code_bytes": 302,
+      "assembled_statements": 98
+    },
+    {
+      "path": "assembly/05_ceil_div.asm",
+      "status": "passed",
+      "machine_code_bytes": 264,
+      "assembled_statements": 81
+    },
+    {
+      "path": "assembly/06_trailing_zero_bits.asm",
+      "status": "passed",
+      "machine_code_bytes": 284,
+      "assembled_statements": 92
+    },
+    {
+      "path": "assembly/07_totient.asm",
+      "status": "passed",
+      "machine_code_bytes": 431,
+      "assembled_statements": 151
+    },
+    {
+      "path": "assembly/08_greedy_coin_count.asm",
+      "status": "passed",
+      "machine_code_bytes": 342,
+      "assembled_statements": 110
+    },
+    {
+      "path": "assembly/09_triangular_index.asm",
+      "status": "passed",
+      "machine_code_bytes": 264,
+      "assembled_statements": 86
+    },
+    {
+      "path": "assembly/10_integer_log.asm",
+      "status": "passed",
+      "machine_code_bytes": 255,
+      "assembled_statements": 76
+    },
+    {
+      "path": "assembly/11_lucas.asm",
+      "status": "passed",
+      "machine_code_bytes": 259,
+      "assembled_statements": 78
+    },
+    {
+      "path": "assembly/12_is_happy.asm",
+      "status": "passed",
+      "machine_code_bytes": 374,
+      "assembled_statements": 119
+    },
+    {
+      "path": "assembly/13_count_digit.asm",
+      "status": "passed",
+      "machine_code_bytes": 365,
+      "assembled_statements": 119
+    }
+  ]
+}

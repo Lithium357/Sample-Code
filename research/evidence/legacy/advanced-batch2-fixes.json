@@ -1,0 +1,25 @@
+{
+  "failures": 0,
+  "files": [
+    {
+      "path": "advanced/cmd/floyd_warshall.cmd",
+      "status": "passed",
+      "output": "Floyd-Warshall: 25 oracle paths, negative weights and negative-cycle detection passed"
+    },
+    {
+      "path": "advanced/cmd/knapsack.cmd",
+      "status": "passed",
+      "output": "Knapsack: 21 brute-force comparisons, reconstruction and empty input passed"
+    },
+    {
+      "path": "advanced/sql/bill_of_materials.sql",
+      "status": "passed",
+      "output": "8 SQL result checks and 4 expected-rejection checks passed"
+    },
+    {
+      "path": "advanced/sql/double_entry_posting.sql",
+      "status": "passed",
+      "output": "6 SQL result checks and 6 expected-rejection checks passed"
+    }
+  ]
+}

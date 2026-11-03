@@ -172,6 +172,21 @@ int main(void) {
   }
   uint8_t sentinel[4] = {1, 2, 3, 4};
   assert(encode(sentinel, 4, 1, NULL, 0) == 0 && sentinel[0] == 1);
+  /* Type rejection must be distinguished from checksum failure: recompute a
+   * valid checksum after changing the type to an unsupported value. */
+  size = encode(corrupt, sizeof(corrupt), 2, payload, 10);
+  corrupt[4] = 99;
+  write32(corrupt + size - 4, crc32(corrupt + 4, 11));
+  bad = (Decoder){0}; sink = (Sink){0};
+  assert(feed(&bad, corrupt, size, consume, &sink) == FRAME_TYPE && sink.count == 0);
+  bad = (Decoder){0};
+  assert(feed(&bad, NULL, 1, consume, &sink) == FRAME_ARGUMENT);
+  bad = (Decoder){0};
+  assert(feed(&bad, wire, 9, NULL, &sink) == FRAME_ARGUMENT);
+  bad = (Decoder){0};
+  assert(feed(&bad, NULL, 0, consume, &sink) == FRAME_OK && complete(&bad));
+  bad = (Decoder){0}; /* Explicit reset restores usability after a poison. */
+  assert(feed(&bad, wire, 9, consume, &sink) == FRAME_OK && sink.count == 1);
   puts("Frame decoder: every two-chunk split, byte-at-a-time delivery, "
        "truncation and poison states passed");
   return 0;

@@ -1,0 +1,45 @@
+{
+  "failures": 0,
+  "files": [
+    {
+      "path": "advanced/nim/persistent_avl.nim",
+      "status": "passed",
+      "output": "Persistent AVL: 1200 reference-checked mutations and immutable snapshots passed"
+    },
+    {
+      "path": "advanced/rust/pratt_calculator.rs",
+      "status": "passed",
+      "output": "Pratt calculator: precedence, errors, limits and 1681 identities passed"
+    },
+    {
+      "path": "advanced/go/dag_scheduler.go",
+      "status": "passed",
+      "output": "DAG scheduler: ordering, bounds, validation, failure and cancellation passed"
+    },
+    {
+      "path": "advanced/ruby/exact_cover.rb",
+      "status": "passed",
+      "output": "Exact cover: reversible search, ambiguity and Sudoku checks passed"
+    },
+    {
+      "path": "advanced/php/event_sourced_wallet.php",
+      "status": "passed",
+      "output": "Event sourcing: replay, idempotency, conflicts, rejection and overflow passed"
+    },
+    {
+      "path": "advanced/powershell/min_cost_flow.ps1",
+      "status": "passed",
+      "output": "Min-cost flow: reverse arcs, partial flow, 256 oracle assignments and negative cycles passed"
+    },
+    {
+      "path": "advanced/cmd/knapsack.cmd",
+      "status": "passed",
+      "output": ""
+    },
+    {
+      "path": "advanced/sql/double_entry_posting.sql",
+      "status": "passed",
+      "output": "6 SQL result checks passed"
+    }
+  ]
+}

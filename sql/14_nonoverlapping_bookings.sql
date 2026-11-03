@@ -2,6 +2,9 @@
 -- Dialect: SQLite 3.25+; standalone, in-memory-friendly fixture.
 -- Run: sqlite3 :memory: ".bail on" ".read FILE.sql"
 -- Every checks insertion must evaluate to integer 1.
+-- Rejection/state tests: python tools/research_validate.py --suite repairs
+-- SQLite SQL alone cannot catch RAISE(ABORT); tools/sql_contracts.py attempts
+-- overlapping inserts/updates, checks exact errors and verifies unchanged state.
 PRAGMA foreign_keys = ON;
 BEGIN;
 CREATE TEMP TABLE checks (ok INTEGER NOT NULL CHECK(ok = 1));

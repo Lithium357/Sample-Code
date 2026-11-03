@@ -1,0 +1,23 @@
+this is synthetic training data for Morderca, so the goal is useful, varied, correct examples with evidence behind them. the token count is a rough budget, not something to pad your way toward. keep what’s already there, but make the next pass better in these ways:
+
+1. **fix gaps in the existing tests first.** for example, `sql/14_nonoverlapping_bookings.sql` defines triggers that reject overlapping bookings, but only inserts valid bookings. add tests that actually attempt overlapping inserts and updates, verify the expected rejection, and verify the database state afterward. review the other examples for that same problem: a feature being present without its behavior actually being tested.
+2. **expand beyond translating the same integer algorithms.** those are useful as a small parallel collection, but we need more language-specific work:
+   - PHP: request validation, JSON, PDO prepared statements, exceptions, generators.
+   - Go: interfaces, context cancellation, HTTP, concurrency, file handling.
+   - Ruby: enumerators, blocks, structured data, exceptions, small libraries.
+   - Rust: ownership, borrowing, iterators, enums, error handling, parsing.
+   - Bash: quoting, filenames with spaces, pipelines, exit statuses, traps, temporary files.
+   - SQL: transactions, constraints, joins, migrations, query behavior.
+   - PowerShell: objects and pipelines, parameter validation, error handling, JSON and CSV.
+   - CMD: quoting, `%ERRORLEVEL%`, delayed expansion, subroutines, paths with spaces.
+   - Nim: sequences, tables, iterators, generics, options, exceptions, modules.
+   - assembly: memory access, calling conventions, strings, buffers, signedness and boundary behavior.
+   make these self-contained and runnable using local fixtures. don’t require real credentials or external services.
+3. **fill the specific dialect and architecture gaps.** the current SQLite and Linux x86-64 examples don’t cover everything we want. add clearly separated SQL Server/T-SQL examples, then PostgreSQL. add ARM/AArch64 assembly alongside x86; RISC-V is the next priority. label the exact dialect, ISA, syntax, ABI and runtime assumptions. don’t claim portability you haven’t checked.
+4. **make tests capable of catching plausible mistakes.** include relevant boundaries, empty inputs, malformed inputs, and failure behavior within each example’s stated contract. use independent reference implementations, differential checks or invariants where they help. don’t generate expected answers by calling the same implementation being tested. don’t weaken tests or change expected outputs just to make something pass.
+5. **keep the validation record honest.** record the exact command, runtime/compiler version, source hash, result and validation mode. distinguish native execution, emulation, syntax-only checks and untested files. missing tools mean “not tested,” not “passed.” when something fails, record the failure and the fix; preserve the original result in the history.
+6. **preserve the synthetic-data lineage.** record generation model/version and prompts when available, task identifiers, and subsequent edits. don’t invent missing provenance. group translations and close variants under a shared task-family ID so we can keep them together when splitting the data. these are related synthetic examples, not independent projects.
+7. **keep evaluation material out of this collection.** don’t copy or paraphrase standardized benchmark problems or solutions to generate examples. this repo is intended for training, so passing its own checks is validation of the examples—not evidence of Morderca’s performance.
+8. **report counts precisely.** keep the existing `cl100k_base` counts labelled with that tokenizer. report source, comments and fixtures separately if practical, and separate generated volume from successfully validated volume. don’t claim these are Morderca-tokenizer counts unless you actually use its tokenizer.
+
+work in small batches, validate each batch, and finish with what changed, what ran, what failed, what remains untested, and what coverage is still missing. don’t balloon the repo just to hit a number. **a smaller batch with meaningful checks is more useful to this research than a huge batch with unsupported claims.**

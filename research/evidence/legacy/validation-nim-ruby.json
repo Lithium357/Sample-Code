@@ -1,0 +1,439 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "nim_backend": "js",
+  "files": [
+    {
+      "path": "nim/sample_01_gcd.nim",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_02_power.nim",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_03_is_perfect.nim",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_04_is_palindrome.nim",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_05_ceil_div.nim",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_06_trailing_zero_bits.nim",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_07_totient.nim",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_08_greedy_coin_count.nim",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_09_triangular_index.nim",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_10_integer_log.nim",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_11_lucas.nim",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_12_is_happy.nim",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_13_count_digit.nim",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_14_lattice_paths.nim",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_15_discrete_log.nim",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_16_lcm.nim",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_17_modular_power.nim",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_18_digit_sum.nim",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_19_digital_root.nim",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_20_binomial.nim",
+      "fixtures": 4,
+      "output": "binomial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_21_next_power_of_two.nim",
+      "fixtures": 4,
+      "output": "next_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_22_largest_prime_factor.nim",
+      "fixtures": 4,
+      "output": "largest_prime_factor: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_23_nth_prime.nim",
+      "fixtures": 4,
+      "output": "nth_prime: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_24_is_leap_year.nim",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_25_multiply_mod.nim",
+      "fixtures": 4,
+      "output": "multiply_mod: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_26_pell.nim",
+      "fixtures": 4,
+      "output": "pell: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_27_is_armstrong.nim",
+      "fixtures": 4,
+      "output": "is_armstrong: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_28_rotate_decimal.nim",
+      "fixtures": 4,
+      "output": "rotate_decimal: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_29_rectangle_count.nim",
+      "fixtures": 4,
+      "output": "rectangle_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_30_modular_inverse.nim",
+      "fixtures": 4,
+      "output": "modular_inverse: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_31_factorial.nim",
+      "fixtures": 4,
+      "output": "factorial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "nim/sample_32_is_prime.nim",
+      "fixtures": 5,
+      "output": "is_prime: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/01_gcd.rb",
+      "fixtures": 5,
+      "output": "gcd: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/02_power.rb",
+      "fixtures": 4,
+      "output": "power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/03_is_perfect.rb",
+      "fixtures": 5,
+      "output": "is_perfect: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/04_is_palindrome.rb",
+      "fixtures": 4,
+      "output": "is_palindrome: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/05_ceil_div.rb",
+      "fixtures": 4,
+      "output": "ceil_div: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/06_trailing_zero_bits.rb",
+      "fixtures": 4,
+      "output": "trailing_zero_bits: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/07_totient.rb",
+      "fixtures": 4,
+      "output": "totient: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/08_greedy_coin_count.rb",
+      "fixtures": 4,
+      "output": "greedy_coin_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/09_triangular_index.rb",
+      "fixtures": 4,
+      "output": "triangular_index: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/10_integer_log.rb",
+      "fixtures": 4,
+      "output": "integer_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/11_lucas.rb",
+      "fixtures": 4,
+      "output": "lucas: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/12_is_happy.rb",
+      "fixtures": 4,
+      "output": "is_happy: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/13_count_digit.rb",
+      "fixtures": 4,
+      "output": "count_digit: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/14_lattice_paths.rb",
+      "fixtures": 4,
+      "output": "lattice_paths: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/15_discrete_log.rb",
+      "fixtures": 4,
+      "output": "discrete_log: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/16_lcm.rb",
+      "fixtures": 5,
+      "output": "lcm: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/17_modular_power.rb",
+      "fixtures": 4,
+      "output": "modular_power: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/18_digit_sum.rb",
+      "fixtures": 4,
+      "output": "digit_sum: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/19_digital_root.rb",
+      "fixtures": 4,
+      "output": "digital_root: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/20_binomial.rb",
+      "fixtures": 4,
+      "output": "binomial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/21_next_power_of_two.rb",
+      "fixtures": 4,
+      "output": "next_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/22_largest_prime_factor.rb",
+      "fixtures": 4,
+      "output": "largest_prime_factor: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/23_nth_prime.rb",
+      "fixtures": 4,
+      "output": "nth_prime: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/24_is_leap_year.rb",
+      "fixtures": 4,
+      "output": "is_leap_year: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/25_multiply_mod.rb",
+      "fixtures": 4,
+      "output": "multiply_mod: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/26_pell.rb",
+      "fixtures": 4,
+      "output": "pell: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/27_is_armstrong.rb",
+      "fixtures": 4,
+      "output": "is_armstrong: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/28_rotate_decimal.rb",
+      "fixtures": 4,
+      "output": "rotate_decimal: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/29_rectangle_count.rb",
+      "fixtures": 4,
+      "output": "rectangle_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/30_modular_inverse.rb",
+      "fixtures": 4,
+      "output": "modular_inverse: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/31_factorial.rb",
+      "fixtures": 4,
+      "output": "factorial: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/32_is_prime.rb",
+      "fixtures": 5,
+      "output": "is_prime: 5 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/33_digit_product.rb",
+      "fixtures": 4,
+      "output": "digit_product: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/34_is_harshad.rb",
+      "fixtures": 4,
+      "output": "is_harshad: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/35_population_count.rb",
+      "fixtures": 4,
+      "output": "population_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/36_is_power_of_two.rb",
+      "fixtures": 4,
+      "output": "is_power_of_two: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/37_prime_factor_count.rb",
+      "fixtures": 4,
+      "output": "prime_factor_count: 4 fixtures passed",
+      "status": "passed"
+    },
+    {
+      "path": "ruby/38_primes_below.rb",
+      "fixtures": 4,
+      "output": "primes_below: 4 fixtures passed",
+      "status": "passed"
+    }
+  ],
+  "skipped_languages": {},
+  "runtime_paths": {
+    "nim": {
+      "nim": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\nim\\nim-2.4.0\\bin\\nim.EXE"
+    },
+    "ruby": {
+      "ruby": "C:\\Users\\turli\\Documents\\Codex\\2026-11-02\\i-x20\\work\\runtimes\\ruby\\rubyinstaller-3.4.12-1-x64\\bin\\ruby.EXE"
+    }
+  },
+  "elapsed_seconds": 49.94,
+  "failures": 0
+}

@@ -1,6 +1,6 @@
 # Curated, language-specific local examples
 
-These synthetic examples were added in research passes 1 through 4. They are not benchmark
+These synthetic examples were added in research passes 1 through 5. They are not benchmark
 items and their checks do not measure Morderca. The registry in
 `research/cases.json` defines task families, runtime assumptions and support
 files; results are in append-only `research/evidence/history/` records.
@@ -18,6 +18,10 @@ byte invariants and PHP generator delegation. See `research/PASS-4.md` for the
 exact validated scope.
 The same pass adds Perl tied hashes and GNU AWK transactional aggregation with
 explicit dialect/runtime labels and Linux/Windows checks.
+
+Pass 5 adds C packet byte contracts, Ruby Fiber lifecycle, Bash borrowed
+descriptors and CMD literal expansion. Four retained examples also receive
+scoped reviews and stronger tests. See `research/PASS-5.md`.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 

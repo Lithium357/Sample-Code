@@ -6,8 +6,8 @@ approximately 2B useful code tokens. The active goal and counting rules are in
 `long-run-goal.json`; exact current totals are in `volume.json`.
 
 Use training_candidate_tokens for the quality goal and execution_validated_tokens
-for technical execution volume. The existing legacy hold covers 313 files /
-165,213 tokens at this checkpoint. Review available provenance and feature/
+for technical execution volume. The existing legacy hold covers 309 files /
+163,825 tokens at this checkpoint. Review available provenance and feature/
 failure coverage in small source-bound batches before clearing any hold. A
 rerun or blanket relabel is not an origin/coverage audit. Preserve review scope,
 unresolved gaps, source hashes and task-family links when recording promotions.
@@ -17,16 +17,20 @@ Avoid making Go/Python dominate just because their runners are convenient.
 Pass 4 completed C++ PMR failure guarantees, Rust streaming UTF-8, Nim schema
 generation, PHP delegation cleanup, PowerShell ShouldProcess and GNU-linked
 RISC-V emulation, and added Perl/GNU AWK. Avoid regenerating these as new tasks.
+Pass 5 completed C byte packets, Ruby Fiber lifecycle, Bash descriptors and CMD
+expansion, and reviewed three GCD variants plus SQLite bookings. Reviews bind
+source/document hashes, task and family; the other legacy files remain held.
 Candidate next contracts (not yet implemented or validated):
 
-* C portable binary layout without aliasing violations and checked integer field
-  conversions; C++ move-only resource handles and documented ownership transfer.
+* C++ move-only resource handles and documented ownership transfer; C bounded
+  scatter/gather ownership and partial-progress contracts.
 * Rust vectored I/O with borrowed buffers and exact partial-read/write errors.
 * Nim sink/copy hooks or module-level resource cleanup.
-* Ruby Enumerator/Fiber failure boundaries and scoped resource libraries.
-* CMD expansion phases and literal exclamation/percent characters in safe local
-  path handling; PowerShell provider/literal-path differences in owned fixtures.
-* Bash descriptor ownership, process substitution and upstream failure status.
+* Ruby encoding conversion and invalid-byte boundaries, with explicit encodings.
+* PowerShell provider/literal-path differences in owned fixtures. CMD native
+  command exit-status handling beyond the completed literal-expansion case.
+* Bash process substitution and upstream failure status beyond the completed
+  borrowed-descriptor scope.
 * RISC-V beyond the single folded-buffer function; native hardware/ELF loading is
   still untested. ARM/AArch64 remain emulation-only and must not acquire native
   labels by inference. T-SQL still lacks an execution fixture.

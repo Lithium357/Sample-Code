@@ -113,3 +113,49 @@ hashes match before/after every rejected statement, before cleanup rollback.
 The original two SQL checks remain. The hash-bound available-lineage/behavior
 review is in `reviews/pass-5-bookings.md`; it does not clear other SQL cases or
 claim concurrent-client, arbitrary-aggregate-overflow or server-dialect coverage.
+
+## Publication and validation checkpoint
+
+Three source commits were pushed directly to main with expected-head checks:
+77b35c2e747069d5810f2ee084e81139da299452 (run 41601207987),
+417cec7d7013a0a3d1a79a7d15e714085f7070c6 (run 41604071910), and
+29d61f23815c6e05cdca6fe1be31725299f2c319 (run 41606283685).
+All three workflow runs completed successfully. The fifteen research artifacts
+were digest-verified and imported as 32 new immutable history files. Original
+failed runs and snapshots remain. C, Ruby Fiber, Bash, three GCD variants and
+SQLite have matching Windows-local/Linux evidence; CMD has native local/CI
+Windows evidence. Linux C uses the workflow's sanitizers. These are specific
+compiler/runtime and fixture results, not portability proofs.
+
+Final local SQLite execution used Python 3.12.14 / SQLite 3.53.1. Its fifteen
+rejections preserve identical immediate before/after state hashes; seven added
+behaviors and three deliberately broken variants are checked. The review-policy
+probe checks six scenarios including actual execution of a changed Go source
+whose old review must remain invalid. It is control material, excluded from
+training volume. Exact commands, versions, hashes and modes are in raw records.
+
+Two formal failures occurred in this pass: Bash's misleading redirection probe
+and the real SQLite text-storage bypass. The Bash diagnostic trace repeated its
+failure outside the recorder. Both fixes, original results and snapshots are
+retained. An artifact-download orchestration typo and a report-inspection typo
+were corrected; they were not source validation passes or failures.
+
+Current volume is 356 source/support files / 210,023 cl100k_base tokens:
+355 files / 209,376 have source-bound execution evidence; 46 files / 45,551
+qualify as training candidates under the documented policy. The remaining
+309 executed legacy files / 163,825 tokens remain held for origin/coverage
+review. One T-SQL file / 647 tokens is untested. Compared with pass 4, generated
+and execution totals each rose by 6,972 tokens; candidate volume rose by 8,360
+through four new files and four scoped retained-file reviews. New files alone
+contain 6,159 tokens (C 2,542; Ruby 1,375; Bash 1,281; CMD 961). Remaining changes
+in generated volume come from edits to retained source. These full-file counts
+include comments/inline fixtures. Separate fixture-role files total 293 tokens;
+lexical source/comment/inline-fixture separation is not implemented.
+
+The approximately 2B-token goal remains active. SQL Server execution, native ARM/
+AArch64/RISC-V hardware and broader runtime/dialect versions remain missing.
+Emulation is labeled as such. Benchmark absence is not independently established
+by these scoped reviews; candidate qualification retains that limitation. No
+checks here measure Morderca performance. Future batches rotate all languages,
+including niche practical contracts, rather than expanding a parallel algorithm
+collection just to raise volume.

@@ -31,6 +31,8 @@ type snapshot struct {
 }
 
 func loadSnapshot(source io.Reader, limit int64, modified time.Time) (*snapshot, error) {
+	// A non-nil concrete Reader must obey io.Reader and eventually make
+	// progress or return an error; this function supplies no I/O deadline.
 	if source == nil || limit < 0 || limit > 1<<20 {
 		return nil, errInput
 	}
@@ -166,6 +168,11 @@ func main() {
 		value, err := loadSnapshot(strings.NewReader(""), limit, modified)
 		require(value == nil && err == errInput, "invalid load limit")
 	}
+	largest := strings.Repeat("x", 1<<20)
+	edge, err := loadSnapshot(strings.NewReader(largest), 1<<20, modified)
+	require(err == nil && request(edge, "GET", nil).Body.String() == largest, "accepted maximum byte limit")
+	tooLarge, err := loadSnapshot(strings.NewReader(largest+"y"), 1<<20, modified)
+	require(tooLarge == nil && err == errLimit, "sentinel beyond maximum capacity")
 	value, err := loadSnapshot(nil, 3, modified)
 	require(value == nil && err == errInput, "nil reader")
 	value, err = loadSnapshot(strings.NewReader("x"), 0, modified)

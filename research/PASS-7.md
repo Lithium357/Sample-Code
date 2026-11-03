@@ -65,3 +65,33 @@ and [filter removal](https://www.php.net/manual/en/function.stream-filter-remove
 
 Further results, exact current totals and remaining limitations are appended
 after source-bound CI evidence is imported. The long-run goal remains active.
+
+
+## Assembly protocol/ABI variants
+
+NASM x86-64 and GNU RV64I implementations decode the first canonical ULEB32
+value, writing a little-endian value/count pair only on success. Truncation,
+overflow and noncanonical encodings leave output unchanged; aliases and
+unaligned output are supported. They share binary.canonical-varint with the
+related C codec for splitting, rather than being treated as independent projects.
+The NASM source includes 16 native Linux ELF64 literal fixtures. A separate
+function-body emulator checks required input access bounds, output/source guards,
+transactional failure writes, aliases, NULL empty input, very large unsigned
+available sizes, saved registers, stack and DF. Its reference uses division/
+remainders and canonical re-encoding, independent from the assembly bit shifts.
+Native execution and emulation are separate invocations/modes.
+
+The first NASM run 1d6fd14590db44c1a540dc45ae0c5fe7 passed the primary vectors,
+but the always-success negative control failed its harness check: the first
+vector was a successful zero value, so the stub was caught for missing output,
+not the specified wrong status. Put the already-existing empty vector first;
+that preserves the complete vector set and every expected result, while making
+the same stub fail its intended status assertion. Run
+b7370dbebe8249f2b42cd926aa1df2d0 passed the current NASM function under Unicorn.
+The original failure/source/harness remains. Local RISC-V GNU tools are absent
+(run 107c61a343fd4bfc98425da776b67568 is not_tested); a CI validation branch is
+required before that source is promoted to main. RV64I remains emulation-only.
+
+A final Go boundary review added a real one-MiB accepted input and its one-byte
+oversize neighbor; run a4c40d3aaca449abb11aadd1c7dbc793 passed. Large runtime
+fixtures created by string repetition are not extra counted source tokens.

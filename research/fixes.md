@@ -108,3 +108,10 @@ now makes that missing setup not_tested, not passed. Ordinary native execution
 does not prove the race setup was fixed. The change ledger now matches platform,
 mode and instrumentation for resolution links and appends corrections to older
 links that crossed those scopes. Raw source-bound records remain authoritative.
+
+
+NASM pass-7 run 1d6fd14590db44c1a540dc45ae0c5fe7 failed the negative-control
+reason assertion after primary vectors passed. The always-success stub failed
+on missing output in the first (successful) case; place the already-present
+empty-input case first to require wrong-status detection. Same case set and
+expected values; b7370dbebe8249f2b42cd926aa1df2d0 passes. Original evidence kept.

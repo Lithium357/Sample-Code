@@ -507,5 +507,27 @@
     "prompt_file": "research/provenance/research-pass-7.txt",
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "PHP 8.1+ php_user_filter; owned php://temp READ/WRITE filters; strips only one initial BOM, not UTF-8 validation; actual runtime versions recorded."
+  },
+  {
+    "path": "curated/assembly/x86_64/uleb32.asm",
+    "language": "assembly",
+    "adapter": "nasm_uleb",
+    "mode": "emulation",
+    "task_family": "binary.canonical-varint",
+    "task_id": "research-pass-7",
+    "prompt_file": "research/provenance/research-pass-7.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "NASM x86-64, SysV AMD64, little endian; flat function-body Unicorn execution plus ELF64 assembly. --native-x86 separately links/runs 16 inline Linux ELF64 vectors, no libc; not a Windows ABI binary."
+  },
+  {
+    "path": "curated/assembly/riscv64/uleb32.s",
+    "language": "assembly-riscv64",
+    "adapter": "riscv_uleb",
+    "mode": "emulation",
+    "task_family": "binary.canonical-varint",
+    "task_id": "research-pass-7",
+    "prompt_file": "research/provenance/research-pass-7.txt",
+    "role": "source",
+    "runtime_assumptions": "RV64I little endian, GNU syntax, LP64 integer ABI, no compressed instructions/relaxation; GNU as/ld/objcopy then linked-text Unicorn execution, not native hardware/ELF loading."
   }
 ]

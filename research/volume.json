@@ -5,31 +5,31 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 216576,
-    "source": 9707,
+    "source_with_inline_fixtures": 218530,
+    "source": 10460,
     "fixture": 293,
     "support_source": 580
   },
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 364,
-  "generated_tokens": 227156,
-  "current_source_bound_pass_files": 364,
-  "current_source_bound_pass_tokens": 227156,
-  "execution_validated_files": 364,
-  "execution_validated_tokens": 227156,
+  "files": 366,
+  "generated_tokens": 229863,
+  "current_source_bound_pass_files": 365,
+  "current_source_bound_pass_tokens": 229110,
+  "execution_validated_files": 365,
+  "execution_validated_tokens": 229110,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 55,
-  "training_candidate_tokens": 63331,
+  "training_candidate_files": 56,
+  "training_candidate_tokens": 65285,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
   "legacy_review_required_tokens": 163825,
   "by_language": {
     "assembly": {
-      "files": 20,
-      "generated_tokens": 17595,
-      "current_source_bound_pass_tokens": 17595
+      "files": 21,
+      "generated_tokens": 19419,
+      "current_source_bound_pass_tokens": 19419
     },
     "assembly-aarch64": {
       "files": 1,
@@ -42,8 +42,8 @@
       "current_source_bound_pass_tokens": 309
     },
     "assembly-riscv64": {
-      "files": 1,
-      "generated_tokens": 363,
+      "files": 2,
+      "generated_tokens": 1116,
       "current_source_bound_pass_tokens": 363
     },
     "awk-gawk": {
@@ -83,8 +83,8 @@
     },
     "go": {
       "files": 38,
-      "generated_tokens": 25538,
-      "current_source_bound_pass_tokens": 25538
+      "generated_tokens": 25668,
+      "current_source_bound_pass_tokens": 25668
     },
     "javascript": {
       "files": 1,

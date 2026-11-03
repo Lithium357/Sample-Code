@@ -47,6 +47,10 @@ jobs:
         run: python3 tools/research_validate.py --suite curated --only-language nim --native-nim --require-tools
       - name: Require Lua 5.4 execution
         run: python3 tools/research_validate.py --suite curated --only-language lua --require-tools
+      - name: Require native NASM decoder fixture
+        run: python3 tools/research_validate.py --path curated/assembly/x86_64/uleb32.asm --native-x86 --require-tools
+      - name: Require RISC-V linked decoder emulation
+        run: python3 tools/research_validate.py --path curated/assembly/riscv64/uleb32.s --require-tools
       - name: Race-check curated Go
         run: >-
           python3 tools/research_validate.py --path curated/go/local_http.go

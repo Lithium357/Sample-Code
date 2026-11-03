@@ -246,7 +246,7 @@ def validate(case, temporary):
                                     'source':case['path'],'driver_command':[sys.executable,*sys.argv]})
         CURRENT['isa_checks'] = validate_isa(path,case['isa'])
         return
-    if case.get('adapter') == 'riscv_exec':
+    if case.get('adapter') in ('riscv_exec','riscv_uleb'):
         from isa_probe import validate_riscv_image
         programs={name:shutil.which('riscv64-linux-gnu-'+name) for name in ('as','ld','objcopy')}
         for name,program in programs.items():
@@ -256,15 +256,49 @@ def validate(case, temporary):
         CURRENT['runtime_versions']['unicorn']=importlib.metadata.version('unicorn')
         obj,elf,raw=temporary/'fold.o',temporary/'fold.elf',temporary/'fold.bin'
         execute([programs['as'],'-march=rv64i','-mabi=lp64',path,'-o',obj],temporary)
-        execute([programs['ld'],'-m','elf64lriscv','--no-relax','-Ttext=0x100000','-e','ascii_fold',obj,'-o',elf],temporary)
+        entry='decode_uleb32' if case['adapter']=='riscv_uleb' else 'ascii_fold'
+        execute([programs['ld'],'-m','elf64lriscv','--no-relax','-Ttext=0x100000','-e',entry,obj,'-o',elf],temporary)
         execute([programs['objcopy'],'-O','binary','--only-section=.text',elf,raw],temporary)
         header=elf.read_bytes()
         assert header[:6]==b'\x7fELF\x02\x01' and int.from_bytes(header[18:20],'little')==243,'not little-endian ELF64 RISC-V'
         assert int.from_bytes(header[16:18],'little')==2 and int.from_bytes(header[24:32],'little')==0x100000,'unexpected ELF type/entry'
         CURRENT['produced_artifact_sha256']={p.name:digest(p) for p in (obj,elf,raw)}
-        CURRENT['commands'].append({'kind':'in_process','entrypoint':'isa_probe.validate_riscv_image',
+        CURRENT['commands'].append({'kind':'in_process','entrypoint':'uleb_isa_probe.validate_image' if case['adapter']=='riscv_uleb' else 'isa_probe.validate_riscv_image',
                                     'linked_text':raw.name,'driver_command':[sys.executable,*sys.argv]})
-        CURRENT['isa_checks']=validate_riscv_image(raw.read_bytes())
+        if case['adapter']=='riscv_uleb':
+            from uleb_isa_probe import validate_image
+            CURRENT['isa_checks']=validate_image(raw.read_bytes(),'riscv64')
+        else:CURRENT['isa_checks']=validate_riscv_image(raw.read_bytes())
+        return
+    if case.get('adapter')=='nasm_uleb':
+        nasm=shutil.which('nasm')
+        if not nasm:raise MissingTool('NASM unavailable')
+        execute([nasm,'-v'],ROOT,probe=True)
+        CURRENT['runtime_versions']['nasm']=CURRENT['commands'][-1]['stdout']
+        obj=temporary/'decode.o'
+        execute([nasm,'-f','elf64',path,'-o',obj],temporary)
+        CURRENT['produced_artifact_sha256']={obj.name:digest(obj)}
+        if case.get('native_x86'):
+            if platform.system()!='Linux' or platform.machine().lower() not in ('x86_64','amd64'):
+                raise MissingTool('Native NASM fixture requires Linux x86-64; emulation is a separate invocation')
+            linker=shutil.which('ld')
+            if not linker:raise MissingTool('Linux ELF linker unavailable')
+            execute([linker,'--version'],ROOT,probe=True)
+            CURRENT['runtime_versions']['ld']=CURRENT['commands'][-1]['stdout']
+            binary=temporary/'decode'
+            execute([linker,obj,'-o',binary],temporary)
+            execute([binary],temporary)
+            CURRENT['produced_artifact_sha256'][binary.name]=digest(binary)
+            CURRENT['native_self_checks']={'vectors':16,'scope':'Inline fixed literals, all output guards, status/value/count, saved registers and stack; Linux ELF _start exit status 0.'}
+        else:
+            from uleb_isa_probe import validate_image
+            raw=temporary/'decode.bin'
+            execute([nasm,'-DFLAT','-f','bin',path,'-o',raw],temporary)
+            CURRENT['runtime_versions'].update(python=sys.version,unicorn=importlib.metadata.version('unicorn'))
+            CURRENT['produced_artifact_sha256'][raw.name]=digest(raw)
+            CURRENT['commands'].append({'kind':'in_process','entrypoint':'uleb_isa_probe.validate_image',
+                'image':raw.name,'driver_command':[sys.executable,*sys.argv]})
+            CURRENT['isa_checks']=validate_image(raw.read_bytes(),'x86_64')
         return
     if case.get('adapter') == 'riscv_syntax':
         compiler=shutil.which('clang')
@@ -435,6 +469,7 @@ def main():
     parser.add_argument('--skip-language',action='append',default=[])
     parser.add_argument('--go-race',action='store_true')
     parser.add_argument('--native-nim',action='store_true')
+    parser.add_argument('--native-x86',action='store_true')
     parser.add_argument('--require-tools',action='store_true')
     args=parser.parse_args()
     cases=legacy_cases() if args.suite in ('legacy','all') else repair_cases() if args.suite=='repairs' else []
@@ -452,6 +487,9 @@ def main():
     if args.native_nim:
         for case in cases:
             if case['language']=='nim':case.update(native_nim=True,mode='native')
+    if args.native_x86:
+        for case in cases:
+            if case.get('adapter')=='nasm_uleb':case.update(native_x86=True,mode='native')
     if not cases:parser.error('no cases selected')
     run_id=uuid.uuid4().hex
     history=ROOT/'research/evidence/history'
@@ -462,6 +500,7 @@ def main():
     harness_paths.append(ROOT/'tools/verify_advanced.py')
     if (ROOT/'tools/isa_probe.py').exists():harness_paths.append(ROOT/'tools/isa_probe.py')
     if (ROOT/'tools/sqlserver_controls.py').exists():harness_paths.append(ROOT/'tools/sqlserver_controls.py')
+    if (ROOT/'tools/uleb_isa_probe.py').exists():harness_paths.append(ROOT/'tools/uleb_isa_probe.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

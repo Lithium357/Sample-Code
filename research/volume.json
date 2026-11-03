@@ -20,6 +20,11 @@
   "execution_validated_files": 351,
   "execution_validated_tokens": 202404,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
+  "training_candidate_files": 38,
+  "training_candidate_tokens": 37191,
+  "training_candidate_scope": "Curated examples with matching source-bound execution and no benchmark source intentionally used; candidate status is not an independent proof of benchmark absence or exhaustive correctness.",
+  "legacy_review_required_files": 313,
+  "legacy_review_required_tokens": 165213,
   "by_language": {
     "assembly": {
       "files": 20,

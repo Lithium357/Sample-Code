@@ -98,6 +98,8 @@ def main():
                                'current_source_bound_pass_tokens':sum(row['tokens'] for row in subset if row['current_source_bound_pass'])}
     role_totals=Counter()
     for row in rows:role_totals[row['role']]+=row['tokens']
+    candidates=[row for row in rows if row['training_eligibility']=='candidate_after_source_bound_checks']
+    legacy_hold=[row for row in rows if row['training_eligibility']=='legacy_origin_and_coverage_review_required']
     report={'tokenizer':'cl100k_base','morderca_tokenizer_used':False,'counting':'sum of individually tokenized source/support files; normalized text newlines',
             'tokenizer_implementation':'tiktoken','tokenizer_implementation_version':tiktoken.__version__,
             'whole_file_role_tokens':dict(role_totals),
@@ -109,6 +111,11 @@ def main():
             'execution_validated_files':sum(row['execution_validated'] for row in rows),
             'execution_validated_tokens':sum(row['tokens'] for row in rows if row['execution_validated']),
             'execution_scope':'Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.',
+            'training_candidate_files':len(candidates),
+            'training_candidate_tokens':sum(row['tokens'] for row in candidates),
+            'training_candidate_scope':'Curated examples with matching source-bound execution and no benchmark source intentionally used; candidate status is not an independent proof of benchmark absence or exhaustive correctness.',
+            'legacy_review_required_files':len(legacy_hold),
+            'legacy_review_required_tokens':sum(row['tokens'] for row in legacy_hold),
             'by_language':by_language,
             'qualification':'Evidence applies to source hashes/modes recorded. Legacy aggregate passes are retained but not counted here; passing is not a model-performance result.'}
     (ROOT/'research/volume.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

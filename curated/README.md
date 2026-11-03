@@ -16,6 +16,8 @@ UTF-8 state transitions, plus GNU-linked emulation checks for the retained
 RISC-V function. It also adds Nim schema generation, PowerShell ShouldProcess
 byte invariants and PHP generator delegation. See `research/PASS-4.md` for the
 exact validated scope.
+The same pass adds Perl tied hashes and GNU AWK transactional aggregation with
+explicit dialect/runtime labels and Linux/Windows checks.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 
@@ -68,7 +70,7 @@ The Go HTTP fixture starts no listener, and the PHP fixture starts no server.
 * `assembly/riscv64/`: RV64I little-endian, GNU syntax, LP64, no compressed
   instructions or linker relaxation. GNU cross-as/ld/objcopy plus Unicorn
   exercise linked .text when available. Local cross-tools are unavailable;
-  the recorded CI execution result determines validation eligibility. Native
+  CI has passed linked-text emulation for the current source hash. Native
   hardware and ELF-loader behavior remain untested. Older syntax-only results
   stay syntax-only in the history.
 

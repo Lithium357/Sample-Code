@@ -119,3 +119,71 @@ an MSYS shared-memory object, before any sample source was executed. Version
 probes and formal source-bound tests succeeded outside that restriction. CI
 selects the same bundled executables on Windows and distribution Perl/gawk on
 Linux, without CPAN packages or remote services.
+
+## Final checkpoint and evidence
+
+All four source batches passed CI:
+
+* `cb68552c710af8ea27ca667da703e88ed5cf39b5`:
+  [run 41592825399](https://github.com/Lithium357/Sample-Code/actions/runs/41592825399).
+* `8c2039f54589207e1164bc60dc2973688ef2b9d1`:
+  [run 41593940314](https://github.com/Lithium357/Sample-Code/actions/runs/41593940314).
+* `ef6b085484f6589124629d3a5fa83a7d355c74cd`:
+  [run 41594174256](https://github.com/Lithium357/Sample-Code/actions/runs/41594174256).
+* `5d022c0bbcbd2c36b5564541b4f0a03d85ec6975`:
+  [run 41595985540](https://github.com/Lithium357/Sample-Code/actions/runs/41595985540).
+
+The last run passed Linux, Windows, PostgreSQL and both language-breadth jobs.
+All twenty research artifacts were SHA-256 verified before forty new raw history
+files were imported; artifact identities and workflow commits are recorded in
+`evidence/ci-imports.jsonl`. Current source hashes were checked against passing
+Linux and Windows records for every new file. Later publication adds evidence,
+documentation and reporting updates; the tested example bytes are unchanged.
+
+| New source | cl100k_base tokens | Passing scope |
+| --- | ---: | --- |
+| C++ PMR catalog | 1,499 | Windows/MSVC; Linux/GCC with ASan/UBSan |
+| Rust incremental UTF-8 | 1,496 | Windows and Linux Rust |
+| Nim wire schema | 1,177 | Windows/Linux, JS and native C backends |
+| PowerShell marker writer | 2,226 | Windows and Linux PowerShell |
+| PHP delegated cleanup | 1,194 | Windows and Linux PHP |
+| Perl tied hash | 1,228 | Windows Git-bundled Perl and Linux Perl |
+| GNU AWK totals | 1,471 | Windows Git-bundled GNU AWK and Linux gawk |
+| **Seven new source files** | **10,291** | **All have current-source execution evidence** |
+
+The retained RISC-V source is 363 tokens, compared with 342 before its directive/
+comment update. It now has new linked-text emulation evidence. Generated volume
+therefore increased by 10,312 tokens, while execution-validated volume increased
+by 10,654 tokens. The 363-token retained file is not counted as a new example.
+
+| Collection metric | Files | cl100k_base tokens |
+| --- | ---: | ---: |
+| Generated source/support | 352 | 203,051 |
+| Current-source passing execution | 351 | 202,404 |
+| Curated training candidates under the lineage policy | 38 | 37,191 |
+| Legacy origin/coverage review still required | 313 | 165,213 |
+| T-SQL without execution evidence | 1 | 647 |
+
+### Quality-goal counting clarification
+
+The older execution total is preserved as a technical metric. It does not clear
+the existing legacy origin/coverage hold. The approximately 2B-token goal now
+uses the separately reported training_candidate_tokens field: 37,191 tokens,
+or 0.00185955% of the target. The target and full task scope are unchanged.
+Earlier percentages described execution volume only; this clarification is
+append-only in `evidence/corrections.jsonl`, and original reports are retained.
+Candidate status records available provenance and meaningful checks, not an
+independent proof of benchmark absence or exhaustive correctness. Legacy files
+can qualify only after a documented source-bound review, not a blanket relabel.
+
+Whole-file roles total 193,788 source-with-inline-fixture tokens, 8,390 source,
+293 separate fixture and 580 support-source. These are file roles, not a lexical
+code/comment/test split. Control, prompts, snapshots, reports and repeated runs
+add no source tokens. No Morderca tokenizer or performance evaluation was used.
+
+There were no unexpected sample-test failures in these new source cases.
+The local missing RISC-V toolchain is explicitly not_tested; MSYS capability
+probe startup failures and their resolution are in `evidence/setup-probes.jsonl`.
+Older failed results/snapshots remain intact. Native ARM/AArch64/RISC-V hardware,
+ELF loading, T-SQL execution and the retained legacy audit remain outstanding.
+The long-running goal remains active.

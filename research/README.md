@@ -33,6 +33,10 @@ comment and fixture components: language-aware segmentation is not implemented,
 and BPE boundaries can change when segments are concatenated. Separate fixture
 files can be labeled separately in the case registry. Generated source volume
 and source-bound successfully validated volume are reported separately.
+The goal additionally uses `training_candidate_tokens`: passing execution does
+not clear the existing legacy origin/coverage hold. The execution total remains
+a separate technical metric. Candidate status records available provenance and
+checks; it is not independent proof of benchmark absence or exhaustive quality.
 
 Related translations/close variants share a task-family ID in the lineage
 inventory. Split datasets by family, not by file. The exact model version is
@@ -40,8 +44,10 @@ unavailable. The server thread identifier was initially unknown; the goal tool
 returned it during pass 3, recorded in provenance/session-updates.jsonl. Do not
 infer identifiers from workspace paths. Prompts and task IDs have explicit sources.
 
-Export training examples using the allowlisted source/support paths in
-`lineage.jsonl`, grouped by family. Evidence, failed snapshots, harness copies,
+Export training candidates by selecting `candidate_after_source_bound_checks`
+from the `training_eligibility` field of the source/support allowlist in
+`lineage.jsonl`, grouped by family. Held files remain separate until reviewed.
+Evidence, failed snapshots, harness copies,
 prompts and historical manifests are control material, not extra training
 examples or additional generated source volume. Untested curated files are
 held for validation. Legacy origin/coverage review remains incomplete even

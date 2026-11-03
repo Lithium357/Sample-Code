@@ -56,6 +56,20 @@ def execute(argv, cwd, timeout=90, probe=False, extra_env=None):
 class MissingTool(Exception): pass
 
 def probe(language):
+    lua_program=os.environ.get('MORDERCA_LUA') or shutil.which('lua5.4') or 'lua'
+    if language=='lua' and not shutil.which(lua_program) and not os.environ.get('MORDERCA_LUA'):
+        try:import lupa.lua54
+        except ImportError:raise MissingTool('No Lua 5.4 executable or lupa.lua54 native interpreter')
+        code=('import hashlib,json,importlib.metadata; from pathlib import Path; from lupa import lua54; '
+              'runtime=lua54.LuaRuntime(); '
+              'print(json.dumps({"lupa":importlib.metadata.version("lupa"),'
+              '"implementation":runtime.lua_implementation,"version":runtime.eval("_VERSION"),'
+              '"module_sha256":hashlib.sha256(Path(lua54.__file__).read_bytes()).hexdigest()}))')
+        version=json.loads(execute([sys.executable,'-c',code],ROOT,probe=True))
+        if version['version']!='Lua 5.4':raise MissingTool('Embedded Lua 5.4 unavailable')
+        CURRENT['runtime_versions'].update(python=sys.version,lua_embedded=version)
+        CURRENT['runtime_embedding']='Native Lua interpreter via lupa.lua54; no standalone CLI claim'
+        return
     perl_program=os.environ.get('MORDERCA_PERL') or 'perl'
     gawk_program=os.environ.get('MORDERCA_GAWK') or shutil.which('gawk') or 'awk'
     commands = {
@@ -69,6 +83,7 @@ def probe(language):
         'assembly':[['nasm','-v'],['ld','--version']],
         'python':[[sys.executable,'--version']], 'javascript':[['node','--version']],
         'perl':[[perl_program,'-v']], 'awk-gawk':[[gawk_program,'--version']],
+        'lua':[[lua_program,'-v']],
     }
     for command in commands.get(language,[]):
         program = shutil.which(command[0])
@@ -78,6 +93,8 @@ def probe(language):
         CURRENT['runtime_versions'][command[0]]={'probe_returncode':last['returncode'],
                                                 'output':last['stdout']+last['stderr']}
         if language=='perl' and last['returncode']!=0:raise MissingTool('Perl runtime probe failed; see recorded stderr')
+        if language=='lua' and (last['returncode']!=0 or not (last['stdout']+last['stderr']).startswith('Lua 5.4.')):
+            raise MissingTool('Lua 5.4 required for this dialect; see runtime probe')
         if language=='awk-gawk' and (last['returncode']!=0 or not last['stdout'].startswith('GNU Awk')):
             raise MissingTool('GNU AWK runtime is unavailable; a different awk implementation is not sufficient')
 
@@ -262,6 +279,15 @@ def validate(case, temporary):
         program=shutil.which(os.environ.get('MORDERCA_PERL') or 'perl')
         execute([program,'-c',path],temporary)
         assert 'passed' in execute([program,path],temporary)
+    elif language=='lua':
+        if 'runtime_embedding' in CURRENT:
+            code=('import sys; from pathlib import Path; from lupa.lua54 import LuaRuntime; '
+                  'LuaRuntime(encoding=None).execute(Path(sys.argv[1]).read_bytes())')
+            output=execute([sys.executable,'-c',code,path],temporary)
+        else:
+            program=shutil.which(os.environ.get('MORDERCA_LUA') or shutil.which('lua5.4') or 'lua')
+            output=execute([program,path],temporary)
+        assert 'passed' in output
     elif language=='awk-gawk':
         program=shutil.which(os.environ.get('MORDERCA_GAWK') or shutil.which('gawk') or 'awk')
         assert 'passed' in execute([program,'-f',path],temporary,extra_env={'LC_ALL':'C'})

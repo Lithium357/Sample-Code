@@ -1,0 +1,11 @@
+Task identifier: research-pass-6 (local identifier).
+Source: automatic continuation of the active user-requested thread goal.
+Governing visible human requests:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Continue the unchanged objective with retained behavior tests, broad language
+rotation and uncommon practical contracts. Preserve provenance, failure history,
+source-bound results, shared families and exact runtime labels. Do not intentionally
+use standardized benchmark problems/solutions or pad toward the volume target.
+Exact generation model build remains unavailable.

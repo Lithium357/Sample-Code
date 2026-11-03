@@ -412,5 +412,35 @@
     "prompt_file": "research/provenance/research-pass-5.txt",
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Windows cmd.exe with extensions, local-drive cwd, normal unshadowed CMD pseudo-variables; CRLF source and ASCII fixture text. No POSIX-shell claim."
+  },
+  {
+    "path": "curated/rust/vectored_cursor.rs",
+    "language": "rust",
+    "mode": "native",
+    "task_family": "io.resumable-vectored-output",
+    "task_id": "research-pass-6",
+    "prompt_file": "research/provenance/research-pass-6.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Rust edition 2021 std::io::Write; injected in-memory transports; no readiness, durability or atomic-record guarantee"
+  },
+  {
+    "path": "curated/cpp/owned_stream.cpp",
+    "language": "cpp",
+    "mode": "native",
+    "task_family": "resource.move-only-c-stream",
+    "task_id": "research-pass-6",
+    "prompt_file": "research/provenance/research-pass-6.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "C++20 standard library, C update streams from local tmpfile; auditing context outlives owners; no durability guarantee"
+  },
+  {
+    "path": "curated/lua/closing_iterator.lua",
+    "language": "lua",
+    "mode": "native",
+    "task_family": "iterator.delegated-generator-lifecycle",
+    "task_id": "research-pass-6",
+    "prompt_file": "research/provenance/research-pass-6.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Lua 5.4 generic-for fourth closing value; standalone interpreter or explicit native lupa.lua54 embedding; not LuaJIT/Lua 5.1. Related lifecycle examples share a family."
   }
 ]

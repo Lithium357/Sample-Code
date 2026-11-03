@@ -37,6 +37,8 @@ REJECTIONS = {
     '13_audit_triggers.sql': [
         ("UPDATE task SET status='active' WHERE id=1", TRIGGER, 'completed tasks cannot be reopened'),
         ("INSERT INTO task VALUES(2,'bad','unknown')", CHECK, 'CHECK constraint failed'),
+        ("UPDATE task SET status=NULL WHERE id=1", NOT_NULL, 'task.status'),
+        ("INSERT INTO task VALUES(2,'pending','queued'),(3,'invalid','unknown')", CHECK, 'CHECK constraint failed'),
     ],
     '23_savepoints_and_rollback.sql': [
         ("UPDATE wallet SET cents=-1 WHERE id=1", CHECK, 'CHECK constraint failed'),
@@ -94,6 +96,31 @@ def check_contracts(connection, name):
     for case in cases:
         reject(connection, *case)
     positive = 0
+    if name == '13_audit_triggers.sql':
+        before = snapshot(connection)
+        assert connection.execute('SELECT sequence,task_id,old_status,new_status FROM status_history ORDER BY sequence').fetchall() == [(1,1,'queued','active'),(2,1,'active','done')], 'audit pairs differ'
+        assert connection.execute('SELECT id,title,status FROM task').fetchall() == [(1,'Import verified catalog','done')]
+        connection.execute('SAVEPOINT audit_cases')
+        try:
+            connection.execute("INSERT INTO task VALUES(2,'Two','queued'),(3,'Three','queued')")
+            assert connection.execute('SELECT COUNT(*) FROM status_history').fetchone() == (2,)
+            connection.execute("UPDATE task SET status='active' WHERE id IN (2,3)")
+            assert connection.execute('SELECT task_id,old_status,new_status FROM status_history WHERE sequence>2 ORDER BY task_id').fetchall() == [(2,'queued','active'),(3,'queued','active')], 'multirow audit pairs differ'
+            # SQL does not promise a row visitation order, so compare by task id.
+            after_transition = snapshot(connection)
+            connection.execute("UPDATE task SET status=status")
+            connection.execute("UPDATE task SET status='active' WHERE id=999")
+            assert snapshot(connection) == after_transition, 'no-op/missing update created audit noise'
+            connection.execute("UPDATE task SET title='Changed' WHERE id=2")
+            assert connection.execute('SELECT COUNT(*) FROM status_history').fetchone() == (4,)
+            connection.execute("UPDATE task SET status='done' WHERE id IN (2,3)")
+            assert connection.execute('SELECT task_id,old_status,new_status FROM status_history WHERE sequence>4 ORDER BY task_id').fetchall() == [(2,'active','done'),(3,'active','done')]
+            assert connection.execute('SELECT id,status FROM task ORDER BY id').fetchall() == [(1,'done'),(2,'done'),(3,'done')]
+            positive = 8
+        finally:
+            connection.execute('ROLLBACK TO audit_cases')
+            connection.execute('RELEASE audit_cases')
+        assert snapshot(connection) == before
     if name == '14_nonoverlapping_bookings.sql':
         before = snapshot(connection)
         assert connection.execute('SELECT room_id,booked_minutes FROM booking_totals ORDER BY room_id').fetchall() == [(10,120),(20,120)]
@@ -128,7 +155,32 @@ def check_contracts(connection, name):
     return len(cases), positive
 
 def mutations(source, name):
-    """The booking rejection suite must fail if either enforcement trigger goes."""
+    """Selected rejection/behavior suites must detect specified broken variants."""
+    if name == '13_audit_triggers.sql':
+        variants = [
+            ('drop prevent_reopening', None, 'prevent_reopening', 'accepted forbidden operation:'),
+            ('drop record_status_change', None, 'record_status_change', 'multirow audit pairs differ'),
+            ('remove no-op guard', source.replace('WHEN OLD.status <> NEW.status', ''), None, 'no-op/missing update created audit noise'),
+        ]
+        findings = []
+        for label, replacement, trigger, expected in variants:
+            with sqlite3.connect(':memory:') as connection:
+                connection.executescript(source)
+                if trigger:
+                    connection.execute('DROP TRIGGER ' + trigger)
+                else:
+                    # Change only the trigger, preserving baseline fixture checks.
+                    start = replacement.index('CREATE TRIGGER record_status_change')
+                    end = replacement.index('END;', start) + len('END;')
+                    connection.execute('DROP TRIGGER record_status_change')
+                    connection.executescript(replacement[start:end])
+                reason = None
+                try: check_contracts(connection, name)
+                except AssertionError as error: reason = str(error)
+                if not reason or expected not in reason:
+                    raise AssertionError('audit negative control failed for wrong reason: ' + label + ': ' + str(reason))
+                findings.append({'mutation':label,'detected_by':reason})
+        return findings
     if name != '14_nonoverlapping_bookings.sql':
         return []
     findings = []

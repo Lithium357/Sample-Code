@@ -12,7 +12,7 @@ jobs:
         with:
           dotnet-version: '10.0.x'
       - name: Install language tools
-        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli php-sqlite3 tcl binutils-riscv64-linux-gnu perl gawk
+        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli php-sqlite3 tcl binutils-riscv64-linux-gnu perl gawk lua5.4
       - name: Run Linux-compatible examples
         run: >-
           python3 tools/verify.py --require-tools
@@ -45,6 +45,8 @@ jobs:
         run: python3 tools/research_validate.py --suite curated
       - name: Curated Nim native backend
         run: python3 tools/research_validate.py --suite curated --only-language nim --native-nim --require-tools
+      - name: Require Lua 5.4 execution
+        run: python3 tools/research_validate.py --suite curated --only-language lua --require-tools
       - name: Race-check curated Go
         run: >-
           python3 tools/research_validate.py --path curated/go/local_http.go

@@ -1,6 +1,6 @@
 # Curated, language-specific local examples
 
-These synthetic examples were added in research passes 1, 2 and 3. They are not benchmark
+These synthetic examples were added in research passes 1 through 4. They are not benchmark
 items and their checks do not measure Morderca. The registry in
 `research/cases.json` defines task families, runtime assumptions and support
 files; results are in append-only `research/evidence/history/` records.
@@ -10,6 +10,10 @@ async-iterator cleanup and F# typed stock transitions, plus Go's unusual Reader
 return/progress cases. Further batches add C# pooled-buffer ownership, Python/
 SQLite deferred constraints and Tcl versioned dictionary patches. See
 `research/PASS-3.md` for contracts and checks.
+
+Pass 4 adds C++ polymorphic-allocation failure guarantees and Rust streaming
+UTF-8 state transitions, plus GNU-linked emulation checks for the retained
+RISC-V function. See `research/PASS-4.md` for the exact validated scope.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 
@@ -60,9 +64,11 @@ The Go HTTP fixture starts no listener, and the PHP fixture starts no server.
 * `assembly/armv7/`: ARMv7-A A32 little-endian, GNU unified syntax, AAPCS32.
 * `assembly/aarch64/`: Armv8-A AArch64 little-endian, GNU syntax, AAPCS64.
 * `assembly/riscv64/`: RV64I little-endian, GNU syntax, LP64, no compressed
-  instructions. Local tools are unavailable. CI attempts a Clang cross-object
-  build labeled **syntax_only**; execution remains untested, and the file is
-  held out of execution-validated volume even if cross-assembly succeeds.
+  instructions or linker relaxation. GNU cross-as/ld/objcopy plus Unicorn
+  exercise linked .text when available. Local cross-tools are unavailable;
+  the recorded CI execution result determines validation eligibility. Native
+  hardware and ELF-loader behavior remain untested. Older syntax-only results
+  stay syntax-only in the history.
 
 The three ISA files are close variants in task family `buffer.bounded-ascii-fold`.
 ARMv7/AArch64 tests assemble only the marked function bodies with Keystone and

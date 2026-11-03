@@ -121,11 +121,11 @@
   {
     "path": "curated/assembly/riscv64/ascii_fold.s",
     "language": "assembly-riscv64",
-    "mode": "syntax_only",
-    "reason": "Clang cross-object checks when available; execution remains untested.",
+    "mode": "emulation",
     "task_family": "buffer.bounded-ascii-fold",
-    "runtime_assumptions": "RV64I little-endian, GNU syntax, LP64; no compressed instructions or OS calls",
-    "adapter": "riscv_syntax"
+    "runtime_assumptions": "RV64I little-endian, GNU syntax, LP64 integer ABI; GNU as/ld/objcopy with relaxation disabled, then Unicorn on linked .text. No native hardware/ELF-loader/OS claim.",
+    "adapter": "riscv_exec",
+    "last_edit_task_id": "research-pass-4"
   },
   {
     "path": "curated/c/varint_codec.c",
@@ -310,5 +310,23 @@
     "prompt_file": "research/provenance/research-pass-3.txt",
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Tcl 8.6+; native tclsh when available, otherwise actual Tcl interpreter via Python tkinter.Tcl; no Tk UI. Chosen runtime and version are recorded per execution."
+  },
+  {
+    "path": "curated/cpp/pmr_catalog.cpp",
+    "language": "cpp",
+    "mode": "native",
+    "task_family": "allocation.transactional-pmr-catalog",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/rust/incremental_utf8.rs",
+    "language": "rust",
+    "mode": "native",
+    "task_family": "text.incremental-utf8",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures"
   }
 ]

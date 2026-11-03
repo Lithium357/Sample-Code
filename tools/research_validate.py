@@ -145,6 +145,26 @@ def validate(case, temporary):
                                     'source':case['path'],'driver_command':[sys.executable,*sys.argv]})
         CURRENT['isa_checks'] = validate_isa(path,case['isa'])
         return
+    if case.get('adapter') == 'riscv_exec':
+        from isa_probe import validate_riscv_image
+        programs={name:shutil.which('riscv64-linux-gnu-'+name) for name in ('as','ld','objcopy')}
+        for name,program in programs.items():
+            if not program:raise MissingTool('missing RISC-V GNU cross-tool: '+name+'; execution not tested on this host')
+            execute([program,'--version'],ROOT,probe=True)
+            CURRENT['runtime_versions']['riscv_'+name]=CURRENT['commands'][-1]['stdout']
+        CURRENT['runtime_versions']['unicorn']=importlib.metadata.version('unicorn')
+        obj,elf,raw=temporary/'fold.o',temporary/'fold.elf',temporary/'fold.bin'
+        execute([programs['as'],'-march=rv64i','-mabi=lp64',path,'-o',obj],temporary)
+        execute([programs['ld'],'-m','elf64lriscv','--no-relax','-Ttext=0x100000','-e','ascii_fold',obj,'-o',elf],temporary)
+        execute([programs['objcopy'],'-O','binary','--only-section=.text',elf,raw],temporary)
+        header=elf.read_bytes()
+        assert header[:6]==b'\x7fELF\x02\x01' and int.from_bytes(header[18:20],'little')==243,'not little-endian ELF64 RISC-V'
+        assert int.from_bytes(header[16:18],'little')==2 and int.from_bytes(header[24:32],'little')==0x100000,'unexpected ELF type/entry'
+        CURRENT['produced_artifact_sha256']={p.name:digest(p) for p in (obj,elf,raw)}
+        CURRENT['commands'].append({'kind':'in_process','entrypoint':'isa_probe.validate_riscv_image',
+                                    'linked_text':raw.name,'driver_command':[sys.executable,*sys.argv]})
+        CURRENT['isa_checks']=validate_riscv_image(raw.read_bytes())
+        return
     if case.get('adapter') == 'riscv_syntax':
         compiler=shutil.which('clang')
         if not compiler:raise MissingTool('Clang RISC-V cross-assembler unavailable; execution also not tested')

@@ -2,9 +2,11 @@
 # Function only, no OS calls. a0=dst,a1=src,a2=n,a3=capacity; returns min(n,cap).
 # Caller supplies disjoint valid copied ranges. ASCII folding; unsigned bytes.
 # Intended object: riscv64-linux-gnu-as -march=rv64i -mabi=lp64 -o fold.o ascii_fold.s
-# Execution is NOT TESTED. Cross-assembly syntax/object checks, when available,
-# are recorded separately in the evidence ledger and are not execution passes.
+# Validation records distinguish syntax, linked-text emulation and native runs.
+# GNU as/ld/objcopy plus Unicorn can exercise this function without an OS.
+# Emulation does not validate native hardware, ELF loading or OS behavior.
 .option norvc
+.option norelax
 .text
 .align 2
 .globl ascii_fold

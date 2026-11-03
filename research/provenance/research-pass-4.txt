@@ -1,0 +1,14 @@
+Task identifier: research-pass-4 (local identifier).
+Source: automatic continuation of the active user-requested thread goal.
+
+Governing visible human requests, exact text from earlier turns:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Active objective (user-provided data in the goal continuation):
+Grow Lithium357/Sample-Code toward approximately 2,000,000,000 cl100k_base tokens of useful, varied synthetic training source/support code with passing source-bound execution validation. Preserve existing examples; prioritize meaningful behavior/failure tests and language-specific contracts, exact dialect/ISA/ABI labels, honest native/emulation/syntax-only/not-tested evidence, immutable failure history, available generation provenance/prompts and shared task families. Exclude control material, benchmark/evaluation material and padding from progress. Push validated small batches to GitHub main as authorized. Baseline last recorded execution-validated volume: 182,854 cl100k_base tokens.
+
+Inherited research requirements remain active. No standardized benchmark or
+evaluation material is intentionally used. Exact generation model build remains
+unknown. New source counts include inline comments/fixtures; control files,
+logs, harness snapshots and repeated runs do not add training volume.

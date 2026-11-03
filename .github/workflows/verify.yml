@@ -12,7 +12,7 @@ jobs:
         with:
           dotnet-version: '10.0.x'
       - name: Install language tools
-        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli php-sqlite3 tcl
+        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli php-sqlite3 tcl binutils-riscv64-linux-gnu
       - name: Run Linux-compatible examples
         run: >-
           python3 tools/verify.py --require-tools

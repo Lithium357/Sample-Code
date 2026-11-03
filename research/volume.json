@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 211722,
+    "source_with_inline_fixtures": 216576,
     "source": 9707,
     "fixture": 293,
     "support_source": 580
@@ -13,15 +13,15 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 362,
-  "generated_tokens": 222302,
-  "current_source_bound_pass_files": 361,
-  "current_source_bound_pass_tokens": 220338,
-  "execution_validated_files": 361,
-  "execution_validated_tokens": 220338,
+  "files": 364,
+  "generated_tokens": 227156,
+  "current_source_bound_pass_files": 364,
+  "current_source_bound_pass_tokens": 227156,
+  "execution_validated_files": 364,
+  "execution_validated_tokens": 227156,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 52,
-  "training_candidate_tokens": 56513,
+  "training_candidate_files": 55,
+  "training_candidate_tokens": 63331,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
   "legacy_review_required_tokens": 163825,
@@ -82,9 +82,9 @@
       "current_source_bound_pass_tokens": 1125
     },
     "go": {
-      "files": 37,
-      "generated_tokens": 22930,
-      "current_source_bound_pass_tokens": 22930
+      "files": 38,
+      "generated_tokens": 25538,
+      "current_source_bound_pass_tokens": 25538
     },
     "javascript": {
       "files": 1,
@@ -107,9 +107,9 @@
       "current_source_bound_pass_tokens": 1228
     },
     "php": {
-      "files": 38,
-      "generated_tokens": 18340,
-      "current_source_bound_pass_tokens": 18340
+      "files": 39,
+      "generated_tokens": 20586,
+      "current_source_bound_pass_tokens": 20586
     },
     "powershell": {
       "files": 36,
@@ -149,7 +149,7 @@
     "sql-tsql": {
       "files": 1,
       "generated_tokens": 1964,
-      "current_source_bound_pass_tokens": 0
+      "current_source_bound_pass_tokens": 1964
     },
     "tcl": {
       "files": 2,

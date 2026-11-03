@@ -487,5 +487,25 @@
     "prompt_file": "research/provenance/research-pass-6.txt",
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Tcl 8.6 core TclOO/dict/try; synchronous non-yielding callbacks cannot destroy emitter; standalone tclsh or actual native Tcl via tkinter.Tcl; no Tk UI"
+  },
+  {
+    "path": "curated/go/conditional_snapshot.go",
+    "language": "go",
+    "mode": "native",
+    "task_family": "http.immutable-conditional-snapshot",
+    "task_id": "research-pass-7",
+    "prompt_file": "research/provenance/research-pass-7.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Go 1.20+ standard library; direct httptest handler calls and owned temp file; no listener/DNS; HTTP conditional/range behavior delegated to net/http.ServeContent with per-request seek cursor."
+  },
+  {
+    "path": "curated/php/bom_filter.php",
+    "language": "php",
+    "mode": "native",
+    "task_family": "stream.incremental-initial-bom",
+    "task_id": "research-pass-7",
+    "prompt_file": "research/provenance/research-pass-7.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "PHP 8.1+ php_user_filter; owned php://temp READ/WRITE filters; strips only one initial BOM, not UTF-8 validation; actual runtime versions recorded."
   }
 ]

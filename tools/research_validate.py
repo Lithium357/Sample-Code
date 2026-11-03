@@ -380,6 +380,10 @@ def validate(case, temporary):
     elif language=='go' and case.get('go_race'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         CURRENT['instrumentation']='Go race detector'
+        settings=json.loads(execute([shutil.which('go'),'env','-json','CGO_ENABLED','CC','GOOS','GOARCH'],temporary))
+        CURRENT['runtime_versions']['go_race_configuration']=settings
+        if settings['CGO_ENABLED']!='1':
+            raise MissingTool('Go race detector requires CGO_ENABLED=1 and a supported C toolchain; native uninstrumented execution is a separate mode check')
         execute([shutil.which('go'),'build','-race','-o',binary,path],temporary)
         execute([binary],temporary)
     elif language=='nim' and case.get('native_nim'):

@@ -98,3 +98,13 @@ completion text requirement and -b failure behavior, checking the recorded
 stdout AND stderr as documented for sqlcmd -r 1. No SQL expectation or expected
 output text is changed. The unchanged T-SQL still requires a wholly successful
 new validation run before qualification.
+
+
+## Research pass 7 validation-scope correction
+
+The first local Go race run a4e3ed8171714b409e3ab3700d5e3336 failed before
+compilation because CGO was disabled. Preserve it; preflight Go configuration
+now makes that missing setup not_tested, not passed. Ordinary native execution
+does not prove the race setup was fixed. The change ledger now matches platform,
+mode and instrumentation for resolution links and appends corrections to older
+links that crossed those scopes. Raw source-bound records remain authoritative.

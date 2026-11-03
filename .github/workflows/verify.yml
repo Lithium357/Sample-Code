@@ -51,6 +51,7 @@ jobs:
         run: >-
           python3 tools/research_validate.py --path curated/go/local_http.go
           --path curated/go/keyed_work.go
+          --path curated/go/conditional_snapshot.go
           --path advanced/go/dag_scheduler.go --path advanced/go/mvcc_store.go
           --path advanced/go/weighted_semaphore.go --go-race --require-tools
       - uses: actions/upload-artifact@v4

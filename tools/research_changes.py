@@ -7,6 +7,11 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 
+
+def execution_scope(record):
+    return {'mode':record['validation_mode'], 'platform':record['platform'],
+            'instrumentation':record.get('instrumentation')}
+
 def main():
     task_ids={row['path']:row['task_id'] for row in
               (json.loads(line) for line in (ROOT/'research/lineage.jsonl').read_text().splitlines() if line.strip())}
@@ -43,15 +48,27 @@ def main():
         events.append({'event_id':event_id,'kind':'observed_validation_failure','task_id':task_ids.get(row['path']),
                        'path':row['path'],'run_id':row['run_id'],'source_hashes':row['source_hashes'],
                        'harness_hashes':row['harness_hashes'],'error':row.get('error'),
+                       'execution_scope':execution_scope(row),
                        'original_result_preserved':True})
-        after=next((r for r in records[index+1:] if r['path']==row['path'] and r['result']=='passed'),None)
+        after=next((r for r in records[index+1:] if r['path']==row['path'] and r['result']=='passed'
+                    and execution_scope(r)==execution_scope(row)),None)
         if after:
             events.append({'event_id':'resolution:'+event_id,'kind':'subsequent_successful_rerun',
                            'path':row['path'],'failed_run_id':row['run_id'],'passed_run_id':after['run_id'],
                            'failed_source_hashes':row['source_hashes'],'passed_source_hashes':after['source_hashes'],
                            'source_bundle_changed':row['source_hashes']!=after['source_hashes'],
+                           'execution_scope':execution_scope(row),
                            'mechanism':'See research/fixes.md and the task-specific PASS reports; successful rerun does not erase the failure.'})
+    by_run_path={(r['run_id'],r['path']):r for r in records}
     for row in existing:
+        if row.get('kind')=='subsequent_successful_rerun':
+            failed=by_run_path.get((row['failed_run_id'],row['path']))
+            passed=by_run_path.get((row['passed_run_id'],row['path']))
+            if failed and passed and execution_scope(failed)!=execution_scope(passed):
+                events.append({'event_id':'resolution-scope-correction:'+row['event_id'],
+                    'kind':'metadata_correction','corrects_event_id':row['event_id'],
+                    'path':row['path'],'failed_scope':execution_scope(failed),'passed_scope':execution_scope(passed),
+                    'reason':'The historical pass used a different platform, execution mode or instrumentation. It does not establish resolution in the failed scope. Original records/link retained; consult source-bound results.'})
         if row.get('task_id')=='research-pass-1' and task_ids.get(row.get('path'))=='research-pass-2':
             events.append({'event_id':'task-correction:'+row['event_id'], 'kind':'metadata_correction',
                            'corrects_event_id':row['event_id'],'task_id':'research-pass-2',

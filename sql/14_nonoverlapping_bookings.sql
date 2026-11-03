@@ -5,6 +5,8 @@
 -- Rejection/state tests: python tools/research_validate.py --suite repairs
 -- SQLite SQL alone cannot catch RAISE(ABORT); tools/sql_contracts.py attempts
 -- overlapping inserts/updates, checks exact errors and verifies unchanged state.
+-- Stored room/minute values must be INTEGER after SQLite affinity conversion.
+-- Numeric text may convert to INTEGER; nonnumeric TEXT/fractional REAL may not.
 PRAGMA foreign_keys = ON;
 BEGIN;
 CREATE TEMP TABLE checks (ok INTEGER NOT NULL CHECK(ok = 1));
@@ -13,6 +15,10 @@ CREATE TABLE booking (
     room_id INTEGER NOT NULL,
     start_minute INTEGER NOT NULL,
     end_minute INTEGER NOT NULL,
+    CONSTRAINT booking_integer_values CHECK(
+        typeof(room_id) = 'integer' AND typeof(start_minute) = 'integer'
+        AND typeof(end_minute) = 'integer'
+    ),
     CHECK(start_minute >= 0 AND end_minute > start_minute)
 );
 CREATE INDEX booking_room_start ON booking(room_id, start_minute);
@@ -35,6 +41,8 @@ INSERT INTO checks VALUES (NOT EXISTS (
     SELECT 1 FROM booking AS a JOIN booking AS b ON a.room_id = b.room_id AND a.id < b.id
     WHERE a.start_minute < b.end_minute AND b.start_minute < a.end_minute
 ));
+CREATE VIEW booking_totals AS
 SELECT room_id, SUM(end_minute - start_minute) AS booked_minutes
-FROM booking GROUP BY room_id ORDER BY room_id;
+FROM booking GROUP BY room_id;
+SELECT room_id, booked_minutes FROM booking_totals ORDER BY room_id;
 COMMIT;

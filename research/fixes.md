@@ -9,6 +9,12 @@ known-open negative control, then requires closure after every owned scope.
 This corrects a probing side effect, not expected ownership behavior. See
 `PASS-5.md`, the failed-source snapshot and subsequent passing records.
 
+Pass 5 also retained a genuine failed booking test before fixing SQLite's
+flexible-typing gap. INTEGER affinity alone allowed text-valued minutes; the
+new named CHECK enforces stored integer types. Tests pin the intended check,
+verify valid affinity conversion and source-defined aggregate view results, and
+detect removal of the new check. No failed result or original fixture was erased.
+
 Pass 3 retained a C# runner failure after successful compilation: inherited
 Platform=x64 changed MSBuild's default output path. The runner now sets an
 explicit build output directory; unchanged C# tests then executed successfully.

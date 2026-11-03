@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 200675,
+    "source_with_inline_fixtures": 200760,
     "source": 8390,
     "fixture": 293,
     "support_source": 580
@@ -14,17 +14,17 @@
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
   "files": 356,
-  "generated_tokens": 209938,
+  "generated_tokens": 210023,
   "current_source_bound_pass_files": 355,
-  "current_source_bound_pass_tokens": 209291,
+  "current_source_bound_pass_tokens": 209376,
   "execution_validated_files": 355,
-  "execution_validated_tokens": 209291,
+  "execution_validated_tokens": 209376,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 45,
-  "training_candidate_tokens": 44987,
+  "training_candidate_files": 46,
+  "training_candidate_tokens": 45551,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
-  "legacy_review_required_files": 310,
-  "legacy_review_required_tokens": 164304,
+  "legacy_review_required_files": 309,
+  "legacy_review_required_tokens": 163825,
   "by_language": {
     "assembly": {
       "files": 20,
@@ -128,8 +128,8 @@
     },
     "sql": {
       "files": 26,
-      "generated_tokens": 12913,
-      "current_source_bound_pass_tokens": 12913
+      "generated_tokens": 12998,
+      "current_source_bound_pass_tokens": 12998
     },
     "sql-postgresql": {
       "files": 2,

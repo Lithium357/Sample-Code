@@ -1,0 +1,137 @@
+"""Behavioral SQL contracts that SQLite scripts cannot catch by themselves.
+
+Expected failures must have the intended extended error code AND message.
+Persistent database state is compared immediately after rejection, before the
+test's savepoint rollback, so rollback cannot hide an erroneous partial write.
+"""
+import sqlite3
+import hashlib
+
+OBSERVATIONS = []
+
+TRIGGER = 'SQLITE_CONSTRAINT_TRIGGER'
+CHECK = 'SQLITE_CONSTRAINT_CHECK'
+UNIQUE = 'SQLITE_CONSTRAINT_UNIQUE'
+FK = 'SQLITE_CONSTRAINT_FOREIGNKEY'
+
+# (statement, extended error name, identifying message substring).
+REJECTIONS = {
+    '14_nonoverlapping_bookings.sql': [
+        ("INSERT INTO booking VALUES(10,10,570,630)", TRIGGER, 'room already booked'),
+        ("INSERT INTO booking VALUES(10,10,500,700)", TRIGGER, 'room already booked'),
+        ("INSERT INTO booking VALUES(10,10,550,560)", TRIGGER, 'room already booked'),
+        ("UPDATE booking SET start_minute=590 WHERE id=2", TRIGGER, 'room already booked'),
+        ("UPDATE booking SET room_id=10 WHERE id=3", TRIGGER, 'room already booked'),
+        ("INSERT INTO booking VALUES(10,10,720,780),(11,10,570,630)", TRIGGER, 'room already booked'),
+        ("INSERT INTO booking VALUES(10,30,600,600)", CHECK, 'CHECK constraint failed'),
+        ("INSERT INTO booking VALUES(10,30,'bad','zzz')", CHECK, 'CHECK constraint failed'),
+        ("INSERT INTO booking VALUES(10,30,1.5,2.5)", CHECK, 'CHECK constraint failed'),
+        ("INSERT INTO booking VALUES(10,'text-room',700,800)", CHECK, 'CHECK constraint failed'),
+        ("UPDATE booking SET start_minute='bad',end_minute='zzz' WHERE id=3", CHECK, 'CHECK constraint failed'),
+        ("UPDATE booking SET room_id='text-room' WHERE id=3", CHECK, 'CHECK constraint failed'),
+        ("INSERT INTO booking VALUES(10,30,0,9223372036854775808)", CHECK, 'CHECK constraint failed'),
+    ],
+    '13_audit_triggers.sql': [
+        ("UPDATE task SET status='active' WHERE id=1", TRIGGER, 'completed tasks cannot be reopened'),
+        ("INSERT INTO task VALUES(2,'bad','unknown')", CHECK, 'CHECK constraint failed'),
+    ],
+    '23_savepoints_and_rollback.sql': [
+        ("UPDATE wallet SET cents=-1 WHERE id=1", CHECK, 'CHECK constraint failed'),
+        ("INSERT INTO transfer VALUES(99,1,999,1)", FK, 'FOREIGN KEY constraint failed'),
+    ],
+    '01_inventory_ledger.sql': [
+        ("INSERT INTO movement VALUES(99,999,1,'receipt')", FK, 'FOREIGN KEY constraint failed'),
+        ("INSERT INTO movement VALUES(99,1,0,'receipt')", CHECK, 'CHECK constraint failed'),
+    ],
+    'double_entry_posting.sql': [
+        ('UPDATE line SET debit=debit+1 WHERE id=1',TRIGGER,'posted lines are immutable'),
+        ('DELETE FROM line WHERE id=1',TRIGGER,'posted lines are immutable'),
+        ('INSERT INTO line(journal_id,account_id,debit,credit) VALUES(1,1,1,0)',TRIGGER,'posted lines are immutable'),
+        ("UPDATE journal SET state='posted' WHERE id=3",TRIGGER,'journal must contain balanced lines'),
+        ('UPDATE line SET journal_id=1 WHERE id=5',TRIGGER,'posted lines are immutable'),
+        ("INSERT INTO journal(id,external_key,state) VALUES(99,'bypass','posted')",TRIGGER,'create a draft before posting'),
+    ],
+    'bill_of_materials.sql': [
+        ('INSERT INTO component VALUES(2,1,1)',TRIGGER,'component cycle'),
+        ('UPDATE component SET child=1 WHERE parent=2 AND child=4',TRIGGER,'component cycle'),
+        ('INSERT INTO component VALUES(4,7,1)',TRIGGER,'raw material cannot contain components'),
+        ('UPDATE part SET assembly=0 WHERE id=2',TRIGGER,'assembly still has components'),
+    ],
+}
+
+def snapshot(connection):
+    # SQLite's dump includes every persistent table and trigger, including audit
+    # rows. Fixture temp checks tables are deliberately not part of domain state.
+    return tuple(connection.iterdump())
+
+def reject(connection, statement, code, message):
+    before = snapshot(connection)
+    connection.execute('SAVEPOINT contract_case')
+    try:
+        try:
+            connection.execute(statement)
+        except sqlite3.IntegrityError as error:
+            OBSERVATIONS.append({'sql':statement,'expected_error':code,'actual_error':error.sqlite_errorname,
+                                 'message':str(error),'before_state_sha256':hashlib.sha256(repr(before).encode()).hexdigest(),
+                                 'after_state_sha256':hashlib.sha256(repr(snapshot(connection)).encode()).hexdigest()})
+            if error.sqlite_errorname != code or message not in str(error):
+                raise AssertionError(f'wrong rejection: {error.sqlite_errorname}: {error}') from error
+        else:
+            raise AssertionError('accepted forbidden operation: ' + statement)
+        if snapshot(connection) != before:
+            raise AssertionError('rejected statement changed database state: ' + statement)
+    finally:
+        connection.execute('ROLLBACK TO contract_case')
+        connection.execute('RELEASE contract_case')
+    if snapshot(connection) != before:
+        raise AssertionError('test cleanup changed state')
+
+def check_contracts(connection, name):
+    cases = REJECTIONS.get(name, [])
+    for case in cases:
+        reject(connection, *case)
+    positive = 0
+    if name == '14_nonoverlapping_bookings.sql':
+        before = snapshot(connection)
+        connection.execute('SAVEPOINT accepted_cases')
+        try:
+            # Updating a row to itself must not conflict with its own interval.
+            connection.execute('UPDATE booking SET start_minute=start_minute WHERE id=1')
+            assert snapshot(connection) == before
+            connection.execute('INSERT INTO booking VALUES(10,10,660,720)')
+            connection.execute('UPDATE booking SET start_minute=720,end_minute=780 WHERE id=10')
+            connection.execute('INSERT INTO booking VALUES(11,30,540,660)')
+            assert connection.execute('SELECT start_minute,end_minute FROM booking WHERE id=10').fetchone() == (720,780)
+            assert connection.execute('SELECT COUNT(*) FROM booking').fetchone()[0] == 5
+            positive = 4
+        finally:
+            connection.execute('ROLLBACK TO accepted_cases')
+            connection.execute('RELEASE accepted_cases')
+        assert snapshot(connection) == before
+    if name == '08_idempotent_upsert.sql':
+        before = snapshot(connection)
+        connection.execute('''INSERT INTO reading VALUES(1,1000,2,99999)
+            ON CONFLICT(sensor_id,observed_at) DO UPDATE SET version=excluded.version,
+            milliunits=excluded.milliunits WHERE excluded.version>reading.version''')
+        assert snapshot(connection) == before, 'equal-version retry overwrote the reading'
+        positive = 1
+    return len(cases), positive
+
+def mutations(source, name):
+    """The booking rejection suite must fail if either enforcement trigger goes."""
+    if name != '14_nonoverlapping_bookings.sql':
+        return []
+    findings = []
+    for trigger in ('prevent_overlap_insert','prevent_overlap_update'):
+        with sqlite3.connect(':memory:') as connection:
+            connection.executescript(source)
+            connection.execute('DROP TRIGGER ' + trigger)
+            caught = False
+            try:
+                check_contracts(connection, name)
+            except AssertionError as error:
+                caught = True
+                findings.append({'mutation':'drop '+trigger,'detected_by':str(error)})
+            if not caught:
+                raise AssertionError('suite failed to detect removed trigger: ' + trigger)
+    return findings

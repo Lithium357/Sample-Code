@@ -92,3 +92,24 @@ comment-only Go revision before proving execution alone does not clear its
 stale review. Exact commands and the genuine execution are recorded; no pass is
 fabricated. Scratch copies, controls and logs add no training source tokens.
 The probe passed locally and is included in Linux CI.
+
+## SQLite booking type-affinity fix and scoped review
+
+Inspection found that the retained booking schema could accept nonnumeric TEXT
+and fractional REAL values despite INTEGER declarations. New tests were run
+before the fix; run 9303a2b964354f458db92dc43fc98728 failed because the forbidden
+text-valued insert was accepted. The original result and source are preserved.
+The schema now enforces integer storage after affinity conversion using a named
+CHECK, while still accepting numeric text that SQLite converts to integers.
+It uses no STRICT-table requirement. See
+[SQLite type affinity](https://www.sqlite.org/datatype3.html).
+
+The source defines booking_totals once as a view. Tests query that view against
+literal expected rows, avoiding an untested display query or a duplicated
+aggregation expression that could hide a source-query regression. Final local
+checks pass fifteen exact rejections, seven additional behaviors and three
+intended negative controls (two triggers and the integer CHECK). Immediate state
+hashes match before/after every rejected statement, before cleanup rollback.
+The original two SQL checks remain. The hash-bound available-lineage/behavior
+review is in `reviews/pass-5-bookings.md`; it does not clear other SQL cases or
+claim concurrent-client, arbitrary-aggregate-overflow or server-dialect coverage.

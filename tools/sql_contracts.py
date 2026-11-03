@@ -13,6 +13,7 @@ TRIGGER = 'SQLITE_CONSTRAINT_TRIGGER'
 CHECK = 'SQLITE_CONSTRAINT_CHECK'
 UNIQUE = 'SQLITE_CONSTRAINT_UNIQUE'
 FK = 'SQLITE_CONSTRAINT_FOREIGNKEY'
+NOT_NULL = 'SQLITE_CONSTRAINT_NOTNULL'
 
 # (statement, extended error name, identifying message substring).
 REJECTIONS = {
@@ -24,6 +25,14 @@ REJECTIONS = {
         ("UPDATE booking SET room_id=10 WHERE id=3", TRIGGER, 'room already booked'),
         ("INSERT INTO booking VALUES(10,10,720,780),(11,10,570,630)", TRIGGER, 'room already booked'),
         ("INSERT INTO booking VALUES(10,30,600,600)", CHECK, 'CHECK constraint failed'),
+        ("INSERT INTO booking VALUES(10,30,'bad','zzz')", CHECK, 'booking_integer_values'),
+        ("INSERT INTO booking VALUES(10,30,1.5,2.5)", CHECK, 'booking_integer_values'),
+        ("INSERT INTO booking VALUES(10,'text-room',700,800)", CHECK, 'booking_integer_values'),
+        ("UPDATE booking SET start_minute='bad',end_minute='zzz' WHERE id=3", CHECK, 'booking_integer_values'),
+        ("UPDATE booking SET room_id='text-room' WHERE id=3", CHECK, 'booking_integer_values'),
+        ("INSERT INTO booking VALUES(10,30,0,9223372036854775808)", CHECK, 'booking_integer_values'),
+        ("INSERT INTO booking VALUES(10,NULL,0,1)", NOT_NULL, 'booking.room_id'),
+        ("UPDATE booking SET start_minute=NULL WHERE id=3", NOT_NULL, 'booking.start_minute'),
     ],
     '13_audit_triggers.sql': [
         ("UPDATE task SET status='active' WHERE id=1", TRIGGER, 'completed tasks cannot be reopened'),
@@ -87,6 +96,7 @@ def check_contracts(connection, name):
     positive = 0
     if name == '14_nonoverlapping_bookings.sql':
         before = snapshot(connection)
+        assert connection.execute('SELECT room_id,booked_minutes FROM booking_totals ORDER BY room_id').fetchall() == [(10,120),(20,120)]
         connection.execute('SAVEPOINT accepted_cases')
         try:
             # Updating a row to itself must not conflict with its own interval.
@@ -97,7 +107,13 @@ def check_contracts(connection, name):
             connection.execute('INSERT INTO booking VALUES(11,30,540,660)')
             assert connection.execute('SELECT start_minute,end_minute FROM booking WHERE id=10').fetchone() == (720,780)
             assert connection.execute('SELECT COUNT(*) FROM booking').fetchone()[0] == 5
-            positive = 4
+            connection.execute("INSERT INTO booking VALUES(12,'40','0','10')")
+            assert connection.execute('''SELECT room_id,start_minute,end_minute,
+                typeof(room_id),typeof(start_minute),typeof(end_minute)
+                FROM booking WHERE id=12''').fetchone() == (40,0,10,'integer','integer','integer')
+            assert connection.execute('SELECT COUNT(*) FROM booking').fetchone()[0] == 6
+            assert connection.execute('SELECT room_id,booked_minutes FROM booking_totals ORDER BY room_id').fetchall() == [(10,180),(20,120),(30,120),(40,10)]
+            positive = 7
         finally:
             connection.execute('ROLLBACK TO accepted_cases')
             connection.execute('RELEASE accepted_cases')
@@ -128,4 +144,15 @@ def mutations(source, name):
                 findings.append({'mutation':'drop '+trigger,'detected_by':str(error)})
             if not caught:
                 raise AssertionError('suite failed to detect removed trigger: ' + trigger)
+    begin=source.index('    CONSTRAINT booking_integer_values CHECK(')
+    end=source.index('),',begin)+2
+    without_integer_check=source[:begin]+source[end:]
+    with sqlite3.connect(':memory:') as connection:
+        connection.executescript(without_integer_check)
+        reason=None
+        try:check_contracts(connection,name)
+        except AssertionError as error:reason=str(error)
+        if not reason or "accepted forbidden operation: INSERT INTO booking VALUES(10,30,'bad','zzz')" not in reason:
+            raise AssertionError('integer-check negative control did not fail for the intended operation')
+        findings.append({'mutation':'remove booking_integer_values','detected_by':reason})
     return findings

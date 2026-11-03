@@ -2066,9 +2066,9 @@
   {
     "path": "sql/14_nonoverlapping_bookings.sql",
     "language": "sql",
-    "tokens": 479,
-    "bytes": 1934,
-    "sha256": "46e05f617418d2d4d4fff33d7d6bc424e609aeb7ff6b90d933bc7d6876f2e10c",
+    "tokens": 564,
+    "bytes": 2344,
+    "sha256": "ff49464bb5b52f96fcd62e01d78404a95ceb5e50c511f0efe0eba7396278aba4",
     "fixtures": 2
   },
   {

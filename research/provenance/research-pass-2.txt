@@ -1,0 +1,7 @@
+MORE CODE, MORE DATA
+
+Source: visible user message. This continuation inherits the preceding research
+requirements: useful varied correct synthetic examples; local fixtures;
+meaningful checks; honest validation history; conservative family grouping;
+no intentional standardized benchmark material; cl100k_base counts only.
+The inherited requirements are a summary, not additional quoted user text.

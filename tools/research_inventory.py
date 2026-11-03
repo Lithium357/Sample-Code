@@ -41,6 +41,7 @@ def main():
     for case in cases:
         for path in [case['path'],*case.get('support',[])]:
             curated[path]={'path':path,'language':case['language'],'task_family':case['task_family'],
+                           'task_id':case.get('task_id','research-pass-1'),'prompt_file':case.get('prompt_file','research/provenance/research-request.txt'),
                            'role':case.get('support_roles',{}).get(path,case.get('role','source') if path==case['path'] else 'support_source'),
                            'primary_unit':case['path']}
     rows=[]
@@ -60,7 +61,7 @@ def main():
     for entry in curated.values():
         path=ROOT/entry['path']
         rows.append({**entry,'sha256':sha(path),'bytes':path.stat().st_size,'tokens':count(path),
-                     'task_id':'research-pass-1','origin':'synthetic_individually_authored',
+                     'task_id':entry['task_id'],'origin':'synthetic_individually_authored',
                      'generation_model_version':None,'origin_audit':'no_benchmark_source_intentionally_used'})
     evidence=[]
     for path in sorted((ROOT/'research/evidence/history').glob('*.jsonl')):
@@ -80,7 +81,7 @@ def main():
             passed_paths.update(record['source_hashes'])
     for row in rows:
         row['provenance_ref']='research/provenance/session.json'
-        row['prompt_ref']='research/provenance/research-request.txt' if row['task_id']=='research-pass-1' else 'research/provenance/session.json#prompts'
+        row['prompt_ref']=row.get('prompt_file','research/provenance/research-request.txt' if row['task_id']=='research-pass-1' else 'research/provenance/session.json#prompts')
         row['edits_ref']='research/changes.jsonl'
         row['current_source_bound_pass']=row['path'] in passed_paths
         row['execution_validated']=row['current_source_bound_pass']

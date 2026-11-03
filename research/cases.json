@@ -126,5 +126,53 @@
     "task_family": "buffer.bounded-ascii-fold",
     "runtime_assumptions": "RV64I little-endian, GNU syntax, LP64; no compressed instructions or OS calls",
     "adapter": "riscv_syntax"
+  },
+  {
+    "path": "curated/c/varint_codec.c",
+    "language": "c",
+    "mode": "native",
+    "task_family": "binary.canonical-varint",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt"
+  },
+  {
+    "path": "curated/cpp/command_lexer.cpp",
+    "language": "cpp",
+    "mode": "native",
+    "task_family": "parser.owned-command-tokens",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt"
+  },
+  {
+    "path": "curated/go/keyed_work.go",
+    "language": "go",
+    "mode": "native",
+    "task_family": "concurrency.keyed-work",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt"
+  },
+  {
+    "path": "curated/rust/query_decode.rs",
+    "language": "rust",
+    "mode": "native",
+    "task_family": "parser.form-query",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt"
+  },
+  {
+    "path": "curated/php/csv_stream.php",
+    "language": "php",
+    "mode": "native",
+    "task_family": "records.validated-stream",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt"
+  },
+  {
+    "path": "curated/ruby/retry_policy.rb",
+    "language": "ruby",
+    "mode": "native",
+    "task_family": "control.injected-retry",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt"
   }
 ]

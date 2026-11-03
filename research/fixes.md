@@ -20,6 +20,11 @@ does not replace or overwrite the original command results.
 * Bash initially resolved to WSL's launcher, which could not open the Windows
   fixture path. The local environment now selects Git Bash explicitly. Both
   invocations and their executable/version probes remain in history.
+* Final PowerShell scalar-type tests exposed an array reaching an incidental
+  Int32 conversion failure instead of the documented InvalidReading error.
+  The validator now explicitly accepts only Int32/Int64 or decimal strings and
+  rejects arrays and floats through its own error contract. The failed type
+  test and unchanged expectations are retained.
 
 The retained legacy reports include earlier CMD and compiler failures. They
 lack exact source/version bindings and are not promoted into current passed

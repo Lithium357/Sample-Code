@@ -1,4 +1,5 @@
 # PowerShell 7: objects/pipelines, strict records, parameter errors, JSON and CSV.
+# Amount inputs are Int32/Int64 or ASCII decimal CSV strings, never arrays/floats.
 # pwsh -NoProfile -File object_pipeline.ps1; owned local temp directory only.
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
@@ -16,6 +17,7 @@ function Convert-Reading {
         }
         if (-not $invalid) {
             $invalid=$InputObject.Name -isnot [string] -or [string]::IsNullOrEmpty($InputObject.Name) -or
+                ($InputObject.Amount -isnot [string] -and $InputObject.Amount -isnot [int] -and $InputObject.Amount -isnot [long]) -or
                 ([string]$InputObject.Amount) -notmatch '^[0-9]{1,4}$'
         }
         if (-not $invalid) { $invalid=[int]$InputObject.Amount -gt 1000 }
@@ -44,6 +46,8 @@ Require ($inputRows[0].Amount -eq 2) # Transformation did not mutate its input.
 Require (@(@() | Convert-Reading).Count -eq 0)
 Expect-Error { [pscustomobject]@{Name='x';Amount=-1} | Convert-Reading } 'InvalidReading'
 Expect-Error { [pscustomobject]@{Name='x';Amount=1;Extra=2} | Convert-Reading } 'InvalidReading'
+Expect-Error { [pscustomobject]@{Name='x';Amount=@(1)} | Convert-Reading } 'InvalidReading'
+Expect-Error { [pscustomobject]@{Name='x';Amount=[double]1} | Convert-Reading } 'InvalidReading'
 Expect-Error { $inputRows | Convert-Reading -Scale 0 } 'ParameterArgumentValidationError'
 $directory=Join-Path ([IO.Path]::GetTempPath()) ('morderca-objects-'+[guid]::NewGuid().ToString('N'))
 $null=New-Item -ItemType Directory -Path $directory

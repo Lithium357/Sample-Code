@@ -38,6 +38,8 @@ jobs:
         run: python3 -m pip install keystone-engine==0.9.2 unicorn==2.1.4
       - name: Curated research checks (unavailable targets explicitly recorded)
         run: python3 tools/research_validate.py --suite curated
+      - name: Curated Nim native backend
+        run: python3 tools/research_validate.py --path curated/nim/test_record_stream.nim --native-nim --require-tools
       - name: Race-check curated Go
         run: >-
           python3 tools/research_validate.py --path curated/go/local_http.go

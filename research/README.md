@@ -47,3 +47,7 @@ where their current behavioral checks pass.
 Use `--skip-language cmd` on Linux and `--only-language cmd` on Windows. These
 are embedded self-checks with recorded scope, not a comprehensive feature audit.
 Go's `--go-race` records actual race-enabled build and run commands.
+The research harness needs Python 3.11+ for SQLite extended error attributes.
+`--native-nim` records a separate C-backend compilation/execution rather than
+mislabeling the JavaScript backend. Syntax-only object generation is excluded
+from the execution-validated token total.

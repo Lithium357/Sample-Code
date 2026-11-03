@@ -121,6 +121,16 @@ def validate(case, temporary):
                                     'source':case['path'],'driver_command':[sys.executable,*sys.argv]})
         CURRENT['isa_checks'] = validate_isa(path,case['isa'])
         return
+    if case.get('adapter') == 'riscv_syntax':
+        compiler=shutil.which('clang')
+        if not compiler:raise MissingTool('Clang RISC-V cross-assembler unavailable; execution also not tested')
+        execute([compiler,'--version'],ROOT,probe=True)
+        CURRENT['runtime_versions']['clang']=CURRENT['commands'][-1]['stdout']
+        obj=temporary/'fold.o'
+        execute([compiler,'--target=riscv64-unknown-linux-gnu','-march=rv64i','-mabi=lp64','-c',path,'-o',obj],temporary)
+        CURRENT['produced_object_sha256']=digest(obj)
+        CURRENT['limitations']='Syntax/object generation only; no linking, emulation or native execution'
+        return
     if case.get('adapter') == 'postgres':
         if os.environ.get('MORDERCA_POSTGRES_LOCAL')!='1':
             raise MissingTool('No opted-in disposable local PostgreSQL fixture; set MORDERCA_POSTGRES_LOCAL=1 only for an owned localhost fixture')
@@ -159,6 +169,17 @@ def validate(case, temporary):
         CURRENT['instrumentation']='Go race detector'
         execute([shutil.which('go'),'build','-race','-o',binary,path],temporary)
         execute([binary],temporary)
+    elif language=='nim' and case.get('native_nim'):
+        binary=temporary/('check.exe' if os.name=='nt' else 'check')
+        flags=[]
+        if os.name=='nt':
+            compiler=shutil.which('cl')
+            if not compiler:raise MissingTool('MSVC environment unavailable for native Nim')
+            execute([compiler],ROOT,probe=True)
+            CURRENT['runtime_versions']['native_c_compiler']=CURRENT['commands'][-1]['stderr']
+            flags=['--cc:vcc']
+        execute([shutil.which('nim'),'c',*flags,'--hints:off','--nimcache:'+str(temporary/'nimcache'),'-o:'+str(binary),path],temporary)
+        execute([binary],temporary)
     elif case.get('commands'):
         values={'root':str(ROOT),'temp':str(temporary),'source':str(path),'python':sys.executable,
                 'exe':str(temporary/('specimen.exe' if os.name=='nt' else 'specimen'))}
@@ -179,6 +200,7 @@ def main():
     parser.add_argument('--only-language',action='append')
     parser.add_argument('--skip-language',action='append',default=[])
     parser.add_argument('--go-race',action='store_true')
+    parser.add_argument('--native-nim',action='store_true')
     parser.add_argument('--require-tools',action='store_true')
     args=parser.parse_args()
     cases=legacy_cases() if args.suite in ('legacy','all') else repair_cases() if args.suite=='repairs' else []
@@ -193,6 +215,9 @@ def main():
     if args.go_race:
         for case in cases:
             if case['language']=='go':case['go_race']=True
+    if args.native_nim:
+        for case in cases:
+            if case['language']=='nim':case.update(native_nim=True,mode='native')
     if not cases:parser.error('no cases selected')
     run_id=uuid.uuid4().hex
     history=ROOT/'research/evidence/history'

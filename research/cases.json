@@ -121,9 +121,10 @@
   {
     "path": "curated/assembly/riscv64/ascii_fold.s",
     "language": "assembly-riscv64",
-    "mode": "not_tested",
-    "reason": "Compatible RISC-V assembler/runtime unavailable; no syntax or execution validation claimed.",
+    "mode": "syntax_only",
+    "reason": "Clang cross-object checks when available; execution remains untested.",
     "task_family": "buffer.bounded-ascii-fold",
-    "runtime_assumptions": "RV64I little-endian, GNU syntax, LP64; no compressed instructions or OS calls"
+    "runtime_assumptions": "RV64I little-endian, GNU syntax, LP64; no compressed instructions or OS calls",
+    "adapter": "riscv_syntax"
   }
 ]

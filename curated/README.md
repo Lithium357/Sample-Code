@@ -34,8 +34,9 @@ The Go HTTP fixture starts no listener, and the PHP fixture starts no server.
 * `assembly/armv7/`: ARMv7-A A32 little-endian, GNU unified syntax, AAPCS32.
 * `assembly/aarch64/`: Armv8-A AArch64 little-endian, GNU syntax, AAPCS64.
 * `assembly/riscv64/`: RV64I little-endian, GNU syntax, LP64, no compressed
-  instructions. A compatible assembler/runtime is unavailable locally, so
-  this source is held as **not tested**.
+  instructions. Local tools are unavailable. CI attempts a Clang cross-object
+  build labeled **syntax_only**; execution remains untested, and the file is
+  held out of execution-validated volume even if cross-assembly succeeds.
 
 The three ISA files are close variants in task family `buffer.bounded-ascii-fold`.
 ARMv7/AArch64 tests assemble only the marked function bodies with Keystone and

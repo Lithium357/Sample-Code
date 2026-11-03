@@ -67,6 +67,7 @@ def main():
         for line in path.read_text(encoding='utf-8').splitlines():
             if line.strip():evidence.append(json.loads(line))
     current_hashes={row['path']:row['sha256'] for row in rows}
+    evidence.sort(key=lambda record:record['finished_at'])
     eligible={}
     for record in evidence:
         bundle=record['source_hashes']
@@ -82,6 +83,7 @@ def main():
         row['prompt_ref']='research/provenance/research-request.txt' if row['task_id']=='research-pass-1' else 'research/provenance/session.json#prompts'
         row['edits_ref']='research/changes.jsonl'
         row['current_source_bound_pass']=row['path'] in passed_paths
+        row['execution_validated']=row['current_source_bound_pass']
         row['training_eligibility']=('candidate_after_source_bound_checks' if row['origin_audit']=='no_benchmark_source_intentionally_used' and row['current_source_bound_pass']
                                      else 'hold_for_validation' if row['origin_audit']=='no_benchmark_source_intentionally_used' else 'legacy_origin_and_coverage_review_required')
         row['validation_records']=[{'run_id':r['run_id'],'result':r['result'],'mode':r['validation_mode']}
@@ -96,11 +98,16 @@ def main():
     role_totals=Counter()
     for row in rows:role_totals[row['role']]+=row['tokens']
     report={'tokenizer':'cl100k_base','morderca_tokenizer_used':False,'counting':'sum of individually tokenized source/support files; normalized text newlines',
+            'tokenizer_implementation':'tiktoken','tokenizer_implementation_version':tiktoken.__version__,
             'whole_file_role_tokens':dict(role_totals),
+            'role_notice':'File roles, not lexical code-only counts; source files may contain inline comments/self-checks.',
             'inline_components':None,'component_reason':'comments and inline fixtures not lexically separated; BPE segment counts are not additive',
             'files':len(rows),'generated_tokens':sum(row['tokens'] for row in rows),
             'current_source_bound_pass_files':sum(row['current_source_bound_pass'] for row in rows),
             'current_source_bound_pass_tokens':sum(row['tokens'] for row in rows if row['current_source_bound_pass']),
+            'execution_validated_files':sum(row['execution_validated'] for row in rows),
+            'execution_validated_tokens':sum(row['tokens'] for row in rows if row['execution_validated']),
+            'execution_scope':'Native, transpiled JS or emulated checks only; syntax-only success is excluded.',
             'by_language':by_language,
             'qualification':'Evidence applies to source hashes/modes recorded. Legacy aggregate passes are retained but not counted here; passing is not a model-performance result.'}
     (ROOT/'research/volume.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

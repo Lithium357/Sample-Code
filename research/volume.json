@@ -2,23 +2,29 @@
   "tokenizer": "cl100k_base",
   "morderca_tokenizer_used": false,
   "counting": "sum of individually tokenized source/support files; normalized text newlines",
+  "tokenizer_implementation": "tiktoken",
+  "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
     "source_with_inline_fixtures": 165213,
-    "source": 8235,
+    "source": 8251,
     "fixture": 293,
     "support_source": 427
   },
+  "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
   "files": 327,
-  "generated_tokens": 174168,
-  "current_source_bound_pass_files": 42,
-  "current_source_bound_pass_tokens": 27379,
+  "generated_tokens": 174184,
+  "current_source_bound_pass_files": 325,
+  "current_source_bound_pass_tokens": 173195,
+  "execution_validated_files": 325,
+  "execution_validated_tokens": 173195,
+  "execution_scope": "Native, transpiled JS or emulated checks only; syntax-only success is excluded.",
   "by_language": {
     "assembly": {
       "files": 19,
       "generated_tokens": 16421,
-      "current_source_bound_pass_tokens": 0
+      "current_source_bound_pass_tokens": 16421
     },
     "assembly-aarch64": {
       "files": 1,
@@ -32,58 +38,58 @@
     },
     "assembly-riscv64": {
       "files": 1,
-      "generated_tokens": 326,
+      "generated_tokens": 342,
       "current_source_bound_pass_tokens": 0
     },
     "bash": {
       "files": 26,
       "generated_tokens": 14770,
-      "current_source_bound_pass_tokens": 570
+      "current_source_bound_pass_tokens": 14770
     },
     "c": {
       "files": 3,
       "generated_tokens": 5959,
-      "current_source_bound_pass_tokens": 2134
+      "current_source_bound_pass_tokens": 5959
     },
     "cmd": {
       "files": 23,
       "generated_tokens": 14554,
-      "current_source_bound_pass_tokens": 422
+      "current_source_bound_pass_tokens": 14554
     },
     "cpp": {
       "files": 3,
       "generated_tokens": 4475,
-      "current_source_bound_pass_tokens": 1253
+      "current_source_bound_pass_tokens": 4475
     },
     "go": {
       "files": 35,
       "generated_tokens": 20371,
-      "current_source_bound_pass_tokens": 3064
+      "current_source_bound_pass_tokens": 20371
     },
     "nim": {
       "files": 40,
       "generated_tokens": 18332,
-      "current_source_bound_pass_tokens": 720
+      "current_source_bound_pass_tokens": 18332
     },
     "php": {
       "files": 36,
       "generated_tokens": 16496,
-      "current_source_bound_pass_tokens": 1226
+      "current_source_bound_pass_tokens": 16496
     },
     "powershell": {
       "files": 34,
       "generated_tokens": 16123,
-      "current_source_bound_pass_tokens": 844
+      "current_source_bound_pass_tokens": 16123
     },
     "ruby": {
       "files": 42,
       "generated_tokens": 15147,
-      "current_source_bound_pass_tokens": 2104
+      "current_source_bound_pass_tokens": 15147
     },
     "rust": {
       "files": 35,
       "generated_tokens": 16394,
-      "current_source_bound_pass_tokens": 889
+      "current_source_bound_pass_tokens": 16394
     },
     "sql": {
       "files": 26,

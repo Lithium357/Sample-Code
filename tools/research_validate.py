@@ -141,9 +141,17 @@ def validate(case, temporary):
         connection=[docker,'exec',container,'/opt/mssql-tools18/bin/sqlcmd','-C','-S','localhost',
                     '-U','sa','-b','-r','1','-l','5']
         execute([*connection,'-?'],temporary,probe=True)
+        if CURRENT['commands'][-1]['returncode'] in (126,127):
+            raise MissingTool('Bundled sqlcmd is unavailable inside the owned fixture container')
         CURRENT['runtime_versions']['sqlcmd']=CURRENT['commands'][-1]['stdout']+CURRENT['commands'][-1]['stderr']
         CURRENT['runtime_versions']['sqlserver']=execute([*connection,'-Q','SET NOCOUNT ON; SELECT @@VERSION;'],temporary)
-        target='/tmp/morderca-'+uuid.uuid4().hex+'.sql'
+        # Docker cp creates a root-owned file. A private directory created by
+        # the normal container user lets that user remove the file, unlike a
+        # root-owned file directly in sticky /tmp. No privileged exec needed.
+        owned_dir='/tmp/morderca-'+uuid.uuid4().hex
+        execute([docker,'exec',container,'mkdir','--',owned_dir],temporary)
+        target=owned_dir+'/fixture.sql'
+        primary_error=None
         try:
             execute([docker,'cp',path,container+':'+target],temporary)
             copied=execute([docker,'exec',container,'sha256sum',target],temporary).split()[0]
@@ -152,8 +160,19 @@ def validate(case, temporary):
             output=execute([*connection,'-i',target],temporary)
             if 'T-SQL: constraints, exact errors, savepoints, migration and bound text passed' not in output:
                 raise AssertionError('SQL Server fixture did not report completion')
+        except Exception as error:
+            primary_error=error
+            raise
         finally:
-            execute([docker,'exec',container,'rm','-f','--',target],temporary)
+            cleanup_error=None
+            for command in ([docker,'exec',container,'rm','-f','--',target],
+                            [docker,'exec',container,'rmdir','--',owned_dir]):
+                try:execute(command,temporary)
+                except Exception as error:
+                    CURRENT.setdefault('cleanup_errors',[]).append(repr(error))
+                    if cleanup_error is None:cleanup_error=error
+            # Preserve the original test failure if cleanup also fails.
+            if cleanup_error is not None and primary_error is None:raise cleanup_error
         CURRENT['runtime_scope']='Native SQL Server engine in disposable Linux container, sqlcmd TLS trust only for owned localhost fixture; no SQLite translation'
         return
     if case.get('adapter')=='tcl':

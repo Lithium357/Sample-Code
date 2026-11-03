@@ -73,3 +73,16 @@ expression missing a closing bracket. After fixing that syntax, run
 6808b491cf6444ed8197cc5aac51a5f2 completed all assertions but failed the embedded
 adapter sentinel: puts returns empty. Print and return the final success value;
 77007943e7fc4ca6bb843f63a5804561 passes. Original sources/results remain retained.
+
+
+SQL Server CI run 41656069870 / source-bound run
+d93d3468774a40e0802eb24bfc308331 executed the original T-SQL successfully on
+SQL Server 2022 16.0.4305.5 (RTM-CU27-GDR), then failed cleanup. Docker cp made
+the file root-owned directly in sticky /tmp; the normal mssql user could read
+but not delete it. The failed result is imported unchanged, with copied source
+hash, sqlcmd success and rm failure; it is not counted as a successful validation.
+Fix: create a uniquely named private directory as the normal container user,
+copy into it, then remove the exact file and nonrecursively rmdir the owned
+folder as that same user. No privileged Docker exec is introduced. Cleanup
+errors are recorded without masking an original test error. The source itself
+is unchanged; a clean CI rerun is required for promotion.

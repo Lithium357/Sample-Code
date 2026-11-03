@@ -115,3 +115,16 @@ execution or candidate promotion is claimed until actual engine evidence arrives
 Container-backed native_sqlserver results are eligible only after source-bound
 success, separately labeled from SQLite/PostgreSQL. Infrastructure follows
 [Microsoft's container guidance](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker).
+
+
+SQL Server CI run 41656069870 / source-bound run
+d93d3468774a40e0802eb24bfc308331 executed the original T-SQL successfully on
+SQL Server 2022 16.0.4305.5 (RTM-CU27-GDR), then failed cleanup. Docker cp made
+the file root-owned directly in sticky /tmp; the normal mssql user could read
+but not delete it. The failed result is imported unchanged, with copied source
+hash, sqlcmd success and rm failure; it is not counted as a successful validation.
+Fix: create a uniquely named private directory as the normal container user,
+copy into it, then remove the exact file and nonrecursively rmdir the owned
+folder as that same user. No privileged Docker exec is introduced. Cleanup
+errors are recorded without masking an original test error. The source itself
+is unchanged; a clean CI rerun is required for promotion.

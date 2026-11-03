@@ -2,6 +2,9 @@
 
 **Research-quality records:** see [`research/README.md`](research/README.md),
 [`research/volume.json`](research/volume.json), and the source-bound evidence history.
+The latest [research pass](research/PASS-2.md) adds ten varied units, including
+binary codecs, command/query parsing, keyed concurrency, streaming CSV, retries,
+generic sequences, argument parsing, PostgreSQL windows and NASM buffers.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

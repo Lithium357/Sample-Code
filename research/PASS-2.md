@@ -51,5 +51,48 @@ recursively wait on its own key. PHP delegates CSV lexical permissiveness to
 `fgetcsv`. Full Unicode/shell grammars are outside the C++ lexer contract.
 The retained examples' comprehensive feature and origin audit remains unfinished.
 
-Execution evidence and exact final counts are finalized after CI import; that
-import adds records without replacing earlier results.
+## Final source-bound results
+
+Both code batches passed CI. The final code commit is
+`def47c3281aeb4cf9219db4c8ce7bc784fe58161` and its
+[passing Linux, Windows and PostgreSQL run](https://github.com/Lithium357/Sample-Code/actions/runs/41586669093)
+is the cross-platform validation reference. The first batch also passed in
+[run 41586184236](https://github.com/Lithium357/Sample-Code/actions/runs/41586184236).
+All six research-evidence archives from those two runs were downloaded and
+verified against GitHub's SHA-256 artifact digests before importing their raw
+history records. `evidence/ci-imports.jsonl` binds artifact IDs, digests and
+workflow commit identities. Subsequent publication contains documentation,
+inventory and imported evidence; the example source bytes are unchanged.
+
+| New example | cl100k_base tokens | Passing execution modes |
+| --- | ---: | --- |
+| C canonical varint codec | 1,257 | Native Windows/MSVC and Linux/GCC; Linux ASan/UBSan |
+| C++ command lexer | 1,167 | Native Windows/MSVC and Linux/GCC; Linux ASan/UBSan |
+| Go keyed work | 1,065 | Native Windows and Linux; Linux race detector |
+| Rust query decoder | 864 | Native Windows and Linux |
+| PHP CSV stream | 650 | Native Windows and Linux |
+| Ruby retry policy | 772 | Native Windows and Linux |
+| Nim stable merge | 910 | JS/Node and native C backends on Windows/Linux |
+| Bash transactional options | 764 | Native Linux Bash and Windows Git Bash |
+| PostgreSQL window events | 918 | Native PostgreSQL 16.15 local CI service |
+| NASM decimal buffer | 1,174 | Native Linux ELF64 and Windows-hosted Unicorn emulation |
+| **Total added** | **9,541** | **10/10 new units have passing execution evidence** |
+
+The refreshed collection contains **337 source/support files and 183,843
+cl100k_base tokens**. Of these, **335 files / 182,854 tokens** have passing
+execution records for the current source bundles. The excluded 989 tokens are
+T-SQL (647; untested) and RISC-V (342; syntax-only). These counts are full-file
+source/support counts with normalized text newlines, not Morderca-tokenizer
+counts, and exclude documentation, harnesses, history and failed snapshots.
+
+Whole-file roles total 174,754 tokens labeled source-with-inline-fixtures,
+8,369 source, 293 separate fixture and 427 support-source tokens. Source files
+can still contain comments/tests; these labels do not establish a lexical split.
+All 9,541 new tokens are in files with embedded comments and fixtures.
+
+Exact compiler/runtime outputs, command arguments, working directories, source
+and harness hashes are retained per record. For example, the new C/C++ units
+passed with MSVC 19.51.36257 and GCC 13.3.0; the PostgreSQL fixture records both
+client and server 16.15. A pass establishes the recorded checks and platform,
+not exhaustive correctness or portability to untested platforms. The three
+failed PHP invocations remain in the history alongside the later successes.

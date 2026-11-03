@@ -15,10 +15,10 @@
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
   "files": 337,
   "generated_tokens": 183843,
-  "current_source_bound_pass_files": 334,
-  "current_source_bound_pass_tokens": 181936,
-  "execution_validated_files": 334,
-  "execution_validated_tokens": 181936,
+  "current_source_bound_pass_files": 335,
+  "current_source_bound_pass_tokens": 182854,
+  "execution_validated_files": 335,
+  "execution_validated_tokens": 182854,
   "execution_scope": "Native, transpiled JS or emulated checks only; syntax-only success is excluded.",
   "by_language": {
     "assembly": {
@@ -99,7 +99,7 @@
     "sql-postgresql": {
       "files": 2,
       "generated_tokens": 1523,
-      "current_source_bound_pass_tokens": 605
+      "current_source_bound_pass_tokens": 1523
     },
     "sql-tsql": {
       "files": 1,

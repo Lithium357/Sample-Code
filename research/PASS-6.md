@@ -48,8 +48,8 @@ preserved; the retry used an owned workspace TEMP and installed lupa 2.6.
 Third-party runtimes/source are outside the training allowlist. Linux CI installs
 and explicitly requires standalone lua5.4; unsupported runtimes stay not_tested.
 
-All sample source runs so far passed locally. Source-bound logs remain the
-source of truth for exact commands, hashes and versions. Reports, setup records,
+The initial Rust/C++/Lua source runs passed locally; later failures and fixes
+are recorded below. Source-bound logs remain the source of truth for exact commands, hashes and versions. Reports, setup records,
 harnesses, snapshots and repeated execution add no training tokens. Counts and
 CI results will be appended after the batch is published and executed.
 
@@ -155,3 +155,78 @@ versions/platforms remain untested; native ARM/AArch64/RISC-V hardware and ELF
 loading remain missing. The retained T-SQL migration default value is not yet
 independently asserted before its explicit update; record that coverage gap
 rather than equating a clean engine run with exhaustive SQL behavior coverage.
+
+## Final source-bound checkpoint
+
+Six new source files add 10,962 cl100k_base tokens (comments and inline fixtures
+included): Rust 2,535; C++ 1,783; Lua 1,902; PowerShell 2,008; Nim 1,386; Tcl 1,348.
+Their exact current source hashes have passing Linux and Windows execution
+records. Local Lua uses native embedded Lua 5.4.8 via lupa 2.6; Linux CI uses
+standalone Lua 5.4.6. Nim was checked under local 2.4.0 and Linux 1.6.14 with
+native C/ARC, including the intended compile rejection. C++ Linux checks use
+ASan/UBSan; local MSVC checks and managed PowerShell/Tcl embeddings are labeled
+in their records. These are tested runtimes, not all-version portability claims.
+
+The retained SQLite audit source is unchanged; its strengthened harness passed
+four exact rejections with immediate state equality, eight additional behavior
+checks and three intended schema mutants. Its legacy hold remains. The retained
+647-token T-SQL source is also unchanged; it now has fully successful native
+SQL Server execution. That promotion adds validation/candidate volume, not newly
+generated source. No legacy origin/coverage holds were cleared in this pass.
+
+Published source/infrastructure checkpoints:
+
+* 9e19700bae15d139c188d140225d01f607642447 — first three new units;
+  workflow 41653833395 passed.
+* e2b96fc3f361175c83fc9a28afc11da81b97c784 — PowerShell/Nim;
+  workflow 41655206694 passed.
+* b916ea471b5da9b1bee68eda49bed2eeb3d8df09 — Tcl/SQL Server adapter;
+  workflow 41656069870 failed its SQL Server adapter.
+* 3ba43eb5ee36da5c57c573865ae61ca0b37c0e9b — cleanup fix;
+  workflow 41656604474 exposed the stdout/stderr assertion error.
+* 49a0606f49cd4311f763899fef90ee44a8446fc5 — completion-stream fix;
+  workflow 41657297038 passed all six jobs.
+* b21bf338d66dfc4fadcd44ab260abd26a06c332b — final Lua/Nim boundaries;
+  workflow 41658450519 passed all six jobs.
+
+Thirty-four digest-verified CI research artifacts yielded 76 new immutable
+history files. Four local formal failures and two CI SQL Server adapter failures
+are retained with their original source snapshots; the CI failure harness bytes
+were recovered from their exact Git commits and verified against recorded
+hashes. Later successes are additional records, not overwritten history. Lua
+setup timeouts/TEMP-denied installation are separate setup failures. Diagnostics
+and generated negative controls do not count as source volume.
+
+| Collection metric | Files | cl100k_base tokens |
+| --- | ---: | ---: |
+| Generated source/support | 362 | 220,985 |
+| At least one current-source passing execution mode | 362 | 220,985 |
+| Training candidates under the documented quality policy | 53 | 57,160 |
+| Executed legacy origin/coverage hold | 309 | 163,825 |
+| Files with no accepted execution evidence | 0 | 0 |
+
+Compared with pass 5: generated volume grew by 10,962; execution and candidate
+volume each grew by 11,609, including the existing 647-token T-SQL promotion.
+Whole-file roles are 211,722 source-with-inline-fixture, 8,390 source, 293 fixture
+and 580 support-source tokens. No lexical code/comment/inline-fixture separation
+or Morderca tokenizer count is claimed.
+
+The local candidate-only archive contains only the 53 qualifying source/support
+files; its separate manifest retains hashes, roles, provenance and actual
+matching execution-record references. It groups ALL known current members of
+exported task families, including held variants for future split handling. It
+assigns no train/evaluation split and asserts no independent benchmark-absence
+certification. The full snapshot also retains controls/evidence; it must not be
+mistaken for a ready-to-ingest all-source training export.
+
+The approximately 2B-token goal remains active. Native ARM/AArch64/RISC-V
+hardware/ELF loading, more SQL Server versions and the explicit default-value
+coverage gap above remain outstanding. Individual unavailable host/mode records
+remain not_tested even when another mode passes. The 309 held legacy examples
+still require scoped reviews. No self-check here is a Morderca performance result.
+
+
+The final publication hash guard rejected a report-only byte mismatch before
+updating main: the Windows default text encoding had written six em dashes as
+CP1252 bytes, while the publication reader expected UTF-8. The report was
+converted to UTF-8; source files, tests and token counts were unaffected.

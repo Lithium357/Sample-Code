@@ -35,9 +35,10 @@ files can be labeled separately in the case registry. Generated source volume
 and source-bound successfully validated volume are reported separately.
 
 Related translations/close variants share a task-family ID in the lineage
-inventory. Split datasets by family, not by file. Exact model versions and
-server conversation identifiers are unavailable in this session; do not infer
-them from workspace directory names. Prompts and task IDs have explicit sources.
+inventory. Split datasets by family, not by file. The exact model version is
+unavailable. The server thread identifier was initially unknown; the goal tool
+returned it during pass 3, recorded in provenance/session-updates.jsonl. Do not
+infer identifiers from workspace paths. Prompts and task IDs have explicit sources.
 
 Export training examples using the allowlisted source/support paths in
 `lineage.jsonl`, grouped by family. Evidence, failed snapshots, harness copies,

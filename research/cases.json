@@ -309,6 +309,6 @@
     "task_id": "research-pass-3",
     "prompt_file": "research/provenance/research-pass-3.txt",
     "role": "source_with_inline_fixtures",
-    "runtime_assumptions": "Tcl 8.6 interpreter via Python tkinter.Tcl, no Tk UI; also runnable with tclsh, whose CLI is not implicitly claimed tested"
+    "runtime_assumptions": "Tcl 8.6+; native tclsh when available, otherwise actual Tcl interpreter via Python tkinter.Tcl; no Tk UI. Chosen runtime and version are recorded per execution."
   }
 ]

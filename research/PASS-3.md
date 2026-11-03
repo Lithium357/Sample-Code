@@ -89,3 +89,54 @@ tkinter.Tcl; no Tk window/UI is created. The recorder can also use native tclsh
 and records the exact CLI/version when it does so. CI installs Tcl on Linux and
 exercises this case in the language-breadth matrix rather than assuming all
 Python installations include Tcl/Tk support.
+
+## Provenance update
+
+The goal tool returned the actual server thread ID during this pass. It is now
+recorded in `provenance/session.json`, with its earlier unknown state and the
+tool basis preserved in append-only `provenance/session-updates.jsonl`. Earlier
+reports describe what was available at their generation time. Exact generation
+model build/checkpoint is still unknown and remains null.
+
+## Final checkpoint for these three batches
+
+All three code commits passed CI:
+
+* `dfa832c4a224e9077ce85f0acc7b13e9f77f5976`:
+  [run 41589305659](https://github.com/Lithium357/Sample-Code/actions/runs/41589305659).
+* `2b2fe85da1c1dd30d5bfc08f093223f7fb052acd`:
+  [run 41589978351](https://github.com/Lithium357/Sample-Code/actions/runs/41589978351).
+* `c0c2692959420ee4eed0909b99f0331443a68e92`:
+  [run 41590482896](https://github.com/Lithium357/Sample-Code/actions/runs/41590482896).
+
+The last run passed Linux, Windows, PostgreSQL and the Linux/Windows language
+breadth matrix. All fifteen research-evidence archives from those runs were
+verified against their GitHub SHA-256 digests before importing thirty new raw
+history files. Artifact/run identities are in `evidence/ci-imports.jsonl`.
+Later publication adds evidence/docs/metadata, leaving example bytes unchanged.
+
+| New file | cl100k_base tokens | Validated host/runtime scope |
+| --- | ---: | --- |
+| Python scoped context | 928 | Windows and Linux Python |
+| JavaScript iterator cleanup | 1,071 | Windows and Linux Node.js |
+| F# stock transitions | 1,125 | Windows and Linux .NET managed runtime |
+| Go bounded reader | 1,214 | Windows and Linux native host execution |
+| C# pooled writer | 1,776 | Windows and Linux .NET managed runtime |
+| Python deferred SQLite driver | 929 | Windows and Linux Python/SQLite |
+| SQLite DDL support | 153 | Executed with the source-bound Python driver |
+| Tcl versioned patch | 1,700 | Embedded Tcl on Windows; native tclsh on Linux |
+| **Total added: 7 units / 8 files** | **8,896** | **All eight files belong to passing source-bound execution bundles** |
+
+Current collection: **345 source/support files, 192,739 cl100k_base tokens**.
+Passing execution subset: **343 files, 191,750 tokens**. That is **0.0095875%**
+of the approximate 2B-token target; the long-run goal remains active. The
+remaining excluded source is unchanged: 647 T-SQL tokens without execution and
+342 RISC-V tokens with syntax/object checks only. ARM/AArch64 still have
+function-body emulation, not native execution. The retained origin/feature audit
+is incomplete. No self-check result is evidence of Morderca's performance.
+
+Whole-file role totals are 183,497 tokens in source-with-inline-fixtures,
+8,369 source, 293 separate fixture and 580 support-source. These labels are not
+a lexical code/comment/test split. All counts exclude control/evidence material
+and use normalized newlines. The one C# harness failure remains preserved,
+including its unchanged source snapshot and subsequent successful rerun.

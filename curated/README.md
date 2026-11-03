@@ -7,7 +7,9 @@ files; results are in append-only `research/evidence/history/` records.
 
 Pass 3 broadens the language rotation with Python task-local scopes, JavaScript
 async-iterator cleanup and F# typed stock transitions, plus Go's unusual Reader
-return/progress cases. See `research/PASS-3.md` for contracts and checks.
+return/progress cases. Further batches add C# pooled-buffer ownership, Python/
+SQLite deferred constraints and Tcl versioned dictionary patches. See
+`research/PASS-3.md` for contracts and checks.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 

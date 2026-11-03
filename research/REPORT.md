@@ -22,6 +22,11 @@ execution, function-body emulation and syntax-only assembly remain distinct.
 The retained examples are rerun through the detailed recorder; passing their
 embedded checks does not establish exhaustive feature coverage.
 
+The final example-code validation at commit
+`988f05799ed3b1fa86e79019c6fed26234a47a7e` passed Linux, Windows and PostgreSQL
+jobs: https://github.com/Lithium357/Sample-Code/actions/runs/41571113475 .
+Subsequent evidence/accounting-only commits do not change those example hashes.
+
 Six observed failed records are retained with failed-source snapshots and
 resolution links: Ruby helper scope; PowerShell's directory parameter and
 scalar-type handling; Nim backend selection and JSON exception behavior; and
@@ -67,7 +72,8 @@ Legacy origins are not exhaustively audited and remain flagged for review.
 ## Remaining gaps
 
 * SQL Server/T-SQL: no engine-backed or syntax validation yet; held for validation.
-* RV64I: no execution yet. Clang cross-assembly, if successful, is syntax-only.
+* RV64I: Clang 18.1.3 produced a cross-target object successfully in CI, recorded
+  as syntax-only. No linking, emulation or native execution is claimed.
 * ARMv7/AArch64: 404 vectors each under Keystone/Unicorn, with bounds, canaries,
   termination and saved-register checks. GNU directives, ELF linking and native
   OS execution remain unchecked.

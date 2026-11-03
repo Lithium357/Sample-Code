@@ -11,7 +11,8 @@ def main():
     ledger=ROOT/'research/changes.jsonl'
     existing=[json.loads(line) for line in ledger.read_text().splitlines() if line.strip()] if ledger.exists() else []
     ids={row.get('event_id') for row in existing}
-    latest={row['path']:row['after_sha256'] for row in existing if 'after_sha256' in row}
+    latest={row['path']:row['after_sha256'] for row in existing
+            if 'after_sha256' in row and row.get('kind') in (None,'subsequent_source_edit')}
     events=[]
     for path,previous in latest.items():
         current=hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
@@ -23,6 +24,17 @@ def main():
     for path in sorted((ROOT/'research/evidence/history').glob('*.jsonl')):
         records.extend(json.loads(line) for line in path.read_text().splitlines() if line.strip())
     records.sort(key=lambda row:row['finished_at'])
+    observed={}
+    for record in records:
+        for relative,current in record['source_hashes'].items():
+            previous=observed.get(relative)
+            if previous and previous['hash']!=current:
+                events.append({'event_id':'observed-revision:'+relative+':'+previous['hash']+':'+current,
+                               'kind':'observed_tested_source_revision','path':relative,
+                               'before_sha256':previous['hash'],'after_sha256':current,
+                               'previous_run_id':previous['run'],'seen_in_run_id':record['run_id'],
+                               'reason':'Different tested source bytes. Older CI checkouts can finish later; this is not a claim about edit chronology.'})
+            observed[relative]={'hash':current,'run':record['run_id']}
     for index,row in enumerate(records):
         if row['result']!='failed':continue
         event_id='failure:'+row['run_id']+':'+row['path']

@@ -95,6 +95,9 @@ func main() {
 	results := make(chan outcome, 9)
 	go func() { v, e := group.Do(context.Background(), "same", work); results <- outcome{v, e} }()
 	<-entered
+	// A blocked operation on one key must not hold the mutex during its work.
+	other, otherErr := group.Do(context.Background(), "different", func() (int, error) { return 17, nil })
+	check(other == 17 && otherErr == nil)
 	for i := 0; i < 7; i++ {
 		go func() { v, e := group.Do(context.Background(), "same", work); results <- outcome{v, e} }()
 	}

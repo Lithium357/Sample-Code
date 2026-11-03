@@ -3,6 +3,12 @@
 The JSONL history and failed-source snapshots are authoritative. This narrative
 does not replace or overwrite the original command results.
 
+Pass-2 PHP fixture failures and the exclusive-create fix are documented in
+`PASS-2.md`. The first ledger writer still hardcoded pass 1 for those failure
+events. Append-only metadata-correction events identify their actual pass-2
+task; the writer now reads task IDs from the lineage inventory. Original
+events/results remain intact.
+
 * The first repair-suite invocation could not find Ruby on PATH. It recorded
   `not_tested`. The workspace Ruby runtime was added to the validator environment
   and the suite was rerun successfully.

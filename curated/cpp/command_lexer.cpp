@@ -22,7 +22,8 @@ class Command {
   std::string text;
   std::vector<Token> tokens;
   static bool space(char c) {
-    return c == ' ' || c == '\t' || c == '\n' || c == '\r';
+    return c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f' ||
+           c == '\v';
   }
 
 public:
@@ -84,15 +85,17 @@ int main() {
   assert(command.raw(1) == "\"file with spaces\"");
   Command moved = std::move(command);
   assert(moved.raw(1) == "\"file with spaces\"");
-  assert(Command(" \n\t").size() == 0);
-  for (const auto &bad : std::vector<std::string>{
-           "\"open", "\"x\"tail", "ab\"cd", "\"bad\\q\"", "word\\tail"}) {
+  assert(Command(" \n\t\r\f\v").size() == 0);
+  const std::vector<std::pair<std::string, std::size_t>> errors = {
+      {"\"open", 0},     {"\"x\"tail", 3},  {"ab\"cd", 2},
+      {"\"bad\\q\"", 5}, {"word\\tail", 4}, {"\"x\\", 2}};
+  for (const auto &[bad, offset] : errors) {
     bool rejected = false;
     try {
       Command test(bad);
     } catch (const LexError &error) {
       rejected = true;
-      assert(error.offset < bad.size());
+      assert(error.offset == offset);
     }
     assert(rejected);
   }
@@ -109,6 +112,10 @@ int main() {
     encoded += '"';
     Command parsed(encoded);
     assert(parsed.size() == 1 && parsed.value(0) == literal);
+    Command copied = parsed;
+    Command relocated = std::move(parsed);
+    assert(copied.raw(0) == encoded && copied.value(0) == literal);
+    assert(relocated.raw(0) == encoded && relocated.value(0) == literal);
   }
   bool bounds = false;
   try {

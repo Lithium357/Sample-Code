@@ -1,9 +1,29 @@
 # Curated, language-specific local examples
 
-These synthetic examples were added for research pass 1. They are not benchmark
+These synthetic examples were added in research passes 1 and 2. They are not benchmark
 items and their checks do not measure Morderca. The registry in
 `research/cases.json` defines task families, runtime assumptions and support
 files; results are in append-only `research/evidence/history/` records.
+
+Pass 2 adds ten standalone units, each with embedded local fixtures:
+
+| Example | Contract and checks |
+| --- | --- |
+| `c/varint_codec.c` | Canonical unsigned LEB128, portable ZigZag, fixed wire vectors, 10,000 round trips, every proper truncation and transactional decoder outputs |
+| `cpp/command_lexer.cpp` | Owned storage and offset spans, quoting, exact malformed-input offsets, copy/move including small strings, independent literal encoder |
+| `go/keyed_work.go` | One operation per concurrent key, independent waiter cancellation, unrelated-key progress, fresh runs, errors and recovered panics; CI race detector |
+| `rust/query_decode.rs` | Ordered duplicate query keys, one-pass percent decoding, UTF-8, limits, malformed escapes and independent encoding round trips |
+| `php/csv_stream.php` | Lazy CSV generator, quoted commas/newlines, numeric/schema failures and early-stop file cleanup |
+| `ruby/retry_policy.rb` | Injected sleeper, bounded attempts, saturating delays, retry predicate and exception identity; no real sleeps |
+| `nim/stable_merge.nim` | Generic stable merge and run iterator; 961 concatenate/sort oracle comparisons, invalid ordering and unchanged inputs |
+| `bash/transactional_options.sh` | Exact argument vectors, empty/space/wildcard values, option terminator, status 64 and atomic publication after validation |
+| `sql/postgresql/window_events.sql` | Explicit ROWS frames, deterministic timestamp ties, partitioning, NULL values, retry RETURNING, rejected updates and empty lateral joins |
+| `assembly/x86_64/decimal_buffer.asm` | NASM x86-64, SysV AMD64, Linux ELF64; unsigned decimal bytes, capacities 0..12, unchanged short buffers, guards and saved registers |
+
+The NASM case runs natively on Linux and as a flat executable image under
+Unicorn on other hosts. The latter also cross-assembles ELF64 but does not test
+the Linux loader/kernel. Native and emulation results are recorded separately.
+See `research/PASS-2.md` for the pass-specific evidence and limitations.
 
 | Example | Language-specific behavior | Fixture and failure checks |
 | --- | --- | --- |

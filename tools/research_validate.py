@@ -142,6 +142,20 @@ def validate(case, temporary):
         CURRENT['runtime_versions']['postgresql_server']=execute([*connection,'-At','-c','SELECT version()'],temporary)
         execute([*connection,'-f',path],temporary)
         return
+    if case.get('adapter') == 'nasm' and platform.system()!='Linux':
+        # Flat executable test image plus ELF64 object generation; no Linux
+        # kernel execution is claimed on Windows. Keep the exact tool commands.
+        from verify_advanced import emulate_assembly
+        nasm=shutil.which('nasm')
+        if not nasm:raise MissingTool('NASM missing')
+        execute([nasm,'-v'],ROOT,probe=True)
+        CURRENT['runtime_versions'].update(nasm=CURRENT['commands'][-1]['stdout'],
+                                          unicorn=importlib.metadata.version('unicorn'))
+        CURRENT['validation_mode']='emulation'
+        CURRENT['limitations']='Unicorn flat image plus NASM ELF64 assembly; no ELF loader or Linux kernel execution'
+        legacy.run=execute
+        emulate_assembly(path,temporary)
+        return
     if language=='assembly' and platform.system()!='Linux':raise MissingTool('Native Linux x86-64 execution unavailable on this host')
     probe(language)
     legacy.run = execute
@@ -225,6 +239,7 @@ def main():
     harness_store=history.parent/'harness'
     harness_store.mkdir(exist_ok=True)
     harness_paths=[Path(__file__),ROOT/'tools/sql_contracts.py',ROOT/'tools/verify.py']
+    harness_paths.append(ROOT/'tools/verify_advanced.py')
     if (ROOT/'tools/isa_probe.py').exists():harness_paths.append(ROOT/'tools/isa_probe.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')

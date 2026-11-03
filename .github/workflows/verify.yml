@@ -39,7 +39,7 @@ jobs:
       - name: Curated research checks (unavailable targets explicitly recorded)
         run: python3 tools/research_validate.py --suite curated
       - name: Curated Nim native backend
-        run: python3 tools/research_validate.py --path curated/nim/test_record_stream.nim --native-nim --require-tools
+        run: python3 tools/research_validate.py --suite curated --only-language nim --native-nim --require-tools
       - name: Race-check curated Go
         run: >-
           python3 tools/research_validate.py --path curated/go/local_http.go
@@ -105,7 +105,7 @@ jobs:
       - name: Validate PostgreSQL dialect with a disposable local database
         env:
           MORDERCA_POSTGRES_LOCAL: '1'
-        run: python3 tools/research_validate.py --path curated/sql/postgresql/constraint_migration.sql --require-tools
+        run: python3 tools/research_validate.py --suite curated --only-language sql-postgresql --require-tools
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -133,7 +133,8 @@
     "mode": "native",
     "task_family": "binary.canonical-varint",
     "task_id": "research-pass-2",
-    "prompt_file": "research/provenance/research-pass-2.txt"
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
   },
   {
     "path": "curated/cpp/command_lexer.cpp",
@@ -141,7 +142,8 @@
     "mode": "native",
     "task_family": "parser.owned-command-tokens",
     "task_id": "research-pass-2",
-    "prompt_file": "research/provenance/research-pass-2.txt"
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
   },
   {
     "path": "curated/go/keyed_work.go",
@@ -149,7 +151,8 @@
     "mode": "native",
     "task_family": "concurrency.keyed-work",
     "task_id": "research-pass-2",
-    "prompt_file": "research/provenance/research-pass-2.txt"
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
   },
   {
     "path": "curated/rust/query_decode.rs",
@@ -157,7 +160,8 @@
     "mode": "native",
     "task_family": "parser.form-query",
     "task_id": "research-pass-2",
-    "prompt_file": "research/provenance/research-pass-2.txt"
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
   },
   {
     "path": "curated/php/csv_stream.php",
@@ -165,7 +169,8 @@
     "mode": "native",
     "task_family": "records.validated-stream",
     "task_id": "research-pass-2",
-    "prompt_file": "research/provenance/research-pass-2.txt"
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
   },
   {
     "path": "curated/ruby/retry_policy.rb",
@@ -173,6 +178,46 @@
     "mode": "native",
     "task_family": "control.injected-retry",
     "task_id": "research-pass-2",
-    "prompt_file": "research/provenance/research-pass-2.txt"
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/nim/stable_merge.nim",
+    "language": "nim",
+    "mode": "transpiled_js",
+    "task_family": "sequence.stable-merge",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/bash/transactional_options.sh",
+    "language": "bash",
+    "mode": "native",
+    "task_family": "cli.transactional-options",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/sql/postgresql/window_events.sql",
+    "language": "sql-postgresql",
+    "mode": "native_postgresql",
+    "task_family": "query.ordered-event-windows",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "adapter": "postgres",
+    "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/assembly/x86_64/decimal_buffer.asm",
+    "language": "assembly",
+    "mode": "native",
+    "task_family": "buffer.unsigned-decimal",
+    "task_id": "research-pass-2",
+    "prompt_file": "research/provenance/research-pass-2.txt",
+    "adapter": "nasm",
+    "runtime_assumptions": "x86-64, NASM, SysV AMD64; Linux ELF64 natively or explicit Unicorn flat-image emulation",
+    "role": "source_with_inline_fixtures"
   }
 ]

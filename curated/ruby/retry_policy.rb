@@ -1,4 +1,4 @@
-# Ruby 3: injected clock/sleeper, bounded retry policy, blocks and error identity.
+# Ruby 3: injected sleeper, bounded retry policy, blocks and error identity.
 # No real sleeping, network calls or random timing in the fixture checks.
 class RetryPolicy
   def initialize(attempts:, initial_delay:, maximum_delay:, sleep:)
@@ -53,4 +53,17 @@ check(once.call(retry_if:->(_){true}){nil}.nil?)
 invalid=false
 begin RetryPolicy.new(attempts:0,initial_delay:1,maximum_delay:1,sleep:->(_){});rescue ArgumentError;invalid=true;end
 check(invalid)
+[[11,0,0],['2',0,0],[1,-1,0],[1,2,1]].each do |attempts,initial,maximum|
+  rejected=false
+  begin
+    RetryPolicy.new(attempts:attempts,initial_delay:initial,maximum_delay:maximum,sleep:->(_) {})
+  rescue ArgumentError
+    rejected=true
+  end
+  check(rejected)
+end
+zeros=[]
+zero_policy=RetryPolicy.new(attempts:3,initial_delay:0,maximum_delay:0,sleep:->(n){zeros<<n})
+check(zero_policy.call(retry_if:->(_){true}){|n| raise Transient if n<3; :ok}==:ok)
+check(zeros==[0,0])
 puts 'Retry policy: bounded delays, injected sleeper, predicate and original exception identity passed'

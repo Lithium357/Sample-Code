@@ -58,6 +58,15 @@ int main(void) {
   assert(decode(three_hundred, 2, &used, &value) == OK && used == 2 &&
          value == 300);
   uint8_t bytes[10];
+  const uint64_t small_values[] = {0, 1, 127, 128};
+  const uint8_t small_wire[][2] = {{0, 0}, {1, 0}, {127, 0}, {128, 1}};
+  for (size_t i = 0; i < 4; ++i) {
+    size_t width = i == 3 ? 2 : 1;
+    assert(encode(small_values[i], bytes) == width);
+    assert(memcmp(bytes, small_wire[i], width) == 0);
+    assert(decode(small_wire[i], width, &used, &value) == OK);
+    assert(used == width && value == small_values[i]);
+  }
   assert(encode(300, bytes) == 2 && memcmp(bytes, three_hundred, 2) == 0);
   const uint8_t maximum[] = {255, 255, 255, 255, 255, 255, 255, 255, 255, 1};
   assert(decode(maximum, 10, &used, &value) == OK && value == UINT64_MAX);
@@ -68,6 +77,10 @@ int main(void) {
   failure(overflow, 10, OVERFLOW);
   failure(NULL, 0, TRUNCATED);
   failure(NULL, 1, ARGUMENT);
+  used = 77;
+  value = 99;
+  assert(decode(three_hundred, 2, NULL, &value) == ARGUMENT && value == 99);
+  assert(decode(three_hundred, 2, &used, NULL) == ARGUMENT && used == 77);
   assert(zigzag(0) == 0 && zigzag(-1) == 1 && zigzag(1) == 2);
   assert(zigzag(INT64_MIN) == UINT64_MAX && unzigzag(UINT64_MAX) == INT64_MIN);
   assert(unzigzag(zigzag(INT64_MAX)) == INT64_MAX);

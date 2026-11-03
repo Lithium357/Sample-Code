@@ -299,5 +299,16 @@
     "support_roles": {
       "curated/sql/sqlite/deferred_foreign_keys.sql": "support_source"
     }
+  },
+  {
+    "path": "curated/tcl/versioned_patch.tcl",
+    "language": "tcl",
+    "mode": "native",
+    "adapter": "tcl",
+    "task_family": "transaction.versioned-dictionary-patch",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Tcl 8.6 interpreter via Python tkinter.Tcl, no Tk UI; also runnable with tclsh, whose CLI is not implicitly claimed tested"
   }
 ]

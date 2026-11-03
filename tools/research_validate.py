@@ -99,6 +99,27 @@ def validate(case, temporary):
     path = ROOT/case['path']
     language = case['language']
     if case.get('mode') == 'not_tested': raise MissingTool(case['reason'])
+    if case.get('adapter')=='tcl':
+        tclsh=shutil.which('tclsh')
+        if tclsh:
+            version_source=temporary/'tcl-version.tcl'
+            version_text='puts [info patchlevel]\n'
+            version_source.write_text(version_text,encoding='utf-8')
+            CURRENT['generated_probe_inputs']={'tcl-version.tcl':version_text}
+            CURRENT['runtime_versions']['tcl']=execute([tclsh,version_source],temporary,probe=True)
+            CURRENT['tcl_checks']=execute([tclsh,path],temporary)
+            assert 'passed' in CURRENT['tcl_checks']
+            return
+        import tkinter
+        try:interpreter=tkinter.Tcl()
+        except tkinter.TclError as error:raise MissingTool('Tcl runtime initialization unavailable: '+str(error))
+        CURRENT['runtime_versions'].update(python=sys.version,tcl=interpreter.call('info','patchlevel'))
+        CURRENT['commands'].append({'kind':'in_process','entrypoint':'tkinter.Tcl.eval',
+                                    'source':case['path'],'driver_command':[sys.executable,*sys.argv],
+                                    'runtime_note':'Native Tcl interpreter only; no Tk window or UI'})
+        CURRENT['tcl_checks']=interpreter.eval(path.read_text(encoding='utf-8'))
+        assert 'passed' in CURRENT['tcl_checks']
+        return
     if language == 'sql':
         CURRENT['runtime_versions'].update(python=sys.version,sqlite=sqlite3.sqlite_version)
         CURRENT['commands'].append({'kind':'in_process','entrypoint':'sqlite3.Connection.executescript',

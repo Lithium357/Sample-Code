@@ -76,3 +76,16 @@ The runner guessed bin/Debug and could not launch the program. The harness now
 sets --output explicitly. Source and test expectations were unchanged; the
 successful rerun is linked to the original failure. CI broadens the C# checks
 to both Windows and Linux and executes the new SQLite driver on both hosts.
+
+## Batch 3
+
+Tcl `versioned_patch.tcl` adds dictionary copy-on-write updates with optimistic
+version checking and exact structured error codes. Values, spaces, command-like
+text and embedded NULs remain data; production patch handling never evals them.
+Tests cover valid-prefix rollback, malformed lists, stale/canonical versions,
+missing/colliding keys, empty and maximum values, edit-count limits and exhausted
+versions. It passed in the actual Tcl 8.6.12 interpreter embedded through Python
+tkinter.Tcl; no Tk window/UI is created. The recorder can also use native tclsh
+and records the exact CLI/version when it does so. CI installs Tcl on Linux and
+exercises this case in the language-breadth matrix rather than assuming all
+Python installations include Tcl/Tk support.

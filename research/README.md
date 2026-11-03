@@ -35,3 +35,10 @@ Related translations/close variants share a task-family ID in the lineage
 inventory. Split datasets by family, not by file. Exact model versions and
 server conversation identifiers are unavailable in this session; do not infer
 them from workspace directory names. Prompts and task IDs have explicit sources.
+
+Export training examples using the allowlisted source/support paths in
+`lineage.jsonl`, grouped by family. Evidence, failed snapshots, harness copies,
+prompts and historical manifests are control material, not extra training
+examples or additional generated source volume. Untested curated files are
+held for validation. Legacy origin/coverage review remains incomplete even
+where their current behavioral checks pass.

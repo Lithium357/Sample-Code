@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install language tools
-        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli
+        run: sudo apt-get update && sudo apt-get install -y nim nasm ruby php-cli php-sqlite3
       - name: Run Linux-compatible examples
         run: >-
           python3 tools/verify.py --require-tools
@@ -30,6 +30,19 @@ jobs:
           --report validation-advanced-linux.json
       - name: Check Go examples with the race detector
         run: for source in advanced/go/*.go; do go run -race "$source" || exit; done
+      - name: Source-bound research repair evidence
+        run: python3 tools/research_validate.py --suite repairs --require-tools
+      - name: Install research emulator tooling
+        run: python3 -m pip install keystone-engine==0.9.2 unicorn==2.1.4
+      - name: Curated research checks (unavailable targets explicitly recorded)
+        run: python3 tools/research_validate.py --suite curated
+      - name: Race-check curated Go
+        run: go run -race curated/go/local_http.go
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-linux-evidence
+          path: research/evidence/history/*.jsonl
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -54,3 +67,30 @@ jobs:
         with:
           name: validation-windows-advanced
           path: validation-advanced-windows.json
+  postgresql:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_DB: fixture
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready --health-interval 10s
+          --health-timeout 5s --health-retries 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install local fixture client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Validate PostgreSQL dialect with a disposable local database
+        env:
+          MORDERCA_POSTGRES_LOCAL: '1'
+        run: python3 tools/research_validate.py --path curated/sql/postgresql/constraint_migration.sql --require-tools
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: research-postgresql-evidence
+          path: research/evidence/history/*.jsonl

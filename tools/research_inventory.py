@@ -41,7 +41,7 @@ def main():
     for case in cases:
         for path in [case['path'],*case.get('support',[])]:
             curated[path]={'path':path,'language':case['language'],'task_family':case['task_family'],
-                           'role':case.get('support_roles',{}).get(path,'source' if path==case['path'] else 'support_source'),
+                           'role':case.get('support_roles',{}).get(path,case.get('role','source') if path==case['path'] else 'support_source'),
                            'primary_unit':case['path']}
     rows=[]
     for entry in basic:
@@ -75,10 +75,12 @@ def main():
             eligible[key]=record
     passed_paths=set()
     for record in eligible.values():
-        if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','transpiled_js','emulation'):
+        if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','transpiled_js','emulation'):
             passed_paths.update(record['source_hashes'])
     for row in rows:
         row['current_source_bound_pass']=row['path'] in passed_paths
+        row['training_eligibility']=('candidate_after_source_bound_checks' if row['origin_audit']=='no_benchmark_source_intentionally_used' and row['current_source_bound_pass']
+                                     else 'hold_for_validation' if row['origin_audit']=='no_benchmark_source_intentionally_used' else 'legacy_origin_and_coverage_review_required')
         row['validation_records']=[{'run_id':r['run_id'],'result':r['result'],'mode':r['validation_mode']}
                                    for (path,_),r in eligible.items() if path==row.get('primary_unit',row['path'])]
     output=ROOT/'research/lineage.jsonl'
@@ -88,7 +90,10 @@ def main():
         subset=[row for row in rows if row['language']==language]
         by_language[language]={'files':len(subset),'generated_tokens':sum(row['tokens'] for row in subset),
                                'current_source_bound_pass_tokens':sum(row['tokens'] for row in subset if row['current_source_bound_pass'])}
+    role_totals=Counter()
+    for row in rows:role_totals[row['role']]+=row['tokens']
     report={'tokenizer':'cl100k_base','morderca_tokenizer_used':False,'counting':'sum of individually tokenized source/support files; normalized text newlines',
+            'whole_file_role_tokens':dict(role_totals),
             'inline_components':None,'component_reason':'comments and inline fixtures not lexically separated; BPE segment counts are not additive',
             'files':len(rows),'generated_tokens':sum(row['tokens'] for row in rows),
             'current_source_bound_pass_files':sum(row['current_source_bound_pass'] for row in rows),

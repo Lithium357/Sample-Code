@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile and run hand-authored advanced examples using installed tools.
+"""Compile and run individually generated advanced examples using installed tools.
 
 python tools/verify_advanced.py --require-tools
 python tools/verify_advanced.py --language nim --nim-backend js

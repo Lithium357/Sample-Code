@@ -2,22 +2,43 @@
   "tokenizer": "cl100k_base",
   "morderca_tokenizer_used": false,
   "counting": "sum of individually tokenized source/support files; normalized text newlines",
+  "whole_file_role_tokens": {
+    "source_with_inline_fixtures": 165213,
+    "source": 8207,
+    "fixture": 293,
+    "support_source": 427
+  },
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 313,
-  "generated_tokens": 165213,
-  "current_source_bound_pass_files": 29,
-  "current_source_bound_pass_tokens": 18144,
+  "files": 327,
+  "generated_tokens": 174140,
+  "current_source_bound_pass_files": 40,
+  "current_source_bound_pass_tokens": 25493,
   "by_language": {
     "assembly": {
       "files": 19,
       "generated_tokens": 16421,
       "current_source_bound_pass_tokens": 0
     },
-    "bash": {
-      "files": 25,
-      "generated_tokens": 14200,
+    "assembly-aarch64": {
+      "files": 1,
+      "generated_tokens": 326,
+      "current_source_bound_pass_tokens": 326
+    },
+    "assembly-armv7": {
+      "files": 1,
+      "generated_tokens": 309,
+      "current_source_bound_pass_tokens": 309
+    },
+    "assembly-riscv64": {
+      "files": 1,
+      "generated_tokens": 326,
       "current_source_bound_pass_tokens": 0
+    },
+    "bash": {
+      "files": 26,
+      "generated_tokens": 14757,
+      "current_source_bound_pass_tokens": 557
     },
     "c": {
       "files": 3,
@@ -25,9 +46,9 @@
       "current_source_bound_pass_tokens": 2134
     },
     "cmd": {
-      "files": 22,
-      "generated_tokens": 14132,
-      "current_source_bound_pass_tokens": 0
+      "files": 23,
+      "generated_tokens": 14539,
+      "current_source_bound_pass_tokens": 407
     },
     "cpp": {
       "files": 3,
@@ -35,39 +56,49 @@
       "current_source_bound_pass_tokens": 0
     },
     "go": {
-      "files": 34,
-      "generated_tokens": 18914,
-      "current_source_bound_pass_tokens": 1607
+      "files": 35,
+      "generated_tokens": 20371,
+      "current_source_bound_pass_tokens": 3064
     },
     "nim": {
-      "files": 38,
-      "generated_tokens": 17612,
-      "current_source_bound_pass_tokens": 0
+      "files": 40,
+      "generated_tokens": 18332,
+      "current_source_bound_pass_tokens": 720
     },
     "php": {
-      "files": 35,
-      "generated_tokens": 15270,
-      "current_source_bound_pass_tokens": 0
+      "files": 36,
+      "generated_tokens": 16496,
+      "current_source_bound_pass_tokens": 1226
     },
     "powershell": {
-      "files": 33,
-      "generated_tokens": 15279,
-      "current_source_bound_pass_tokens": 0
+      "files": 34,
+      "generated_tokens": 16123,
+      "current_source_bound_pass_tokens": 844
     },
     "ruby": {
-      "files": 41,
-      "generated_tokens": 14533,
-      "current_source_bound_pass_tokens": 1490
+      "files": 42,
+      "generated_tokens": 15147,
+      "current_source_bound_pass_tokens": 2104
     },
     "rust": {
-      "files": 34,
-      "generated_tokens": 15505,
-      "current_source_bound_pass_tokens": 0
+      "files": 35,
+      "generated_tokens": 16394,
+      "current_source_bound_pass_tokens": 889
     },
     "sql": {
       "files": 26,
       "generated_tokens": 12913,
       "current_source_bound_pass_tokens": 12913
+    },
+    "sql-postgresql": {
+      "files": 1,
+      "generated_tokens": 605,
+      "current_source_bound_pass_tokens": 0
+    },
+    "sql-tsql": {
+      "files": 1,
+      "generated_tokens": 647,
+      "current_source_bound_pass_tokens": 0
     }
   },
   "qualification": "Evidence applies to source hashes/modes recorded. Legacy aggregate passes are retained but not counted here; passing is not a model-performance result."

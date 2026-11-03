@@ -110,10 +110,30 @@ def validate(case, temporary):
         CURRENT['isa_checks'] = validate_isa(path,case['isa'])
         return
     if case.get('adapter') == 'postgres':
-        raise MissingTool('PostgreSQL requires ephemeral local initdb/pg_ctl/psql; see runtime instructions')
+        if os.environ.get('MORDERCA_POSTGRES_LOCAL')!='1':
+            raise MissingTool('No opted-in disposable local PostgreSQL fixture; set MORDERCA_POSTGRES_LOCAL=1 only for an owned localhost fixture')
+        program=shutil.which('psql')
+        if not program:raise MissingTool('psql missing')
+        execute([program,'--version'],ROOT,probe=True)
+        CURRENT['runtime_versions']['psql']=CURRENT['commands'][-1]['stdout']
+        connection=[program,'-X','-v','ON_ERROR_STOP=1','-h','127.0.0.1','-p','5432','-U','postgres','-d','fixture']
+        CURRENT['runtime_versions']['postgresql_server']=execute([*connection,'-At','-c','SELECT version()'],temporary)
+        execute([*connection,'-f',path],temporary)
+        return
     probe(language)
     legacy.run = execute
-    if language == 'c':
+    if case.get('adapter') == 'php_pdo':
+        php=shutil.which('php')
+        query='echo class_exists("PDO") ? json_encode(PDO::getAvailableDrivers()) : "null";'
+        drivers=json.loads(execute([php,'-r',query],temporary))
+        flags=[]
+        if not drivers or 'sqlite' not in drivers:
+            extension=Path(php).parent/'ext'/'php_pdo_sqlite.dll'
+            if os.name=='nt' and extension.exists(): flags=['-d','extension_dir='+str(extension.parent),'-d','extension=pdo_sqlite']
+            else: raise MissingTool('PDO SQLite driver unavailable')
+        CURRENT['runtime_versions']['pdo_sqlite']=execute([php,*flags,'-r','echo (new PDO("sqlite::memory:"))->getAttribute(PDO::ATTR_CLIENT_VERSION);'],temporary)
+        execute([php,*flags,path],temporary)
+    elif language == 'c':
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':
             execute([shutil.which('cl'),'/nologo','/W4','/std:c17','/TC',path,'/Fe:'+str(binary),'/Fo:'+str(temporary/'check.obj')],temporary)
@@ -121,12 +141,14 @@ def validate(case, temporary):
             execute([shutil.which('cc'),'-std=c17','-Wall','-Wextra','-Werror','-fsanitize=address,undefined','-g',path,'-o',binary],temporary)
         execute([binary],temporary)
     elif case.get('commands'):
-        values={'root':str(ROOT),'temp':str(temporary),'source':str(path),'python':sys.executable}
+        values={'root':str(ROOT),'temp':str(temporary),'source':str(path),'python':sys.executable,
+                'exe':str(temporary/('specimen.exe' if os.name=='nt' else 'specimen'))}
         for name in ('php','go','rustc','ruby','bash','pwsh','nim','node'):
             values[name]=shutil.which(name) or name
         for command in case['commands']:
             execute([argument.format(**values) for argument in command],temporary)
     else:
+        if language=='nim': legacy.NIM_BACKEND='js' if case.get('mode')=='transpiled_js' else 'c'
         output=legacy.verify_file({'language':language,'path':case['path'],'fixtures':1},temporary)
         if language!='assembly' and not output: raise AssertionError('missing self-check success output')
 
@@ -151,6 +173,7 @@ def main():
     harness_store=history.parent/'harness'
     harness_store.mkdir(exist_ok=True)
     harness_paths=[Path(__file__),ROOT/'tools/sql_contracts.py',ROOT/'tools/verify.py']
+    if (ROOT/'tools/isa_probe.py').exists():harness_paths.append(ROOT/'tools/isa_probe.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

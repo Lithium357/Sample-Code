@@ -1,0 +1,12 @@
+Task identifier: research-pass-5 (local identifier).
+Source: automatic continuation of the active user-requested thread goal.
+Governing visible human requests, exact text from earlier turns:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+The active approximately 2B-token objective and inherited research requirements
+remain unchanged. Work includes source-bound review of retained examples as
+well as varied new local examples. Model build/checkpoint remains unknown.
+No standardized benchmark problem/solution is intentionally used. Related
+variants retain shared task families; reviews and reruns are not extra source
+volume. Quality-goal candidates and technical execution totals remain separate.

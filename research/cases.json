@@ -375,5 +375,14 @@
     "prompt_file": "research/provenance/research-pass-4.txt",
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "GNU AWK 4+ array-of-array/asorti syntax, LC_ALL=C; not POSIX awk; all counts bounded within exact binary64 integers"
+  },
+  {
+    "path": "curated/c/packet_bytes.c",
+    "language": "c",
+    "mode": "native",
+    "task_family": "binary.fixed-packet-bytes",
+    "task_id": "research-pass-5",
+    "prompt_file": "research/provenance/research-pass-5.txt",
+    "role": "source_with_inline_fixtures"
   }
 ]

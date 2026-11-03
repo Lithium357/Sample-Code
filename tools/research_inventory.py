@@ -79,14 +79,33 @@ def main():
     for record in eligible.values():
         if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','transpiled_js','emulation','managed_runtime'):
             passed_paths.update(record['source_hashes'])
+    review_path=ROOT/'research/reviews.jsonl'
+    reviews={}
+    if review_path.exists():
+        for line in review_path.read_text(encoding='utf-8').splitlines():
+            if line.strip():
+                review=json.loads(line)
+                reviews[(review['path'],review['source_sha256'])]=review
     for row in rows:
         row['provenance_ref']='research/provenance/session.json'
         row['prompt_ref']=row.get('prompt_file','research/provenance/research-request.txt' if row['task_id']=='research-pass-1' else 'research/provenance/session.json#prompts')
         row['edits_ref']='research/changes.jsonl'
         row['current_source_bound_pass']=row['path'] in passed_paths
         row['execution_validated']=row['current_source_bound_pass']
-        row['training_eligibility']=('candidate_after_source_bound_checks' if row['origin_audit']=='no_benchmark_source_intentionally_used' and row['current_source_bound_pass']
-                                     else 'hold_for_validation' if row['origin_audit']=='no_benchmark_source_intentionally_used' else 'legacy_origin_and_coverage_review_required')
+        review=reviews.get((row['path'],row['sha256']))
+        if review:
+            row['review_id']=review['review_id']
+            row['review_ref']='research/reviews.jsonl'
+            document=ROOT/review['document']
+            accepted=(review['outcome']=='candidate_with_documented_scope' and
+                      review['task_family']==row['task_family'] and
+                      document.resolve().is_relative_to(ROOT) and document.is_file() and
+                      sha(document)==review['document_sha256'])
+            row['review_status']='accepted_current_source_and_document' if accepted else 'held_review_not_current_or_accepted'
+            if accepted:row['origin_audit']='available_lineage_and_contract_reviewed'
+        available_origin=row['origin_audit'] in ('no_benchmark_source_intentionally_used','available_lineage_and_contract_reviewed')
+        row['training_eligibility']=('candidate_after_source_bound_checks' if available_origin and row['current_source_bound_pass']
+                                     else 'hold_for_validation' if available_origin else 'legacy_origin_and_coverage_review_required')
         row['validation_records']=[{'run_id':r['run_id'],'result':r['result'],'mode':r['validation_mode']}
                                    for (path,_),r in eligible.items() if path==row.get('primary_unit',row['path'])]
     output=ROOT/'research/lineage.jsonl'
@@ -113,7 +132,7 @@ def main():
             'execution_scope':'Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.',
             'training_candidate_files':len(candidates),
             'training_candidate_tokens':sum(row['tokens'] for row in candidates),
-            'training_candidate_scope':'Curated examples with matching source-bound execution and no benchmark source intentionally used; candidate status is not an independent proof of benchmark absence or exhaustive correctness.',
+            'training_candidate_scope':'Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.',
             'legacy_review_required_files':len(legacy_hold),
             'legacy_review_required_tokens':sum(row['tokens'] for row in legacy_hold),
             'by_language':by_language,

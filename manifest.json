@@ -930,10 +930,10 @@
   {
     "path": "rust/01_gcd.rs",
     "language": "rust",
-    "tokens": 309,
-    "bytes": 788,
-    "sha256": "22bca738673f16813ef368c092a948174bd0379726946714717a2720db894c81",
-    "fixtures": 5
+    "tokens": 532,
+    "bytes": 1567,
+    "sha256": "00752df88128159f34f9f87eb7aaa3030b333ca4da07145d149d396714ce3de3",
+    "fixtures": 10
   },
   {
     "path": "rust/02_power.rs",
@@ -1178,10 +1178,10 @@
   {
     "path": "ruby/01_gcd.rb",
     "language": "ruby",
-    "tokens": 252,
-    "bytes": 601,
-    "sha256": "481aa1179e7d417d42268c49867ed3d2376a8fd98f9aa3036fa4896dec44e008",
-    "fixtures": 5
+    "tokens": 477,
+    "bytes": 1251,
+    "sha256": "b8175f810cc7ae1a19e44ef4a0d56ead1d9f775f1decfff355cff23d52fd51af",
+    "fixtures": 11
   },
   {
     "path": "ruby/02_power.rb",
@@ -1482,10 +1482,10 @@
   {
     "path": "go/01_gcd.go",
     "language": "go",
-    "tokens": 348,
-    "bytes": 888,
-    "sha256": "c7481c13a1ec5168cd2e194a86c7d9cccdd9718fd03a5de711e49cb9da243abd",
-    "fixtures": 5
+    "tokens": 628,
+    "bytes": 1687,
+    "sha256": "93c4e76e5632cab3c99e13e8f0743d8a0aa77a35282ae134dd5af9daa65c5cea",
+    "fixtures": 10
   },
   {
     "path": "go/02_power.go",

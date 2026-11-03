@@ -66,6 +66,11 @@
       "task_id": "research-pass-4",
       "prompt_file": "research/provenance/research-pass-4.txt",
       "source": "active goal continuation with labeled inherited visible human requests"
+    },
+    {
+      "task_id": "research-pass-5",
+      "prompt_file": "research/provenance/research-pass-5.txt",
+      "source": "active goal continuation with labeled inherited human requests"
     }
   ],
   "server_thread_id_source": "functions.create_goal response, learned during research pass 3; provenance/session-updates.jsonl preserves earlier unknown state"

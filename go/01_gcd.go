@@ -33,5 +33,29 @@ func main() {
 	if got := gcd(35, 64); got != 1 {
 		panic(fmt.Sprintf("gcd fixture 5: (35, 64) -> 1; got %d", got))
 	}
-	fmt.Println("gcd: 5 fixtures passed")
+	maximum := int64(9223372036854775807)
+	for _, test := range [][3]int64{
+		{maximum, maximum, maximum}, {maximum, 0, maximum},
+		{maximum, maximum - 1, 1}, {3000000000, 2000000000, 1000000000},
+		{832040, 514229, 1},
+	} {
+		if gcd(test[0], test[1]) != test[2] {
+			panic("gcd boundary fixture")
+		}
+	}
+	// Independent reference: enumerate common divisors, not another Euclid loop.
+	for a := int64(0); a <= 32; a++ {
+		for b := int64(0); b <= 32; b++ {
+			var expected int64
+			for divisor := int64(1); divisor <= a || divisor <= b; divisor++ {
+				if a%divisor == 0 && b%divisor == 0 {
+					expected = divisor
+				}
+			}
+			if got := gcd(a, b); got != expected {
+				panic(fmt.Sprintf("gcd oracle (%d,%d): expected %d, got %d", a, b, expected, got))
+			}
+		}
+	}
+	fmt.Println("gcd: 10 fixed fixtures and 1089 divisor-oracle pairs passed")
 }

@@ -96,6 +96,14 @@ assert(not ok and err == body_error)
 assert(events(trace) == "open,read1,read2,close")
 assert(trace[#trace].cause == body_error)
 
+-- false is a valid Lua error object, not an indication of successful exit.
+trace = {}
+ok, err = pcall(function()
+    for _ in records(1, function() error(false, 0) end, trace) do end
+end)
+assert(not ok and err == false)
+assert(events(trace) == "open,read1,close" and trace[#trace].cause == false)
+
 local close_error = { kind = "fixture-close" }
 for _, fail_read in ipairs({false, true}) do
     trace = {}
@@ -110,6 +118,24 @@ for _, fail_read in ipairs({false, true}) do
     assert(events(trace) == "open,read1,close")
     assert(trace[#trace].cause == (fail_read and body_error or nil))
 end
+
+trace = {}
+ok, err = pcall(function()
+    for _ in records(0, function() error("no read expected") end, trace,
+                     {close_error = false}) do end
+end)
+assert(not ok and err.kind == "close" and err.detail == false and err.cause == nil)
+assert(events(trace) == "open,close")
+
+trace = {}
+local captured = {close_error = close_error}
+ok, err = pcall(function()
+    for _ in records(1, function()
+        captured.close_error = nil -- configuration was captured at acquisition
+        return "value"
+    end, trace, captured) do end
+end)
+assert(not ok and err.kind == "close" and err.detail == close_error)
 
 -- An inner close error still closes the outer owner, receiving that structured
 -- error as its cause. Resource order is observed independently from the API.

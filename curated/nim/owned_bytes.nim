@@ -110,6 +110,17 @@ when isMainModule:
   except ValueError: rejected = true
   doAssert rejected and audit.allocations == 3
 
+  let boundaryAudit = Audit()
+  block:
+    var largest = owned(65536, boundaryAudit)
+    doAssert largest.len == 65536 and checksum(largest) == 0
+    largest.put(0, 1)
+    largest.put(65535, 255)
+    doAssert largest.at(0) == 1 and largest.at(65535) == 255
+    doAssert checksum(largest) == 256
+    expectIndex(largest, 65536)
+  doAssert boundaryAudit.allocations == 1 and boundaryAudit.releases == 1
+
   try:
     var exceptional = owned(3, audit)
     exceptional.put(2, 41)

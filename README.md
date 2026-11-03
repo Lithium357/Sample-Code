@@ -13,6 +13,10 @@ the retained RISC-V function under explicitly labeled emulation.
 The [fifth pass](research/PASS-5.md) adds byte-safe C packets, Ruby Fiber lifecycle,
 Bash descriptor scope and CMD literal expansion, fixes SQLite storage-type
 validation, and reviews four retained files under hash-bound acceptance.
+The [sixth pass](research/PASS-6.md) adds resumable Rust vectored output, C++
+stream ownership, Lua closing iterators, PowerShell provider reads, Nim ARC
+ownership and Tcl snapshot events. It also adds native SQL Server CI evidence
+for the retained T-SQL fixture.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

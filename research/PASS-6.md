@@ -140,3 +140,18 @@ completion text requirement and -b failure behavior, checking the recorded
 stdout AND stderr as documented for sqlcmd -r 1. No SQL expectation or expected
 output text is changed. The unchanged T-SQL still requires a wholly successful
 new validation run before qualification.
+
+
+A final boundary review added the accepted maximum Nim allocation (65536),
+first/last-byte writes, the next invalid index and exact release count; Lua now
+also checks false-valued body/cleanup errors and capture of cleanup configuration
+before a callback changes its options table. These checks passed locally in
+run 9a56984d2da94c7a865452755dc64c8a. No implementation change or relaxed
+expectation was needed. The first two publication batches passed all CI jobs.
+SQL Server subsequently passed the complete fixture/copy/cleanup path in run
+9e310ad7c33a4c6fadaaede86cd60b86, using engine 16.0.4305.5 and sqlcmd
+18.7.0001.1. Its image digest is recorded in raw evidence. Other SQL Server
+versions/platforms remain untested; native ARM/AArch64/RISC-V hardware and ELF
+loading remain missing. The retained T-SQL migration default value is not yet
+independently asserted before its explicit update; record that coverage gap
+rather than equating a clean engine run with exhaustive SQL behavior coverage.

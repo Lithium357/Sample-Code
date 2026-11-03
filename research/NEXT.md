@@ -20,20 +20,28 @@ RISC-V emulation, and added Perl/GNU AWK. Avoid regenerating these as new tasks.
 Pass 5 completed C byte packets, Ruby Fiber lifecycle, Bash descriptors and CMD
 expansion, and reviewed three GCD variants plus SQLite bookings. Reviews bind
 source/document hashes, task and family; the other legacy files remain held.
+Pass 6 completed C++ stream ownership, Rust vectored-output progress, Nim ARC
+byte ownership, PowerShell provider reads, Lua 5.4 closing iterators and Tcl
+snapshot command-prefix events. It strengthened retained audit-trigger checks
+and obtained native SQL Server execution of the retained T-SQL source.
 Candidate next contracts (not yet implemented or validated):
 
-* C++ move-only resource handles and documented ownership transfer; C bounded
-  scatter/gather ownership and partial-progress contracts.
-* Rust vectored I/O with borrowed buffers and exact partial-read/write errors.
-* Nim sink/copy hooks or module-level resource cleanup.
+* C bounded scatter/gather ownership and partial-progress contracts; C++
+  exception contracts for fallible acquisition beyond the stream owner.
+* Rust vectored INPUT with borrowed buffers and exact partial-read errors;
+  vectored-output cursor/retry behavior is already present.
+* Nim module-level resource cleanup beyond the completed ARC sink/copy hooks.
 * Ruby encoding conversion and invalid-byte boundaries, with explicit encodings.
-* PowerShell provider/literal-path differences in owned fixtures. CMD native
+* PowerShell cancellation/error-stream contracts beyond the completed provider
+  literal-path fixture. CMD native
   command exit-status handling beyond the completed literal-expansion case.
 * Bash process substitution and upstream failure status beyond the completed
   borrowed-descriptor scope.
 * RISC-V beyond the single folded-buffer function; native hardware/ELF loading is
   still untested. ARM/AArch64 remain emulation-only and must not acquire native
-  labels by inference. T-SQL still lacks an execution fixture.
+  labels by inference. T-SQL now has a native Linux-container engine fixture;
+  independently assert its migration default before update, and expand exact
+  row-state checks, empty/multirow paths, constraint mutations and dialect scope.
 * Additional executable functional and niche language runtimes, with exact
   versions/dialects and local fixtures; missing runtimes stay not_tested.
 

@@ -1,6 +1,6 @@
 # Morderca synthetic training collection: evidence policy
 
-The latest addition is documented in [research pass 2](PASS-2.md). The pass-1
+The latest addition is documented in [research pass 3](PASS-3.md). The pass-1
 report is historical; `volume.json` gives the refreshed collection totals.
 
 This repository is training material. Passing its own checks is evidence about

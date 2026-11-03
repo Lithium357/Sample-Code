@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 174754,
+    "source_with_inline_fixtures": 179092,
     "source": 8369,
     "fixture": 293,
     "support_source": 427
@@ -13,13 +13,13 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 337,
-  "generated_tokens": 183843,
-  "current_source_bound_pass_files": 335,
-  "current_source_bound_pass_tokens": 182854,
-  "execution_validated_files": 335,
-  "execution_validated_tokens": 182854,
-  "execution_scope": "Native, transpiled JS or emulated checks only; syntax-only success is excluded.",
+  "files": 341,
+  "generated_tokens": 188181,
+  "current_source_bound_pass_files": 339,
+  "current_source_bound_pass_tokens": 187192,
+  "execution_validated_files": 339,
+  "execution_validated_tokens": 187192,
+  "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
   "by_language": {
     "assembly": {
       "files": 20,
@@ -61,10 +61,20 @@
       "generated_tokens": 5642,
       "current_source_bound_pass_tokens": 5642
     },
+    "fsharp": {
+      "files": 1,
+      "generated_tokens": 1125,
+      "current_source_bound_pass_tokens": 1125
+    },
     "go": {
-      "files": 36,
-      "generated_tokens": 21436,
-      "current_source_bound_pass_tokens": 21436
+      "files": 37,
+      "generated_tokens": 22650,
+      "current_source_bound_pass_tokens": 22650
+    },
+    "javascript": {
+      "files": 1,
+      "generated_tokens": 1071,
+      "current_source_bound_pass_tokens": 1071
     },
     "nim": {
       "files": 41,
@@ -80,6 +90,11 @@
       "files": 34,
       "generated_tokens": 16241,
       "current_source_bound_pass_tokens": 16241
+    },
+    "python": {
+      "files": 1,
+      "generated_tokens": 928,
+      "current_source_bound_pass_tokens": 928
     },
     "ruby": {
       "files": 43,

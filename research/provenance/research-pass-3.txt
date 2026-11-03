@@ -1,0 +1,20 @@
+Task identifier: research-pass-3 (local identifier, not a server thread ID).
+
+Visible user request, exact text:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+
+Visible user steering, exact text:
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not a quotation): useful varied synthetic
+training code for Morderca; keep existing examples, meaningful failure/boundary
+checks, local fixtures, explicit dialect/ISA/ABI/runtime labels, source-bound
+commands/versions/hashes/results/modes, immutable failures/fixes, available
+provenance and shared task-family IDs, no benchmark/evaluation material, no
+padding and no unsupported performance claims. Token counts are cl100k_base,
+not Morderca counts. Small batches; push validated work to GitHub main.
+
+Active goal target: approximately 2,000,000,000 execution-validated cl100k_base
+tokens. Existing source can count once, not once per execution, platform,
+formatting revision, duplicated archive, harness or failed-source snapshot.
+Exact model build/checkpoint remains unavailable; do not invent it.

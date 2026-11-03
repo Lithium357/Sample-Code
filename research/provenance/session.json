@@ -56,6 +56,11 @@
       "task_id": "research-pass-2",
       "text": "MORE CODE, MORE DATA",
       "source": "visible user message"
+    },
+    {
+      "task_id": "research-pass-3",
+      "prompt_file": "research/provenance/research-pass-3.txt",
+      "source": "visible user messages; exact text with labeled inherited requirements"
     }
   ]
 }

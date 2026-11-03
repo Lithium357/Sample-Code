@@ -34,11 +34,13 @@ def digest(path):
 def now():
     return datetime.now(timezone.utc).isoformat()
 
-def execute(argv, cwd, timeout=90, probe=False):
+def execute(argv, cwd, timeout=90, probe=False, extra_env=None):
     command = [str(value) for value in argv]
     record = {'argv':command,'cwd':str(cwd),'started_at':now(),'kind':'version_probe' if probe else 'test_command'}
+    if extra_env:record['environment_overrides']=extra_env
     try:
-        result = subprocess.run(command,cwd=cwd,text=True,capture_output=True,timeout=timeout)
+        result = subprocess.run(command,cwd=cwd,text=True,capture_output=True,timeout=timeout,
+                                env={**os.environ,**extra_env} if extra_env else None)
         record.update(returncode=result.returncode,stdout=result.stdout,stderr=result.stderr)
     except Exception as error:
         record.update(returncode=None,error=repr(error))
@@ -63,6 +65,7 @@ def probe(language):
         'c':[['cl']] if os.name=='nt' else [['cc','--version']],
         'cpp':[['cl']] if os.name=='nt' else [['c++','--version']],
         'assembly':[['nasm','-v'],['ld','--version']],
+        'python':[[sys.executable,'--version']], 'javascript':[['node','--version']],
     }
     for command in commands.get(language,[]):
         program = shutil.which(command[0])
@@ -170,6 +173,18 @@ def validate(case, temporary):
             else: raise MissingTool('PDO SQLite driver unavailable')
         CURRENT['runtime_versions']['pdo_sqlite']=execute([php,*flags,'-r','echo (new PDO("sqlite::memory:"))->getAttribute(PDO::ATTR_CLIENT_VERSION);'],temporary)
         execute([php,*flags,path],temporary)
+    elif case.get('adapter')=='fsharp':
+        dotnet=shutil.which('dotnet')
+        if not dotnet:raise MissingTool('.NET SDK/F# Interactive unavailable')
+        environment={'DOTNET_CLI_HOME':str(temporary/'dotnet-home'),
+                     'DOTNET_SKIP_FIRST_TIME_EXPERIENCE':'1','DOTNET_NOLOGO':'1',
+                     'DOTNET_CLI_TELEMETRY_OPTOUT':'1','NUGET_PACKAGES':str(temporary/'nuget')}
+        execute([dotnet,'--info'],temporary,probe=True,extra_env=environment)
+        CURRENT['runtime_versions']['dotnet']=CURRENT['commands'][-1]['stdout']+CURRENT['commands'][-1]['stderr']
+        sdks=execute([dotnet,'--list-sdks'],temporary,extra_env=environment)
+        CURRENT['runtime_versions']['dotnet_sdks']=sdks
+        if not sdks:raise MissingTool('.NET host exists but no SDK/F# Interactive is installed')
+        execute([dotnet,'fsi','--langversion:8.0','--exec',path],temporary,extra_env=environment)
     elif language in ('c','cpp'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':

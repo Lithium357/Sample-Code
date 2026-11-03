@@ -219,5 +219,55 @@
     "adapter": "nasm",
     "runtime_assumptions": "x86-64, NASM, SysV AMD64; Linux ELF64 natively or explicit Unicorn flat-image emulation",
     "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/python/scoped_context.py",
+    "language": "python",
+    "mode": "native",
+    "task_family": "context.task-local-scope",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures",
+    "commands": [
+      [
+        "{python}",
+        "{source}"
+      ]
+    ]
+  },
+  {
+    "path": "curated/javascript/iterator_cleanup.mjs",
+    "language": "javascript",
+    "mode": "native",
+    "task_family": "iterator.owned-async-cleanup",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures",
+    "commands": [
+      [
+        "{node}",
+        "{source}"
+      ]
+    ]
+  },
+  {
+    "path": "curated/fsharp/stock_transitions.fsx",
+    "language": "fsharp",
+    "mode": "managed_runtime",
+    "task_family": "transaction.typed-stock-deltas",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures",
+    "adapter": "fsharp",
+    "runtime_assumptions": "F# 8-compatible syntax in .NET SDK 10 FSI, managed execution; no NuGet packages or native AOT claim"
+  },
+  {
+    "path": "curated/go/bounded_reader.go",
+    "language": "go",
+    "mode": "native",
+    "task_family": "io.bounded-reader",
+    "task_id": "research-pass-3",
+    "prompt_file": "research/provenance/research-pass-3.txt",
+    "role": "source_with_inline_fixtures"
   }
 ]

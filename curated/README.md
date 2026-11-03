@@ -1,9 +1,13 @@
 # Curated, language-specific local examples
 
-These synthetic examples were added in research passes 1 and 2. They are not benchmark
+These synthetic examples were added in research passes 1, 2 and 3. They are not benchmark
 items and their checks do not measure Morderca. The registry in
 `research/cases.json` defines task families, runtime assumptions and support
 files; results are in append-only `research/evidence/history/` records.
+
+Pass 3 broadens the language rotation with Python task-local scopes, JavaScript
+async-iterator cleanup and F# typed stock transitions, plus Go's unusual Reader
+return/progress cases. See `research/PASS-3.md` for contracts and checks.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 

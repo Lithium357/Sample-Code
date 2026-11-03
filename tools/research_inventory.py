@@ -77,7 +77,7 @@ def main():
             eligible[key]=record
     passed_paths=set()
     for record in eligible.values():
-        if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','transpiled_js','emulation'):
+        if record['result']=='passed' and record['validation_mode'] in ('native','native_sqlite','native_postgresql','transpiled_js','emulation','managed_runtime'):
             passed_paths.update(record['source_hashes'])
     for row in rows:
         row['provenance_ref']='research/provenance/session.json'
@@ -108,7 +108,7 @@ def main():
             'current_source_bound_pass_tokens':sum(row['tokens'] for row in rows if row['current_source_bound_pass']),
             'execution_validated_files':sum(row['execution_validated'] for row in rows),
             'execution_validated_tokens':sum(row['tokens'] for row in rows if row['execution_validated']),
-            'execution_scope':'Native, transpiled JS or emulated checks only; syntax-only success is excluded.',
+            'execution_scope':'Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.',
             'by_language':by_language,
             'qualification':'Evidence applies to source hashes/modes recorded. Legacy aggregate passes are retained but not counted here; passing is not a model-performance result.'}
     (ROOT/'research/volume.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

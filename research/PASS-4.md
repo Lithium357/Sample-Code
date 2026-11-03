@@ -81,3 +81,15 @@ Its five research artifacts were SHA-256 verified before ten new raw history
 files were imported. The RISC-V record confirms emulation success for the
 current source hash, all 411 vectors and both intended negative-control failures.
 This is new execution evidence, not a relabeling of prior syntax-only results.
+
+## Third batch
+
+PHP `delegated_cleanup.php` exercises yield-from forwarding of keys, values,
+return counts and injected exceptions. Its fixture contract acknowledges a row
+only after its yield resumes normally; an injected SkipRow skips acknowledgment.
+Tests assert exact source/delegate finally order, retained references after
+foreach break, cleanup after unset, unstarted generators, duplicate stream keys,
+getReturn before/after completion, exception identity and lazy validation errors.
+The schema intentionally requires ordered id/value array keys and integer values
+0..99; already emitted values cannot be rolled back. It passed locally without
+I/O or external packages. CI supplies the second PHP runtime on Linux.

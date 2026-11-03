@@ -5,8 +5,11 @@
 The [second research pass](research/PASS-2.md) adds ten varied units, including
 binary codecs, command/query parsing, keyed concurrency, streaming CSV, retries,
 generic sequences, argument parsing, PostgreSQL windows and NASM buffers.
-The [active third pass](research/PASS-3.md) expands language breadth and uncommon
+The [third pass](research/PASS-3.md) expands language breadth and uncommon
 runtime contracts toward the user's long-running quality-gated volume goal.
+The [active fourth pass](research/PASS-4.md) adds allocation-failure, streaming,
+compile-time schema, ShouldProcess and generator-lifecycle checks, and executes
+the retained RISC-V function under explicitly labeled emulation.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

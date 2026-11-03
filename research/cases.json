@@ -346,5 +346,14 @@
     "task_id": "research-pass-4",
     "prompt_file": "research/provenance/research-pass-4.txt",
     "role": "source_with_inline_fixtures"
+  },
+  {
+    "path": "curated/php/delegated_cleanup.php",
+    "language": "php",
+    "mode": "native",
+    "task_family": "iterator.delegated-generator-lifecycle",
+    "task_id": "research-pass-4",
+    "prompt_file": "research/provenance/research-pass-4.txt",
+    "role": "source_with_inline_fixtures"
   }
 ]

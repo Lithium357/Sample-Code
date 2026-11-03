@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 189895,
+    "source_with_inline_fixtures": 191089,
     "source": 8390,
     "fixture": 293,
     "support_source": 580
@@ -13,12 +13,12 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 349,
-  "generated_tokens": 199158,
-  "current_source_bound_pass_files": 348,
-  "current_source_bound_pass_tokens": 198511,
-  "execution_validated_files": 348,
-  "execution_validated_tokens": 198511,
+  "files": 350,
+  "generated_tokens": 200352,
+  "current_source_bound_pass_files": 349,
+  "current_source_bound_pass_tokens": 199705,
+  "execution_validated_files": 349,
+  "execution_validated_tokens": 199705,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
   "by_language": {
     "assembly": {
@@ -87,9 +87,9 @@
       "current_source_bound_pass_tokens": 20419
     },
     "php": {
-      "files": 37,
-      "generated_tokens": 17146,
-      "current_source_bound_pass_tokens": 17146
+      "files": 38,
+      "generated_tokens": 18340,
+      "current_source_bound_pass_tokens": 18340
     },
     "powershell": {
       "files": 35,

@@ -13,7 +13,9 @@ SQLite deferred constraints and Tcl versioned dictionary patches. See
 
 Pass 4 adds C++ polymorphic-allocation failure guarantees and Rust streaming
 UTF-8 state transitions, plus GNU-linked emulation checks for the retained
-RISC-V function. See `research/PASS-4.md` for the exact validated scope.
+RISC-V function. It also adds Nim schema generation, PowerShell ShouldProcess
+byte invariants and PHP generator delegation. See `research/PASS-4.md` for the
+exact validated scope.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 

@@ -122,3 +122,27 @@ batch improves selection material and its evidence, not its eligibility by
 blanket relabeling. The 309 legacy origin/coverage holds remain until their
 separate lineage review requirements are met. Continue varied generation after
 this correction checkpoint while keeping generated/executed/candidate counts distinct.
+
+## Published-source validation checkpoint
+
+Correction source commit: fa05b4e9431ddc16434ea8213013804ce5f182db.
+GitHub Actions run 42057819608 completed successfully in all six jobs. Its six
+digest-verified research artifacts contributed sixteen new immutable history
+files. Linux post-fix controller run 150df5d5023949bab57c5817485306d1 records
+eleven successful normal executions and eleven explicit NDEBUG build rejections
+with GCC/G++ 13.3.0, Python 3.12.3 and SQLite 3.45.1. Existing ASan/UBSan
+execution remains enabled; the current Robin Hood map has a successful native
+execution record with -fsanitize=address,undefined. This is separate from the
+normal/negative-build controller and from local MSVC execution.
+
+Final inventory verifies all 367 current source/support hashes: 233075 generated
+cl100k_base tokens, 233075 execution-validated tokens, and 68044 training-candidate
+tokens in 58 files. The remaining 165031 tokens in 309 legacy files stay held.
+These are full-file counts including comments and inline fixtures, not lexical
+code-only or Morderca-tokenizer counts. This correction batch adds no new example
+files and clears no legacy holds. Generated growth is 1260 tokens, including 54
+candidate tokens from guard edits; evidence/mutants/reports add no code volume.
+
+The ordinary candidate export contains current qualifying working sources only.
+Original source snapshots, deliberate mutants and failed probe history remain
+available in the full repository snapshot as excluded control material.

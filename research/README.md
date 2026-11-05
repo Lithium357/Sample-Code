@@ -1,6 +1,7 @@
 # Morderca synthetic training collection: evidence policy
 
-The latest addition is documented in [research pass 7](PASS-7.md). The pass-1
+The latest correction batch is documented in [focused audit 8](AUDIT-8.md).
+The previous generation batch is [research pass 7](PASS-7.md). The pass-1
 report is historical; `volume.json` gives the refreshed collection totals.
 
 This repository is training material. Passing its own checks is evidence about

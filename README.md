@@ -20,6 +20,9 @@ for the retained T-SQL fixture.
 The [seventh pass](research/PASS-7.md) strengthens T-SQL migration checks and
 adds conditional Go snapshots, PHP stream filters, waited Bash process sources,
 and related NASM/RV64I protocol decoders with distinct execution modes.
+The [focused correction audit](research/AUDIT-8.md) reproduces unchecked SQL
+outputs and assertion-disabled false passes, then strengthens exact outputs,
+build gates and sampled independent prime oracles.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

@@ -25,3 +25,5 @@ The approximately 2B-token goal is unchanged. No standardized benchmark
 problems/solutions are intentionally used. Model family remains reported GPT-6;
 exact generation build/checkpoint is unavailable. Retained generation task and
 shared task-family IDs remain; these subsequent edits belong to task 8.
+
+The full visible request is preserved separately in spot-check-request.txt.

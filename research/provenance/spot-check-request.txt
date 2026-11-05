@@ -1,0 +1,49 @@
+Visible human request (2026-11-05); preserved as supplied:
+
+keep working toward the larger candidate pool, but address these findings from an independent spot check first. the review used commit `841a981d15d252cc97cfa27d311c6e27054bfc5e`. check whether they still exist at your current HEAD before changing anything.
+
+**1. fix the untested end-of-day SQL output.**
+
+in `sql/05_running_balances.sql`, the running balances have assertions, but the end-of-day snapshot query only prints its result.
+
+the reviewer changed `WHERE position = 1` to `WHERE position >= 1`. that produced an extra same-day row while all three embedded checks still passed.
+
+add exact expected-result checks for the end-of-day snapshots, including the row count, account/date identity and balance. prove the tests catch removal or weakening of the last-posting filter. retain cases for same-day ties and separate accounts.
+
+**2. fix the C assertion-disabled false pass.**
+
+in `advanced/c/robin_hood_map.c`, operations such as `map_put` and `map_erase` occur inside `assert(...)`. compiling with `-DNDEBUG` removes those operations and checks, but the program still exits successfully and prints “40000 reference operations … passed.”
+
+make that impossible. either reject assertion-disabled builds explicitly, as `curated/cpp/owned_stream.cpp` already does, or use always-on checks and keep state-changing operations outside assertions. verify both the normal build and the `-DNDEBUG` behavior. preserve the existing sanitizer checks.
+
+**3. check for the same patterns elsewhere.**
+
+do a focused audit for:
+
+- C/C++ self-checks that disappear under `NDEBUG`, especially operations with side effects inside assertions.
+- SQL queries whose outputs are printed but never checked.
+- named features with no test that would catch the feature being broken or removed.
+- advertised input boundaries that the fixtures don’t exercise.
+
+don’t call this an exhaustive correctness audit. record which files you inspected, what you found and what remains unchecked. don’t rewrite working code merely for style.
+
+**4. strengthen a couple of the sampled basic examples.**
+
+`nim/sample_23_nth_prime.nim` advertises indices 1–100, but its fixtures stop at 25. check the upper boundary and compare all supported indices against an independently constructed prime list or sieve.
+
+`ruby/22_largest_prime_factor.rb` has four fixtures. add a bounded independent oracle comparison covering primes, prime powers, mixed factors and the documented `n = 1` case. keep its input contract explicit rather than silently expanding it.
+
+**5. preserve the evidence.**
+
+before fixing a confirmed problem, record a reproducer against the affected source hash. afterward, record the commands, tool versions, source/harness hashes and observed results. distinguish:
+
+- an observed implementation failure,
+- a test gap demonstrated by a deliberate mutation,
+- a build configuration that falsely reports success,
+- a review suggestion that hasn’t produced a failure.
+
+don’t weaken tests, change expected answers to match the implementation, or overwrite failed results. a deliberate broken variant belongs in test evidence and must stay out of the ordinary working-code training export.
+
+after these fixes and focused checks, continue generating varied examples toward the candidate-pool goal. keep generated, execution-validated and training-eligible counts distinct. finish the correction batch with a short report listing what was reproduced, what changed, what ran and any remaining limitations.
+
+the goal is more useful selection material, with evidence we can trust. token count alone doesn’t establish quality.

@@ -7,7 +7,7 @@ approximately 2B useful code tokens. The active goal and counting rules are in
 
 Use training_candidate_tokens for the quality goal and execution_validated_tokens
 for technical execution volume. The existing legacy hold covers 309 files /
-163,825 tokens at this checkpoint. Review available provenance and feature/
+165,031 tokens at this checkpoint. Review available provenance and feature/
 failure coverage in small source-bound batches before clearing any hold. A
 rerun or blanket relabel is not an origin/coverage audit. Preserve review scope,
 unresolved gaps, source hashes and task-family links when recording promotions.
@@ -28,6 +28,13 @@ Pass 7 completed Go conditional snapshots, PHP user stream filters, waited
 Bash process substitution, native/emulated NASM ULEB32 and RV64I linked-text
 ULEB32 emulation, plus T-SQL defaults, boundary/atomicity checks and five
 constraint/binding controls. Do not regenerate these as independent tasks.
+The task-8 focused correction batch is in AUDIT-8.md: four SQL outputs now
+have exact checks/mutations, all eleven C/C++ examples reject NDEBUG, and the
+sampled Nim/Ruby basics have independent complete/bounded oracles. This does
+not clear the 309 legacy origin holds. Remaining review suggestions include
+offline connectivity maxima 12/160, NTT public cap 2^18, calendar full rows and
+cohort pre-signup/later-cell cases; these have no reproduced implementation
+failure in that audit. Continue varied examples after this checkpoint.
 Candidate next contracts (not yet implemented or validated):
 
 * C bounded scatter/gather ownership and partial-progress contracts; C++

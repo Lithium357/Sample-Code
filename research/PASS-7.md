@@ -132,3 +132,10 @@ run 144c901139d34176a17dc842bea25274 passed both sample and negative control.
 The initial simpler Bash source passed earlier, but that does not substitute
 for evidence on this edited source. Its Linux CI execution remains pending
 until this batch's workflow is imported.
+
+
+The collector's ASCII identifier contract now explicitly sets LC_ALL=C inside
+its subshell. Added fixtures reject a UTF-8 non-ASCII key while preserving
+UTF-8/high bytes in an opaque value. Caller locale state is not changed by the
+subshell. This avoids relying on host collation for range expressions; see the
+[GNU Bash locale documentation](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html).

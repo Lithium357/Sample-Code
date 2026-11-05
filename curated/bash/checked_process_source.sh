@@ -14,6 +14,7 @@ set -euo pipefail
 
 collect_records() (
     # Subshell keeps EXIT cleanup and temporary descriptors out of caller state.
+    export LC_ALL=C                # identifier ranges are bytes/ASCII, not locale collation
     local destination=${1-}
     (( $# >= 2 )) && [[ -n $destination ]] || exit 64
     shift
@@ -92,6 +93,7 @@ produce_duplicate() { printf '%s\n' 'x=one' 'x=two'; }
 produce_malformed() { printf '%s\n' 'not an assignment'; }
 produce_blank() { printf '\n'; }
 produce_bad_key() { printf '%s\n' 'a[$(not-code)]=value'; }
+produce_non_ascii_key() { printf 'caf\303\251=value\n'; }
 produce_both_failed() { printf '%s\n' '=invalid'; return 23; }
 produce_after_bad() {
     printf '%s\n' '=invalid'
@@ -129,6 +131,7 @@ expect_failure 65 produce_duplicate
 expect_failure 65 produce_malformed
 expect_failure 65 produce_blank
 expect_failure 65 produce_bad_key
+expect_failure 65 produce_non_ascii_key
 expect_failure 65 produce_both_failed
 expect_failure 65 produce_after_bad
 expect_failure 65 produce_many 1001
@@ -142,6 +145,11 @@ check test ! -s "$destination"
 produce_argument() { printf 'literal=%s\n' "$1"; }
 collect_records "$destination" produce_argument 'space * [glob] ! $HOME \ value'
 printf '%s\t%s\n' literal 'space * [glob] ! $HOME \ value' >"$expected"
+check cmp -s -- "$destination" "$expected"
+
+produce_unicode_value() { printf 'opaque=\303\251\377\n'; }
+collect_records "$destination" produce_unicode_value
+printf 'opaque\t\303\251\377\n' >"$expected"
 check cmp -s -- "$destination" "$expected"
 
 directory="$root/existing directory"

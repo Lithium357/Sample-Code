@@ -1,0 +1,27 @@
+Task identifier: research-pass-12 (local identifier).
+Source: automatic continuation of the unchanged active user-requested goal.
+Previous goal turn classification: progress. Rust source
+d5deeec833ce37642964d8484d6512a17ae0fe0c was published with local debug/optimized
+execution, mutation and borrow controls. Workflow42064487667 was live at this
+task's start and subsequently observed terminal success in all six jobs.
+
+Available visible human instructions, verbatim excerpts:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not verbatim): varied correct synthetic source,
+meaningful independent behavior/boundary/failure evidence, local fixtures, exact
+dialect/ISA/ABI/runtime labels, immutable failures and hashes/versions/commands,
+available provenance and shared families, distinct generated/executed/candidate
+cl100k_base counts, no benchmark/evaluation imports or padding, small main pushes.
+
+Agent-selected task, not a new human prompt: AArch64 packed signed-24 decoder
+and nonleaf callback visitor, bounds-error precedence, transactional rejection,
+sign extension, full-width callback stop status, caller/callee register behavior,
+stack alignment and two-register aggregate result. Related entry points share
+one family. Test local fixtures, strict emulator access hooks, mutation controls,
+and a separate required GNU full-source assembly/link step in CI.
+ABI reference consulted only:
+https://github.com/ARM-software/abi-aa/blob/main/aapcs64/aapcs64.rst
+No ABI/documentation example or benchmark problem was copied to create this task.
+Generation model family: GPT-6 (system identity); exact build/version unavailable.

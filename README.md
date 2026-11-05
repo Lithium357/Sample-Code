@@ -30,6 +30,9 @@ cleanup across early stop/errors, cancellation and fresh output buffers.
 The [eleventh pass](research/PASS-11.md) adds exclusive borrowed Rust scatter
 input with retained progress, independent prefix checks and an alias rejection
 control, grouped with its related output example for dataset splitting.
+The [twelfth pass](research/PASS-12.md) adds AArch64 packed signed samples and
+callback frames, with access/ABI instrumentation and distinct linked-text
+emulation versus native-hardware claims.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

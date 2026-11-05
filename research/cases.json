@@ -584,5 +584,25 @@
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Rust edition 2021, Rust 1.81+ std::io::IoSliceMut::advance_slices; exclusive borrowed buffers, bounded iovec batches, explicit read progress/errors, no readiness wait or record atomicity; in-memory injected readers.",
     "adapter": "rust_vectored_fill"
+  },
+  {
+    "path": "curated/assembly/aarch64/packed_s24.s",
+    "language": "assembly-aarch64",
+    "mode": "emulation",
+    "adapter": "aarch64_s24",
+    "task_family": "binary.signed24-decoder-visitor",
+    "task_id": "research-pass-12",
+    "prompt_file": "research/provenance/research-pass-12.txt",
+    "role": "source",
+    "support": [
+      "curated/assembly/aarch64/packed_s24_vectors.json"
+    ],
+    "support_languages": {
+      "curated/assembly/aarch64/packed_s24_vectors.json": "json"
+    },
+    "support_roles": {
+      "curated/assembly/aarch64/packed_s24_vectors.json": "fixture"
+    },
+    "runtime_assumptions": "Armv8-A A64 little endian, GNU syntax, AAPCS64 LP64, two uint64 result fields x0/x1; no OS/unwind/SIMD; count<=32, disjoint buffers, 4-byte aligned output, normal non-unwinding callback. Unicorn marked-body or GNU-linked-text execution, never hardware/ELF loading."
   }
 ]

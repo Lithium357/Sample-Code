@@ -239,6 +239,32 @@ def validate(case, temporary):
         CURRENT['sql_checks'] = {'positive_assertions':count,'expected_rejections':rejected,
                                  'additional_behavior_checks':positive,'mutations':mutations(source,path.name)}
         return
+    if case.get('adapter')=='aarch64_s24':
+        from aarch64_s24_probe import validate,marked,assemble
+        CURRENT['runtime_versions'].update(python=sys.version,keystone=importlib.metadata.version('keystone-engine'),unicorn=importlib.metadata.version('unicorn'))
+        image=None
+        programs={name:shutil.which('aarch64-linux-gnu-'+name) for name in ('as','ld','objcopy')}
+        if case.get('aarch64_linked') or all(programs.values()):
+            for name,program in programs.items():
+                if not program:raise MissingTool('missing AArch64 cross-tool: '+name)
+                execute([program,'--version'],temporary,probe=True)
+                CURRENT['runtime_versions']['aarch64-'+name]=CURRENT['commands'][-1]['stdout']
+            obj,elf,raw=[temporary/name for name in ('s24.o','s24.elf','s24.text')]
+            execute([programs['as'],'-march=armv8-a',path,'-o',obj],temporary)
+            execute([programs['ld'],'-Ttext=0x100000','-e','unpack_s24le',obj,'-o',elf],temporary)
+            execute([programs['objcopy'],'-O','binary','--only-section=.text',elf,raw],temporary)
+            header=elf.read_bytes()
+            assert header[:6]==b'\x7fELF\x02\x01' and int.from_bytes(header[18:20],'little')==183,'not AArch64 LE ELF64'
+            assert int.from_bytes(header[16:18],'little')==2 and int.from_bytes(header[24:32],'little')==0x100000
+            image=raw.read_bytes()
+            CURRENT['produced_artifact_sha256']={p.name:digest(p) for p in (obj,elf,raw)}
+            CURRENT['assembly_scope']='GNU full source assembled/linked; extracted .text byte-compared to Keystone; Unicorn function execution, not ELF loading/hardware'
+        else:
+            CURRENT['assembly_scope']='Keystone marked body only; GNU directives/object/linking not tested; Unicorn execution, not hardware'
+        CURRENT['commands'].append({'kind':'in_process','entrypoint':'aarch64_s24_probe.validate',
+            'driver_command':[sys.executable,*sys.argv],'source':case['path']})
+        CURRENT['isa_checks']=validate(path.read_text(encoding='utf-8'),ROOT/case['support'][0],image,ROOT/'research/evidence/mutations')
+        return
     if case.get('adapter') == 'isa':
         from isa_probe import validate_isa
         CURRENT['runtime_versions'].update(python=sys.version,keystone=importlib.metadata.version('keystone-engine'),unicorn=importlib.metadata.version('unicorn'))
@@ -597,6 +623,7 @@ def main():
     parser.add_argument('--go-race',action='store_true')
     parser.add_argument('--native-nim',action='store_true')
     parser.add_argument('--native-x86',action='store_true')
+    parser.add_argument('--aarch64-linked',action='store_true')
     parser.add_argument('--require-tools',action='store_true')
     args=parser.parse_args()
     cases=legacy_cases() if args.suite in ('legacy','all') else repair_cases() if args.suite=='repairs' else []
@@ -617,6 +644,9 @@ def main():
     if args.native_x86:
         for case in cases:
             if case.get('adapter')=='nasm_uleb':case.update(native_x86=True,mode='native')
+    if args.aarch64_linked:
+        for case in cases:
+            if case.get('adapter')=='aarch64_s24':case['aarch64_linked']=True
     if not cases:parser.error('no cases selected')
     run_id=uuid.uuid4().hex
     history=ROOT/'research/evidence/history'
@@ -628,6 +658,7 @@ def main():
     if (ROOT/'tools/isa_probe.py').exists():harness_paths.append(ROOT/'tools/isa_probe.py')
     if (ROOT/'tools/sqlserver_controls.py').exists():harness_paths.append(ROOT/'tools/sqlserver_controls.py')
     if (ROOT/'tools/uleb_isa_probe.py').exists():harness_paths.append(ROOT/'tools/uleb_isa_probe.py')
+    if (ROOT/'tools/aarch64_s24_probe.py').exists():harness_paths.append(ROOT/'tools/aarch64_s24_probe.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

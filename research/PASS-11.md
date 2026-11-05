@@ -72,3 +72,10 @@ execution-validated totals are 242724 tokens / 371 files; candidate volume is
 77693 tokens / 62 files. Held legacy volume remains 165031 tokens / 309 files.
 Counts are full files including comments/inline fixtures, not lexical code-only
 or Morderca-tokenizer counts. Family regrouping adds no source volume.
+
+Subsequent CI checkpoint: source d5deeec833ce37642964d8484d6512a17ae0fe0c,
+workflow42064487667, all six jobs completed successfully. Six digest-verified
+research artifacts contributed sixteen new immutable history files. Current
+Rust source Linux run 63467a4612b7442283a7c66fa8061cab passes both builds,
+three execution controls and the E0502 gate. Actual compiler probes are in that
+record; this adds Linux evidence without claiming every supported compiler/host.

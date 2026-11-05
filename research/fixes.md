@@ -163,3 +163,22 @@ Both failed source/harness records remain; final run
 3ca1328048bf4adc8f1615feeaac6e9a passes debug/optimized execution, three execution
 mutants and the E0502 compile rejection. These were controller diagnostic issues,
 not observed implementation failures. Expected destination bytes stayed unchanged.
+
+## Research pass 12 Unicorn invalid-access observation
+
+Run 3da39f96e9944572a5a7fb75407c9734 failed with an uninformative UcError after
+the ordinary A64 vector suite reached its deliberate missing-bounds-check variant.
+Raising inside Unicorn's invalid-memory callback did not reliably expose the
+intended assertion before the engine error. The probe now records the invalid
+access, returns false, and translates the engine error into a contextual assertion
+with entry/count/available/PC and access details. Assembly/answers are unchanged.
+Run ad2bd335492f4acebbcaa3c45be07d6f confirms read address 0, size 1, count 1,
+available 0 in the omitted-guard variant. After adding the signed-count mutation,
+final local run 367e4a8fe4a14b3383574614e4651b2d passes all five controls.
+Original failed records remain; this was a control-observation problem, not an
+observed ordinary implementation failure.
+
+Explicit local --aarch64-linked run 6222197d14b64cd38c950a16f4fcfb54 is not_tested
+because aarch64-linux-gnu-as is missing, not passed GNU assembly/linking. Positive
+local evidence is Keystone marked-body plus Unicorn. Required GNU CI results must
+be observed separately; none of these modes imply native hardware execution.

@@ -53,7 +53,9 @@ Candidate next contracts (not yet implemented or validated):
   command exit-status handling beyond the completed literal-expansion case.
 * Bash cancellation/signals beyond the completed waited producer/consumer
   publication contract; preserve finite-producer and non-NUL limitations.
-* ARM/AArch64 beyond the folded-buffer function. RISC-V now includes canonical
+* AArch64 now adds packed signed24 decoder/visitor callback frames in pass 12;
+  hardware, C compiler interoperability and unwinding remain untested. ARMv7
+  beyond its folded-buffer function remains a gap. RISC-V now includes canonical
   ULEB32; native hardware/ELF loading remain untested for these ISAs. Do not
   infer native labels from linked-text emulation. T-SQL defaults/bounds/row state
   and mutations are now covered for its retained fixture; expand distinct joins,

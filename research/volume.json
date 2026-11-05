@@ -6,22 +6,22 @@
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
     "source_with_inline_fixtures": 231391,
-    "source": 10460,
-    "fixture": 293,
+    "source": 11660,
+    "fixture": 398,
     "support_source": 580
   },
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 371,
-  "generated_tokens": 242724,
-  "current_source_bound_pass_files": 371,
-  "current_source_bound_pass_tokens": 242724,
-  "execution_validated_files": 371,
-  "execution_validated_tokens": 242724,
+  "files": 373,
+  "generated_tokens": 244029,
+  "current_source_bound_pass_files": 373,
+  "current_source_bound_pass_tokens": 244029,
+  "execution_validated_files": 373,
+  "execution_validated_tokens": 244029,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 62,
-  "training_candidate_tokens": 77693,
+  "training_candidate_files": 64,
+  "training_candidate_tokens": 78998,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
   "legacy_review_required_tokens": 165031,
@@ -32,9 +32,9 @@
       "current_source_bound_pass_tokens": 19419
     },
     "assembly-aarch64": {
-      "files": 1,
-      "generated_tokens": 326,
-      "current_source_bound_pass_tokens": 326
+      "files": 2,
+      "generated_tokens": 1526,
+      "current_source_bound_pass_tokens": 1526
     },
     "assembly-armv7": {
       "files": 1,
@@ -90,6 +90,11 @@
       "files": 1,
       "generated_tokens": 1071,
       "current_source_bound_pass_tokens": 1071
+    },
+    "json": {
+      "files": 1,
+      "generated_tokens": 105,
+      "current_source_bound_pass_tokens": 105
     },
     "lua": {
       "files": 1,

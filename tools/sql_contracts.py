@@ -96,6 +96,18 @@ def check_contracts(connection, name):
     for case in cases:
         reject(connection, *case)
     positive = 0
+    exact_outputs = {
+        '05_running_balances.sql': ('end_of_day_balance', 'account_id,day',
+            [(1,'2026-01-01',8800),(1,'2026-01-03',8300),(2,'2026-01-01',0),(2,'2026-01-02',3000)]),
+        '10_ranking_with_ties.sql': ('top_division_scores', 'division,points DESC,contestant',
+            [('blue','Eden',80),('blue','Fin',80),('blue','Gale',70),('red','Ari',100),('red','Blair',90),('red','Casey',90)]),
+        '12_effective_dated_prices.sql': ('price_overlap_audit', 'product_id,earlier_from,later_from', [(3,0,100)]),
+        '20_conditional_pivot.sql': ('question_summary', 'question', [('quality',2,4.5,2),('speed',2,3.0,1),('support',2,4.0,1)]),
+    }
+    if name in exact_outputs:
+        view, order, expected = exact_outputs[name]
+        assert connection.execute('SELECT * FROM '+view+' ORDER BY '+order).fetchall()==expected, 'exact printed-view rows differ'
+        positive = 1
     if name == '13_audit_triggers.sql':
         before = snapshot(connection)
         assert connection.execute('SELECT sequence,task_id,old_status,new_status FROM status_history ORDER BY sequence').fetchall() == [(1,1,'queued','active'),(2,1,'active','done')], 'audit pairs differ'
@@ -156,6 +168,28 @@ def check_contracts(connection, name):
 
 def mutations(source, name):
     """Selected rejection/behavior suites must detect specified broken variants."""
+    output_mutations = {
+        '05_running_balances.sql': [('weaken last posting','WHERE position = 1','WHERE position >= 1'),
+            ('remove last posting','WHERE position = 1',''),
+            ('mix accounts','PARTITION BY account_id, day ORDER BY id DESC','PARTITION BY day ORDER BY id DESC'),
+            ('first instead of last posting','PARTITION BY account_id, day ORDER BY id DESC','PARTITION BY account_id, day ORDER BY id ASC')],
+        '10_ranking_with_ties.sql': [('weaken top ranks','WHERE dense_rank <= 2 ORDER','WHERE dense_rank <= 3 ORDER'),
+            ('remove top ranks','WHERE dense_rank <= 2 ORDER','ORDER')],
+        '12_effective_dated_prices.sql': [('self pairs','a.valid_from < b.valid_from','a.valid_from <= b.valid_from'),
+            ('touching as overlap','b.valid_from < a.valid_to','b.valid_from <= a.valid_to')],
+        '20_conditional_pivot.sql': [('wrong positivity threshold','rating >= 4','rating >= 5')],
+    }
+    if name in output_mutations:
+        findings=[]
+        for label,old,new in output_mutations[name]:
+            assert source.count(old)==1, 'output mutation target not unique'
+            with sqlite3.connect(':memory:') as connection:
+                try:connection.executescript(source.replace(old,new))
+                except sqlite3.IntegrityError as error:
+                    assert error.sqlite_errorname=='SQLITE_CONSTRAINT_CHECK'
+                    findings.append({'mutation':label,'detected_by':error.sqlite_errorname})
+                else:raise AssertionError('printed-output mutation survived: '+label)
+        return findings
     if name == '13_audit_triggers.sql':
         variants = [
             ('drop prevent_reopening', None, 'prevent_reopening', 'accepted forbidden operation:'),

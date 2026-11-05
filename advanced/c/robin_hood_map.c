@@ -4,6 +4,9 @@
  * Allocation failure leaves existing contents unchanged, including during grow.
  */
 #include <assert.h>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>

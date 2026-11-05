@@ -27,4 +27,19 @@ when isMainModule:
     doAssert nth_prime(2) == 3, "nth_prime fixture 2: (2,) -> 3"
     doAssert nth_prime(10) == 29, "nth_prime fixture 3: (10,) -> 29"
     doAssert nth_prime(25) == 97, "nth_prime fixture 4: (25,) -> 97"
-    echo "nth_prime: 4 fixtures passed"
+    doAssert nth_prime(100) == 541, "nth_prime fixture 5: (100,) -> 541"
+    # Independent Eratosthenes sieve, not the trial-division implementation.
+    var composite: array[601, bool]
+    for base in 2..24:
+        if not composite[base]:
+            var multiple = base * base
+            while multiple <= 600:
+                composite[multiple] = true
+                multiple += base
+    var primes: seq[int64] = @[]
+    for candidate in 2..600:
+        if not composite[candidate]: primes.add(int64(candidate))
+    doAssert primes.len >= 100
+    for index in 1..100:
+        doAssert nth_prime(int64(index)) == primes[index - 1], "supported prime index differs from sieve"
+    echo "nth_prime: 5 fixed fixtures and all 100 supported indices against sieve passed"

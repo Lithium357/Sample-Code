@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 220482,
+    "source_with_inline_fixtures": 221742,
     "source": 10460,
     "fixture": 293,
     "support_source": 580
@@ -14,17 +14,17 @@
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
   "files": 367,
-  "generated_tokens": 231815,
+  "generated_tokens": 233075,
   "current_source_bound_pass_files": 367,
-  "current_source_bound_pass_tokens": 231815,
+  "current_source_bound_pass_tokens": 233075,
   "execution_validated_files": 367,
-  "execution_validated_tokens": 231815,
+  "execution_validated_tokens": 233075,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
   "training_candidate_files": 58,
-  "training_candidate_tokens": 67990,
+  "training_candidate_tokens": 68044,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
-  "legacy_review_required_tokens": 163825,
+  "legacy_review_required_tokens": 165031,
   "by_language": {
     "assembly": {
       "files": 21,
@@ -58,8 +58,8 @@
     },
     "c": {
       "files": 5,
-      "generated_tokens": 9758,
-      "current_source_bound_pass_tokens": 9758
+      "generated_tokens": 9830,
+      "current_source_bound_pass_tokens": 9830
     },
     "cmd": {
       "files": 24,
@@ -68,8 +68,8 @@
     },
     "cpp": {
       "files": 6,
-      "generated_tokens": 8924,
-      "current_source_bound_pass_tokens": 8924
+      "generated_tokens": 9014,
+      "current_source_bound_pass_tokens": 9014
     },
     "csharp": {
       "files": 1,
@@ -98,8 +98,8 @@
     },
     "nim": {
       "files": 43,
-      "generated_tokens": 21805,
-      "current_source_bound_pass_tokens": 21805
+      "generated_tokens": 21986,
+      "current_source_bound_pass_tokens": 21986
     },
     "perl": {
       "files": 1,
@@ -123,8 +123,8 @@
     },
     "ruby": {
       "files": 44,
-      "generated_tokens": 17519,
-      "current_source_bound_pass_tokens": 17519
+      "generated_tokens": 17715,
+      "current_source_bound_pass_tokens": 17715
     },
     "rust": {
       "files": 38,
@@ -133,8 +133,8 @@
     },
     "sql": {
       "files": 26,
-      "generated_tokens": 12998,
-      "current_source_bound_pass_tokens": 12998
+      "generated_tokens": 13719,
+      "current_source_bound_pass_tokens": 13719
     },
     "sql-postgresql": {
       "files": 2,

@@ -3,6 +3,9 @@
 // The public demo caps transforms at 2^18 to bound allocations and runtime.
 #include <algorithm>
 #include <cassert>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <cstdint>
 #include <iostream>
 #include <random>

@@ -35,6 +35,8 @@ jobs:
         run: for source in advanced/go/*.go; do go run -race "$source" || exit; done
       - name: Source-bound research repair evidence
         run: python3 tools/research_validate.py --suite repairs --require-tools
+      - name: Require normal self-checks and explicit assertion-disabled build rejection
+        run: python3 tools/correction_probe.py --phase after
       - name: Source-bound existing-example evidence
         run: python3 tools/research_validate.py --suite legacy --skip-language cmd --require-tools
       - name: Install research emulator tooling

@@ -13,7 +13,8 @@ CREATE TABLE entry (
 );
 INSERT INTO entry VALUES
     (1, 1, '2026-01-01', 10000), (2, 1, '2026-01-01', -1200),
-    (3, 1, '2026-01-03', -500), (4, 2, '2026-01-02', 3000);
+    (3, 1, '2026-01-03', -500), (4, 2, '2026-01-02', 3000),
+    (5, 2, '2026-01-01', 700), (6, 2, '2026-01-01', -700);
 -- The id breaks timestamp ties, making running totals deterministic.
 CREATE VIEW running_balance AS
 SELECT *, SUM(delta_cents) OVER (
@@ -25,12 +26,24 @@ FROM running_balance ORDER BY account_id, day, id;
 INSERT INTO checks VALUES ((SELECT balance_cents FROM running_balance WHERE id = 2) = 8800);
 INSERT INTO checks VALUES ((SELECT balance_cents FROM running_balance WHERE id = 3) = 8300);
 INSERT INTO checks VALUES ((SELECT balance_cents FROM running_balance WHERE id = 4) = 3000);
+INSERT INTO checks VALUES ((SELECT balance_cents FROM running_balance WHERE id = 5) = 700);
+INSERT INTO checks VALUES ((SELECT balance_cents FROM running_balance WHERE id = 6) = 0);
 -- End-of-day snapshots keep only the last posting per account and date.
+CREATE VIEW end_of_day_balance AS
 WITH ranked AS (
     SELECT *, ROW_NUMBER() OVER (PARTITION BY account_id, day ORDER BY id DESC) AS position
     FROM running_balance
 )
-SELECT account_id, day, balance_cents FROM ranked WHERE position = 1
-ORDER BY account_id, day;
+SELECT account_id, day, balance_cents FROM ranked WHERE position = 1;
+SELECT account_id, day, balance_cents FROM end_of_day_balance ORDER BY account_id, day;
+-- Literal expectations include shared dates, same-day ties and a zero balance.
+CREATE TEMP TABLE expected_end_of_day(account_id INTEGER, day TEXT, balance_cents INTEGER,
+    PRIMARY KEY(account_id, day));
+INSERT INTO expected_end_of_day VALUES
+    (1,'2026-01-01',8800),(1,'2026-01-03',8300),
+    (2,'2026-01-01',0),(2,'2026-01-02',3000);
+INSERT INTO checks VALUES ((SELECT COUNT(*) FROM end_of_day_balance) = 4);
+INSERT INTO checks VALUES (NOT EXISTS(SELECT * FROM end_of_day_balance EXCEPT SELECT * FROM expected_end_of_day));
+INSERT INTO checks VALUES (NOT EXISTS(SELECT * FROM expected_end_of_day EXCEPT SELECT * FROM end_of_day_balance));
 CREATE INDEX entry_account_order ON entry(account_id, day, id);
 COMMIT;

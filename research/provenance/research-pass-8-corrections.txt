@@ -1,0 +1,27 @@
+Task identifier: research-pass-8-corrections (local identifier).
+Source: visible human request prioritizing independent spot-check findings.
+Reviewed commit: 841a981d15d252cc97cfa27d311c6e27054bfc5e.
+Current main before edits: 3223d8d0f4a5fc016843947083d2de1453625c42.
+The four named source files have identical Git blobs in both commits.
+
+Human request summary (not a verbatim transcript): Verify the findings at
+current HEAD before changing code. Reproduce the unchecked end-of-day result in
+sql/05_running_balances.sql using position>=1, then add exact row count,
+account/date/balance expectations and negative controls. Reproduce the
+advanced/c/robin_hood_map.c false success with NDEBUG, reject that configuration
+or make checks always-on, and preserve normal/sanitizer validation. Conduct a
+focused, explicitly non-exhaustive audit of C/C++ assertion-disabled self-checks,
+printed SQL outputs, untested named features and advertised boundaries. Compare
+all supported Nim nth-prime indices 1..100 with an independent sieve; compare
+Ruby largest prime factor with a bounded independent oracle including n=1,
+primes, powers and mixed factors without expanding its contract. Record exact
+commands, versions, source/harness hashes, before/fix evidence and distinguish
+implementation failures, mutation-demonstrated gaps, false-success builds and
+unconfirmed review suggestions. Preserve failed results; keep deliberate
+mutants out of normal training export. Finish the correction batch with a short
+report, then continue varied candidate generation toward the larger goal.
+
+The approximately 2B-token goal is unchanged. No standardized benchmark
+problems/solutions are intentionally used. Model family remains reported GPT-6;
+exact generation build/checkpoint is unavailable. Retained generation task and
+shared task-family IDs remain; these subsequent edits belong to task 8.

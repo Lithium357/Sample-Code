@@ -1,10 +1,10 @@
 {
   "encoding": "cl100k_base",
   "source_files": 45,
-  "tokens": 62303,
+  "tokens": 62411,
   "tokens_by_language": {
-    "c": 5959,
-    "cpp": 4475,
+    "c": 6013,
+    "cpp": 4529,
     "nim": 7371,
     "cmd": 3542,
     "assembly": 5807,
@@ -20,44 +20,44 @@
     {
       "path": "advanced/c/incremental_frames.c",
       "language": "c",
-      "tokens": 2134,
-      "bytes": 7257,
-      "sha256": "fe98790a0878b22186d6c28bcc4a2d3121bf40ad69a5a3df3c75a4c2f6053139"
+      "tokens": 2152,
+      "bytes": 7558,
+      "sha256": "db236937b91aaa78a53aea23fb3939c0187ee6e2c535fef3201a44a7ee1e644b"
     },
     {
       "path": "advanced/c/offline_connectivity.c",
       "language": "c",
-      "tokens": 2073,
-      "bytes": 6295,
-      "sha256": "eeee4262aebf6a147fa9935a896566e32cce4b79139eed70c2188671a7fcffb0"
+      "tokens": 2091,
+      "bytes": 6613,
+      "sha256": "bd1b35e7473920e4d2f1339250a77cd960b683b090904fcc493b20b45a5bba7c"
     },
     {
       "path": "advanced/c/robin_hood_map.c",
       "language": "c",
-      "tokens": 1752,
-      "bytes": 5677,
-      "sha256": "1747c7b46b62fa765caa235eaac279f8f8369c0803dbbc0460e4ddbb68db9f37"
+      "tokens": 1770,
+      "bytes": 5969,
+      "sha256": "aff22f3a712b1f9d617680d4c4a96817fb66a1bdbe854b792d769b4fdae74fc1"
     },
     {
       "path": "advanced/cpp/coroutine_generator.cpp",
       "language": "cpp",
-      "tokens": 1253,
-      "bytes": 5076,
-      "sha256": "917af5368f51c8a2e3893927c9831157fc00e6ee7eddd794e305b46d10a94542"
+      "tokens": 1271,
+      "bytes": 5365,
+      "sha256": "502107db1b95554a79d2e4baac5367b4e766c7e293d87d0c53e503bd5ea19b7f"
     },
     {
       "path": "advanced/cpp/ntt_convolution.cpp",
       "language": "cpp",
-      "tokens": 1363,
-      "bytes": 4679,
-      "sha256": "3f1435e339a231bf18fa241465de98e919d20e73702146d28afad8e2f8d4292e"
+      "tokens": 1381,
+      "bytes": 4925,
+      "sha256": "2f7ae2b66f20759349bba5dbc917b9115f3fb2034a4920d9633e36f6b87aee14"
     },
     {
       "path": "advanced/cpp/order_statistic_treap.cpp",
       "language": "cpp",
-      "tokens": 1859,
-      "bytes": 6148,
-      "sha256": "dc229ef4cc8f82d2e3153919edecb974b7e8ca5c851e9d2bd30c7ee38aa0849f"
+      "tokens": 1877,
+      "bytes": 6473,
+      "sha256": "85283dc5de315b363bef089414682e35628fc68d146c4aff935bd5164c88c382"
     },
     {
       "path": "advanced/nim/astar_grid.nim",

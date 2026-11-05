@@ -3,6 +3,9 @@
 // only backslash-quote and backslash-backslash. Adjacent quoted/unquoted pieces
 // are rejected. This is a data lexer, not a shell: it never executes input.
 #include <cassert>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <cctype>
 #include <iostream>
 #include <stdexcept>

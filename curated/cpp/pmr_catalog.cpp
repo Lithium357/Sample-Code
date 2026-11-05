@@ -6,6 +6,9 @@
 // replacement.
 #include <array>
 #include <cassert>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <cstddef>
 #include <iostream>
 #include <limits>

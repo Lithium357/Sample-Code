@@ -15,6 +15,8 @@ CREATE TABLE price (
 );
 CREATE TABLE purchase (id INTEGER PRIMARY KEY, product_id INTEGER NOT NULL, purchased_at INTEGER NOT NULL);
 INSERT INTO price VALUES (1, 0, 100, 500), (1, 100, 200, 600), (1, 200, NULL, 700);
+-- Unpurchased products exercise a true overlap and a touching non-overlap.
+INSERT INTO price VALUES (3,0,150,100),(3,100,200,120),(4,0,100,50),(4,100,200,60);
 INSERT INTO purchase VALUES (1, 1, 99), (2, 1, 100), (3, 1, 200), (4, 2, 150);
 -- Half-open intervals [from,to) assign a boundary instant to exactly one price.
 CREATE VIEW priced_purchase AS
@@ -28,7 +30,14 @@ INSERT INTO checks VALUES ((SELECT cents FROM priced_purchase WHERE id = 2) = 60
 INSERT INTO checks VALUES ((SELECT cents FROM priced_purchase WHERE id = 3) = 700);
 INSERT INTO checks VALUES ((SELECT cents FROM priced_purchase WHERE id = 4) IS NULL);
 -- Audit overlap; production writers must enforce this invariant atomically.
-SELECT a.product_id, a.valid_from, b.valid_from FROM price AS a JOIN price AS b
+CREATE VIEW price_overlap_audit AS
+SELECT a.product_id, a.valid_from AS earlier_from, b.valid_from AS later_from FROM price AS a JOIN price AS b
 ON a.product_id = b.product_id AND a.valid_from < b.valid_from
 AND (a.valid_to IS NULL OR b.valid_from < a.valid_to);
+SELECT * FROM price_overlap_audit ORDER BY product_id, earlier_from, later_from;
+CREATE TEMP TABLE expected_overlap(product_id INTEGER, earlier_from INTEGER, later_from INTEGER);
+INSERT INTO expected_overlap VALUES (3,0,100);
+INSERT INTO checks VALUES ((SELECT COUNT(*) FROM price_overlap_audit) = 1);
+INSERT INTO checks VALUES (NOT EXISTS(SELECT * FROM price_overlap_audit EXCEPT SELECT * FROM expected_overlap));
+INSERT INTO checks VALUES (NOT EXISTS(SELECT * FROM expected_overlap EXCEPT SELECT * FROM price_overlap_audit));
 COMMIT;

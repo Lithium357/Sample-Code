@@ -4,6 +4,9 @@
 // balance.
 #include <algorithm>
 #include <cassert>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <cstdint>
 #include <iostream>
 #include <limits>

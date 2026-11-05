@@ -4,6 +4,9 @@
  * compression: union-by-size keeps roots shallow while preserving rollback.
  */
 #include <assert.h>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>

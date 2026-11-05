@@ -2,6 +2,9 @@
 // RAII cleanup on early termination. No reference-yields or borrowed frames.
 // c++ -std=c++20 coroutine_generator.cpp -o generator && ./generator
 #include <cassert>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <concepts>
 #include <coroutine>
 #include <exception>

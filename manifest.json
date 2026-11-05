@@ -178,10 +178,10 @@
   {
     "path": "nim/sample_23_nth_prime.nim",
     "language": "nim",
-    "tokens": 347,
-    "bytes": 1070,
-    "sha256": "c017a39c2786394017c9137ff36f1709b91742c9ee5d2fff19b65c866a613a9c",
-    "fixtures": 4
+    "tokens": 528,
+    "bytes": 1801,
+    "sha256": "5b94b9071bea7c10cc55cdc7d624463dbcc7341f8166e186d85deca6602bebde",
+    "fixtures": 5
   },
   {
     "path": "nim/sample_24_is_leap_year.nim",
@@ -1346,9 +1346,9 @@
   {
     "path": "ruby/22_largest_prime_factor.rb",
     "language": "ruby",
-    "tokens": 289,
-    "bytes": 916,
-    "sha256": "4ec71e9e5b656a9f3496ef84da0eca2b88c5ebd92d664a06004e6eac387f7cb9",
+    "tokens": 485,
+    "bytes": 1701,
+    "sha256": "a7536d4f641503a1d61a8423eea5a8d582f6ee3cf5a32d03ab151238a0bcd139",
     "fixtures": 4
   },
   {
@@ -1994,10 +1994,10 @@
   {
     "path": "sql/05_running_balances.sql",
     "language": "sql",
-    "tokens": 433,
-    "bytes": 1602,
-    "sha256": "a07963d8bc7e6009fb393fda3f6f1582d7a52221af6b92ba4e78e01bcdeed320",
-    "fixtures": 3
+    "tokens": 701,
+    "bytes": 2585,
+    "sha256": "4d9d55762ff07b9925eb9d8c735da18edef84f5d98e5a82d9a72038322f6d361",
+    "fixtures": 8
   },
   {
     "path": "sql/06_cohort_retention.sql",
@@ -2034,10 +2034,10 @@
   {
     "path": "sql/10_ranking_with_ties.sql",
     "language": "sql",
-    "tokens": 409,
-    "bytes": 1663,
-    "sha256": "12f23bae00e9bdbd7fa4973660c44b05d6c4da077edf270eb7fff5f38bd771ea",
-    "fixtures": 4
+    "tokens": 563,
+    "bytes": 2300,
+    "sha256": "aa12d70724ad23373226decca3e36d75c88a0aabdb9f543170875dacb0b456cc",
+    "fixtures": 7
   },
   {
     "path": "sql/11_consecutive_day_islands.sql",
@@ -2050,10 +2050,10 @@
   {
     "path": "sql/12_effective_dated_prices.sql",
     "language": "sql",
-    "tokens": 477,
-    "bytes": 1808,
-    "sha256": "603b71de72c2329c44b306411e7e5061250ff1b14481836494ca060a049d75ed",
-    "fixtures": 4
+    "tokens": 648,
+    "bytes": 2561,
+    "sha256": "584c69c8d7b201be6f72733d8ca3426f19ef8f4c06cb72f59afe7470a804a262",
+    "fixtures": 7
   },
   {
     "path": "sql/13_audit_triggers.sql",
@@ -2114,10 +2114,10 @@
   {
     "path": "sql/20_conditional_pivot.sql",
     "language": "sql",
-    "tokens": 417,
-    "bytes": 1678,
-    "sha256": "d04080745e9c41b8174b95746a6c7903ae4eb20d1c6ef7807a0e9334d1f79f57",
-    "fixtures": 3
+    "tokens": 545,
+    "bytes": 2264,
+    "sha256": "03a47ce00b90d6aff9842f43c78ba8e1979754820715feae4d0970ee6d8a6d8f",
+    "fixtures": 6
   },
   {
     "path": "sql/21_medians_and_quantiles.sql",

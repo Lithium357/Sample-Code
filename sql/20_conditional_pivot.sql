@@ -26,8 +26,15 @@ INSERT INTO checks VALUES ((SELECT quality FROM wide_response WHERE person_id = 
 INSERT INTO checks VALUES ((SELECT support FROM wide_response WHERE person_id = 2) IS NULL);
 INSERT INTO checks VALUES ((SELECT answered_questions FROM wide_response WHERE person_id = 3) = 1);
 -- Missing answers remain NULL instead of being turned into artificial zeros.
+CREATE VIEW question_summary AS
 SELECT question, COUNT(*) AS responses, ROUND(AVG(rating), 2) AS mean_rating,
     SUM(CASE WHEN rating >= 4 THEN 1 ELSE 0 END) AS positive_responses
 FROM response GROUP BY question ORDER BY question;
+SELECT * FROM question_summary ORDER BY question;
+CREATE TEMP TABLE expected_summary(question TEXT, responses INTEGER, mean_rating REAL, positive_responses INTEGER);
+INSERT INTO expected_summary VALUES ('quality',2,4.5,2),('speed',2,3.0,1),('support',2,4.0,1);
+INSERT INTO checks VALUES ((SELECT COUNT(*) FROM question_summary) = 3);
+INSERT INTO checks VALUES (NOT EXISTS(SELECT * FROM question_summary EXCEPT SELECT * FROM expected_summary));
+INSERT INTO checks VALUES (NOT EXISTS(SELECT * FROM expected_summary EXCEPT SELECT * FROM question_summary));
 -- The unique person/question key makes MAX an unambiguous pivot operation.
 COMMIT;

@@ -3,6 +3,9 @@
  * No allocation; NULL is permitted only with zero input length.
  */
 #include <assert.h>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>

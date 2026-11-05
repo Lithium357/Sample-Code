@@ -5,6 +5,9 @@
  * stream until explicit reset; it never attempts unsafe heuristic resync.
  */
 #include <assert.h>
+#ifdef NDEBUG
+#error "This executable fixture requires assertions enabled; NDEBUG is unsupported"
+#endif
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>

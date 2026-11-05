@@ -39,8 +39,10 @@ Candidate next contracts (not yet implemented or validated):
 
 * C bounded scatter/gather ownership and partial-progress contracts; C++
   exception contracts for fallible acquisition beyond the stream owner.
-* Rust vectored INPUT with borrowed buffers and exact partial-read errors;
-  vectored-output cursor/retry behavior is already present.
+* Rust borrowed vectored input with exact partial errors is now pass 11.
+  It shares a split family with the existing output cursor; avoid treating
+  future translations/close variants as independent projects. OS readiness
+  and native readv/writev behavior remain outside the injected fixture evidence.
 * Nim module-level resource cleanup beyond the completed ARC sink/copy hooks.
 * Ruby encoding conversion/invalid-byte boundaries are completed in pass 9;
   broaden another practical contract rather than duplicating strict transcoding.

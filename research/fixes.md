@@ -147,3 +147,19 @@ source snapshot and original failed record remain. Subsequent local run
 1aba9e0a819b4ab6ba6a40710f424450 passed three deliberate source regressions.
 No expected byte outputs were changed. Source labels PowerShell 7.3+ syntax;
 local runtime actually observed is PowerShell 7.6.5 Core on Windows.
+
+## Research pass 11 mutation/borrow controller diagnostics
+
+Ordinary Rust debug and optimized executions passed in initial controller run
+91fca8b836cb4454b2e4d2a6323ecfb3. The omitted-advancement mutant first failed the
+complete-capacity assertion (9 versus 8), before the controller's expected flat
+byte oracle failure. That existing assertion now has the explicit label complete
+capacity invariant and the controller requires it; no answer was changed.
+Run dc02a237b3ec4b65a230782dfbba885a then passed execution controls but the alias
+gate diagnostic named bytes[_], not the controller's expected bytes. Rust already
+reported E0502 as intended. The excluded gate now borrows the whole bytes array,
+so its message matches the named contract. Working implementation was unchanged.
+Both failed source/harness records remain; final run
+3ca1328048bf4adc8f1615feeaac6e9a passes debug/optimized execution, three execution
+mutants and the E0502 compile rejection. These were controller diagnostic issues,
+not observed implementation failures. Expected destination bytes stayed unchanged.

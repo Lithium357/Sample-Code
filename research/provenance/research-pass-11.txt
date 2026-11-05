@@ -1,0 +1,25 @@
+Task identifier: research-pass-11 (local identifier).
+Source: automatic continuation of the unchanged user-requested thread goal.
+Previous goal turn: progress. PowerShell source 4d849c7c5899a7452dea07256ddccfb7b456506c
+was published with local execution and controls; its live workflow42062697214
+was inspected again in this task and observed terminal success in all six jobs.
+
+Visible human instructions, available verbatim excerpts:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not verbatim): useful varied synthetic source,
+independent behavior/failure/boundary evidence, local fixtures, honest execution
+modes, immutable failures, exact hashes/commands/versions, available prompts and
+generation provenance, shared task families, no benchmark/evaluation imports or
+padding, small validated main pushes, distinct generated/executed/candidate counts.
+
+Agent-selected task, not a new human prompt: Rust exclusively borrowed scatter
+input plan retaining cumulative read progress on errors/EOF, Interrupted retry,
+explicit WouldBlock retry, scalar Read fallback, bounded iovec batches, error
+payload preservation and a compile-fail alias gate. The existing vectored output
+example is a close relative and must share a split family. No translation is
+claimed to be an independent project.
+Consulted API reference only: https://doc.rust-lang.org/std/io/trait.Read.html
+No reference example or standardized benchmark problem was copied for this task.
+Model family: GPT-6 (system identity). Exact build/version unavailable.

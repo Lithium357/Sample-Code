@@ -421,7 +421,7 @@
     "path": "curated/rust/vectored_cursor.rs",
     "language": "rust",
     "mode": "native",
-    "task_family": "io.resumable-vectored-output",
+    "task_family": "io.resumable-vectored-transfer",
     "task_id": "research-pass-6",
     "prompt_file": "research/provenance/research-pass-6.txt",
     "role": "source_with_inline_fixtures",
@@ -573,5 +573,16 @@
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "PowerShell 7.3+ clean block, .NET synchronous owned Stream, 1..4096-byte blocks; cancellation checked before each Read, earlier output survives failure; binding failure retains caller ownership. Includes local C# Stream fixture via Add-Type.",
     "adapter": "powershell_owned_blocks"
+  },
+  {
+    "path": "curated/rust/vectored_fill.rs",
+    "language": "rust",
+    "mode": "native",
+    "task_family": "io.resumable-vectored-transfer",
+    "task_id": "research-pass-11",
+    "prompt_file": "research/provenance/research-pass-11.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Rust edition 2021, Rust 1.81+ std::io::IoSliceMut::advance_slices; exclusive borrowed buffers, bounded iovec batches, explicit read progress/errors, no readiness wait or record atomicity; in-memory injected readers.",
+    "adapter": "rust_vectored_fill"
   }
 ]

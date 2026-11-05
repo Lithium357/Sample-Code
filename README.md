@@ -27,6 +27,9 @@ The [ninth pass](research/PASS-9.md) adds strict Ruby chunked transcoding and
 Perl dynamically scoped binary records with independent byte/partition oracles.
 The [tenth pass](research/PASS-10.md) adds PowerShell owned pipeline streams,
 cleanup across early stop/errors, cancellation and fresh output buffers.
+The [eleventh pass](research/PASS-11.md) adds exclusive borrowed Rust scatter
+input with retained progress, independent prefix checks and an alias rejection
+control, grouped with its related output example for dataset splitting.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

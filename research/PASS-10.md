@@ -63,3 +63,11 @@ Counts include comments/inline fixtures; no Morderca tokenizer was used.
 Controllers, logs, reports and broken snapshots contribute no source volume.
 Cross-platform CI for this new source remains pending until observed; the
 completed preceding Ruby/Perl workflow is reported separately in PASS-9.md.
+
+Subsequent CI observation: workflow42062697214 for source
+4d849c7c5899a7452dea07256ddccfb7b456506c completed successfully in all six jobs.
+Six digest-verified artifacts contributed sixteen new immutable history files.
+Current-source PowerShell records dc340447ca3746508158670aadf19107 (Linux) and
+0b22ee83ce5b403e9c65abd8eabe5442 (Windows) passed all three mutation controls.
+Actual runtime probes and commands remain in those records; this is not a
+claim of execution on every host or every PowerShell 7.3+ runtime version.

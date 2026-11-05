@@ -96,6 +96,11 @@
       "task_id": "research-pass-10",
       "prompt_file": "research/provenance/research-pass-10.txt",
       "source": "automatic continuation; available verbatim human excerpts and labeled agent task selection"
+    },
+    {
+      "task_id": "research-pass-11",
+      "prompt_file": "research/provenance/research-pass-11.txt",
+      "source": "automatic continuation; available verbatim human excerpts and labeled agent-selected task"
     }
   ],
   "server_thread_id_source": "functions.create_goal response, learned during research pass 3; provenance/session-updates.jsonl preserves earlier unknown state"

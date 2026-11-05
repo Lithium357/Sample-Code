@@ -387,6 +387,53 @@ def validate(case, temporary):
     elif case.get('adapter')=='python_sqlite':
         CURRENT['runtime_versions']['sqlite']=sqlite3.sqlite_version
         execute([sys.executable,path],temporary)
+    elif language=='rust' and case.get('adapter')=='rust_vectored_fill':
+        rustc=shutil.which('rustc')
+        binary=temporary/('fill.exe' if os.name=='nt' else 'fill')
+        for flags in ([],['-C','opt-level=2','-C','debug-assertions=no']):
+            execute([rustc,'--edition=2021','-D','warnings',*flags,path,'-o',binary],temporary)
+            assert 'passed' in execute([binary],temporary)
+        original=path.read_text(encoding='utf-8')
+        controls=[
+            ('overwrite cumulative progress', 'self.filled += n;', 'self.filled = n;', 'scatter destination incomplete'),
+            ('omit buffer advancement', 'IoSliceMut::advance_slices(&mut self.remaining, n);', '// omitted advancement', 'complete capacity invariant'),
+            ('fail Interrupted instead of retry', 'Err(error) if error.kind() == ErrorKind::Interrupted => continue,',
+             'Err(error) if error.kind() == ErrorKind::Interrupted => return Err(FillError { filled: self.filled, source: error }),', 'Interrupted')]
+        CURRENT['mutation_controls']=[]
+        for index,(label,before,after,diagnostic) in enumerate(controls):
+            assert original.count(before)==1
+            control=temporary/('fill_control_'+str(index)+'.rs')
+            control.write_text(original.replace(before,after),encoding='utf-8')
+            store=ROOT/'research/evidence/mutations'/(digest(control)+'.rs')
+            if not store.exists():store.write_bytes(control.read_bytes())
+            execute([rustc,'--edition=2021','-D','warnings',control,'-o',binary],temporary)
+            execute([binary],temporary,probe=True)
+            observed=CURRENT['commands'][-1];observed['kind']='negative_execution_control'
+            CURRENT['mutation_controls'].append({'mutation':label,'source_sha256':digest(control),
+                'expected_diagnostic':diagnostic,'returncode':observed['returncode']})
+            if observed['returncode']==0 or diagnostic not in observed['stderr']:
+                raise AssertionError('Rust mutation did not fail as intended: '+label)
+        control=temporary/'fill_borrow_control.rs'
+        extra='''
+#[allow(dead_code)]
+fn alias_gate() {
+    let mut bytes = [0u8; 4];
+    let mut vectors = [IoSliceMut::new(&mut bytes)];
+    let mut plan = Fill::new(&mut vectors).unwrap();
+    let peek = &bytes;
+    println!("{:?}", peek);
+    plan.drive(&mut io::empty()).unwrap();
+}
+'''
+        control.write_text(original+extra,encoding='utf-8')
+        store=ROOT/'research/evidence/mutations'/(digest(control)+'.rs')
+        if not store.exists():store.write_bytes(control.read_bytes())
+        execute([rustc,'--edition=2021','-D','warnings',control,'-o',binary],temporary,probe=True)
+        observed=CURRENT['commands'][-1];observed['kind']='negative_compile_control'
+        CURRENT['borrow_control']={'source_sha256':digest(control),'returncode':observed['returncode'],
+            'expected_error_code':'E0502','scope':'No external alias of destination while plan is live; excluded control material.'}
+        if observed['returncode']==0 or 'E0502' not in observed['stderr'] or 'cannot borrow `bytes` as immutable' not in observed['stderr']:
+            raise AssertionError('Rust borrow control did not reject the intended alias')
     elif language=='powershell' and case.get('adapter')=='powershell_owned_blocks':
         pwsh=shutil.which('pwsh')
         assert 'passed' in execute([pwsh,'-NoProfile','-File',path],temporary)

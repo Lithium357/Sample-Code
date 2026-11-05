@@ -76,3 +76,12 @@ candidate volume is 72369 tokens in 60 files. Held legacy volume stays 165031
 tokens in 309 files. Counts include comments and inline fixtures, with no lexical
 component separation; no Morderca tokenizer was used. Repeated checks do not
 increase token volume.
+
+Subsequent CI checkpoint: source commit 6f3b09d3b4da39b4bd63b8d3024c067b9dd4c750,
+workflow 42061465039, all six jobs completed successfully. Six digest-verified
+research artifacts contributed sixteen new immutable history files. Ruby Linux
+run 4e521318e18c490cb386378828c6b64d passed all three controls. Perl passed both
+controls on Linux (4790eca354554851a9f4632d3689af17 and the same curated run)
+and Windows Git MSYS (8b16af886687438fa023dfb8473740b4, Perl 5.42.3
+x86_64-cygwin-thread-multi). This supplements local evidence; it does not claim
+execution on every supported runtime version or native Win32 Perl.

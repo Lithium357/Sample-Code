@@ -23,6 +23,10 @@ and related NASM/RV64I protocol decoders with distinct execution modes.
 The [focused correction audit](research/AUDIT-8.md) reproduces unchecked SQL
 outputs and assertion-disabled false passes, then strengthens exact outputs,
 build gates and sampled independent prime oracles.
+The [ninth pass](research/PASS-9.md) adds strict Ruby chunked transcoding and
+Perl dynamically scoped binary records with independent byte/partition oracles.
+The [tenth pass](research/PASS-10.md) adds PowerShell owned pipeline streams,
+cleanup across early stop/errors, cancellation and fresh output buffers.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

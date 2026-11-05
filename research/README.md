@@ -1,6 +1,7 @@
 # Morderca synthetic training collection: evidence policy
 
-The latest generation batch is [research pass 9](PASS-9.md); the preceding
+The latest generation batch is [research pass 10](PASS-10.md), following
+[research pass 9](PASS-9.md); the preceding
 correction batch is documented in [focused audit 8](AUDIT-8.md). The pass-1
 report is historical; `volume.json` gives the refreshed collection totals.
 

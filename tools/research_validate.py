@@ -387,6 +387,28 @@ def validate(case, temporary):
     elif case.get('adapter')=='python_sqlite':
         CURRENT['runtime_versions']['sqlite']=sqlite3.sqlite_version
         execute([sys.executable,path],temporary)
+    elif language=='powershell' and case.get('adapter')=='powershell_owned_blocks':
+        pwsh=shutil.which('pwsh')
+        assert 'passed' in execute([pwsh,'-NoProfile','-File',path],temporary)
+        original=path.read_text(encoding='utf-8')
+        controls=[
+            ('omit disposal', 'try { $owned.Dispose() } finally', 'try { [void]0 } finally', 'failed: normal clean exactly once'),
+            ('ignore cancellation', 'if ($CancellationToken.IsCancellationRequested)', 'if ($false)', 'failed: failure required'),
+            ('reuse output buffer', '$bytes = [byte[]]::new($read)\n            [System.Array]::Copy($buffer, $bytes, $read)',
+             '$bytes = $buffer', 'failed: short read retained')]
+        CURRENT['mutation_controls']=[]
+        for index,(label,before,after,diagnostic) in enumerate(controls):
+            assert original.count(before)==1
+            control=temporary/('block-control-'+str(index)+'.ps1')
+            control.write_text(original.replace(before,after),encoding='utf-8')
+            store=ROOT/'research/evidence/mutations'/(digest(control)+'.ps1')
+            if not store.exists():store.write_bytes(control.read_bytes())
+            execute([pwsh,'-NoProfile','-File',control],temporary,probe=True)
+            observed=CURRENT['commands'][-1];observed['kind']='negative_execution_control'
+            CURRENT['mutation_controls'].append({'mutation':label,'source_sha256':digest(control),
+                'expected_diagnostic':diagnostic,'returncode':observed['returncode']})
+            if observed['returncode']==0 or diagnostic not in observed['stderr']:
+                raise AssertionError('PowerShell mutation did not fail as intended: '+label)
     elif language=='ruby' and case.get('adapter')=='ruby_strict_transcode':
         ruby=shutil.which('ruby')
         execute([ruby,'--disable=gems','-c',path],temporary)

@@ -45,8 +45,9 @@ Candidate next contracts (not yet implemented or validated):
 * Ruby encoding conversion/invalid-byte boundaries are completed in pass 9;
   broaden another practical contract rather than duplicating strict transcoding.
   Perl dynamically scoped raw record reads/nested callbacks are also covered.
-* PowerShell cancellation/error-stream contracts beyond the completed provider
-  literal-path fixture. CMD native
+* PowerShell owned source cancellation/clean-block lifecycle is now pass 10.
+  Further coverage could exercise Ctrl+C/StopProcessing or throwing cleanup
+  explicitly; those were not tested here. CMD native
   command exit-status handling beyond the completed literal-expansion case.
 * Bash cancellation/signals beyond the completed waited producer/consumer
   publication contract; preserve finite-producer and non-NUL limitations.

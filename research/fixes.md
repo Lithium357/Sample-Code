@@ -134,3 +134,16 @@ The controller now requires that existing earlier diagnostic; no fixture answer
 changed. Rerun cca4996d0a164a44a7a1387ac7fc44ce passed both controls. These are
 controller expectation failures and a runtime availability issue, not observed
 failures of either ordinary implementation. All original records are retained.
+
+## Research pass 10 PowerShell fixture type visibility
+
+Run 11114ce152fb42dcb91378b94ab35e2d failed in the fixture before invoking the
+invalid-size test because ParameterBindingValidationException is not publicly
+accessible as a PowerShell type. The test now requires the accessible public
+ParameterBindingException base and the exact ParameterArgumentValidationError,
+Read-OwnedBlocks error identifier. Ordinary function behavior was unchanged;
+source snapshot and original failed record remain. Subsequent local run
+26ccbe9a7d8e4834b5b1f02e9b43a1eb passed, then final controller run
+1aba9e0a819b4ab6ba6a40710f424450 passed three deliberate source regressions.
+No expected byte outputs were changed. Source labels PowerShell 7.3+ syntax;
+local runtime actually observed is PowerShell 7.6.5 Core on Windows.

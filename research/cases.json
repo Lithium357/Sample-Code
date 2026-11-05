@@ -562,5 +562,16 @@
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Perl 5.16+ core modules; owned raw regular files, 1..4096-byte record width, synchronous callbacks and allow/reject tail; no concurrent changes or VMS/pipe/device claim",
     "adapter": "perl_scoped_records"
+  },
+  {
+    "path": "curated/powershell/owned_block_source.ps1",
+    "language": "powershell",
+    "mode": "native",
+    "task_family": "io.owned-stream-pipeline-lifecycle",
+    "task_id": "research-pass-10",
+    "prompt_file": "research/provenance/research-pass-10.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "PowerShell 7.3+ clean block, .NET synchronous owned Stream, 1..4096-byte blocks; cancellation checked before each Read, earlier output survives failure; binding failure retains caller ownership. Includes local C# Stream fixture via Add-Type.",
+    "adapter": "powershell_owned_blocks"
   }
 ]

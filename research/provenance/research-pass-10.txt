@@ -1,0 +1,25 @@
+Task identifier: research-pass-10 (local identifier).
+Source: automatic continuation of the unchanged active user goal.
+Previous turn classification: progress; two original Ruby/Perl examples were
+published in source commit 6f3b09d3b4da39b4bd63b8d3024c067b9dd4c750 with
+source-bound local execution and mutation controls. CI42061465039 was live when
+this task began; terminal state must be observed separately before claiming it.
+
+Available visible human instructions, verbatim excerpts:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not a verbatim prompt): original varied source,
+local fixtures, meaningful success/failure/boundary checks, immutable failure
+history, exact source/harness hashes and runtime/mode labels, available provenance
+and family grouping, separate generated/executed/candidate cl100k_base counts,
+no benchmark/evaluation imports or token padding, small validated main pushes.
+
+Agent-selected task, not a new human prompt: PowerShell 7.3 clean-block stream
+ownership across source-pipeline completion, early downstream stop, errors and
+cooperative cancellation. Test deterministic local streams, fresh buffer ownership,
+short reads, binding versus begin ownership, and prior-output visibility.
+Consulted API reference only:
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-7.4
+No documentation example or benchmark problem was copied to create this task.
+Model family: GPT-6 (system identity); exact generation build unavailable.

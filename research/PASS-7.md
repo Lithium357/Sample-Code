@@ -95,3 +95,40 @@ required before that source is promoted to main. RV64I remains emulation-only.
 A final Go boundary review added a real one-MiB accepted input and its one-byte
 oversize neighbor; run a4c40d3aaca449abb11aadd1c7dbc793 passed. Large runtime
 fixtures created by string repetition are not extra counted source tokens.
+
+
+The assembly validation branch passed all jobs in workflow 41665793457; tested
+commit 4938968522865b2403b4ec14d35d209fa76a663a was promoted to main. Native
+NASM run 0d553e35c0e4463d870c9027ebadeae2 passed its 16 inline vectors. RV64I
+runs 4f5e2ed0a6b24ee8b2ec55da6c9da4e2 and 75b4acf612aa4c4396e5f73666267165
+passed 694 emulated vectors and three intended mutations (saved register,
+always-success stub and signed size bound). x86-64 emulation has 694 vectors
+and two controls; its native execution is separately recorded. RISC-V hardware,
+ELF loading and OS execution remain untested.
+
+## Waited Bash process source
+
+`curated/bash/checked_process_source.sh` consumes a producer through process
+substitution, closes its input before waiting, verifies the producer's exit
+status, and publishes parsed output only after consumer AND producer success.
+A consumer error takes precedence over the producer's resulting status. It
+handles quoted argv, backslashes/empty values/unterminated records, unique keys,
+exact 1000-record acceptance, 1001-record rejection, malformed/duplicate input,
+a writer that would exceed pipe capacity after an invalid record, empty success,
+partial/empty producer failure, destination-directory rejection and mktemp
+failure. It uses owned same-parent temporary files and a subshell EXIT trap so
+caller traps survive. Temporary files and finite producer processes are cleaned
+up; trusted producers must not leave background stdout holders. GNU mv -T and
+other coreutils are explicit dependencies. No NUL-line, POSIX-sh, durability or
+universal rename-atomicity guarantee is made.
+
+A generated control skips the producer wait and status; it must fail exactly
+with expected producer status 23 versus actual 0. The original source passes.
+The latest local test request on November 3 was not executed because automatic
+approval review hit a usage limit; this was a review-availability failure, not a
+safety finding or sample result. No alternate execution bypassed it. On November
+5 account usage was available, the same escalated test path was approved, and
+run 144c901139d34176a17dc842bea25274 passed both sample and negative control.
+The initial simpler Bash source passed earlier, but that does not substitute
+for evidence on this edited source. Its Linux CI execution remains pending
+until this batch's workflow is imported.

@@ -403,6 +403,21 @@ def validate(case, temporary):
     elif language=='awk-gawk':
         program=shutil.which(os.environ.get('MORDERCA_GAWK') or shutil.which('gawk') or 'awk')
         assert 'passed' in execute([program,'-f',path],temporary,extra_env={'LC_ALL':'C'})
+    elif language=='bash' and case.get('adapter')=='bash_waited_source':
+        program=shutil.which('bash')
+        assert 'passed' in execute([program,path],temporary)
+        text=path.read_text(encoding='utf-8')
+        needle='if wait "$producer_pid"; then producer_status=0; else producer_status=$?; fi'
+        if text.count(needle)!=1:raise AssertionError('wait negative-control target is not unique')
+        control=temporary/'missing-wait.sh'
+        control.write_text(text.replace(needle,'producer_status=0 # deliberate missing wait'),encoding='utf-8')
+        execute([program,control],temporary,probe=True)
+        command=CURRENT['commands'][-1];command['kind']='negative_execution_control'
+        if (command['returncode']!=1 or 'wrong producer/consumer status: expected 23 got 0' not in command['stderr']):
+            raise AssertionError('Bash missing-wait control did not fail for intended producer status')
+        CURRENT['process_source_control']={'mutation':'skip producer wait/status','source_sha256':digest(control),
+            'expected_rejection':'wrong producer/consumer status: expected 23 got 0','returncode':command['returncode'],
+            'scope':'Generated negative control, not training source volume.'}
     elif language in ('c','cpp'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':

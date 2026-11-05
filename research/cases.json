@@ -529,5 +529,16 @@
     "prompt_file": "research/provenance/research-pass-7.txt",
     "role": "source",
     "runtime_assumptions": "RV64I little endian, GNU syntax, LP64 integer ABI, no compressed instructions/relaxation; GNU as/ld/objcopy then linked-text Unicorn execution, not native hardware/ELF loading."
+  },
+  {
+    "path": "curated/bash/checked_process_source.sh",
+    "language": "bash",
+    "mode": "native",
+    "task_family": "stream.waited-process-substitution",
+    "task_id": "research-pass-7",
+    "prompt_file": "research/provenance/research-pass-7.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Bash 4.3+, GNU coreutils including mv -T and mktemp; finite trusted producer, no background stdout holders; non-NUL LF-delimited input. No POSIX-sh, durability or universal rename-atomicity claim.",
+    "adapter": "bash_waited_source"
   }
 ]

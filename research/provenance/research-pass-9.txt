@@ -1,0 +1,27 @@
+Task identifier: research-pass-9 (local identifier).
+Source: automatic continuation of the unchanged active user goal, after the
+requested focused correction checkpoint. Previous turn classification: progress;
+source fa05b4e9431ddc16434ea8213013804ce5f182db and reporting
+78d2ee8fc9f957d1f581e592a15d9aa2ee3a5e1e published; workflow42057819608 passed.
+
+Available visible human instructions, verbatim excerpts:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not a verbatim prompt): varied original synthetic
+examples, independent behavior/failure tests, local fixtures, honest source-bound
+runtime evidence and lineage, preserve failures, no benchmark/evaluation imports,
+separate generated/executed/candidate cl100k_base counts, frequent main pushes.
+
+Agent-selected task: strict incremental Ruby UTF-16LE conversion with bounded
+buffers and transactional return, independent scalar byte oracles, malformed
+surrogate/EOF cases and mutation controls. Selection is not a new human prompt.
+API reference only: https://docs.ruby-lang.org/en/3.4/Encoding/Converter.html
+No documentation example or benchmark problem was copied to create this task.
+Generation model family: GPT-6 (system identity); exact build/version unavailable.
+No external benchmark provenance claim beyond available lineage is made.
+
+Subsequent agent-selected companion: Perl raw byte records with dynamically
+localized input separator, nested callbacks, tail rejection and exception-state
+preservation. API reference only: https://perldoc.perl.org/perlvar . No reference
+example was copied. Fixtures and negative controls were authored for this task.

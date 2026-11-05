@@ -115,3 +115,22 @@ reason assertion after primary vectors passed. The always-success stub failed
 on missing output in the first (successful) case; place the already-present
 empty-input case first to require wrong-status detection. Same case set and
 expected values; b7370dbebe8249f2b42cd926aa1df2d0 passes. Original evidence kept.
+
+## Research pass 9 control diagnostics and runtime availability
+
+Ruby run 798bf54a575b45c18d927f56e8460e5f passed ordinary execution but the
+control controller expected an early-finish diagnostic. Treating each chunk as
+complete instead first fails the independent scalar byte oracle. The controller
+now requires that diagnostic; expected bytes and original implementation did
+not change. Successful rerun: 228bb074405141bdb163000747332c13. Ruby execution
+disables unused RubyGems to avoid its installation-specific gemrc write warning.
+
+Perl fb5d7422ff9e456fae3874a75b24b50e is not_tested: Git's MSYS runtime could
+not create its process object in the sandbox. The reviewed outside-sandbox local
+execution e5b6ab6aaac04ae8b3e9daa9c9836e92 passed. Initial control run
+2669e29380a6455cb81cab4bd5c1dacb expected callback separator failure, but the
+empty input already catches separator restoration failure before any callback.
+The controller now requires that existing earlier diagnostic; no fixture answer
+changed. Rerun cca4996d0a164a44a7a1387ac7fc44ce passed both controls. These are
+controller expectation failures and a runtime availability issue, not observed
+failures of either ordinary implementation. All original records are retained.

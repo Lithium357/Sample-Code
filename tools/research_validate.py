@@ -387,10 +387,53 @@ def validate(case, temporary):
     elif case.get('adapter')=='python_sqlite':
         CURRENT['runtime_versions']['sqlite']=sqlite3.sqlite_version
         execute([sys.executable,path],temporary)
+    elif language=='ruby' and case.get('adapter')=='ruby_strict_transcode':
+        ruby=shutil.which('ruby')
+        execute([ruby,'--disable=gems','-c',path],temporary)
+        assert 'passed' in execute([ruby,'--disable=gems',path],temporary)
+        original=path.read_text(encoding='utf-8')
+        controls=[
+            ('omit EOF finalization',"    pump.call(''.b, false)","    # skipped EOF" ,'missing rejection: incomplete_input'),
+            ('treat chunks as complete', 'pump.call(chunk.b, true)', 'pump.call(chunk.b, false)', 'failed: independent scalar oracle'),
+            ('omit output limit', 'if fragment.bytesize > limit - result.bytesize', 'if false', 'missing rejection: output_limit'),
+        ]
+        CURRENT['mutation_controls']=[]
+        for index,(label,before,after,diagnostic) in enumerate(controls):
+            assert original.count(before)==1
+            text=original.replace(before,after)
+            control=temporary/('transcode-control-'+str(index)+'.rb')
+            control.write_text(text,encoding='utf-8')
+            # Deliberate broken source is control material, never a registry case.
+            store=ROOT/'research/evidence/mutations'/(digest(control)+'.rb')
+            if not store.exists():store.write_bytes(control.read_bytes())
+            execute([ruby,'--disable=gems',control],temporary,probe=True)
+            observed=CURRENT['commands'][-1]
+            observed['kind']='negative_execution_control'
+            CURRENT['mutation_controls'].append({'mutation':label,'source_sha256':digest(control),
+                'expected_diagnostic':diagnostic,'returncode':observed['returncode']})
+            if observed['returncode']==0 or diagnostic not in observed['stderr']:
+                raise AssertionError('Ruby mutation did not fail as intended: '+label)
     elif language=='perl':
         program=shutil.which(os.environ.get('MORDERCA_PERL') or 'perl')
         execute([program,'-c',path],temporary)
         assert 'passed' in execute([program,path],temporary)
+        if case.get('adapter')=='perl_scoped_records':
+            original=path.read_text(encoding='utf-8')
+            controls=[('leak record separator', 'local $/ = \\$remaining;', '$/ = \\$remaining;', 'failed: separator restored on success'),
+                      ('accept rejected tail', "if $tail eq 'reject';", 'if 0;', 'failed: expected error')]
+            CURRENT['mutation_controls']=[]
+            for index,(label,before,after,diagnostic) in enumerate(controls):
+                assert original.count(before)==1
+                control=temporary/('record-control-'+str(index)+'.pl')
+                control.write_text(original.replace(before,after),encoding='utf-8')
+                store=ROOT/'research/evidence/mutations'/(digest(control)+'.pl')
+                if not store.exists():store.write_bytes(control.read_bytes())
+                execute([program,control],temporary,probe=True)
+                observed=CURRENT['commands'][-1];observed['kind']='negative_execution_control'
+                CURRENT['mutation_controls'].append({'mutation':label,'source_sha256':digest(control),
+                    'expected_diagnostic':diagnostic,'returncode':observed['returncode']})
+                if observed['returncode']==0 or diagnostic not in observed['stderr']:
+                    raise AssertionError('Perl mutation did not fail as intended: '+label)
     elif language=='lua':
         if 'runtime_embedding' in CURRENT:
             code=('import sys; from pathlib import Path; from lupa.lua54 import LuaRuntime; '

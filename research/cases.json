@@ -540,5 +540,27 @@
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "Bash 4.3+, GNU coreutils including mv -T and mktemp; finite trusted producer, no background stdout holders; non-NUL LF-delimited input. No POSIX-sh, durability or universal rename-atomicity claim.",
     "adapter": "bash_waited_source"
+  },
+  {
+    "path": "curated/ruby/strict_transcode.rb",
+    "language": "ruby",
+    "mode": "native",
+    "task_family": "encoding.strict-chunked-utf16-transcode",
+    "task_id": "research-pass-9",
+    "prompt_file": "research/provenance/research-pass-9.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Ruby 3.1+ Encoding::Converter; finite trusted binary chunk enumeration, UTF-16LE to UTF-8/US-ASCII; 65536-byte input/output caps, buffer 1..64, transactional return only; no BOM/newline normalization.",
+    "adapter": "ruby_strict_transcode"
+  },
+  {
+    "path": "curated/perl/scoped_records.pl",
+    "language": "perl",
+    "mode": "native",
+    "task_family": "io.dynamically-scoped-binary-records",
+    "task_id": "research-pass-9",
+    "prompt_file": "research/provenance/research-pass-9.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "Perl 5.16+ core modules; owned raw regular files, 1..4096-byte record width, synchronous callbacks and allow/reject tail; no concurrent changes or VMS/pipe/device claim",
+    "adapter": "perl_scoped_records"
   }
 ]

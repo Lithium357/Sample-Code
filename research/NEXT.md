@@ -42,7 +42,9 @@ Candidate next contracts (not yet implemented or validated):
 * Rust vectored INPUT with borrowed buffers and exact partial-read errors;
   vectored-output cursor/retry behavior is already present.
 * Nim module-level resource cleanup beyond the completed ARC sink/copy hooks.
-* Ruby encoding conversion and invalid-byte boundaries, with explicit encodings.
+* Ruby encoding conversion/invalid-byte boundaries are completed in pass 9;
+  broaden another practical contract rather than duplicating strict transcoding.
+  Perl dynamically scoped raw record reads/nested callbacks are also covered.
 * PowerShell cancellation/error-stream contracts beyond the completed provider
   literal-path fixture. CMD native
   command exit-status handling beyond the completed literal-expansion case.

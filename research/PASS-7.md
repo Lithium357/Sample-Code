@@ -139,3 +139,73 @@ its subshell. Added fixtures reject a UTF-8 non-ASCII key while preserving
 UTF-8/high bytes in an opaque value. Caller locale state is not changed by the
 subshell. This avoids relying on host collation for range expressions; see the
 [GNU Bash locale documentation](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html).
+
+
+## Final validated checkpoint
+
+Five new source files contain 9,513 cl100k_base tokens: Go 2,738; PHP 2,246;
+NASM x86-64 1,824; GNU RV64I 753; Bash 1,952. Strengthening the retained T-SQL
+source increases its count from 647 to 1,964 (+1,317). Total generated,
+execution-validated and candidate volume each grow by 10,830 tokens this pass.
+No legacy provenance/coverage holds were cleared. Comments and inline fixtures
+are included; none of the runtime-generated payloads or control variants count.
+
+The selected publication workflows all completed successfully:
+
+* 41661352324, SQL validation branch / 94bc9e5a65c1862e7ae2785368c8aefbb81def6b;
+* 41663477667, Go/PHP main / 7d04b76298bcb438d506adee86182deadaf64948;
+* 41665793457, wire validation branch / 4938968522865b2403b4ec14d35d209fa76a663a;
+* 42051478079, Bash main / a1e229ef5b616d866992bd337bda1442fabba6c2;
+* 42052131140, final Bash locale/main / 841a981d15d252cc97cfa27d311c6e27054bfc5e.
+
+Both validation branches were promoted with checked expected main SHAs only
+after successful CI. Thirty digest-verified research artifacts added 71 immutable
+history files. All current new-source hashes have actual accepted execution
+records: Go/PHP/Bash native on Linux and Windows; NASM native on Linux plus
+separate Linux/Windows emulation; RV64I linked-text emulation on Linux. Go race
+instrumentation passed on Linux. Local Windows race setup and local RISC-V tools
+remain not_tested. Every exact command/version/hash/mode is in raw evidence.
+
+There were two formal local failures: unavailable Go race configuration before
+the preflight, and the NASM control-reason assertion. Their original snapshots
+and results remain. The primary assembly case set/expected outputs were not
+weakened. The quota-denied Bash attempt executed nothing; the later same-path
+reviewed retry passed. An artifact-specification refresh initially lost a Node
+binding and hit an expired URL; fresh URLs were saved and ZIP hashes verified
+before imports. Those orchestration issues are not sample execution passes.
+No unexpected CI sample failures occurred in the five selected workflows.
+
+A real-data scope audit (ec840bf16081496680b76d6735519cb2) verified 19 existing
+failure/later-pass links have matching platform/mode/instrumentation, with zero
+historical mismatches requiring corrections. It specifically verifies that the
+ordinary Windows Go pass does not resolve its failed race setup, while the
+matching NASM emulation rerun is linked. Audit code and ledger input snapshots
+are retained as control material; they add no training tokens. Resolution links
+are scoped later successes, not causal proof of a fix without inspecting code
+and the recorded mechanism. Future cross-scope links require explicit correction.
+
+| Collection metric | Files | cl100k_base tokens |
+| --- | ---: | ---: |
+| Generated source/support | 367 | 231,815 |
+| At least one current-source passing execution mode | 367 | 231,815 |
+| Training candidates under the documented policy | 58 | 67,990 |
+| Executed legacy origin/coverage hold | 309 | 163,825 |
+| Files with no accepted execution evidence | 0 | 0 |
+
+Whole-file roles total 220,482 source-with-inline-fixture tokens, 10,460 source,
+293 separate fixture and 580 support-source. They are file roles, not a lexical
+code/comment/test split. Tokenizer is tiktoken 0.14.0 cl100k_base; no Morderca
+vocabulary/tokenizer or model-performance result is claimed.
+
+The candidate-only ZIP excludes held source and controls; its sidecar records
+hashes, provenance, evidence and complete known task-family membership. The
+full ZIP retains source, held material, reports and immutable evidence. Both are
+byte-verified packaging duplicates excluded from volume. Available-lineage
+candidate status is not independent certification of benchmark absence or
+exhaustive correctness. The approximately 2B-token goal remains active.
+
+Native ARM/AArch64/RISC-V hardware/ELF loading, broader dialect/runtime versions,
+more language-specific contracts, and the 309 retained origin/coverage reviews
+remain outstanding. Producer exit status is the Bash authority: function
+producers must propagate failures explicitly instead of relying on errexit
+inside conditional contexts. Finite-producer/non-NUL limitations remain in force.

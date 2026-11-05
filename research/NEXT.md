@@ -24,6 +24,10 @@ Pass 6 completed C++ stream ownership, Rust vectored-output progress, Nim ARC
 byte ownership, PowerShell provider reads, Lua 5.4 closing iterators and Tcl
 snapshot command-prefix events. It strengthened retained audit-trigger checks
 and obtained native SQL Server execution of the retained T-SQL source.
+Pass 7 completed Go conditional snapshots, PHP user stream filters, waited
+Bash process substitution, native/emulated NASM ULEB32 and RV64I linked-text
+ULEB32 emulation, plus T-SQL defaults, boundary/atomicity checks and five
+constraint/binding controls. Do not regenerate these as independent tasks.
 Candidate next contracts (not yet implemented or validated):
 
 * C bounded scatter/gather ownership and partial-progress contracts; C++
@@ -35,13 +39,13 @@ Candidate next contracts (not yet implemented or validated):
 * PowerShell cancellation/error-stream contracts beyond the completed provider
   literal-path fixture. CMD native
   command exit-status handling beyond the completed literal-expansion case.
-* Bash process substitution and upstream failure status beyond the completed
-  borrowed-descriptor scope.
-* RISC-V beyond the single folded-buffer function; native hardware/ELF loading is
-  still untested. ARM/AArch64 remain emulation-only and must not acquire native
-  labels by inference. T-SQL now has a native Linux-container engine fixture;
-  independently assert its migration default before update, and expand exact
-  row-state checks, empty/multirow paths, constraint mutations and dialect scope.
+* Bash cancellation/signals beyond the completed waited producer/consumer
+  publication contract; preserve finite-producer and non-NUL limitations.
+* ARM/AArch64 beyond the folded-buffer function. RISC-V now includes canonical
+  ULEB32; native hardware/ELF loading remain untested for these ISAs. Do not
+  infer native labels from linked-text emulation. T-SQL defaults/bounds/row state
+  and mutations are now covered for its retained fixture; expand distinct joins,
+  query plans or transaction-isolation scenarios with owned local fixtures.
 * Additional executable functional and niche language runtimes, with exact
   versions/dialects and local fixtures; missing runtimes stay not_tested.
 

@@ -1,6 +1,6 @@
 # Curated, language-specific local examples
 
-These synthetic examples were added in research passes 1 through 6. They are not benchmark
+These synthetic examples were added in research passes 1 through 7. They are not benchmark
 items and their checks do not measure Morderca. The registry in
 `research/cases.json` defines task families, runtime assumptions and support
 files; results are in append-only `research/evidence/history/` records.
@@ -28,6 +28,11 @@ iterators, PowerShell provider/literal paths, Nim ARC ownership and Tcl command
 prefix snapshots. The retained T-SQL fixture now executes against a disposable
 SQL Server engine, with source hash, image/version and cleanup evidence. See
 `research/PASS-6.md` for failures, fixes and the exact validation scope.
+
+Pass 7 adds Go conditional/range HTTP snapshots, PHP user stream filters,
+Bash producer-status collection and canonical ULEB32 decoders in NASM/RV64I.
+It strengthens retained T-SQL defaults/transaction behavior and requires five
+intended schema/binding mutations to fail. See `research/PASS-7.md`.
 
 Pass 2 adds ten standalone units, each with embedded local fixtures:
 

@@ -387,7 +387,11 @@ def validate(case, temporary):
         CURRENT['runtime_versions']['dotnet_sdks']=sdks
         if not sdks:raise MissingTool('.NET host exists but no SDK/F# Interactive is installed')
         if case['adapter']=='fsharp':
-            execute([dotnet,'fsi','--langversion:8.0','--exec',path],temporary,extra_env=environment)
+            output=execute([dotnet,'fsi','--langversion:8.0','--exec',path],temporary,extra_env=environment)
+            if case.get('negative_controls')=='applicative_panel':
+                assert 'checks passed' in output
+                from fsharp_panel_controls import validate_controls
+                validate_controls(path,temporary,ROOT,CURRENT,execute,dotnet,environment)
         else:
             if not any(line.startswith('10.') for line in sdks.splitlines()):
                 raise MissingTool('.NET SDK 10 required for this net10.0 managed-runtime fixture')
@@ -663,6 +667,7 @@ def main():
     if (ROOT/'tools/uleb_isa_probe.py').exists():harness_paths.append(ROOT/'tools/uleb_isa_probe.py')
     if (ROOT/'tools/aarch64_s24_probe.py').exists():harness_paths.append(ROOT/'tools/aarch64_s24_probe.py')
     if (ROOT/'tools/cpp_pool_controls.py').exists():harness_paths.append(ROOT/'tools/cpp_pool_controls.py')
+    if (ROOT/'tools/fsharp_panel_controls.py').exists():harness_paths.append(ROOT/'tools/fsharp_panel_controls.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

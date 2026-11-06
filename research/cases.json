@@ -615,5 +615,17 @@
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "C++20 std::construct_at/launder/destroy_at, capacity1..64, non-reentrant noexcept destruction, live-pool-bound handles, fixed extended-aligned storage; no threads or cross-pool-lifetime ABA guarantee; NDEBUG rejected.",
     "adapter": "cpp_generational_pool"
+  },
+  {
+    "path": "curated/fsharp/applicative_panel.fsx",
+    "language": "fsharp",
+    "mode": "managed_runtime",
+    "adapter": "fsharp",
+    "task_family": "validation.applicative-measured-panel",
+    "task_id": "research-pass-14",
+    "prompt_file": "research/provenance/research-pass-14.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "F# 8 language syntax in .NET SDK FSI; synchronous custom applicative CE and units of measure; strict invariant decimal grammar and bounded measured fields; no NuGet, parallel work, or native AOT claim.",
+    "negative_controls": "applicative_panel"
   }
 ]

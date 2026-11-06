@@ -1,0 +1,28 @@
+Task identifier: research-pass-14 (local identifier).
+Source: user resumed the unchanged active goal, verbatim: keep going yo
+Previous goal turn classification: progress in local C++ pool code/evidence;
+publication had not advanced main after a BOM integrity check and then a usage
+review failure. This resumed run observed normal usage/access and published the
+unchanged validated pool batch as 6e1d58b85f5849a31c0349e11d2c7326133eb426.
+Workflow42311224062 subsequently completed successfully in all six jobs.
+
+Available governing human excerpts, verbatim:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not verbatim): useful original varied code,
+local fixtures, meaningful independent behavior/failure/boundary evidence,
+source/harness hashes, exact commands/versions/modes, immutable failures,
+available generation provenance and shared families, separate generated/executed/
+candidate cl100k_base counts, no benchmark/evaluation imports or padding,
+small validated main pushes and honest final limits.
+
+Agent-selected task, not a separate human prompt: F# synchronous applicative
+validation computation expression, accumulating independent typed field issues
+before dependent geometry checks; measured decimal lengths/area, strict ASCII
+decimal grammar, culture independence, optional absence, an independent scaled
+integer oracle, execution mutants and a dimensional type-rejection control.
+API reference consulted only:
+https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/computation-expressions
+No documentation example or standardized benchmark problem was copied for this
+task. Model family: GPT-6 (system identity); exact generation build unavailable.

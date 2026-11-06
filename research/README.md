@@ -1,6 +1,7 @@
 # Morderca synthetic training collection: evidence policy
 
-The latest generation batch is [research pass 13](PASS-13.md), following
+The latest generation batch is [research pass 14](PASS-14.md), following
+[research pass 13](PASS-13.md),
 [research pass 12](PASS-12.md),
 [research pass 11](PASS-11.md),
 [research pass 10](PASS-10.md) and

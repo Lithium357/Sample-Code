@@ -63,6 +63,8 @@ Candidate next contracts (not yet implemented or validated):
   query plans or transaction-isolation scenarios with owned local fixtures.
 * Additional executable functional and niche language runtimes, with exact
   versions/dialects and local fixtures; missing runtimes stay not_tested.
+  F# now includes synchronous applicative validation and measured geometry in
+  pass 14; choose another functional contract rather than duplicating that one.
 
 Do not count planned contracts, repeated executions, archives or failed snapshots.
 Preserve failures, exact commands, modes and source/support hashes. Publish small

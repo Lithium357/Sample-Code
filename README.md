@@ -36,6 +36,9 @@ emulation versus native-hardware claims.
 The [thirteenth pass](research/PASS-13.md) adds C++ aligned in-place object
 lifetimes, constructor rollback and stale-handle retirement with model and
 compile-time contract checks.
+The [fourteenth pass](research/PASS-14.md) adds F# applicative error accumulation,
+dependent measured validation and an independent grammar oracle, preserving its
+initial compiler failures and excluding ill-typed controls from training export.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

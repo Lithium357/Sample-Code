@@ -91,3 +91,13 @@ TextDecoder removed the raw CI log's leading UTF-8 BOM. The decoder now preserve
 it and its cache was cleared; raw evidence/digest stay unchanged. The mismatch
 and fix are in evidence/ci-status/publication-events.jsonl. This is publication
 control evidence, not a working C++ implementation failure.
+
+Resumed publication/CI checkpoint: source
+6e1d58b85f5849a31c0349e11d2c7326133eb426 was published after confirming main
+had not advanced, preserving original BOM bytes and verifying all 1146 blobs.
+Workflow42311224062 completed successfully in all six jobs. Six digest-verified
+research artifacts contributed seventeen new immutable history files. Current
+pool Linux run a45e3e50eec04241af6461b5cc17015e passes native execution under
+-fsanitize=address,undefined, all five execution mutants and all five compile
+gates. This adds actual Linux sanitizer evidence to the earlier Windows results.
+The prior AArch64 workflow cancellation remains recorded, not overwritten.

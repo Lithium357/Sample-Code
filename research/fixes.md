@@ -182,3 +182,15 @@ Explicit local --aarch64-linked run 6222197d14b64cd38c950a16f4fcfb54 is not_test
 because aarch64-linux-gnu-as is missing, not passed GNU assembly/linking. Positive
 local evidence is Keystone marked-body plus Unicorn. Required GNU CI results must
 be observed separately; none of these modes imply native hardware execution.
+
+## Research pass 14 F# compilation fixes
+
+075ed78852d04dd5943c7f58f1f454e5: FS3156 in a multiline fixture equality; moved
+the unchanged expected records/issues into a literal fixture table. Next run
+4a91890b2c9f482ba917c526b61d2e28: FS0001 because the geometry helper inferred
+unmeasured decimal arguments. Added explicit decimal<mm> argument/option types.
+The first is fixture syntax; the second is production type inference, both
+compile-time failures, not observed wrong runtime results. Source snapshots and
+original records remain. 111960184db240848420009a992f6086 passes execution;
+e1544fb5285147cfa5bcb263e65b3cfd also passes five execution controls and the
+FS0001 incompatible-units gate. No expected value or boundary was weakened.

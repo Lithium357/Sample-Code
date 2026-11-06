@@ -604,5 +604,16 @@
       "curated/assembly/aarch64/packed_s24_vectors.json": "fixture"
     },
     "runtime_assumptions": "Armv8-A A64 little endian, GNU syntax, AAPCS64 LP64, two uint64 result fields x0/x1; no OS/unwind/SIMD; count<=32, disjoint buffers, 4-byte aligned output, normal non-unwinding callback. Unicorn marked-body or GNU-linked-text execution, never hardware/ELF loading."
+  },
+  {
+    "path": "curated/cpp/generational_pool.cpp",
+    "language": "cpp",
+    "mode": "native",
+    "task_family": "lifetime.generational-slot-pool",
+    "task_id": "research-pass-13",
+    "prompt_file": "research/provenance/research-pass-13.txt",
+    "role": "source_with_inline_fixtures",
+    "runtime_assumptions": "C++20 std::construct_at/launder/destroy_at, capacity1..64, non-reentrant noexcept destruction, live-pool-bound handles, fixed extended-aligned storage; no threads or cross-pool-lifetime ABA guarantee; NDEBUG rejected.",
+    "adapter": "cpp_generational_pool"
   }
 ]

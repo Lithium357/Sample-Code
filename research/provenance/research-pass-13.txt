@@ -1,0 +1,28 @@
+Task identifier: research-pass-13 (local identifier).
+Source: automatic continuation of the unchanged active user-requested goal.
+Previous turn classification: progress. AArch64 source
+e697052bdfbd6db4e847c88544878a722a180482 was published with local emulation and
+required GNU-link CI. Workflow42067176616 was live at this task's start, then
+observed terminal cancelled: five successful jobs, separate Linux breadth job
+cancelled after artifact-finalization retries. Exact cancellation cause unknown.
+Successful Linux job provides GNU-linked source-bound AArch64 evidence.
+
+Available visible human instructions, verbatim excerpts:
+Set a goal and keep working until you hit ~2B good, high quality, code tokens
+Focus on all languages, including niche or uncommon scenarios/usages
+
+Inherited requirements (summary, not verbatim): useful varied synthetic code,
+independent behavior/failure/boundary checks, local fixtures, exact modes and
+source/harness hashes/commands/versions, immutable failure history, available
+generation lineage and shared families, separate generated/executed/candidate
+cl100k_base counts, no benchmark/evaluation imports or padding, small main pushes.
+
+Agent-selected task, not a new human prompt: C++20 generational object pool with
+fixed aligned storage, in-place fallible construction, logical rollback, stale
+and foreign handle rejection, noexcept cleanup, finite generation retirement,
+direct uint64 top-boundary policy checks, live-value model and compile gates.
+References consulted only:
+https://eel.is/c++draft/specialized.construct
+https://eel.is/c++draft/ptr.launder
+No reference example or standardized benchmark problem was copied for this task.
+Model family: GPT-6 (system identity); exact generation build/version unavailable.

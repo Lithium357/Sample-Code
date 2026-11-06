@@ -556,6 +556,9 @@ fn alias_gate() {
         CURRENT['process_source_control']={'mutation':'skip producer wait/status','source_sha256':digest(control),
             'expected_rejection':'wrong producer/consumer status: expected 23 got 0','returncode':command['returncode'],
             'scope':'Generated negative control, not training source volume.'}
+    elif case.get('adapter')=='cpp_generational_pool':
+        from cpp_pool_controls import validate_pool
+        validate_pool(path,temporary,ROOT,CURRENT,execute)
     elif language in ('c','cpp'):
         binary=temporary/('check.exe' if os.name=='nt' else 'check')
         if os.name=='nt':
@@ -659,6 +662,7 @@ def main():
     if (ROOT/'tools/sqlserver_controls.py').exists():harness_paths.append(ROOT/'tools/sqlserver_controls.py')
     if (ROOT/'tools/uleb_isa_probe.py').exists():harness_paths.append(ROOT/'tools/uleb_isa_probe.py')
     if (ROOT/'tools/aarch64_s24_probe.py').exists():harness_paths.append(ROOT/'tools/aarch64_s24_probe.py')
+    if (ROOT/'tools/cpp_pool_controls.py').exists():harness_paths.append(ROOT/'tools/cpp_pool_controls.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

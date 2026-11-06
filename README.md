@@ -33,6 +33,9 @@ control, grouped with its related output example for dataset splitting.
 The [twelfth pass](research/PASS-12.md) adds AArch64 packed signed samples and
 callback frames, with access/ABI instrumentation and distinct linked-text
 emulation versus native-hardware claims.
+The [thirteenth pass](research/PASS-13.md) adds C++ aligned in-place object
+lifetimes, constructor rollback and stale-handle retirement with model and
+compile-time contract checks.
 The original token table below is a historical generation snapshot, not current
 source-bound validated volume. Its tokenizer is `cl100k_base`, not Morderca's.
 

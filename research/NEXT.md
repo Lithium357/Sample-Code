@@ -37,8 +37,9 @@ cohort pre-signup/later-cell cases; these have no reproduced implementation
 failure in that audit. Continue varied examples after this checkpoint.
 Candidate next contracts (not yet implemented or validated):
 
-* C bounded scatter/gather ownership and partial-progress contracts; C++
-  exception contracts for fallible acquisition beyond the stream owner.
+* C bounded scatter/gather ownership and partial-progress contracts. C++ now
+  adds generational pool lifetime/constructor rollback and retirement in pass 13;
+  choose another practical contract rather than duplicating that pool.
 * Rust borrowed vectored input with exact partial errors is now pass 11.
   It shares a split family with the existing output cursor; avoid treating
   future translations/close variants as independent projects. OS readiness

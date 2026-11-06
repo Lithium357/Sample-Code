@@ -1,0 +1,436 @@
+{
+  "workflow_run": 42067176616,
+  "source_commit": "e697052bdfbd6db4e847c88544878a722a180482",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "jobs": [
+    {
+      "id": 127384409258,
+      "name": "windows",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-05T16:42:23Z",
+      "completed_at": "2026-11-05T16:44:19Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run Windows examples",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run advanced Windows examples",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Source-bound Windows fixtures",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Source-bound existing CMD evidence",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 127384409675,
+      "name": "sqlserver",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-05T16:42:24Z",
+      "completed_at": "2026-11-05T16:43:01Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Execute the retained T-SQL fixture on the owned local engine",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 127384409681,
+      "name": "postgresql",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-05T16:42:24Z",
+      "completed_at": "2026-11-05T16:43:08Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install local fixture client",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate PostgreSQL dialect with a disposable local database",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 127384409933,
+      "name": "language-breadth (windows-2022)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-05T16:42:24Z",
+      "completed_at": "2026-11-05T16:44:01Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install Tcl, Perl and GNU AWK on Linux",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Select Git-bundled Perl and GNU AWK on Windows",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate language-breadth host-runtime contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 127384499910,
+      "name": "language-breadth (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-05T16:42:33Z",
+      "completed_at": "2026-11-05T16:53:08Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install Tcl, Perl and GNU AWK on Linux",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Select Git-bundled Perl and GNU AWK on Windows",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Validate language-breadth host-runtime contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 127384503679,
+      "name": "linux",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-05T16:42:33Z",
+      "completed_at": "2026-11-05T16:49:42Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install language tools",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run Linux-compatible examples",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run advanced Linux examples",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check Go examples with the race detector",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Source-bound research repair evidence",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require normal self-checks and explicit assertion-disabled build rejection",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Source-bound existing-example evidence",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install research emulator tooling",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify source/document review gates with genuine execution controls",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Curated research checks (unavailable targets explicitly recorded)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Curated Nim native backend",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require Lua 5.4 execution",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require native NASM decoder fixture",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require RISC-V linked decoder emulation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Require AArch64 GNU-linked packed sample emulation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Race-check curated Go",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-dotnet@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "cancelled_job_log_sha256": "50c875c6c86ac78011e738495ddbaa53c66ec7c2e5cdc947a0d79ac701af660d",
+  "observed": "Five jobs succeeded; Linux breadth cancelled after upload-finalization retries. Its test steps completed and artifact finalized. Exact cancellation cause not established; no ordinary implementation failure inferred.",
+  "scope": "Excluded control/status evidence; never source-token progress."
+}

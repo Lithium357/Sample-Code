@@ -5,7 +5,7 @@
   "tokenizer_implementation": "tiktoken",
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
-    "source_with_inline_fixtures": 231391,
+    "source_with_inline_fixtures": 234544,
     "source": 11660,
     "fixture": 398,
     "support_source": 580
@@ -13,15 +13,15 @@
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 373,
-  "generated_tokens": 244029,
-  "current_source_bound_pass_files": 373,
-  "current_source_bound_pass_tokens": 244029,
-  "execution_validated_files": 373,
-  "execution_validated_tokens": 244029,
+  "files": 374,
+  "generated_tokens": 247182,
+  "current_source_bound_pass_files": 374,
+  "current_source_bound_pass_tokens": 247182,
+  "execution_validated_files": 374,
+  "execution_validated_tokens": 247182,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 64,
-  "training_candidate_tokens": 78998,
+  "training_candidate_files": 65,
+  "training_candidate_tokens": 82151,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
   "legacy_review_required_tokens": 165031,
@@ -67,9 +67,9 @@
       "current_source_bound_pass_tokens": 15515
     },
     "cpp": {
-      "files": 6,
-      "generated_tokens": 9014,
-      "current_source_bound_pass_tokens": 9014
+      "files": 7,
+      "generated_tokens": 12167,
+      "current_source_bound_pass_tokens": 12167
     },
     "csharp": {
       "files": 1,

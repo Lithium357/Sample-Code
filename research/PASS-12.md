@@ -72,3 +72,19 @@ Generated and execution-validated totals are 244029 tokens / 373 files. Candidat
 volume is 78998 tokens / 64 files. Legacy holds stay 165031 tokens / 309 files.
 Whole-file counts include source comments; no lexical code/comment separation or
 Morderca tokenizer is claimed. Emulated execution remains labeled emulation.
+
+Subsequent CI observation: workflow42067176616 for source
+e697052bdfbd6db4e847c88544878a722a180482 ended cancelled overall. Five jobs,
+including the Linux job with the required GNU-link step, succeeded. A separate
+Linux breadth job cancelled after repeated artifact-finalization retries; its
+test steps completed and its artifact finalized. Exact cancellation cause is not
+established. Raw log/hash and job conclusions are preserved in evidence/ci-status;
+the whole workflow is not reported as passed.
+
+Six digest-verified research artifacts contributed seventeen new history files.
+Current-source Linux runs 4be94fb2fec04780affcb6adf1f7b46c and
+7bc75469431946e3b3bee25b19cd01ac passed 1894 executions and five controls using
+GNU-assembled/linked text. Object, ELF and raw-text hashes are recorded; raw text
+matches the Keystone image. This verifies GNU assembly/linking plus emulated
+execution, not native hardware or ELF loading. The original local missing-tool
+record remains not_tested and is not overwritten by this separate Linux result.

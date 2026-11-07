@@ -2,4 +2,4 @@
 *.cmd -text
 
 # Preserve imported archive bytes on checkout.
-vendor/vxunderground/MalwareSourceCode/** -text
+**/vxunderground/** -text

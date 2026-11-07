@@ -1,19 +1,27 @@
 # Sample Code
 
-## Imported vx-underground archive
+## Imported vx-underground collection
 
-The complete upstream collection is in [`vendor/vxunderground/MalwareSourceCode/`](vendor/vxunderground/MalwareSourceCode/).
-See [import provenance and integrity details](imports/vxunderground.md).
-The imported files retain their original bytes, paths and history. They include
-malware source and archives; the existing validation results and token counts
-below apply only to the original Sample-Code collection. Imported samples have
-not been executed or included in the existing training-candidate export.
+The upstream collection is sorted into language folders such as
+[`assembly/vxunderground/`](assembly/vxunderground/),
+[`c/vxunderground/`](c/vxunderground/),
+[`php/vxunderground/`](php/vxunderground/), and
+[`python/vxunderground/`](python/vxunderground/).
+See the [complete category index and provenance](imports/vxunderground.md)
+and [per-file location map](imports/vxunderground-files.json).
 
+Retained code/build/archive bytes, filenames and file modes are preserved. Imported
+documentation, images, standalone compiled artifacts and opaque non-source files
+were removed at the user's request. Packed archives with
+no established implementation language are in [`archives/vxunderground/`](archives/vxunderground/).
+Source projects keep their required build support together. Existing validation
+results and token counts below cover the original Sample-Code examples;
+imported samples have not been executed or included in the training-candidate export.
 
 <!-- current-inventory:start -->
-## Complete current language inventory and token counts
+## Original example language inventory and token counts
 
-This snapshot contains **20 programming/query languages plus JSON fixture data**,
+The original example snapshot contains **20 programming/query languages plus JSON fixture data**,
 represented by **27 inventory categories** when SQL dialects, assembly targets
 and the two SQLite collection labels are kept separate. The complete language
 list is: **Assembly, AWK (GNU gawk), Bash, C, C++, C#, CMD/batch, F#, Go,

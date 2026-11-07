@@ -15,7 +15,6 @@
   "mapping": "imports/vxunderground-files.json",
   "organization_base_commit": "456588af8d111f80284f0faa7a851c915154af29",
   "category_counts": {
-    "archives": 1307,
     "assembly": 1560,
     "bash": 3,
     "basic": 4,
@@ -37,7 +36,8 @@
     "rpl": 1,
     "ruby": 3,
     "vba": 3,
-    "vbscript": 1
+    "vbscript": 1,
+    "unknown": 1307
   },
   "retained_files": 3134,
   "removed_non_code_files": 23

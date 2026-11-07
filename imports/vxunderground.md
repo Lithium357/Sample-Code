@@ -6,7 +6,7 @@ Source projects retain their internal code/build layout. Imported documentation,
 
 | Category | Imported files | Location |
 | --- | ---: | --- |
-| archives | 1,307 | [`archives/vxunderground/`](../archives/vxunderground/) |
+| unknown | 1,307 | [`unknown/vxunderground/`](../unknown/vxunderground/) |
 | assembly | 1,560 | [`assembly/vxunderground/`](../assembly/vxunderground/) |
 | bash | 3 | [`bash/vxunderground/`](../bash/vxunderground/) |
 | basic | 4 | [`basic/vxunderground/`](../basic/vxunderground/) |
@@ -33,7 +33,7 @@ Source projects retain their internal code/build layout. Imported documentation,
 All **3,157** upstream paths are accounted for in the [per-file move/removal map](vxunderground-files.json): **3,134 retained** and **23 non-code files removed**.
 The source snapshot is [`1623926c24245e52378f36a6a8d3bd403166a87d`](https://github.com/vxunderground/MalwareSourceCode/commit/1623926c24245e52378f36a6a8d3bd403166a87d).
 Every retained file keeps its original Git blob ID and file mode. No archive was extracted and no sample was executed.
-Archive labels rely on upstream language metadata; an opaque archive with no established language stays under `archives/`.
+Archive labels rely on upstream language metadata; an opaque archive with no established language stays under root `unknown/`.
 Source listings, compiled support files, documentation and project resources are distinguished in the map.
 The original example validation, manifests and token inventories still describe the original examples; imported files are not validated training candidates.
 

@@ -13,7 +13,7 @@ and [per-file location map](imports/vxunderground-files.json).
 Retained code/build/archive bytes, filenames and file modes are preserved. Imported
 documentation, images, standalone compiled artifacts and opaque non-source files
 were removed at the user's request. Packed archives with
-no established implementation language are in [`archives/vxunderground/`](archives/vxunderground/).
+no established implementation language are in [`unknown/vxunderground/`](unknown/vxunderground/).
 Source projects keep their required build support together. Existing validation
 results and token counts below cover the original Sample-Code examples;
 imported samples have not been executed or included in the training-candidate export.

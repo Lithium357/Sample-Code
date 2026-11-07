@@ -627,5 +627,24 @@
     "role": "source_with_inline_fixtures",
     "runtime_assumptions": "F# 8 language syntax in .NET SDK FSI; synchronous custom applicative CE and units of measure; strict invariant decimal grammar and bounded measured fields; no NuGet, parallel work, or native AOT claim.",
     "negative_controls": "applicative_panel"
+  },
+  {
+    "path": "curated/nim/test_scoped_lines.nim",
+    "language": "nim",
+    "mode": "native",
+    "native_nim": true,
+    "nim_memory_manager": "arc",
+    "task_family": "io.scoped-binary-line-reader",
+    "task_id": "research-pass-15",
+    "prompt_file": "research/provenance/research-pass-15.txt",
+    "role": "fixture",
+    "support": [
+      "curated/nim/scoped_lines.nim"
+    ],
+    "support_roles": {
+      "curated/nim/scoped_lines.nim": "source"
+    },
+    "runtime_assumptions": "Native Nim C backend with ARC, module/closure/defer and test-only importutils.privateAccess; LF bytes with limit1..1024, no JS, threads, snapshot or fatal-process cleanup guarantee. Native handle checks use Windows GetHandleInformation or POSIX fcntl. Windows fixture requires MSVC SEH for STATUS_INVALID_HANDLE observation; POSIX fixture uses fcntl. Test-only importutils API is experimental.",
+    "adapter": "nim_scoped_lines"
   }
 ]

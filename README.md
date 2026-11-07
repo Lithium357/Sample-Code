@@ -1,5 +1,95 @@
 # Sample Code
 
+<!-- current-inventory:start -->
+## Complete current language inventory and token counts
+
+This snapshot contains **20 programming/query languages plus JSON fixture data**,
+represented by **27 inventory categories** when SQL dialects, assembly targets
+and the two SQLite collection labels are kept separate. The complete language
+list is: **Assembly, AWK (GNU gawk), Bash, C, C++, C#, CMD/batch, F#, Go,
+JavaScript, Lua, Nim, Perl, PHP, PowerShell, Python, Ruby, Rust, SQL and Tcl**.
+SQL covers **SQLite, PostgreSQL and Microsoft SQL Server/T-SQL**. Assembly covers
+**x86-64, AArch64, ARMv7 and RV64**; exact ISA subsets, ABI, syntax and execution
+assumptions are stated in each source and its evidence. Category membership
+does not imply native execution on every architecture or cross-platform support.
+
+Counts below use **`cl100k_base`, tiktoken 0.14.0**, independently tokenizing each
+UTF-8 source/support file with normalized newlines. These are **not Morderca
+tokenizer counts**. Files can be modules, drivers or fixtures rather than
+standalone programs. Comments and inline self-checks are included.
+
+| Language / dialect / target | Files | Generated tokens | Execution-validated tokens | Training-candidate tokens |
+| --- | ---: | ---: | ---: | ---: |
+| Assembly — x86-64, NASM, Linux / System V AMD64 | 21 | 19,419 | 19,419 | 2,998 |
+| Assembly — AArch64, GNU syntax / AAPCS64 | 2 | 1,526 | 1,526 | 1,526 |
+| Assembly — ARMv7, GNU syntax / AAPCS | 1 | 309 | 309 | 309 |
+| Assembly — RV64, GNU syntax / RISC-V calling convention | 2 | 1,116 | 1,116 | 1,116 |
+| AWK — GNU gawk | 1 | 1,471 | 1,471 | 1,471 |
+| Bash | 29 | 18,767 | 18,767 | 4,567 |
+| C | 5 | 9,830 | 9,830 | 3,817 |
+| Windows CMD / batch | 24 | 15,515 | 15,515 | 1,383 |
+| C++ | 7 | 12,167 | 12,167 | 7,638 |
+| C# | 1 | 1,776 | 1,776 | 1,776 |
+| F# | 2 | 3,385 | 3,385 | 3,385 |
+| Go | 38 | 25,668 | 25,668 | 7,102 |
+| JavaScript | 1 | 1,071 | 1,071 | 1,071 |
+| JSON — fixture data format | 1 | 105 | 105 | 105 |
+| Lua | 1 | 1,902 | 1,902 | 1,902 |
+| Nim | 45 | 24,337 | 24,337 | 6,544 |
+| Perl | 2 | 3,144 | 3,144 | 3,144 |
+| PHP | 39 | 20,586 | 20,586 | 5,316 |
+| PowerShell | 37 | 22,862 | 22,862 | 7,583 |
+| Python | 2 | 1,857 | 1,857 | 1,857 |
+| Ruby | 45 | 20,124 | 20,124 | 5,647 |
+| Rust | 39 | 24,449 | 24,449 | 9,253 |
+| SQL — SQLite, original / advanced collection | 26 | 13,719 | 13,719 | 564 |
+| SQL — PostgreSQL | 2 | 1,523 | 1,523 | 1,523 |
+| SQL — SQLite, curated collection | 1 | 153 | 153 | 153 |
+| SQL — Microsoft SQL Server / T-SQL | 1 | 1,964 | 1,964 | 1,964 |
+| Tcl | 2 | 3,048 | 3,048 | 3,048 |
+| **Total** | **377** | **251,793** | **251,793** | **86,762** |
+
+**Training candidates: 68 files / 86,762 tokens.** **Legacy files held for review: 309 files / 165,031 tokens.**
+
+Execution-validated means current source hashes have successful recorded
+execution in their stated mode: host-native, managed runtime, transpiled
+JavaScript or emulation. Syntax-only checks and missing tools do not qualify.
+This is accumulated source-bound evidence, not a claim that every file was
+rerun during this README update. Candidate status is a selection gate, not
+independent certification of correctness, provenance or evaluation-set absence.
+
+Whole-file roles separate dedicated fixtures where practical:
+
+| File role | Tokens |
+| --- | ---: |
+| `source_with_inline_fixtures` | 236,804 |
+| `source` | 12,274 |
+| `fixture` | 2,135 |
+| `support_source` | 580 |
+
+Comments and inline fixtures have not been lexically split out; these file-role
+totals must not be described as code-only token counts. The complete per-file
+counts, SHA-256 hashes, task families, provenance and eligibility are in
+[`research/lineage.jsonl`](research/lineage.jsonl); machine-readable totals are in
+[`research/volume.json`](research/volume.json). Validation commands, tool versions,
+source/harness hashes, failures and execution modes remain in
+[`research/evidence/history/`](research/evidence/history/).
+
+For a separate **whole-repository text count**, including documentation,
+controllers, provenance, historical evidence and deliberate broken controls,
+see [`research/repository-token-inventory.json`](research/repository-token-inventory.json).
+That report lists every counted file and hash, category subtotals and exclusions;
+it excludes itself to avoid self-reference. Repository text is not training-code
+volume. Broken controls remain evidence and are excluded from the ordinary
+working-code candidate export.
+
+Generation remains paused at the user's request. The pending Nim scoped-reader
+batch and its native validation are documented in
+[`research/PASS-15.md`](research/PASS-15.md). The older table below is retained
+solely as a historical record of the initial ten-language collection.
+<!-- current-inventory:end -->
+
+
 **Research-quality records:** see [`research/README.md`](research/README.md),
 [`research/volume.json`](research/volume.json), and the source-bound evidence history.
 The [second research pass](research/PASS-2.md) adds ten varied units, including

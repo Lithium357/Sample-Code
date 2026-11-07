@@ -592,6 +592,9 @@ fn alias_gate() {
             flags.append('--cc:vcc')
         execute([shutil.which('nim'),'c',*flags,'--hints:off','--nimcache:'+str(temporary/'nimcache'),'-o:'+str(binary),path],temporary)
         execute([binary],temporary)
+        if case.get('adapter')=='nim_scoped_lines':
+            from nim_scoped_controls import validate_controls
+            validate_controls(case,path,temporary,ROOT,CURRENT,execute,shutil.which('nim'),flags)
         if case.get('adapter')=='nim_move_only':
             control=temporary/'copy_control.nim'
             control_text=('include '+json.dumps(path.as_posix())+'\n'
@@ -668,6 +671,7 @@ def main():
     if (ROOT/'tools/aarch64_s24_probe.py').exists():harness_paths.append(ROOT/'tools/aarch64_s24_probe.py')
     if (ROOT/'tools/cpp_pool_controls.py').exists():harness_paths.append(ROOT/'tools/cpp_pool_controls.py')
     if (ROOT/'tools/fsharp_panel_controls.py').exists():harness_paths.append(ROOT/'tools/fsharp_panel_controls.py')
+    if (ROOT/'tools/nim_scoped_controls.py').exists():harness_paths.append(ROOT/'tools/nim_scoped_controls.py')
     for harness in harness_paths:
         saved=harness_store/(digest(harness)+'.py')
         if not saved.exists(): saved.write_bytes(harness.read_bytes())

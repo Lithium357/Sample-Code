@@ -74,3 +74,7 @@ execution-validated totals are 249442 tokens / 375 files; candidate volume is
 are whole-file counts including comments/inline fixtures, with no lexical
 component split or Morderca tokenizer. Publication recovery adds no duplicate
 source volume: the pool's 3153 tokens were already recorded in task 13.
+
+## Subsequent CI evidence
+
+Workflow 42312898094 at commit 8d8c5866ce5098ecaaa1edcaf3d72bcc9798d772 completed successfully in all six jobs. Seventeen imported history files retain source/harness hashes, commands, versions and observed results. F# records 52ae783d132b494e800442fcdcfdf0e1 and 42542955d9d148f194659509e1fdf5d8 (Linux), and 65618af55e1c44828b86fa3654d261e2 (Windows), passed the five execution controls and the FS0001 units-of-measure rejection gate. This supersedes the pending CI status above without deleting that historical checkpoint.

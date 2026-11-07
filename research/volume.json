@@ -6,22 +6,22 @@
   "tokenizer_implementation_version": "0.14.0",
   "whole_file_role_tokens": {
     "source_with_inline_fixtures": 236804,
-    "source": 11660,
-    "fixture": 398,
+    "source": 12274,
+    "fixture": 2135,
     "support_source": 580
   },
   "role_notice": "File roles, not lexical code-only counts; source files may contain inline comments/self-checks.",
   "inline_components": null,
   "component_reason": "comments and inline fixtures not lexically separated; BPE segment counts are not additive",
-  "files": 375,
-  "generated_tokens": 249442,
-  "current_source_bound_pass_files": 375,
-  "current_source_bound_pass_tokens": 249442,
-  "execution_validated_files": 375,
-  "execution_validated_tokens": 249442,
+  "files": 377,
+  "generated_tokens": 251793,
+  "current_source_bound_pass_files": 377,
+  "current_source_bound_pass_tokens": 251793,
+  "execution_validated_files": 377,
+  "execution_validated_tokens": 251793,
   "execution_scope": "Host execution, managed runtime, transpiled JS or emulated checks; syntax-only success is excluded.",
-  "training_candidate_files": 66,
-  "training_candidate_tokens": 84411,
+  "training_candidate_files": 68,
+  "training_candidate_tokens": 86762,
   "training_candidate_scope": "Current source-bound execution plus either curated generation with no benchmark source intentionally used or a hash-bound available-lineage/contract review; not independent proof of benchmark absence or exhaustive correctness.",
   "legacy_review_required_files": 309,
   "legacy_review_required_tokens": 165031,
@@ -102,9 +102,9 @@
       "current_source_bound_pass_tokens": 1902
     },
     "nim": {
-      "files": 43,
-      "generated_tokens": 21986,
-      "current_source_bound_pass_tokens": 21986
+      "files": 45,
+      "generated_tokens": 24337,
+      "current_source_bound_pass_tokens": 24337
     },
     "perl": {
       "files": 2,

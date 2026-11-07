@@ -99,3 +99,15 @@ execution, or performance. Existing x86 files remain NASM/Linux x86-64 targets.
 Cases with close variants share a task-family ID. Keep their source and support
 files together when splitting training data. See `research/README.md` for
 provenance limits, historical evidence qualifications and tokenizer accounting.
+
+The current complete language/token inventory is in the root README and
+`research/volume.json`; older availability notes above describe their original
+checkpoints. Later source-bound CI and local evidence supersede those checkpoints
+only for the exact recorded hashes and modes.
+
+`nim/scoped_lines.nim` and `nim/test_scoped_lines.nim` form the native scoped
+binary line-reader unit in family `io.scoped-binary-line-reader`. They exercise
+generic callbacks, ARC closures, options, byte limits, exceptions, poison state
+and actual native file cleanup. Windows validation uses Nim 2.4.0 with MSVC;
+the test observer requires MSVC SEH. See `research/PASS-15.md` for control
+results, preserved failures and untested POSIX/other-compiler scope.

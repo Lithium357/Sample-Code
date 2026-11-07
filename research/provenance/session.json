@@ -116,6 +116,11 @@
       "task_id": "research-pass-14",
       "prompt_file": "research/provenance/research-pass-14.txt",
       "source": "visible human resume plus available governing excerpts and labeled agent-selected task"
+    },
+    {
+      "task_id": "research-pass-15",
+      "prompt_file": "research/provenance/research-pass-15.txt",
+      "source": "available human excerpts and labeled agent-selected task; publication requested after pause"
     }
   ],
   "server_thread_id_source": "functions.create_goal response, learned during research pass 3; provenance/session-updates.jsonl preserves earlier unknown state"

@@ -1,5 +1,15 @@
 # Sample Code
 
+## Imported vx-underground archive
+
+The complete upstream collection is in [`vendor/vxunderground/MalwareSourceCode/`](vendor/vxunderground/MalwareSourceCode/).
+See [import provenance and integrity details](imports/vxunderground.md).
+The imported files retain their original bytes, paths and history. They include
+malware source and archives; the existing validation results and token counts
+below apply only to the original Sample-Code collection. Imported samples have
+not been executed or included in the existing training-candidate export.
+
+
 <!-- current-inventory:start -->
 ## Complete current language inventory and token counts
 
@@ -180,8 +190,9 @@ reconciliation, and savepoint rollback.
 This is a synthetic educational collection. Related algorithms are intentionally
 shared across languages; the files are not samples from independent projects.
 The implementations favor straightforward control flow and inspectable integer
-arithmetic over language-specific libraries. There are no vendored dependencies
-or copied third-party source files.
+arithmetic over language-specific libraries. The original example collection has no vendored dependencies
+or copied third-party source files; the separately imported archive above retains
+its own upstream provenance.
 
 ## Run individual examples
 

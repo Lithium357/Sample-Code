@@ -1,0 +1,15 @@
+{
+  "source_repository": "https://github.com/vxunderground/MalwareSourceCode",
+  "source_branch": "main",
+  "source_commit": "1623926c24245e52378f36a6a8d3bd403166a87d",
+  "source_tree": "f244b4898ee069c146d6dda317bc041fd48fc871",
+  "destination_prefix": "vendor/vxunderground/MalwareSourceCode",
+  "destination_base_commit": "46c55238012ebd1e224950fd1942d00b7e67b1d0",
+  "files": 3157,
+  "bytes": 1786851089,
+  "preservation": "Exact Git tree, blob IDs, paths and modes; source history is the second merge parent.",
+  "verification": "Every imported path, mode and Git object ID matches the source tree.",
+  "execution": "No upstream samples were executed or archives extracted.",
+  "scope": "Git files and history. GitHub issues, pull requests and other service metadata are not imported.",
+  "license": "No repository-wide license was declared upstream; retain original notices and assess each item before reuse."
+}
